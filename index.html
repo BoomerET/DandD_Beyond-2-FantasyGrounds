@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/styles/jqx.base.css">
+        <link rel="stylesheet" type="text/css" href="css/styles/jqx.darkblue.css">
+        <link rel="stylesheet" type="text/css" href="css/app.css">
+        <title>Fantasy Grounds FTW</title>
+    </head>
+    <body class="default">
+      <div class="container">
+        <div id="header">
+          D&amp;D Beyond to Fantasy Grounds Character Converter
+        </div>
+        <div id='jqxMenu' style='visibility: hidden; margin-left: 5px;'>
+          <ul>
+            <li><a id="goHome" href="">Home</a></li>
+            <li><a id="extLinks" href="">Links</a></li>
+            
+            <li><a id="contactUs" href="">Contact</a></li>
+            <!--
+            <li><a id="giveFeedback" href="">Feedback</a></li>
+            -->
+            <li><a id="showChangelog" href="">Changelog</a></li>
+            <li><a id="showDonations" href="">Donate</a></li>
+          </ul>
+        </div>
+        <h2>Instructions</h2>
+        <pre>
+Log into your <a href="https://www.dndbeyond.com/my-content/characters" target="_blank">D&amp;D Beyond Account</a>.
+Move your mouse over the 'Characters' tab at the top of the window and select 'My Characters'.
+Find the character you want to convert and click 'View'.
+Take a look at the Address bar, it should look something like:
+https://www.dndbeyond.com/profile/YourUserName/characters/<b>8675309</b>
+
+Find the Character ID. In the above example it's <b>8675309</b>.
+Paste this ID in the 'Character ID' text box and click 'Get Character Data'.
+It will take a short while in order for the data to populate.
+Click the 'Download XML' button to save the character to your computer.</pre>
+        <b>Character ID:&nbsp;&nbsp;<input type="text" id="getcharID">&nbsp;&nbsp;<button id="grabChar">Get Character Data</button></b><br />
+        <br />
+        <textarea id="textHere"></textarea><br />
+        <button id="dlChar">Download XML</button>&nbsp;&nbsp;<button id="resetChar">Reset ALL</button><br /><br />
+
+
+      <div id="multiClassWarn">
+          <div style="width: 100%; height: 650px; margin-top: 50px;" id="MCcontainer">
+              <div id="MCwindow">
+                  <div id="windowHeader">
+                      <span>
+                          WARNING
+                      </span>
+                  </div>
+                  <div style="overflow: hidden;" id="MCwindowContent">
+                    <div>
+                      The character you've selected is a multiclass character.
+                      Multiclass characters are currently barely supported.
+                      After importing, you'll very likely need to adjust many things
+                      such as Armor Class, HP, and other assorted things.
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <div id="displayLinks">
+        <div style="width: 100%; height: 650px; margin-top: 50px;" id="dispLinkContainer">
+            <div id="Linkwindow">
+                <div id="LinkwindowHeader">
+                    <span>
+                        External Links
+                    </span>
+                </div>
+                <div style="overflow: hidden;" id="LinkwindowContent">
+                  <div>
+                    &nbsp;&nbsp;&nbsp;<a href="http://www.fantasygrounds.com" target="_blank">Fantasy Grounds VTT</a><br />
+                    &nbsp;&nbsp;&nbsp;<a href="https://discord.gg/VKbhkSt" target="_blank">Fantasy Grounds Discord server</a><br />
+                    &nbsp;&nbsp;&nbsp;<a href="https://fantasygroundscollege.net/" target="_blank">Fantasy Grounds College (FGC)</a><br />
+                    &nbsp;&nbsp;&nbsp;<a href="https://discordapp.com/invite/Ew6nYyw" target="_blank">FGC Discord server</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <div id="displayCL">
+        <div style="width: 100%; height: 650px; margin-top: 50px;" id="changelogContainer">
+            <div id="CLwindow">
+                <div id="CLwindowHeader">
+                    <span>
+                        Changelog
+                    </span>
+                </div>
+                <div style="overflow: hidden;" id="CLwindowContent">
+                  <div>
+                    <p>20190119: <br />
+                      &nbsp;&nbsp;&nbsp;Started keeping track of changes<br />
+                      &nbsp;&nbsp;&nbsp;Added Draconic Resilience for HP and unarmored<br />
+                      &nbsp;&nbsp;&nbsp;Added menu <br />
+                      &nbsp;&nbsp;&nbsp;Updated troubleshooting for characters that couldn't be found.
+                    </p>
+                    <p>20190125: <br />
+                        &nbsp;&nbsp;&nbsp;Removed unnecessary scrollbars for hidden dialogs (aesthetic) <br />
+                        &nbsp;&nbsp;&nbsp;Display all Sorcerer spells <br />
+                        &nbsp;&nbsp;&nbsp;Fix display for subclass features with tables, likely need to back-code other tables.
+                    </p>
+                    <p>20190126-1: <br />
+                        &nbsp;&nbsp;&nbsp;Fixed issue if character ID had spaces in start or end.
+                    </p>
+                    <p>20190126-2: <br />
+                        &nbsp;&nbsp;&nbsp;Fixed issue where some class features were missing.
+                    </p>
+                    <p>20190127-1: <br />
+                        &nbsp;&nbsp;&nbsp;Added code for Superior Darkvision.<br />
+                        &nbsp;&nbsp;&nbsp;Fixed unarmored defense for various classes/races<br />
+                        &nbsp;&nbsp;&nbsp;Fixed some inventory issues and some class features<br />
+                        &nbsp;&nbsp;&nbsp;Fixed Ranger/Bard spells not showing up
+                    </p>
+
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <div id="displayDon">
+        <div style="width: 100%; height: 650px; margin-top: 50px;" id="donateContainer">
+            <div id="DONwindow">
+                <div id="DONwindowHeader">
+                    <span>
+                        Donations
+                    </span>
+                </div>
+                <div style="overflow: hidden;" id="DONwindowContent">
+                  <div>
+                    <p>If you want to donate:<br />
+Please consider becoming a <a href="https://www.patreon.com/FGC" target="_blank">Patreon of FGC.</a><br />
+&nbsp;&nbsp;&nbsp;<b>OR</b><br />
+Make a donation to <a href="https://www.hollandhospice.org/giving/donate-now/" target="_blank">Holland Hospice.</a><br /><br />
+I have no financial affiliations with <a href="https://fantasygroundscollege.net/" target="_blank">FGC</a> (Fantasy Grounds College).<br />
+This project would never have started were it not for them. <br />They do great work.
+                    </p>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+      <footer>
+        &nbsp;&nbsp;&copy;David S. Berkompas, 2019
+    </footer>
+    </body>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jqxcore.js"></script>
+    <script src="js/jqxbuttons.js"></script>
+    <script src="js/jqxinput.js"></script>
+    <script src="js/jqxtextarea.js"></script>
+    <script src="js/jqxwindow.js"></script>
+    <script src="js/jqxscrollbar.js"></script>
+    <script src="js/jqxmenu.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</html>
