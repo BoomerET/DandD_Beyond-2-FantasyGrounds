@@ -1584,7 +1584,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             if(character.classSpells[j].characterClassId == current_class.id) {
                 character.classSpells[j].spells.some(function(spell) {
                     if(!spellList.includes(spell.definition.name)) {
-                        if(spell.prepared == true || spell.alwaysPrepared == true || spell.definition.level == 0 || spell.definition.ritual == true || isSorcerer == 1 || isRanger == 1 || isBard == 1) {
+                        if(spell.prepared == true || spell.alwaysPrepared == true || spell.definition.level == 0 || spell.definition.ritual == true || isSorcerer == 1 || isRanger == 1 || isBard == 1 || rogueSubclassArcaneTrickster == 1 ||fighterSubclassEldritchKnight == 1) {
                             spellList.push(spell.definition.name);
                             totalSpells += 1;
                             thisIteration = pad(totalSpells, 5);
