@@ -155,6 +155,10 @@ levelBloodHunter = 0;
 fighterSubclassEldritchKnight = 0;
 rogueSubclassArcaneTrickster = 0;
 
+barbRages = 0;
+barbPrimalPath = "";
+barbTotemSpirit = "";
+
 wearingArmor = 0;
 usingShield = 0;
 
@@ -542,6 +546,44 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
          if (thisClass == "barbarian") {
             isBarbarian = 1;
             levelBarbarian = current_class.level;
+            switch (parseInt(levelBarbarian)) {
+                case 1: case 2:
+                    barbRages = 2;
+                    break;
+                case 3: case 4: case 5:
+                    barbRages = 3;
+                    break;
+                case 6: case 7: case 8: case 9: case 10: case 11:
+                    barbRages = 4;
+                    break;
+                case 12: case 13: case 14: case 15: case 16:
+                    barbRages = 5;
+                    break;
+                case 17: case 18: case 19:
+                    barbRages = 6;
+                    break;
+                default:
+                    barbRages = 0;
+            }
+            if(current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
+                barbPrimalPath = current_class.subclassDefinition.name;
+                current_class.subclassDefinition.classFeatures.some(function(findTotem, j) {
+                    //console.log(findTotem.name);
+                    if((levelBarbarian >= findTotem.requiredLevel) && findTotem.name.match("Totem Spirit")) {
+                        //console.log(findTotem.name);
+                        animalID = findTotem.id;
+                        character.options.class.some(function(guessing, k) {
+                            //console.log(guessing.componentId);
+                            if (animalID == guessing.componentId) {
+                                barbTotemSpirit = guessing.definition.name;
+                            }
+                        });
+
+                    }
+                })
+                //totemSpirit = current_class.subclassDefinition.classFeatures
+                //barbTotem
+            }
         } else if (thisClass == "bard") {
             isBard = 1;
             levelBard = current_class.level;
@@ -1674,6 +1716,44 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             buildXML += "\t\t\t</id-" + thisIteration + ">\n";
         }
     });
+    if (isBarbarian == 1) {
+        thisIteration = pad(totalSpells + 1, 5);
+        totalSpells += 1;
+        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+        buildXML += addBarbarianRage;
+        buildXML += "\t\t\t\t<prepared type=\"number\">" + barbRages + "</prepared>\n";
+        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+        if (levelBarbarian >= 2) {
+            thisIteration = pad(totalSpells + 1, 5);
+            totalSpells += 1;
+            buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+            buildXML += addBarbarianDangerSense;
+            buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+        }
+        
+        if (levelBarbarian >= 3 && barbPrimalPath.match(/Totem Warrior/)) {
+            if (barbTotemSpirit == "Wolf") {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addBarbarianWolfTotemSpirit;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            } else if (barbTotemSpirit == "Eagle") {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addBarbarianEagleTotemSpirit;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            } else if (barbTotemSpirit == "Bear") {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addBarbarianBearTotemSpirit;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+        }
+    }
+
     //character.actions.class.some(function(current_thing, i) {
     //    console.log(current_thing.name);
     //});
@@ -2361,6 +2441,140 @@ addMonkUnarmedStrike = " \
 \t\t\t\t<recordname></recordname> \
 \t\t\t\t</shortcut> \
 \t\t\t\t<type type=\"number\">0</type>\n";
+
+addBarbarianRage = " \
+\t\t\t\t<actions>\n \
+\t\t\t\t\t<id-00001>\n \
+\t\t\t\t\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t\t\t\t\t<durunit type=\"string\">minute</durunit>\n \
+\t\t\t\t\t\t<label type=\"string\">Rage; ADVCHK: strength; ADVSAV: strength; DMG: 4, melee; RESIST: bludgeoning, piercing, slashing</label>\n \
+\t\t\t\t\t\t<order type=\"number\">1</order>\n \
+\t\t\t\t\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t\t\t\t\t<type type=\"string\">effect</type>\n \
+\t\t\t\t\t\</id-00001>\n \
+\t\t\t\t</actions>\n \
+\t\t\t\t<cast type=\"number\">0</cast>\n \
+\t\t\t\t<description type=\"formattedtext\">\n \
+<p>In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action. While raging, you gain the following benefits if you aren't wearing heavy armor:</p>\n \
+<list>\n \
+<li>You have advantage on Strength checks and Strength saving throws.</li>\n \
+<li>When you make a melee weapon attack using Strength, you gain a bonus to the damage roll that increases as you gain levels as a barbarian, as shown in the Rage Damage column of the Barbarian table.</li>\n \
+<li>You have resistance to bludgeoning, piercing, and slashing damage.</li>\n \
+</list>\n \
+<p>If you are able to cast spells, you can't cast them while raging.</p>\n \
+<p>Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you have neither attacked a hostile creature since your last turn nor taken damage since then. You can also end your rage on your turn (no action required).</p>\n \
+<p>Once you have raged the number of times shown for your barbarian level in the Rages column of the Barbarian table, you must finish a long rest before you can rage again.</p>\n \
+\t\t\t\t</description>\n \
+\t\t\t\t<group type=\"string\">Barbarian Features</group>\n \
+\t\t\t\t<level type=\"number\">0</level>\n \
+\t\t\t\t<locked type=\"number\">1</locked>\n \
+\t\t\t\t<name type=\"string\">Rage</name>\n \
+\t\t\t\t<ritual type=\"number\">0</ritual>\n \
+\t\t\t\t<source type=\"string\">Barbarian</source>\n";
+
+addBarbarianDangerSense = " \
+<actions>\n \
+<id-00001>\n \
+<apply type=\"string\">action</apply>\n \
+<durmod type=\"number\">0</durmod>\n \
+<label type=\"string\">Danger Sense; ADVSAV: dexterity</label>\n \
+<order type=\"number\">1</order>\n \
+<targeting type=\"string\">self</targeting>\n \
+<type type=\"string\">effect</type>\n \
+</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+<p>At 2nd level, you gain an uncanny sense of when things nearby aren't as they should be, giving you an edge when you dodge away from danger.</p>\n \
+<p>You have advantage on Dexterity saving throws against effects that originate within 30 feet of you, such as a trap or a spellcaster within that range. To gain this benefit, you cannot be blinded, deafened, or incapacitated.</p>\n \
+</description>\n \
+<group type=\"string\">Barbarian Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Danger Sense</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<source type=\"string\">Barbarian</source>\n";
+
+addBarbarianWolfTotemSpirit = " \
+<actions>\n \
+<id-00001>\n \
+<durmod type=\"number\">1</durmod>\n \
+<durunit type=\"string\">minute</durunit>\n \
+<label type=\"string\">Rage Wolf; ADVATK: melee</label>\n \
+<order type=\"number\">3</order>\n \
+<type type=\"string\">effect</type>\n \
+</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+<p>At 3rd level, when you adopt this path, you choose a totem spirit and gain its feature. You must make or acquire a physical totem object- an amulet or similar adornment-that incorporates fur or feathers, claws, teeth, or bones of the totem animal. At your option, you also gain minor physical attributes that are reminiscent of your totem spirit. For example, if you have a bear totem spirit, you might be unusually hairy and thick&#62;skinned, or if your totem is the eagle, your eyes turn bright yellow.</p>\n \
+<p>Your totem animal might be an animal related to those listed here but more appropriate to your homeland. For example, you could choose a hawk or vulture in place of an eagle.</p>\n \
+<p><b>Bear. </b>While raging, you have resistance to all damage except psychic damage. The spirit of the bear makes you tough enough to stand up to any punishment.</p>\n \
+<p><b>Eagle. </b>While you're raging and aren't wearing heavy armor, other creatures have disadvantage on opportunity attack rolls against you, and you can the Dash action as a bonus action on your turn. The spirit of the eagle makes you into a predator who can weave through the fray with ease.</p>\n \
+<p><b>Wolf. </b>While you're raging, your friends have advantage on melee attack rolls against any hostile creature within 5 feet of you. The spirit of the wolf makes you a leader of hunters.</p>\n \
+</description>\n \
+<group type=\"string\">Barbarian Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Totem Spirit</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Path of the Totem Warrior</specialization>\n";
+
+addBarbarianEagleTotemSpirit = " \
+<actions>\n \
+<id-00001>\n \
+<durmod type=\"number\">1</durmod>\n \
+<durunit type=\"string\">minute</durunit>\n \
+<label type=\"string\">Rage Eagle; ADVCHK: strength; ADVSAV: strength; DMG: 4, melee; GRANTDISATK: opportunity; RESIST: bludgeoning, piercing, slashing</label>\n \
+<order type=\"number\">2</order>\n \
+<targeting type=\"string\">self</targeting>\n \
+<type type=\"string\">effect</type>\n \
+</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+<p>At 3rd level, when you adopt this path, you choose a totem spirit and gain its feature. You must make or acquire a physical totem object- an amulet or similar adornment-that incorporates fur or feathers, claws, teeth, or bones of the totem animal. At your option, you also gain minor physical attributes that are reminiscent of your totem spirit. For example, if you have a bear totem spirit, you might be unusually hairy and thick&#62;skinned, or if your totem is the eagle, your eyes turn bright yellow.</p>\n \
+<p>Your totem animal might be an animal related to those listed here but more appropriate to your homeland. For example, you could choose a hawk or vulture in place of an eagle.</p>\n \
+<p><b>Bear. </b>While raging, you have resistance to all damage except psychic damage. The spirit of the bear makes you tough enough to stand up to any punishment.</p>\n \
+<p><b>Eagle. </b>While you're raging and aren't wearing heavy armor, other creatures have disadvantage on opportunity attack rolls against you, and you can the Dash action as a bonus action on your turn. The spirit of the eagle makes you into a predator who can weave through the fray with ease.</p>\n \
+<p><b>Wolf. </b>While you're raging, your friends have advantage on melee attack rolls against any hostile creature within 5 feet of you. The spirit of the wolf makes you a leader of hunters.</p>\n \
+</description>\n \
+<group type=\"string\">Barbarian Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Totem Spirit</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Path of the Totem Warrior</specialization>\n";
+
+addBarbarianBearTotemSpirit = " \
+<actions>\n \
+<id-00001>\n \
+<durmod type=\"number\">1</durmod>\n \
+<durunit type=\"string\">minute</durunit>\n \
+<label type=\"string\">Rage Bear; ADVCHK: strength; ADVSAV: strength; DMG: 4, melee; RESIST: all, !psychic</label>\n \
+<order type=\"number\">1</order>\n \
+<targeting type=\"string\">self</targeting>\n \
+<type type=\"string\">effect</type>\n \
+</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+<p>At 3rd level, when you adopt this path, you choose a totem spirit and gain its feature. You must make or acquire a physical totem object- an amulet or similar adornment-that incorporates fur or feathers, claws, teeth, or bones of the totem animal. At your option, you also gain minor physical attributes that are reminiscent of your totem spirit. For example, if you have a bear totem spirit, you might be unusually hairy and thick&#62;skinned, or if your totem is the eagle, your eyes turn bright yellow.</p>\n \
+<p>Your totem animal might be an animal related to those listed here but more appropriate to your homeland. For example, you could choose a hawk or vulture in place of an eagle.</p>\n \
+<p><b>Bear. </b>While raging, you have resistance to all damage except psychic damage. The spirit of the bear makes you tough enough to stand up to any punishment.</p>\n \
+<p><b>Eagle. </b>While you're raging and aren't wearing heavy armor, other creatures have disadvantage on opportunity attack rolls against you, and you can the Dash action as a bonus action on your turn. The spirit of the eagle makes you into a predator who can weave through the fray with ease.</p>\n \
+<p><b>Wolf. </b>While you're raging, your friends have advantage on melee attack rolls against any hostile creature within 5 feet of you. The spirit of the wolf makes you a leader of hunters.</p>\n \
+</description>\n \
+<group type=\"string\">Barbarian Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Totem Spirit</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Path of the Totem Warrior</specialization>\n";
 
 var multiWarn = (function () {
     //Creating the demo window
