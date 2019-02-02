@@ -158,6 +158,7 @@ rogueSubclassArcaneTrickster = 0;
 barbRages = 0;
 barbPrimalPath = "";
 barbTotemSpirit = "";
+barbBeastAspect = "";
 
 wearingArmor = 0;
 usingShield = 0;
@@ -569,16 +570,26 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                 barbPrimalPath = current_class.subclassDefinition.name;
                 current_class.subclassDefinition.classFeatures.some(function(findTotem, j) {
                     //console.log(findTotem.name);
-                    if((levelBarbarian >= findTotem.requiredLevel) && findTotem.name.match("Totem Spirit")) {
-                        //console.log(findTotem.name);
-                        animalID = findTotem.id;
-                        character.options.class.some(function(guessing, k) {
-                            //console.log(guessing.componentId);
-                            if (animalID == guessing.componentId) {
-                                barbTotemSpirit = guessing.definition.name;
-                            }
-                        });
-
+                    if(levelBarbarian >= findTotem.requiredLevel) {
+                        if (findTotem.name.match("Totem Spirit")) {
+                            //console.log(findTotem.name);
+                            animalID = findTotem.id;
+                            character.options.class.some(function(guessing, k) {
+                                //console.log(guessing.componentId);
+                                if (animalID == guessing.componentId) {
+                                    barbTotemSpirit = guessing.definition.name;
+                                }
+                            });
+                        } else if (findTotem.name.match("Aspect of the Beast")) {
+                            //console.log(findTotem.name);
+                            animalID = findTotem.id;
+                            character.options.class.some(function(guessing, k) {
+                                //console.log(guessing.componentId);
+                                if (animalID == guessing.componentId) {
+                                    barbBeastAspect = guessing.definition.name;
+                                }
+                            });
+                        }
                     }
                 })
                 //totemSpirit = current_class.subclassDefinition.classFeatures
@@ -1731,26 +1742,51 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             buildXML += "\t\t\t</id-" + thisIteration + ">\n";
         }
         
-        if (levelBarbarian >= 3 && barbPrimalPath.match(/Totem Warrior/)) {
-            if (barbTotemSpirit == "Wolf") {
-                thisIteration = pad(totalSpells + 1, 5);
-                totalSpells += 1;
-                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
-                buildXML += addBarbarianWolfTotemSpirit;
-                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-            } else if (barbTotemSpirit == "Eagle") {
-                thisIteration = pad(totalSpells + 1, 5);
-                totalSpells += 1;
-                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
-                buildXML += addBarbarianEagleTotemSpirit;
-                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-            } else if (barbTotemSpirit == "Bear") {
-                thisIteration = pad(totalSpells + 1, 5);
-                totalSpells += 1;
-                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
-                buildXML += addBarbarianBearTotemSpirit;
-                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+        if (levelBarbarian >= 3) {
+            if (barbPrimalPath.match(/Totem Warrior/)) {
+                if (barbTotemSpirit == "Wolf") {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addBarbarianWolfTotemSpirit;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (barbTotemSpirit == "Eagle") {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addBarbarianEagleTotemSpirit;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (barbTotemSpirit == "Bear") {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addBarbarianBearTotemSpirit;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+                if (barbBeastAspect == "Wolf") {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addBarbarianWolfBeastAspect;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (barbBeastAspect == "Eagle") {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addBarbarianEagleBeastAspect;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (barbBeastAspect == "Bear") {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addBarbarianbearBeastAspect;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+
+            } else if (barbPrimalPath.match(/Berserker/)) {
+                // FIXME: Add berserker stuff
             }
+            
         }
     }
 
@@ -2574,6 +2610,87 @@ addBarbarianBearTotemSpirit = " \
 <name type=\"string\">Totem Spirit</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Path of the Totem Warrior</specialization>\n";
+
+addBarbarianWolfBeastAspect = " \
+<actions>\n \
+<id-00001>\n \
+<durmod type=\"number\">0</durmod>\n \
+<label type=\"string\">Aspect of the Beast (Wolf); Special tracking and movement</label>\n \
+<order type=\"number\">1</order>\n \
+<targeting type=\"string\">self</targeting>\n \
+<type type=\"string\">effect</type>\n \
+</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+<p>At 6th level, you gain a magical benefit based on the totem animal of your choice. You can choose the same animal you selected at 3rd level or a different one.</p>\n \
+<p><b>Bear. </b>You gain the might of a bear. Your carrying capacity (including maximum load and maximum lift) is doubled, and you have advantage on Strength checks made to push, pull, lift, or break objects.</p>\n \
+<p><b>Eagle. </b>You gain the eyesight of an eagle. You can see up to 1 mile away with no difficulty, able to discern even fine details as though looking at something no more than 100 feet away from you. Additionally, dim light doesn't impose disadvantage on your Wisdom (Perception) checks.</p>\n \
+<p><b>Wolf. </b>You gain the hunting sensibilities of a wolf. You can track other creatures while traveling at a fast pace, and you can move stealthily while traveling at a normal pace (see chapter 8 for rules on travel pace).</p>\n \
+</description>\n \
+<group type=\"string\">Barbarian Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Aspect of the Beast (Wolf)</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<school type=\"string\">Class</school>\n \
+<source type=\"string\">Barbarian</source>\n \
+<specialization type=\"string\">Path of the Totem Warrior</specialization>\n";
+
+addBarbarianEagleBeastAspect = " \
+<actions>\n \
+<id-00001>\n \
+<durmod type=\"number\">0</durmod>\n \
+<label type=\"string\">Aspect of the Beast (Eagle); Special sight</label>\n \
+<order type=\"number\">1</order>\n \
+<targeting type=\"string\">self</targeting>\n \
+<type type=\"string\">effect</type>\n \
+</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+<p>At 6th level, you gain a magical benefit based on the totem animal of your choice. You can choose the same animal you selected at 3rd level or a different one.</p>\n \
+<p><b>Bear. </b>You gain the might of a bear. Your carrying capacity (including maximum load and maximum lift) is doubled, and you have advantage on Strength checks made to push, pull, lift, or break objects.</p>\n \
+<p><b>Eagle. </b>You gain the eyesight of an eagle. You can see up to 1 mile away with no difficulty, able to discern even fine details as though looking at something no more than 100 feet away from you. Additionally, dim light doesn't impose disadvantage on your Wisdom (Perception) checks.</p>\n \
+<p><b>Wolf. </b>You gain the hunting sensibilities of a wolf. You can track other creatures while traveling at a fast pace, and you can move stealthily while traveling at a normal pace (see chapter 8 for rules on travel pace).</p>\n \
+</description>\n \
+<group type=\"string\">Barbarian Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Aspect of the Beast (Eagle)</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<school type=\"string\">Class</school>\n \
+<source type=\"string\">Barbarian</source>\n \
+<specialization type=\"string\">Path of the Totem Warrior</specialization>\n";
+
+addBarbarianBearBeastAspect = " \
+<actions>\n \
+<id-00001>\n \
+<durmod type=\"number\">0</durmod>\n \
+<label type=\"string\">Aspect of the Beast (Bear); ADVCHK: strength;</label>\n \
+<order type=\"number\">1</order>\n \
+<targeting type=\"string\">self</targeting>\n \
+<type type=\"string\">effect</type>\n \
+</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+<p>At 6th level, you gain a magical benefit based on the totem animal of your choice. You can choose the same animal you selected at 3rd level or a different one.</p>\n \
+<p><b>Bear. </b>You gain the might of a bear. Your carrying capacity (including maximum load and maximum lift) is doubled, and you have advantage on Strength checks made to push, pull, lift, or break objects.</p>\n \
+<p><b>Eagle. </b>You gain the eyesight of an eagle. You can see up to 1 mile away with no difficulty, able to discern even fine details as though looking at something no more than 100 feet away from you. Additionally, dim light doesn't impose disadvantage on your Wisdom (Perception) checks.</p>\n \
+<p><b>Wolf. </b>You gain the hunting sensibilities of a wolf. You can track other creatures while traveling at a fast pace, and you can move stealthily while traveling at a normal pace (see chapter 8 for rules on travel pace).</p>\n \
+</description>\n \
+<group type=\"string\">Barbarian Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Aspect of the Beast (Bear)</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<school type=\"string\">Class</school>\n \
+<source type=\"string\">Barbarian</source>\n \
 <specialization type=\"string\">Path of the Totem Warrior</specialization>\n";
 
 var multiWarn = (function () {
