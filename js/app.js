@@ -27,6 +27,8 @@ startXML += "\t<character>\n";
 var endXML = "\t</character>\n</root>\n";
 var allXML = "";
 
+payFlag = 0;
+
 var pcFilename = "";
 var addHP = 0;
 
@@ -52,13 +54,6 @@ var fleetFoot = 0;
 var source = [
     "Barakas(1387127)",
     "Baradun(1215852)",
-    //"Dragonborn Paladin(4925896)",
-    //"Barney Eldritch Knight(4908553)",
-    //"Druid4Cleric2Paladin1(4819411)",
-    //"LestherisWizard(4177317)",
-    //"LH Bard(3719212)",
-    //"ArcaneTrickster3(4908071)",
-    //"HalflingRogueExpertAcro(5001692)",
     "GuyWithNet(5054951)",
     "Arlo(7494686)",
     "ReallyBasic(7748765)"
@@ -160,8 +155,35 @@ barbPrimalPath = "";
 barbTotemSpirit = "";
 barbBeastAspect = "";
 
+bardCollege = "";
+clericDomain = "";
+
+sorcSorcOrig = "";
+
 wearingArmor = 0;
+usingHeavyArmor = 0;
+usingMediumArmor = 0;
+usingLightArmor = 0;
 usingShield = 0;
+
+addBonusArmorAC = 0;
+addBonusOtherAC = 0;
+addSavingThrows = 0;
+
+addSpeed = 0;
+
+strScore = 0;
+strMod = 0;
+chaScore = 0;
+chaMod = 0;
+conScore = 0;
+conMod = 0;
+intScore = 0;
+intMod = 0;
+dexScore = 0;
+dexMod = 0;
+wisScore = 0;
+wisMod = 0;
 
 /* * * * * * * * * * */
 
@@ -203,14 +225,6 @@ $(function() {
         e.preventDefault();
         $('#CLwindow').jqxWindow('open');
     });
-    //$('#contactUs').click(function(e) {
-    //    e.preventDefault();
-    //    //$('#CLwindow').jqxWindow('open');
-    //});
-    //$('#giveFeedback').click(function(e) {
-    //    e.preventDefault();
-    //    //$('#CLwindow').jqxWindow('open');
-    //});
     $('#showDonations').click(function(e) {
         e.preventDefault();
         $('#DONwindow').jqxWindow('open');
@@ -277,39 +291,15 @@ $(function() {
 });
 
 function parseCharacter(inputChar) {
-    //console.log(inputChar);
     var character = jQuery.extend(true, {}, inputChar);
     if(character.hasOwnProperty("errorCode")) {
         alert("Character " + $("#getcharID").val() + " could not be found.\n \
 Either the character doesn't actually exist,\n \
 or the character is set to 'Private' instead of 'Public'.\n\nYes, your character MUST be set to PUBLIC.");
     } else {
-    //console.log(character.errorCode);
-    // STR(1): 13
-    // DEX(2): 12
-    // CON(3): 14
-    // INT(4): 9
-    // WIS(5): 10
-    // CHA(6): 17
     allXML = startXML;
-    //console.log(inputChar);
-    //buildXML = "\t\t<!--" + glCharID + "-->\n";
     buildXML = "\t\t<!--" + $("#getcharID").val().trim() + "-->\n";
-    buildXML += "\t\t<abilities>\n";
-    justAbilities.some(function(thisAbility, i) {
-        buildXML += "\t\t\t<" + thisAbility + ">\n";
-        buildXML += "\t\t\t\t<bonus type=\"number\">" + parseInt(character.bonusStats[i].value == null ? 0 : character.bonusStats[i].value) + "</bonus>\n";
-        //buildXML += "\t\t\t\t<save type=\"number\">" + parseInt(abilCHA[i]) + "</save>\n";
-        buildXML += "\t\t\t\t<savemodifier type=\"number\">0</savemodifier>\n";
-        character.modifiers.class.some(function(thisMod, i) {
-            if(thisMod.subType == thisAbility + "-saving-throws") {
-                buildXML += "\t\t\t\t<saveprof type=\"number\">1</saveprof>\n";
-            }
-        });
-        buildXML += "\t\t\t\t<score type=\"number\">" + parseInt(getTotalAbilityScore(character, i + 1)) + "</score>\n";
-        buildXML += "\t\t\t</" + thisAbility + ">\n";
-    });
-    buildXML += "\t\t</abilities>\n";
+    
 
     pcFilename = character.name.replace(/\W/g, '');
     buildXML += "\t\t<name type=\"string\">" + character.name + "</name>\n";
@@ -357,25 +347,12 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             charAlign = "None Selected";
     }
 
-    // FIXME - TESTING
-    //console.log("Got to line 317");
-
     buildXML += "\t\t<alignment type=\"string\">" + charAlign + "</alignment>\n";
     character.race.racialTraits.some(function(fleet_trait, i) {
         if(fleet_trait.definition.name == "Fleet of Foot" || fleet_trait.definition.name == "Swift") {
-            fleetFoot = 5;
+            addSpeed += 5;
         }
     });
-
-    charWalk = character.race.weightSpeeds.normal.walk + fleetFoot;
-    //var speedMods = getObjects(character, 'subType', 'speed');
-    buildXML += "\t\t<speed>\n";
-    //buildXML += "\t\t\t<armor type=\"number\">0</armor>\n";
-    buildXML += "\t\t\t<base type=\"number\">" + parseInt(charWalk) + "</base>\n";
-    //buildXML += "\t\t\t<misc type=\"number\">0</misc>\n";
-    //buildXML += "\t\t\t<temporary type=\"number\">0</temporary>\n";
-    buildXML += "\t\t\t<total type=\"number\">" + parseInt(charWalk) + "</total>\n";
-    buildXML += "\t\t</speed>\n";
 
     if(character.traits.personalityTraits != null) {
         buildXML += "\t\t<personalitytraits type=\"string\">" + fixQuote(character.traits.personalityTraits) + "</personalitytraits>\n";
@@ -450,7 +427,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     for (var x in halfprof) {
         var hfprof = halfprof[x];
         var type = hfprof.subType;
-        //console.log("Half: " + type);
         if(type == 'ability-checks') {
             hasHalf = 1;
         }
@@ -469,17 +445,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             buildXML += "\t\t\t\t<name type=\"string\">" + capitalizeFirstLetter(element) + "</name>\n";
         }
         buildXML += "\t\t\t\t<stat type=\"string\">" + skillsRef[idCount - 1] + "</stat>\n";
-
-        // Skills proficiency
-        // 0: Not proficient
-        // 1: Proficient
-        // 2: Double Proficient
-        // 3: Half Proficient
-        //if(hasHalf == 1) {
-        //    addThisLine = "\t\t\t\t<prof type=\"number\">3</prof>\n";
-        //} else {
-        //    addThisLine = "\t\t\t\t<prof type=\"number\">0</prof>\n";
-        //}
         
         var proficiencies = getObjects(character, 'type', 'proficiency');
         if(proficiencies != null) {
@@ -500,24 +465,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             });
         }
 
-        // That's done, now to over-ride each one if it has a customization (
-            
-
-        //)
-
-        //const charOptions = character.options.class;
-    //yif (charOptions != null) charOptions.some(function(thisOption, i) {
-
-
-        //const customSkill = character.characterValues;
-        //if (customSkill != null) customSkill.some(function(thisSkill, i) {
-        //    if(thisSkill.typeId == 26) {
-
-        //    } else {
-        //        console.log("Found a non-26 customization: ")
-        //    }
-        //});
-
         if(profValue == 0) {
             if(hasHalf == 1) {
                 buildXML += "\t\t\t\t<prof type=\"number\">3</prof>\n";
@@ -537,11 +484,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     buildXML += "\t\t</skilllist>\n";
 
     buildXML += "\t\t<classes>\n";
-     
-    // FIXME - TESTING
-    //console.log("Got to line 498");
-
-
+    
     character.classes.some(function(current_class, i) {
         thisClass = current_class.definition.name.toLowerCase();
          if (thisClass == "barbarian") {
@@ -569,38 +512,44 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             if(current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
                 barbPrimalPath = current_class.subclassDefinition.name;
                 current_class.subclassDefinition.classFeatures.some(function(findTotem, j) {
-                    //console.log(findTotem.name);
                     if(levelBarbarian >= findTotem.requiredLevel) {
                         if (findTotem.name.match("Totem Spirit")) {
-                            //console.log(findTotem.name);
                             animalID = findTotem.id;
                             character.options.class.some(function(guessing, k) {
-                                //console.log(guessing.componentId);
                                 if (animalID == guessing.componentId) {
                                     barbTotemSpirit = guessing.definition.name;
                                 }
                             });
                         } else if (findTotem.name.match("Aspect of the Beast")) {
-                            //console.log(findTotem.name);
                             animalID = findTotem.id;
                             character.options.class.some(function(guessing, k) {
-                                //console.log(guessing.componentId);
                                 if (animalID == guessing.componentId) {
                                     barbBeastAspect = guessing.definition.name;
+                                }
+                            });
+                        } else if (findTotem.name.match("Totemic Attunement")) {
+                            animalID = findTotem.id;
+                            character.options.class.some(function(guessing, k) {
+                                if (animalID == guessing.componentId) {
+                                    barbTotemAttune = guessing.definition.name;
                                 }
                             });
                         }
                     }
                 })
-                //totemSpirit = current_class.subclassDefinition.classFeatures
-                //barbTotem
             }
         } else if (thisClass == "bard") {
             isBard = 1;
             levelBard = current_class.level;
+            if(current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
+                bardCollege = current_class.subclassDefinition.name;
+            }
         } else if (thisClass == "cleric") {
             isCleric = 1;
             levelCleric = current_class.level;
+            if(current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
+                clericDomain = current_class.subclassDefinition.name;
+            }
         } else if (thisClass == "druid") {
             isDruid = 1;
             levelDruid = current_class.level;
@@ -632,6 +581,9 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         } else if (thisClass == "sorcerer") {
             isSorcerer = 1;
             levelSorcerer = current_class.level;
+            if (current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
+                sorcSorcOrig = current_class.subclassDefinition.name;
+            }
         } else if (thisClass == "warlock") {
             isWarlock = 1;
             levelWarlock = current_class.level;
@@ -643,15 +595,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             levelBloodHunter = current_class.level;
         }
         totalClasses += 1;
-        //console.log(thisClass);
-        //console.log()
-        //if(current_class.isStartingClass == true) {
-        //    totalHP += current_class.definition.hitDice + ((current_class.definition.hitDice / 2) + 1) * (current_class.level - 1);
-        //} else {
-        //    totalHP += ((current_class.definition.hitDice / 2) + 1) * current_class.level;
-        //}
-
-        //console.log(totalHP);
         totalLevels += current_class.level;
         thisIteration = pad(i + 1, 5);
         buildXML += "\t\t\t<id-" + thisIteration + ">\n";
@@ -664,7 +607,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         } else {
             buildXML += "\t\t\t\t<casterpactmagic type=\"number\">0</casterpactmagic>\n";
         }
-        //console.log(thisClass);
         if((thisClass == "bard") || (thisClass == "cleric") || (thisClass == "druid")  || (thisClass == "sorcerer") || (thisClass == "warlock")  || (thisClass == "wizard")) {
             buildXML += "\t\t\t\t<casterlevelinvmult type=\"number\">1</casterlevelinvmult>\n";
         } else if ((thisClass == "paladin" || thisClass == "ranger") && current_class.level >= 2) {
@@ -686,19 +628,19 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     });
     buildXML += "\t\t</classes>\n";
 
-    // FIXME - TESTING
-    //console.log("Got to line 597, just after classes");
-
-    //console.log("Total classes: " + totalClasses);
-    //console.log(totalClasses);
-
-    if (totalClasses > 1) {
-        //alert("CAUTION: This program does not yet handle multi-class characters very well.");
-        $('#MCwindow').jqxWindow('open');
+    if (isBarbarian == 1 && levelBarbarian >= 5 && usingHeavyArmor < 1) {
+        addSpeed += 10;
     }
 
-    // FIXME - TESTING
-    //console.log("Got to line 607, just after Multiclass check");
+    charWalk = character.race.weightSpeeds.normal.walk + addSpeed;
+    buildXML += "\t\t<speed>\n";
+    buildXML += "\t\t\t<base type=\"number\">" + parseInt(charWalk) + "</base>\n";
+    buildXML += "\t\t\t<total type=\"number\">" + parseInt(charWalk) + "</total>\n";
+    buildXML += "\t\t</speed>\n";
+
+    if (totalClasses > 1) {
+        $('#MCwindow').jqxWindow('open');
+    }
 
     idCount = 1;
     hasHalf = 0;
@@ -736,17 +678,11 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             }
 			
 			buildXML += "\t\t\t\t<temporary type=\"number\">0</temporary>\n";
-			//<total type="number">45</total>
-		    buildXML += "\t\t\t\t</initiative>\n";
+			buildXML += "\t\t\t\t</initiative>\n";
         }
     }
 
     // baseHitPoints
-    //console.log("Total levels: " + totalLevels);
-    //console.log("Char CON: " + Math.floor( ( ( getTotalAbilityScore(character, 3) - 10 ) / 2 ) ));
-    //console.log("Base HP: " + character.baseHitPoints);
-
-    //totalHP += (Math.floor( ( ( getTotalAbilityScore(character, 3) - 10 ) / 2 ) )) * totalLevels;
     character.race.racialTraits.some(function(current_trait, i) {
         if(current_trait.definition.name == "Dwarven Toughness") {
             addHP = totalLevels;
@@ -757,17 +693,12 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             addHP += totalLevels * 2;
         }
     });
-    if(isSorcerer == 1) {
+    if(isSorcerer == 1 && sorcSorcOrig.match(/Draconic Bloodline/)) {
         // Draconic Resilience adds 1 to HP
-        addHP += 1;
+        addHP += levelSorcerer;
     }
 
-    totalHP = parseInt(character.baseHitPoints) + (Math.floor( ( ( getTotalAbilityScore(character, 3) - 10 ) / 2 )) * totalLevels ) + addHP
-    
-    ;
-    // Now we need to account for things such as Dwarven Toughness
-    
-    //console.log(totalHP);
+    totalHP = parseInt(character.baseHitPoints) + (Math.floor( ( ( getTotalAbilityScore(character, 3) - 10 ) / 2 )) * totalLevels ) + addHP;
     buildXML += "\t\t<hp>\n";
     if(character.deathSaves.failCount != null) {
         buildXML += "\t\t\t<deathsavefail type=\"number\">" + character.deathSaves.failCount + "</deathsavefail>\n";
@@ -799,10 +730,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             buildXML += "\t\t<senses type=\"string\">Darkvision 120ft.</senses>\n";
         }
     });
-
-    // FIXME - TESTING
-    //console.log("Got to line 702, just before traitlist");
-        
+ 
     buildXML += "\t\t<traitlist>\n";
     character.race.racialTraits.some(function(current_trait, i) {
         switch (current_trait.definition.name) {
@@ -817,16 +745,10 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         buildXML += "\t\t\t<id-" + thisIteration + ">\n";
 
         // Drag/drop only lists name, not any snippet, so we've removed it.
-        //if (current_trait.definition.snippet != "" || current_trait.definition.snippet != null) {
-        //    buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(current_trait.definition.name).trim() + ": " + remove_tags_traits(fixQuote(current_trait.definition.snippet)) + "</name>\n";
-        //} else {
-            buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(current_trait.definition.name).trim() + "</name>\n";
-        //}
+        buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(current_trait.definition.name).trim() + "</name>\n";
         buildXML += "\t\t\t\t<source type=\"string\">" + convert_case(replaceDash(character.race.baseName.toLowerCase())) + "</source>\n";
         buildXML += "\t\t\t\t<locked type=\"number\">1</locked>\n";
         buildXML += "\t\t\t\t<text type=\"formattedtext\">\n";
-        //console.log(current_trait.definition.name);
-        //console.log(current_trait.definition.description);
         buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(current_trait.definition.description)) + "</p>\n";
         buildXML += "\t\t\t\t</text>\n";
         buildXML += "\t\t\t\t<type type=\"string\">racial</type>\n";
@@ -834,9 +756,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     });
     
     buildXML += "\t\t</traitlist>\n";
-
-    // FIXME - TESTING
-    //console.log("Got to line 735, just before featurelist");
 
     totalFeatures = 0;
     buildXML += "\t\t<featurelist>\n";
@@ -859,14 +778,9 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     break;
             }
             if(parseInt(current_feature.requiredLevel) <= parseInt(classLevel)) {
-                
-                
-                //if(holdFeatures.includes(current_class.definition.name)) {
-                    if(holdFeatures.includes(current_feature.name)) {
+                if(holdFeatures.includes(current_feature.name)) {
                     //Skip this one, it's already in the array
-                    //console.log("J: " + j + "; " + current_feature.name);
                 } else {
-                    //holdFeatures.push(current_class.definition.name);
                     holdFeatures.push(current_feature.name);
                     totalFeatures += 1;
                     thisIteration = pad(totalFeatures, 5);
@@ -893,7 +807,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                     buildXML += "\t\t\t\t<locked type=\"number\">1</locked>\n";
                     buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(current_class.subclassDefinition.name) + "</name>\n";
-                    //buildXML += "\t\t\t\t<source type=\"string\">" + convert_case(replaceDash(current_class.definition.name.toLowerCase())) + "</source>\n";
                     buildXML += "\t\t\t\t<text type=\"formattedtext\">\n";
                     buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(current_class.subclassDefinition.description)) + "</p>\n";
                     buildXML += "\t\t\t\t</text>\n";
@@ -923,9 +836,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                             buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                             buildXML += "\t\t\t\t<locked type=\"number\">1</locked>\n";
                             buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(charSubClass.name) + "</name>\n";
-                            //buildXML += "\t\t\t\t<source type=\"string\">" + convert_case(replaceDash(current_class.definition.name.toLowerCase())) + "</source>\n";
                             buildXML += "\t\t\t\t<text type=\"formattedtext\">\n";
-                            //buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(charSubClass.description)) + "</p>\n";
                             buildXML += "\t\t\t\t\t" + remove_tags_featureSubclass(fixQuote(charSubClass.description)) + "\n";
                             buildXML += "\t\t\t\t</text>\n";
                             buildXML += "\t\t\t</id-" + thisIteration + ">\n";
@@ -938,7 +849,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     });
     const charOptions = character.options.class;
     if (charOptions != null) charOptions.some(function(thisOption, i) {
-        //console.log(thisOption.definition.name);
         switch (thisOption.definition.name) {
             case "Hit Points": case "Proficiencies": case "Martial Archetype": case "Fighting Style":
             case "Ability Score Improvement": case "Oath Spells":
@@ -965,7 +875,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
 
     if (character.background.definition != null) {
         if (character.background.definition.featureName != null || (character.background.definition.featureName != "")) {
-            //console.log(character.background.definition.featureName);
             totalFeatures += 1;
             thisIteration = pad(totalFeatures + 1, 5);
             buildXML += "\t\t\t<id-" + thisIteration + ">\n";
@@ -979,13 +888,8 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         }
     }
 
-    //console.log("We got to this point");
-    // Somehow we missed some class features, for example, Unarmored Movement for Monk
+    // FIXME: What is/was this for?
     character.modifiers.class.some(function(thisMod, i) {
-    //    if(thisMod.type == thisAbility + "-saving-throws") {
-    //        buildXML += "\t\t\t\t<saveprof type=\"number\">1</saveprof>\n";
-    //    }
-        //console.log(thisMod);
         if (thisMod.isGranted == true) {
             if (thisMod.type != "proficiency" && thisMod.type != "set" && thisMod.type != "language") {
                 //console.log(thisMod.friendlySubtypeName);
@@ -995,9 +899,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     
     buildXML += "\t\t</featurelist>\n";
 
-    // FIXME - TESTING
-    //console.log("Got to line 882, just before inventory");
-
     // Character Inventory
     var weaponList = [];
     var weaponID = [];
@@ -1005,9 +906,9 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     var weaponProperties = [];
     var weaponDice = [];
     var weaponType = [];
+    var weaponBonus = [];
     buildXML += "\t\t<inventorylist>\n";
     const inventory = character.inventory;
-    //console.log(inventory);
     if(inventory != null) inventory.some(function(item, i) {
         thisIteration = pad(i + 1, 5);
         
@@ -1015,6 +916,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         buildXML += "\t\t\t\t<count type=\"number\">" + parseInt(item.quantity) + "</count>\n";
         buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(item.definition.name) + "</name>\n";
         buildXML += "\t\t\t\t<weight type=\"number\">" + parseInt(item.definition.weight) / parseInt(item.definition.bundleSize) + "</weight>\n";
+        buildXML += "\t\t\t\t<locked type=\"number\">1</locked>\n";
         
         if(item.definition.subType == null) {
             buildXML += "\t\t\t\t<type type=\"string\">" + fixQuote(item.definition.filterType) + "</type>\n";
@@ -1035,7 +937,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                 } else {
                     buildXML += "\t\t\t\t<strength type=\"string\">-</strength>\n";
                 }
-                // We need to find where to find if armor allows dex bonus.
             }
         } else {
             buildXML += "\t\t\t\t<type type=\"string\">" + fixQuote(item.definition.subType) + "</type>\n";
@@ -1051,26 +952,27 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         } else {
             buildXML += "\t\t\t\t<rarity type=\"string\">" + item.definition.rarity + "</rarity>\n";
         }
-        //console.log(item.definition.name);
-        //console.log(item.definition.filterType);
         if(item.equipped == true) {
             buildXML += "\t\t\t\t<carried type=\"number\">2</carried>\n";
             if(item.definition.filterType == "Armor") {
-                // Character is either wearing armor or using a shield or both
-                //wearingArmor = 1;
                 if(item.definition.type == "Shield") {
                     usingShield = 1;
                 } else if (item.definition.type.match("Armor")) {
                     wearingArmor = 1;
+                    if (item.definition.type.match("Heavy")) {
+                        usingHeavyArmor = 1;
+                    } else if (item.definition.type.match("Medium")) {
+                        usingMediumArmor = 1;
+                    } else if (item.definition.type.match("Light")) {
+                        usingLightArmor = 1;
+                    }
                 }
-
-                
             }
-
         } else {
             buildXML += "\t\t\t\t<carried type=\"number\">1</carried>\n";
         }
-        if(item.definition.hasOwnProperty("damage")){
+        
+        if(item.definition.hasOwnProperty("damage")) {
             thisDamage = "";
             thisDamType = "";
             if(item.definition.damage != null) {
@@ -1091,15 +993,13 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                 }
             });
             thisProperties = thisProperties.trim().slice(0, -1);
-            //console.log("Properties: " + thisProperties);
             buildXML += "\t\t\t\t<properties type=\"string\">" + thisProperties + "</properties>\n";
+            buildXML += "\t\t\t\t<bonus type=\"number\">0</bonus>\n";
 
-            // Can we build the Weapon List?
-            //console.log(i + 1);
-            //console.log("ID: " + (i + 1) + "; " + item.definition.name + " - " + item.definition.damage.diceString + " " + item.definition.damageType + "; " + thisProperties);
             weaponID.push(i + 1);
             weaponName.push(item.definition.name);
             weaponProperties.push(thisProperties);
+            weaponBonus.push(0);
             if(item.definition.damage != null) {
                 weaponDice.push("d" + item.definition.damage.diceValue);
             } else {
@@ -1110,6 +1010,105 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             } else {
                 weaponType.push("");
             }
+        }
+        
+        if (item.definition.hasOwnProperty("weaponBehaviors")) {
+            //console.log("Array size: " + item.definition.weaponBehaviors.length);
+            if (item.definition.weaponBehaviors.length > 0) {
+                thisDamage = "";
+                thisDamType = "";
+                if(item.definition.weaponBehaviors[0].damage != null) {
+                    thisDamage = item.definition.weaponBehaviors[0].damage.diceString;
+                }
+
+                if(item.definition.weaponBehaviors[0].damageType != null) {
+                    thisDamType = item.definition.weaponBehaviors[0].damageType;
+                }
+
+                buildXML += "\t\t\t\t<damage type=\"string\">" + thisDamage + " " + thisDamType + "</damage>\n";
+                thisProperties = "";
+                item.definition.weaponBehaviors[0].properties.some(function(weapProp, i) {
+                    if(weapProp.name == "Ammunition" ) {
+                        thisProperties += "Ammunition (" + item.definition.range + "/" + item.definition.longRange + "), ";
+                    } else {
+                        if (weapProp.hasOwnProperty("notes")) {
+                            if (weapProp.notes != "" && weapProp.notes != undefined && weapProp != null) {
+                                thisProperties += weapProp.name + "(" + weapProp.notes + "), ";
+                            } else {
+                                thisProperties += weapProp.name + ", ";
+                            }
+                        }
+                    }
+                });
+                thisProperties = thisProperties.trim().slice(0, -1);
+                buildXML += "\t\t\t\t<properties type=\"string\">" + thisProperties + "</properties>\n";
+
+                weaponID.push(i + 1);
+                weaponName.push(item.definition.name);
+                weaponProperties.push(thisProperties);
+                if(item.definition.weaponBehaviors[0].damage != null) {
+                    weaponDice.push("d" + item.definition.weaponBehaviors[0].damage.diceValue);
+                } else {
+                    weaponDice.push("d0");
+                }
+                if (item.definition.weaponBehaviors[0].damageType != null) {
+                    weaponType.push(item.definition.weaponBehaviors[0].damageType.toLowerCase());
+                } else {
+                    weaponType.push("");
+                }
+                item.definition.grantedModifiers.some(function(doMods) {
+                    if (doMods.type == "bonus") {
+                        weaponBonus.push(doMods.value);
+                        buildXML += "\t\t\t\t<bonus type=\"number\">" + doMods.value + "</bonus>\n";
+                    }
+                });
+            } else {
+                if (item.definition.hasOwnProperty("grantedModifiers")) {
+                    if (item.definition.grantedModifiers.length > 0) {
+                        //console.log(item.definition.name);
+                        for(l = 0; l <= item.definition.grantedModifiers.length - 1; l++) {
+                            if (item.definition.grantedModifiers[l].subType == "armor-class" && item.equipped == true && item.definition.grantedModifiers[l].type == "bonus") {
+                                addBonusOtherAC += item.definition.grantedModifiers[l].value;
+                            }
+                            if (item.definition.grantedModifiers[l].subType == "saving-throws" && item.equipped == true  && item.definition.grantedModifiers[l].type == "bonus") {
+                                addSavingThrows += item.definition.grantedModifiers[l].value;
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        } else { 
+            // Item does not have weaponBehaviors
+            if (item.definition.hasOwnProperty("grantedModifiers")) {
+            //console.log(item.definition.name);
+            //console.log ("gM length: " + item.definition.grantedModifiers[0].length);
+                for(m = 0; m <= item.definition.grantedModifiers.length - 1; m++) {
+                    if (item.definition.grantedModifiers[m].subType == "armor-class" && item.equipped == true && item.definition.grantedModifiers[m].type == "bonus") {
+                        addBonusArmorAC += item.definition.grantedModifiers[m].value;
+                    }
+                    if (item.definition.grantedModifiers[m].subType == "saving-throws" && item.equipped == true && item.definition.grantedModifiers[m].type == "bonus") {
+                        addSavingThrows += item.definition.grantedModifiers[m].value;
+                    }
+                }
+            }
+            //    console.log(item.definition.grantedModifiers[l].subType);
+            //}
+            //item.definition.grantedModifiers.some(function(checksBonus, k) {
+            //    console.log(checksBonus.subType);
+            //});
+            //console.log(item.definition.grantedModifiers[1].subType);
+            //if (item.definition.grantedModifiers[0].length > 0) {
+            //});
+            //$.each( item.definition.grantedModifiers, function( key, value ) {
+            //    console.log( key + ": " + value );
+            //  });
+            //for (var key in item.definition.grantedModifiers[1]) {
+            //   if (item.definition.grantedModifiers[0].hasOwnProperty(key)) {
+            //        console.log(key + " -> " + item.definition.grantedModifiers[1][key]);
+            //    }
+            //}
+            
         }
         
         buildXML += "\t\t\t\t<description type=\"formattedtext\">\n";
@@ -1129,22 +1128,56 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     });
     buildXML += "\t\t</inventorylist>\n";
 
-    // FIXME - TESTING
-    //console.log("Got to line 1004");
+
+
+
+    buildXML += "\t\t<abilities>\n";
+    justAbilities.some(function(thisAbility, i) {
+        abilScore = parseInt(getTotalAbilityScore(character, i + 1));
+        modScore = parseInt(abilScore / 2) - 5;
+
+        if(thisAbility == "strength") {
+            strScore = abilScore;
+            strMod = modScore;
+        } else if(thisAbility == "dexterity") {
+            dexScore = abilScore;
+            dexMod = modScore;
+        } else if(thisAbility == "constitution") {
+            conScore = abilScore;
+            conMod = modScore;
+        } else if(thisAbility == "intelligence") {
+            intScore = abilScore;
+            intMod = modScore;
+        } else if(thisAbility == "wisdom") {
+            wisScore = abilScore;
+            wisMod = modScore;
+        } else if(thisAbility == "charisma") {
+            chaScore = abilScore;
+            chaMod = modScore;
+        }
+        buildXML += "\t\t\t<" + thisAbility + ">\n";
+        buildXML += "\t\t\t\t<bonus type=\"number\">" + modScore + "</bonus>\n";
+
+        buildXML += "\t\t\t\t<savemodifier type=\"number\">" + addSavingThrows + "</savemodifier>\n";
+        character.modifiers.class.some(function(thisMod, i) {
+            if(thisMod.subType == thisAbility + "-saving-throws") {
+                buildXML += "\t\t\t\t<saveprof type=\"number\">1</saveprof>\n";
+            }
+        });
+        buildXML += "\t\t\t\t<score type=\"number\">" + abilScore + "</score>\n";
+        buildXML += "\t\t\t</" + thisAbility + ">\n";
+    });
+    buildXML += "\t\t</abilities>\n";
+
+
+
+
+
+
+
+
 
     buildXML += "\t\t<weaponlist>\n";
-    // weaponID.push(i + 1);
-    // weaponName.push(item.definition.name);
-    // weaponProperties.push(thisProperties);
-    // weaponDice.push(item.definition.damage.diceString);
-    // weaponType.push(item.definition.damageType.toLowerCase());
-    //weaponID.some(function(thisID, i) {
-    //    console.log(weaponID[i]);
-    //    console.log(weaponName[i]);
-    //    console.log(weaponProperties[i]);
-    //    console.log(weaponDice[i]);
-    //    console.log(weaponType[i]);
-    //});
     var weaponCount = 0;
     for(x = 0; x < weaponID.length; x++) {
         weaponCount += 1;
@@ -1159,13 +1192,14 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         buildXML += "\t\t\t\t<properties type=\"string\">" + weaponProperties[x] + "</properties>\n";
         buildXML += "\t\t\t\t<damagelist>\n";
         buildXML += "\t\t\t\t\t<id-00001>\n";
-		buildXML += "\t\t\t\t\t\t<bonus type=\"number\">0</bonus>\n";
+        buildXML += "\t\t\t\t\t\t<bonus type=\"number\">" +  weaponBonus[x] + "</bonus>\n";
 		buildXML += "\t\t\t\t\t\t<dice type=\"dice\">" + weaponDice[x] + "</dice>\n";
 		buildXML += "\t\t\t\t\t\t<stat type=\"string\">base</stat>\n";
 		buildXML += "\t\t\t\t\t\t<type type=\"string\">" + weaponType[x] + "</type>\n";
         buildXML += "\t\t\t\t\t</id-00001>\n";
 
         buildXML += "\t\t\t\t</damagelist>\n";
+        buildXML += "\t\t\t\t\t\t<attackbonus type=\"number\">" + weaponBonus[x] + "</attackbonus>\n";
         // 0: Melee, 1: Ranged, 2: Thrown
         if(weaponProperties[x].match(/Thrown/)) {
             buildXML += "\t\t\t\t<type type=\"number\">2</type>\n";
@@ -1194,7 +1228,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         buildXML += "\t\t\t<id-" + thisIteration + ">\n";
         buildXML += "\t\t\t\t<locked type=\"number\">1</locked>\n";
         buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(thisFeat.definition.name) + "</name>\n";
-        //buildXML += "\t\t\t\t<source type=\"string\">" + convert_case(charBG) + "</source>\n";
         buildXML += "\t\t\t\t<text type=\"formattedtext\">\n";
         buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(thisFeat.definition.description)) + "</p>\n";
         buildXML += "\t\t\t\t</text>\n";
@@ -1206,15 +1239,15 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     buildXML += "\t\t<proficiencylist>\n";
     var proficiencies = getObjects(character, 'type', 'proficiency');
     if(proficiencies != null) proficiencies.some(function(prof, i) {
-        //console.log(prof.friendlySubtypeName);
-        //switch (thisOption.definition.name) {
-        //    case "Hit Points": case "Proficiencies": case "Martial Archetype": case "Fighting Style":
-        if(holdProf.includes(prof.friendlySubtypeName) || (prof.friendlySubtypeName).match(/Saving Throws/)) {
-        //if(holdProf.includes(prof.friendlySubtypeName)) {
-            // Skip this one, it's already in the list, or is a saving throw.
-            //console.log("Skipping: " + prof.friendlySubtypeName);
+        if (typeof prof.friendlySubtypeName == 'undefined') {
+        //    console.log("Has friendly");
+        //} else {
+        //    console.log("Yup, found something here");
+        //}
+        //if(holdProf.includes(prof.friendlySubtypeName) || (prof.friendlySubtypeName).match(/Saving Throws/)) {
+            // FIXME: What is this?
+            console.log("We got here");
         } else {
-            //console.log("Adding: " + prof.friendlySubtypeName);
             switch (prof.friendlySubtypeName) {
                 case "Athletics": case "Acrobatics": case "Sleight of Hand": case "Stealth": case "Arcana": case "History": case "Investigation": case "Nature": case "Religion": case "Animal Handling": case "Insight": case "Medicine": case "Perception": case "Survival": case "Deception": case "Intimidation": case "Performance": case "Persuasion":
                     return;
@@ -1273,21 +1306,14 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             pactSlots = getPactMagicSlots(current_class.level);
             pactLevel = current_class.level;
         } else {
-            //console.log("Class: " + charClass);
-            //console.log("Current class level: " + current_class.level);
-            //console.log("Subclass: " + current_class.subclassDefinition.name);
             if (current_class.hasOwnProperty("subclassDefinition")) {
-                //console.log("Step 1");
                 if(current_class.subclassDefinition != null) {
-                    //console.log("Step 2");
                     getSpellSlots(charClass, current_class.level, current_class.subclassDefinition.name);
                 } else {
                     getSpellSlots(charClass, current_class.level, null);
-                    //console.log("Step 3");
                 }
             } else {
                 getSpellSlots(charClass, current_class.level, null);
-                //console.log("Step 4");
             }
         }
     });
@@ -1398,63 +1424,56 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
 
     // Power Groups
     buildXML += "\t\t<powergroup>\n";
-	buildXML += "\t\t\t<id-00001>\n";
-	buildXML += "\t\t\t\t<name type=\"string\">Resistances</name>\n";
-	buildXML += "\t\t\t</id-00001>\n";
-    buildXML += "\t\t\t<id-00002>\n";
-    buildXML += "\t\t\t\t<name type=\"string\">Immunities</name>\n";
-    buildXML += "\t\t\t</id-00002>\n";
+	//buildXML += "\t\t\t<id-00001>\n";
+	//buildXML += "\t\t\t\t<name type=\"string\">Resistances</name>\n";
+	//buildXML += "\t\t\t</id-00001>\n";
+    //buildXML += "\t\t\t<id-00002>\n";
+    //buildXML += "\t\t\t\t<name type=\"string\">Immunities</name>\n";
+    //buildXML += "\t\t\t</id-00002>\n";
     
-    // Ranger level 2 or higher is Wisdom
-    // Paladin level 2 or higher is Charisma
-    // Figher level 3 or higher AND Eldritch knight is Intelligence
-    // Rogue level 3 or hight AND Arcane Trickster is Intelligence
     if(isDruid == 1 || isCleric == 1 || isBard == 1) {
-        buildXML += "\t\t\t<id-00003>\n";
+        buildXML += "\t\t\t<id-00001>\n";
         buildXML += "\t\t\t\t<name type=\"string\">Spells</name>\n";
         buildXML += "\t\t\t\t<stat type=\"string\">wisdom</stat>\n";
         buildXML += "\t\t\t\t<castertype type=\"string\">memorization</castertype>\n";
-        buildXML += "\t\t\t</id-00003>\n";
+        buildXML += "\t\t\t</id-00001>\n";
     } else if(isSorcerer == 1 || isWarlock == 1) {
-        buildXML += "\t\t\t<id-00003>\n";
+        buildXML += "\t\t\t<id-00001>\n";
         buildXML += "\t\t\t\t<name type=\"string\">Spells</name>\n";
         buildXML += "\t\t\t\t<stat type=\"string\">charisma</stat>\n";
         buildXML += "\t\t\t\t<castertype type=\"string\">memorization</castertype>\n";
-        buildXML += "\t\t\t</id-00003>\n";
+        buildXML += "\t\t\t</id-00001>\n";
     } else if(isWizard == 1) {
-        buildXML += "\t\t\t<id-00003>\n";
+        buildXML += "\t\t\t<id-00001>\n";
         buildXML += "\t\t\t\t<name type=\"string\">Spells</name>\n";
         buildXML += "\t\t\t\t<stat type=\"string\">intelligence</stat>\n";
         buildXML += "\t\t\t\t<castertype type=\"string\">memorization</castertype>\n";
-        buildXML += "\t\t\t</id-00003>\n";
+        buildXML += "\t\t\t</id-00001>\n";
     } else if (isRanger == 1 && levelRanger >= 2) {
-        buildXML += "\t\t\t<id-00003>\n";
+        buildXML += "\t\t\t<id-00001>\n";
         buildXML += "\t\t\t\t<name type=\"string\">Spells</name>\n";
         buildXML += "\t\t\t\t<stat type=\"string\">wisdom</stat>\n";
         buildXML += "\t\t\t\t<castertype type=\"string\">memorization</castertype>\n";
-        buildXML += "\t\t\t</id-00003>\n";
+        buildXML += "\t\t\t</id-00001>\n";
     } else if (isPaladin == 1 && levelPaladin >= 2) {
-        buildXML += "\t\t\t<id-00003>\n";
+        buildXML += "\t\t\t<id-00001>\n";
         buildXML += "\t\t\t\t<name type=\"string\">Spells</name>\n";
         buildXML += "\t\t\t\t<stat type=\"string\">charisma</stat>\n";
         buildXML += "\t\t\t\t<castertype type=\"string\">memorization</castertype>\n";
-        buildXML += "\t\t\t</id-00003>\n";
+        buildXML += "\t\t\t</id-00001>\n";
     } else if (isRogue == 1 && rogueSubclassArcaneTrickster == 1) {
-        buildXML += "\t\t\t<id-00003>\n";
+        buildXML += "\t\t\t<id-00001>\n";
         buildXML += "\t\t\t\t<name type=\"string\">Spells</name>\n";
         buildXML += "\t\t\t\t<stat type=\"string\">intelligence</stat>\n";
         buildXML += "\t\t\t\t<castertype type=\"string\">memorization</castertype>\n";
-        buildXML += "\t\t\t</id-00003>\n";
+        buildXML += "\t\t\t</id-00001>\n";
     } else if (isFighter == 1 && fighterSubclassEldritchKnight == 1) {
-        buildXML += "\t\t\t<id-00003>\n";
+        buildXML += "\t\t\t<id-00001>\n";
         buildXML += "\t\t\t\t<name type=\"string\">Spells</name>\n";
         buildXML += "\t\t\t\t<stat type=\"string\">intelligence</stat>\n";
         buildXML += "\t\t\t\t<castertype type=\"string\">memorization</castertype>\n";
-        buildXML += "\t\t\t</id-00003>\n";
+        buildXML += "\t\t\t</id-00001>\n";
     }
-    
-
-    // Stat type
     
     buildXML += "\t\t</powergroup>\n";
 
@@ -1551,9 +1570,10 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                 buildXML += "\t\t\t\t<range type=\"string\">Self</range>\n";
             }
             buildXML += "\t\t\t\t<school type=\"string\">" + fixQuote(eachSpell.definition.school) + "</school>\n";
-            buildXML += "\t\t\t\t<parse type=\"number\">1</parse>\n";
-		    //buildXML += "\t\t\t\t<source type=\"string\">Warlock</source>\n";
-            buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            if (payFlag == 1) {
+                buildXML += "\t\t\t\t<parse type=\"number\">1</parse>\n";
+            }
+		    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
         }
     });
     character.spells.class.some(function(eachSpell, i) {
@@ -1626,9 +1646,10 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                 buildXML += "\t\t\t\t<range type=\"string\">Self</range>\n";
             }
             buildXML += "\t\t\t\t<school type=\"string\">" + fixQuote(eachSpell.definition.school) + "</school>\n";
-            buildXML += "\t\t\t\t<parse type=\"number\">1</parse>\n";
-		    //buildXML += "\t\t\t\t<source type=\"string\">Warlock</source>\n";
-            buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            if (payFlag == 1) {
+                buildXML += "\t\t\t\t<parse type=\"number\">1</parse>\n";
+            }
+		    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
         }
     });
     character.classes.some(function(current_class, i) {
@@ -1707,8 +1728,9 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                                 buildXML += "\t\t\t\t<range type=\"string\">Self</range>\n";
                             }
                             buildXML += "\t\t\t\t<school type=\"string\">" + fixQuote(spell.definition.school) + "</school>\n";
-                            buildXML += "\t\t\t\t<parse type=\"number\">1</parse>\n";
-                            //buildXML += "\t\t\t\t<source type=\"string\">" + current_class.name + "</source>\n";
+                            if (payFlag == 1) {
+                                buildXML += "\t\t\t\t<parse type=\"number\">1</parse>\n";
+                            }
                             buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                         }   
                     }
@@ -1716,83 +1738,209 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             }
         }
     });
-    character.race.racialTraits.some(function(current_trait, i) {
-        fixedTrait = current_trait.definition.name.toLowerCase().replace(/ /g, "_");
-        //console.log(fixedTrait);
-        if(fixedTrait == "hellish_resistance") {
+
+    // I think this sould be moved. We have class things for this, maybe have racial as well.
+
+    // Okay, let's get ready for the paid version
+    if (payFlag == 1) {
+        if (isTiefling) {
             thisIteration = pad(totalSpells + 1, 5);
             totalSpells += 1;
             buildXML += "\t\t\t<id-" + thisIteration + ">\n";
             buildXML += addTiefHellResist;
             buildXML += "\t\t\t</id-" + thisIteration + ">\n";
         }
-    });
-    if (isBarbarian == 1) {
-        thisIteration = pad(totalSpells + 1, 5);
-        totalSpells += 1;
-        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
-        buildXML += addBarbarianRage;
-        buildXML += "\t\t\t\t<prepared type=\"number\">" + barbRages + "</prepared>\n";
-        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-        if (levelBarbarian >= 2) {
+        if (isBarbarian == 1) {
             thisIteration = pad(totalSpells + 1, 5);
             totalSpells += 1;
             buildXML += "\t\t\t<id-" + thisIteration + ">\n";
-            buildXML += addBarbarianDangerSense;
+            buildXML += addBarbarianRage;
+            buildXML += "\t\t\t\t<prepared type=\"number\">" + barbRages + "</prepared>\n";
             buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-        }
-        
-        if (levelBarbarian >= 3) {
-            if (barbPrimalPath.match(/Totem Warrior/)) {
-                if (barbTotemSpirit == "Wolf") {
-                    thisIteration = pad(totalSpells + 1, 5);
-                    totalSpells += 1;
-                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
-                    buildXML += addBarbarianWolfTotemSpirit;
-                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                } else if (barbTotemSpirit == "Eagle") {
-                    thisIteration = pad(totalSpells + 1, 5);
-                    totalSpells += 1;
-                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
-                    buildXML += addBarbarianEagleTotemSpirit;
-                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                } else if (barbTotemSpirit == "Bear") {
-                    thisIteration = pad(totalSpells + 1, 5);
-                    totalSpells += 1;
-                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
-                    buildXML += addBarbarianBearTotemSpirit;
-                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                }
-                if (barbBeastAspect == "Wolf") {
-                    thisIteration = pad(totalSpells + 1, 5);
-                    totalSpells += 1;
-                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
-                    buildXML += addBarbarianWolfBeastAspect;
-                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                } else if (barbBeastAspect == "Eagle") {
-                    thisIteration = pad(totalSpells + 1, 5);
-                    totalSpells += 1;
-                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
-                    buildXML += addBarbarianEagleBeastAspect;
-                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                } else if (barbBeastAspect == "Bear") {
-                    thisIteration = pad(totalSpells + 1, 5);
-                    totalSpells += 1;
-                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
-                    buildXML += addBarbarianbearBeastAspect;
-                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            if (levelBarbarian >= 2) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addBarbarianDangerSense;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addBarbarianRecklessAttack;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelBarbarian >= 7) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addBarbarianFeralInstinct;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelBarbarian >= 9) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addBarbarianBrutalCritical;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelBarbarian >= 11) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addBarbarianRelentlessRage;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+
+            if (levelBarbarian >= 3) {
+                if (barbPrimalPath.match(/Totem Warrior/)) {
+                    if (barbTotemSpirit == "Wolf") {
+                        thisIteration = pad(totalSpells + 1, 5);
+                        totalSpells += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += addBarbarianWolfTotemSpirit;
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    } else if (barbTotemSpirit == "Eagle") {
+                        thisIteration = pad(totalSpells + 1, 5);
+                        totalSpells += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += addBarbarianEagleTotemSpirit;
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    } else if (barbTotemSpirit == "Bear") {
+                        thisIteration = pad(totalSpells + 1, 5);
+                        totalSpells += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += addBarbarianBearTotemSpirit;
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    }
+                    if (barbBeastAspect == "Wolf") {
+                        thisIteration = pad(totalSpells + 1, 5);
+                        totalSpells += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += addBarbarianWolfBeastAspect;
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    } else if (barbBeastAspect == "Eagle") {
+                        thisIteration = pad(totalSpells + 1, 5);
+                        totalSpells += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += addBarbarianEagleBeastAspect;
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    } else if (barbBeastAspect == "Bear") {
+                        thisIteration = pad(totalSpells + 1, 5);
+                        totalSpells += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += addBarbarianbearBeastAspect;
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    }
+                    if (levelBarbarian >= 14) {
+                        if (barbTotemAttune == "Bear") {
+                            thisIteration = pad(totalSpells + 1, 5);
+                                totalSpells += 1;
+                                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                                buildXML += addBarbarianTotemicAttunement;
+                                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                        }
+                    }
+
+                } else if (barbPrimalPath.match(/Berserker/)) {
+                    if (levelBarbarian >= 6) {
+                        thisIteration = pad(totalSpells + 1, 5);
+                        totalSpells += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += addBarbarianMindlessRage;
+                        buildXML += "\t\t\t\t<prepared type=\"number\">" + barbRages + "</prepared>\n";
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    }
+                    if (levelBarbarian >= 10) {
+                        thisIteration = pad(totalSpells + 1, 5);
+                        totalSpells += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += addBarbarianIntimidatingPresence;
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    }
+
                 }
 
-            } else if (barbPrimalPath.match(/Berserker/)) {
-                // FIXME: Add berserker stuff
             }
-            
+        } else if (isBard == 1) {
+            thisIteration = pad(totalSpells + 1, 5);
+            totalSpells += 1;
+            buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+            buildXML += addBardicInspiration;
+            if (chaMod < 1) {
+                useMod = 1;
+            } else {
+                useMod = chaMod;
+            }
+            buildXML += "<prepared type=\"number\">" + useMod + "</prepared>\n";
+            buildXML += "<source type=\"string\">Bard</source>\n";
+            buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+
+            if (levelBard >= 2) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addBardJackOfAllTrades;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addBardSongOfRest;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelBard >= 6) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addBardCountercharm;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+        } else if (isCleric == 1) {
+            // Cleric domains:
+            // Arcana, Death, Forge, Grave, Knowledge, Life, Light, Nature, Tempest, Trickery, War
+            if (levelCleric >= 2) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addClericTurnUndead;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                //console.log("Cleric Domain: " + clericDomain);
+                if (clericDomain.match(/Arcana/)) {
+
+                } else if (clericDomain.match(/Death/)) {
+
+                } else if (clericDomain.match(/Forge/)) {
+
+                } else if (clericDomain.match(/Grave/)) {
+
+                } else if (clericDomain.match(/Knowledge/)) {
+
+                } else if (clericDomain.match(/Live/)) {
+
+                } else if (clericDomain.match(/Light/)) {
+
+                } else if (clericDomain.match(/Nature/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericCharmAnimals;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (clericDomain.match(/Order/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericArcaneAbjuration;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (clericDomain.match(/Tempest/)) {
+
+                } else if (clericDomain.match(/Trickery/)) {
+
+                } else if (clericDomain.match(/War/)) {
+
+                } 
+            }
         }
     }
 
-    //character.actions.class.some(function(current_thing, i) {
-    //    console.log(current_thing.name);
-    //});
     buildXML += "\t\t</powers>\n";
 
     baseAC = 0;
@@ -1823,8 +1971,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                         armDis = 1;
                     }
                     thisArmor = eachInventory.definition.name.toLowerCase().replace(/ /g, "_").replace(/-/g, "_");
-                    //console.log(thisArmor);
-                    //console.log(thisArmor);
                     if(noDexArmor.includes(thisArmor)) {
                         dexBonus = 0;
                         if(holdProf.includes("Heavy Armor")) {
@@ -1868,9 +2014,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     if(baseAC == 0) {
         baseAC += 10;
     }
-    //console.log("Dex bonus: " + dexBonus)
-    //console.log("BaseAC: " + baseAC);
-    
     buildXML += "\t\t\t\t<armor type=\"number\">" + (baseAC - 10) + "</armor>\n";
     switch(dexBonus) {
         case 0:
@@ -1884,7 +2027,9 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             break;
     }
     if(isSorcerer == 1 && wearingArmor == 0 && usingShield == 0) {
-        buildXML += "\t\t\t\t<misc type=\"number\">3</misc>\n";
+        buildXML += "\t\t\t\t<misc type=\"number\">" + (3 + addBonusOtherAC) + "</misc>\n";
+    } else {
+        buildXML += "\t\t\t\t<misc type=\"number\">" + (addBonusArmorAC + addBonusOtherAC) + "</misc>\n";
     }
     if(armDis == 1) {
         buildXML += "\t\t\t\t<disstealth type=\"number\">1</disstealth>\n";
@@ -1895,9 +2040,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     if(isBarbarian == 1 && wearingArmor == 0) {
         buildXML += "\t\t\t\t<stat2 type=\"string\">constitution</stat2>\n";
     }
-	//
-    //buildXML += "\t\t\t\t<misc type=\"number\">0</misc>\n";
-    if(armShieldProf < 0) {
+	if(armShieldProf < 0) {
         buildXML += "\t\t\t\t<prof type=\"number\">0</prof>\n";
     } else {
         buildXML += "\t\t\t\t<prof type=\"number\">1</prof>\n";
@@ -1907,7 +2050,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     }
 	
 	buildXML += "\t\t\t\t<temporary type=\"number\">0</temporary>\n";
-	//buildXML += "\t\t\t\t<total type=\"number\">" + baseAC + "</total>\n";
 	buildXML += "\t\t\t</ac>\n";
 	buildXML += "\t\t</defenses>\n";
 
@@ -1919,7 +2061,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     //for(var i in exp) {
     //    var expertise = exp[i];
     //    var pickles = expertise.subType.replace(/-/g, '_');
-    //    console.log(pickles);
+    //    //console.log(pickles);
     //}
     // characterValues
     // typeId: 26 (updating proficiency for a skill)
@@ -1976,11 +2118,9 @@ const getObjects = function(obj, key, val) {
         if (typeof obj[i] == 'object') {
             objects = objects.concat(getObjects(obj[i], key, val));
         } else
-        //if key matches and value matches or if key matches and value is not passed (eliminating the case where key matches but passed value does not)
         if (i == key && obj[i] == val || i == key && val == '') { //
             objects.push(obj);
         } else if (obj[i] == val && key == ''){
-            //only add if the object is not already in the array
             if (objects.lastIndexOf(obj) == -1){
                 objects.push(obj);
             }
@@ -2072,50 +2212,38 @@ function convert_case(str) {
 function remove_tags_traits(badString) {
     var tempString1 = badString.replace(/\&lt\;/g, "<").replace(/\&gt\;/g, ">");
     var tempString2 = tempString1.replace(/\&rsquo\;/g, "'").replace(/\&lsquo\;/g, "'").replace(/\&rdquo\;/g, "\"").replace(/\&ldquo\;/g, "\"");
-    var tempString3 = tempString2.replace(/\&\#34\;/g, "\"").replace(/\<br\>/g, "<br />");
+    var tempString3 = tempString2.replace(/\&\#34\;/g, "\"").replace(/\<br\>/g, "<br />").replace(/\&ndash\;/g, "-");
     var tempString4 = tempString3.replace(/\<th style/g, "<td style").replace(/<\/th\>/g, "</td>").replace(/\<th rowspan/g, "<td rowspan").replace(/\<th colspan/g, "<td colspan").replace(/\<th\>/g, "<td>");
     var tempString5 = tempString4.replace(/\<span\>/g, "").replace(/\<\/span\>/g, "").replace(/\<span style\=\"font-weight\:400\"\>/g, "");
     var tempString6 = tempString5.replace(/\&nbsp\;/g, " ").replace(/\<br\>/g, "\n").replace(/\<h5\>/g, "<p><b>").replace(/\<\/h5\>/g, "</b></p>").replace(/\<span style\=\"color\:\#[a-zA-Z0-9]{3}\"\>/g, "").replace(/\<span style\=\"color\:\#[a-zA-Z0-9]{6}\"\>/g, "");
 
-    // Try to fix Warlock/Wizard crazy links in descriptions
-    //if(tempString6.match(/http/)) {
-    //    var removeLinks = $.parseHTML(tempString6);
-    //    console.log(removeLinks);
-    //}
-    //console.log(removeTable);
-    //var tempString = badString.replace(/\<table.*\/table>/g, "").replace(/\&lt\;p\&gt\;/g, '').replace(/\&lt\;\/p\&gt\;/g, '').replace(/\&lt\;\/span\&gt\;/g, '').replace(/\&lt\;span\&gt\;/g, '').replace(/\&rsquo\;/g, '\'').replace(/\&lt\;em\&gt\;/g, ' ').replace(/\&lt\;\/em\&gt\;/g, ' ').replace(/&lt\;br&gt\;/g, "\n").replace(/\&lt\;\/strong\&gt\;/g, '').replace(/\&lt\;strong\&gt\;/g, '').replace(/\&lt\;\/h\d\&gt\;/g, '').replace(/\&lt\;h\d\&gt\;/g, '').replace(/\&lt\;\/ul\&gt\;/g, '\n').replace(/\&lt\;ul\&gt\;/g, '\n').replace(/\&lt\;\/li\&gt\;/g, '\n').replace(/\&lt\;li\&gt\;/g, '\n').replace(/\&nbsp\;/g, ' ');
-    //var removeTable = tempString.replace(/\<table.*\/table>/g, "");
-    //return tempString.replace(/\&lt\;/g, '<').replace(/\&gt\;/g, '>').replace(/<th /g, "<td ").replace(/<\/th>/g, "</td>");
-    //return badString.replace(/\&lt\;p\&gt\;/g, '').replace(/\&lt\;\/p\&gt\;/g, '').replace(/\&lt\;\/span\&gt\;/g, '').replace(/\&lt\;span\&gt\;/g, '').replace(/\&rsquo\;/g, '\'').replace(/\&lt\;em\&gt\;/g, ' ').replace(/\&lt\;\/em\&gt\;/g, ' ').replace(/&lt\;br&gt\;/g, "\n").replace(/\&lt\;\/strong\&gt\;/g, '').replace(/\&lt\;strong\&gt\;/g, '').replace(/\&lt\;\/h\d\&gt\;/g, '').replace(/\&lt\;h\d\&gt\;/g, '').replace(/\&lt\;\/ul\&gt\;/g, '\n').replace(/\&lt\;ul\&gt\;/g, '\n').replace(/\&lt\;\/li\&gt\;/g, '\n').replace(/\&lt\;li\&gt\;/g, '\n').replace(/\&nbsp\;/g, ' ');
     return tempString6;
 }
 
 function remove_tags_featureSubclass(badString) {
-    var tempString1 = badString.replace(/\&lt\;/g, "<").replace(/\&gt\;/g, ">").replace(/\&\#34\;/g, "\"").replace(/\n/g, "");
+    // First things first, let's create an array of all the individual lines, then go through them and see what we can fix.
+    //var testTables = badString.split("\n");
+    //console.log("Array length: " + testTables.length);
+    //for(i = 0; i < testTables.length - 1; i++) {
+    //    if (testTables[i].match(/^\&lt\;p style/)) {
+    //        console.log("Found one: " + testTables[i]);
+    //    }
+    //}
+    // Ok, so we need to fix tables. From start table tag to end table tag, remove <p> & </p>
+    var tempString1 = badString.replace(/\&lt\;/g, "<").replace(/\&gt\;/g, ">").replace(/\&\#34\;/g, "\"").replace(/\n/g, "").replace(/\&ndash\;/g, "-");
     var tempString2 = tempString1.replace(/\&rsquo\;/g, "'").replace(/\&lsquo\;/g, "'").replace(/\&rdquo\;/g, "\"").replace(/\&ldquo\;/g, "\"");
     var tableSubstring1 = tempString2.indexOf("<table");
     var tableSubstring2 = tempString2.indexOf("</table");
     var string01 = tempString2.substring(0, tableSubstring1);
     var string03 = tempString2.substring(tableSubstring2);
     var tableStringFull = tempString2.substring(tableSubstring1, tableSubstring2);
-    var string02 = tableStringFull.replace(/\<p\>/g, "").replace(/\<\/p\>/g, "");
+    var string02 = tableStringFull.replace(/\<p\>/g, "").replace(/\<\/p\>/g, "").replace(/\<p style\=\"text-align\:left\"\>/g, "");
+    //var string02 = tableStringFull;
     var newFullString = string01 + string02 + string03;
     var tempString3 = newFullString.replace(/\<th style/g, "<td style").replace(/<\/th\>/g, "</td>").replace(/\<th rowspan/g, "<td rowspan").replace(/\<th colspan/g, "<td colspan").replace(/\<th\>/g, "<td>");
     var tempString4 = tempString3.replace(/\<span\>/g, "").replace(/\<\/span\>/g, "").replace(/\<span style\=\"font-weight\:400\"\>/g, "").replace(/\<span style\=\"color\:\#47d18c\"\>/g, "").replace(/\<span style\=\"color\:\#704cd9\"\>/g, "");
     var tempString5 = tempString4.replace(/\&nbsp\;/g, " ").replace(/\<br\>/g, "\n").replace(/\<h5\>/g, "<p><b>").replace(/\<\/h5\>/g, "</b></p>").replace(/\<thead\>/g, "").replace(/\<\/thead\>/g, "").replace(/\<tbody\>/g, "").replace(/\<\/tbody\>/g, "");
-    //console.log(removeTable);
-    //var tempString = badString.replace(/\<table.*\/table>/g, "").replace(/\&lt\;p\&gt\;/g, '').replace(/\&lt\;\/p\&gt\;/g, '').replace(/\&lt\;\/span\&gt\;/g, '').replace(/\&lt\;span\&gt\;/g, '').replace(/\&rsquo\;/g, '\'').replace(/\&lt\;em\&gt\;/g, ' ').replace(/\&lt\;\/em\&gt\;/g, ' ').replace(/&lt\;br&gt\;/g, "\n").replace(/\&lt\;\/strong\&gt\;/g, '').replace(/\&lt\;strong\&gt\;/g, '').replace(/\&lt\;\/h\d\&gt\;/g, '').replace(/\&lt\;h\d\&gt\;/g, '').replace(/\&lt\;\/ul\&gt\;/g, '\n').replace(/\&lt\;ul\&gt\;/g, '\n').replace(/\&lt\;\/li\&gt\;/g, '\n').replace(/\&lt\;li\&gt\;/g, '\n').replace(/\&nbsp\;/g, ' ');
-    //var removeTable = tempString.replace(/\<table.*\/table>/g, "");
-    //return tempString.replace(/\&lt\;/g, '<').replace(/\&gt\;/g, '>').replace(/<th /g, "<td ").replace(/<\/th>/g, "</td>");
-    //return badString.replace(/\&lt\;p\&gt\;/g, '').replace(/\&lt\;\/p\&gt\;/g, '').replace(/\&lt\;\/span\&gt\;/g, '').replace(/\&lt\;span\&gt\;/g, '').replace(/\&rsquo\;/g, '\'').replace(/\&lt\;em\&gt\;/g, ' ').replace(/\&lt\;\/em\&gt\;/g, ' ').replace(/&lt\;br&gt\;/g, "\n").replace(/\&lt\;\/strong\&gt\;/g, '').replace(/\&lt\;strong\&gt\;/g, '').replace(/\&lt\;\/h\d\&gt\;/g, '').replace(/\&lt\;h\d\&gt\;/g, '').replace(/\&lt\;\/ul\&gt\;/g, '\n').replace(/\&lt\;ul\&gt\;/g, '\n').replace(/\&lt\;\/li\&gt\;/g, '\n').replace(/\&lt\;li\&gt\;/g, '\n').replace(/\&nbsp\;/g, ' ');
-    
     return tempString5;
-}
-
-
-function removeSpan(badSpan) {
-    //var tempString = badSpan.replace(/<.*;>/g, "").replace(/<\/a>/g, "").replace(/\&ldquo\;/g, "\"").replace(/\&rdquo\;/g, "\"");
-    return badSpan;
 }
 
 const getPactMagicSlots = function(level) {
@@ -2143,8 +2271,6 @@ const getPactMagicSlots = function(level) {
 };
 
 function getSpellSlots(slotClass, slotLevel, slotSubClass) {
-    //console.log("Class: " + slotClass);
-    //console.log("Level: " + slotLevel);
     if((slotClass === "bard") || (slotClass === "cleric") || (slotClass === "druid") || (slotClass === "sorcerer") || (slotClass === "wizard")) {
         if (slotLevel == 1) {
             charSpellSlots1 = 2;
@@ -2447,7 +2573,7 @@ addTiefHellResist = " \
 \t\t\t\t<description type=\"formattedtext\">\n \
 \t\t\t\t\t<p>You have resistance to fire damage.</p>\n \
 \t\t\t\t</description>\n \
-\t\t\t\t<group type=\"string\">Resistances</group>\n \
+\t\t\t\t<group type=\"string\">Racial Traits</group>\n \
 \t\t\t\t<level type=\"number\">0</level>\n \
 \t\t\t\t<locked type=\"number\">1</locked>\n \
 \t\t\t\t<name type=\"string\">Tiefling: Hellish Resistance</name>\n \
@@ -2491,17 +2617,17 @@ addBarbarianRage = " \
 \t\t\t\t</actions>\n \
 \t\t\t\t<cast type=\"number\">0</cast>\n \
 \t\t\t\t<description type=\"formattedtext\">\n \
-<p>In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action. While raging, you gain the following benefits if you aren't wearing heavy armor:</p>\n \
-<list>\n \
-<li>You have advantage on Strength checks and Strength saving throws.</li>\n \
-<li>When you make a melee weapon attack using Strength, you gain a bonus to the damage roll that increases as you gain levels as a barbarian, as shown in the Rage Damage column of the Barbarian table.</li>\n \
-<li>You have resistance to bludgeoning, piercing, and slashing damage.</li>\n \
-</list>\n \
-<p>If you are able to cast spells, you can't cast them while raging.</p>\n \
-<p>Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you have neither attacked a hostile creature since your last turn nor taken damage since then. You can also end your rage on your turn (no action required).</p>\n \
-<p>Once you have raged the number of times shown for your barbarian level in the Rages column of the Barbarian table, you must finish a long rest before you can rage again.</p>\n \
+\t\t\t\t\t<p>In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action. While raging, you gain the following benefits if you aren't wearing heavy armor:</p>\n \
+\t\t\t\t\t<list>\n \
+\t\t\t\t\t\t<li>You have advantage on Strength checks and Strength saving throws.</li>\n \
+\t\t\t\t\t\t<li>When you make a melee weapon attack using Strength, you gain a bonus to the damage roll that increases as you gain levels as a barbarian, as shown in the Rage Damage column of the Barbarian table.</li>\n \
+\t\t\t\t\t\t<li>You have resistance to bludgeoning, piercing, and slashing damage.</li>\n \
+\t\t\t\t\t</list>\n \
+\t\t\t\t\t\t<p>If you are able to cast spells, you can't cast them while raging.</p>\n \
+\t\t\t\t\t\t<p>Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you have neither attacked a hostile creature since your last turn nor taken damage since then. You can also end your rage on your turn (no action required).</p>\n \
+\t\t\t\t\t\t<p>Once you have raged the number of times shown for your barbarian level in the Rages column of the Barbarian table, you must finish a long rest before you can rage again.</p>\n \
 \t\t\t\t</description>\n \
-\t\t\t\t<group type=\"string\">Barbarian Features</group>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
 \t\t\t\t<level type=\"number\">0</level>\n \
 \t\t\t\t<locked type=\"number\">1</locked>\n \
 \t\t\t\t<name type=\"string\">Rage</name>\n \
@@ -2524,7 +2650,7 @@ addBarbarianDangerSense = " \
 <p>At 2nd level, you gain an uncanny sense of when things nearby aren't as they should be, giving you an edge when you dodge away from danger.</p>\n \
 <p>You have advantage on Dexterity saving throws against effects that originate within 30 feet of you, such as a trap or a spellcaster within that range. To gain this benefit, you cannot be blinded, deafened, or incapacitated.</p>\n \
 </description>\n \
-<group type=\"string\">Barbarian Features</group>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Danger Sense</name>\n \
@@ -2550,10 +2676,10 @@ addBarbarianWolfTotemSpirit = " \
 <p><b>Eagle. </b>While you're raging and aren't wearing heavy armor, other creatures have disadvantage on opportunity attack rolls against you, and you can the Dash action as a bonus action on your turn. The spirit of the eagle makes you into a predator who can weave through the fray with ease.</p>\n \
 <p><b>Wolf. </b>While you're raging, your friends have advantage on melee attack rolls against any hostile creature within 5 feet of you. The spirit of the wolf makes you a leader of hunters.</p>\n \
 </description>\n \
-<group type=\"string\">Barbarian Features</group>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
-<name type=\"string\">Totem Spirit</name>\n \
+<name type=\"string\">Totem Spirit (Wolf)</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
 <specialization type=\"string\">Path of the Totem Warrior</specialization>\n";
@@ -2577,10 +2703,10 @@ addBarbarianEagleTotemSpirit = " \
 <p><b>Eagle. </b>While you're raging and aren't wearing heavy armor, other creatures have disadvantage on opportunity attack rolls against you, and you can the Dash action as a bonus action on your turn. The spirit of the eagle makes you into a predator who can weave through the fray with ease.</p>\n \
 <p><b>Wolf. </b>While you're raging, your friends have advantage on melee attack rolls against any hostile creature within 5 feet of you. The spirit of the wolf makes you a leader of hunters.</p>\n \
 </description>\n \
-<group type=\"string\">Barbarian Features</group>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
-<name type=\"string\">Totem Spirit</name>\n \
+<name type=\"string\">Totem Spirit (Eagle)</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
 <specialization type=\"string\">Path of the Totem Warrior</specialization>\n";
@@ -2604,10 +2730,10 @@ addBarbarianBearTotemSpirit = " \
 <p><b>Eagle. </b>While you're raging and aren't wearing heavy armor, other creatures have disadvantage on opportunity attack rolls against you, and you can the Dash action as a bonus action on your turn. The spirit of the eagle makes you into a predator who can weave through the fray with ease.</p>\n \
 <p><b>Wolf. </b>While you're raging, your friends have advantage on melee attack rolls against any hostile creature within 5 feet of you. The spirit of the wolf makes you a leader of hunters.</p>\n \
 </description>\n \
-<group type=\"string\">Barbarian Features</group>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
-<name type=\"string\">Totem Spirit</name>\n \
+<name type=\"string\">Totem Spirit (Bear)</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
 <specialization type=\"string\">Path of the Totem Warrior</specialization>\n";
@@ -2629,7 +2755,7 @@ addBarbarianWolfBeastAspect = " \
 <p><b>Eagle. </b>You gain the eyesight of an eagle. You can see up to 1 mile away with no difficulty, able to discern even fine details as though looking at something no more than 100 feet away from you. Additionally, dim light doesn't impose disadvantage on your Wisdom (Perception) checks.</p>\n \
 <p><b>Wolf. </b>You gain the hunting sensibilities of a wolf. You can track other creatures while traveling at a fast pace, and you can move stealthily while traveling at a normal pace (see chapter 8 for rules on travel pace).</p>\n \
 </description>\n \
-<group type=\"string\">Barbarian Features</group>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Aspect of the Beast (Wolf)</name>\n \
@@ -2656,7 +2782,7 @@ addBarbarianEagleBeastAspect = " \
 <p><b>Eagle. </b>You gain the eyesight of an eagle. You can see up to 1 mile away with no difficulty, able to discern even fine details as though looking at something no more than 100 feet away from you. Additionally, dim light doesn't impose disadvantage on your Wisdom (Perception) checks.</p>\n \
 <p><b>Wolf. </b>You gain the hunting sensibilities of a wolf. You can track other creatures while traveling at a fast pace, and you can move stealthily while traveling at a normal pace (see chapter 8 for rules on travel pace).</p>\n \
 </description>\n \
-<group type=\"string\">Barbarian Features</group>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Aspect of the Beast (Eagle)</name>\n \
@@ -2683,7 +2809,7 @@ addBarbarianBearBeastAspect = " \
 <p><b>Eagle. </b>You gain the eyesight of an eagle. You can see up to 1 mile away with no difficulty, able to discern even fine details as though looking at something no more than 100 feet away from you. Additionally, dim light doesn't impose disadvantage on your Wisdom (Perception) checks.</p>\n \
 <p><b>Wolf. </b>You gain the hunting sensibilities of a wolf. You can track other creatures while traveling at a fast pace, and you can move stealthily while traveling at a normal pace (see chapter 8 for rules on travel pace).</p>\n \
 </description>\n \
-<group type=\"string\">Barbarian Features</group>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Aspect of the Beast (Bear)</name>\n \
@@ -2692,6 +2818,413 @@ addBarbarianBearBeastAspect = " \
 <school type=\"string\">Class</school>\n \
 <source type=\"string\">Barbarian</source>\n \
 <specialization type=\"string\">Path of the Totem Warrior</specialization>\n";
+
+addBarbarianRecklessAttack = " \
+<actions>\n \
+<id-00001>\n \
+<durmod type=\"number\">1</durmod>\n \
+<label type=\"string\">Reckless Attack; ADVATK: melee; GRANTADVATK:</label>\n \
+<order type=\"number\">1</order>\n \
+<targeting type=\"string\">self</targeting>\n \
+<type type=\"string\">effect</type>\n \
+</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+<p>Starting at 2nd level, you can draw on your reserve of rage to throw aside all concern for defense and attack with fierce desperation. When you do so, you have advantage on melee weapon attack rolls using Strength during your turn, but attack rolls against you have advantage until your next turn.</p>\n \
+</description>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Reckless Attack</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<source type=\"string\">Barbarian</source>\n";
+
+addBarbarianFeralInstinct = " \
+<actions>\n \
+<id-00001>\n \
+<durmod type=\"number\">0</durmod>\n \
+<label type=\"string\">Feral Instinct; ADViNIT:</label>\n \
+<order type=\"number\">1</order>\n \
+<targeting type=\"string\">self</targeting>\n \
+<type type=\"string\">effect</type>\n \
+</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+<p>By 7th level, your instincts are so honed that you have advantage on initiative rolls.</p>\n \
+<p>Additionally, if you are surprised at the beginning of combat and aren't incapacitated, you can act normally on your first turn, but only if you enter your rage on that turn.</p>\n \
+</description>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Feral Instinct</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<source type=\"string\">Barbarian</source>\n";
+
+addBarbarianBrutalCritical = " \
+<actions>\n \
+<id-00001>\n \
+<durmod type=\"number\">0</durmod>\n \
+<label type=\"string\">Brutal Critical; DMG: 3d8, melee, critical</label>\n \
+<order type=\"number\">1</order>\n \
+<targeting type=\"string\">self</targeting>\n \
+<type type=\"string\">effect</type>\n \
+</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+<p>Beginning at 9th level, you can roll one additional weapon damage die when determining the extra damage for a critical hit with a melee attack.</p>\n \
+<p>This increases to two additional dice at 13th level and three additional dice at 17th level.</p>\n \
+</description>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Brutal Critical</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n";
+
+addBarbarianRelentlessRage = " \
+<actions>\n \
+<id-00001>\n \
+<durmod type=\"number\">0</durmod>\n \
+<label type=\"string\">Relentless Rage - CON save;</label>\n \
+<order type=\"number\">1</order>\n \
+<targeting type=\"string\">self</targeting>\n \
+<type type=\"string\">effect</type>\n \
+</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+<p>Starting at 11th level, your rage can keep you fighting despite grievous wounds. If you drop to 0 hit points while you're raging and don't die outright, you can make a DC 10 Constitution saving throw. If you succeed, you drop to 1 hit point instead.</p>\n \
+<p>Each time you use this feature after the first, the DC increases by 5. When you finish a short or long rest, the DC resets to 10.</p>\n \
+</description>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Relentless Rage</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<source type=\"string\">Barbarian</source>\n";
+
+addBarbarianTotemicAttunement = " \
+<actions>\n \
+<id-00001>\n \
+<durmod type=\"number\">1</durmod>\n \
+<durunit type=\"string\">minute</durunit>\n \
+<label type=\"string\">GRANTDISATK:</label>\n \
+<order type=\"number\">1</order>\n \
+<type type=\"string\">effect</type>\n \
+</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+<p>At 14th level, you gain a magical benefit based on a totem animal of your choice. You can choose the same animal you selected at 3rd level or a different one.</p>\n \
+<p><b>Bear. </b>While you're raging, any creature within 5 feet of you that's hostile to you has disadvantage on attack rolls against targets other than you. An enemy is immune to this effect if it can't see or hear you or if it can't be frightened.</p>\n \
+<p><b>Eagle. </b>While raging, you have a fly speed equal to your current speed. This benefit works only in short bursts; you fall if you end your turn in the air and nothing else is holding you aloft.</p>\n \
+<p><b>Wolf. </b>While you're raging, you can use a bonus action on your turn to knock a Large or smaller creature prone when you hit it with melee weapon attack.</p>\n \
+</description>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Totemic Attunement (Bear)</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Path of the Totem Warrior</specialization>\n";
+
+addBarbarianMindlessRage = " \
+<actions>\n \
+<id-00001>\n \
+<durmod type=\"number\">1</durmod>\n \
+<durunit type=\"string\">minute</durunit>\n \
+<label type=\"string\">Rage; ADVCHK: strength; ADVSAV: strength; DMG: 4, melee; RESIST: bludgeoning, piercing, slashing; IMMUNE: charmed; IMMUNE: frightened</label>\n \
+<order type=\"number\">1</order>\n \
+<targeting type=\"string\">self</targeting>\n \
+<type type=\"string\">effect</type>\n \
+</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+<p>Beginning at 6th level, you cannot be charmed or frightened while raging. If you are charmed or frightened when you enter your rage, the effect is suspended for the duration of the rage.</p>\n \
+</description>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Mindless Rage</name>\n \
+<prepared type=\"number\">6</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Path of the Berserker</specialization>\n";
+
+addBarbarianIntimidatingPresence = " \
+<actions>\n \
+<id-00001>\n \
+<atkmod type=\"number\">0</atkmod>\n \
+<atkprof type=\"number\">1</atkprof>\n \
+<order type=\"number\">1</order>\n \
+<savedcbase type=\"string\">ability</savedcbase>\n \
+<savedcmod type=\"number\">0</savedcmod>\n \
+<savedcprof type=\"number\">1</savedcprof>\n \
+<savedcstat type=\"string\">charisma</savedcstat>\n \
+<savetype type=\"string\">wisdom</savetype>\n \
+<type type=\"string\">cast</type>\n \
+</id-00001>\n \
+<id-00002>\n \
+<durmod type=\"number\">1</durmod>\n \
+<label type=\"string\">Frightened</label>\n \
+<order type=\"number\">2</order>\n \
+<type type=\"string\">effect</type>\n \
+</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+<p>Beginning at 10th level, you can use your action to roar frighteningly at someone. When you do so, choose one creature that you can see within 30 feet of you. If the creature can see or hear you, it must succeed on a Wisdom saving throw (DC equal to 8 + your proficiency bonus + your Charisma modifier) or be frightened of you until the end of your next turn. On subsequent turns, you can use your action to extend the duration of this effect on the frightened creature until the end of your next turn. This effect ends if the creature ends it turn out of line of sight or more than 60 feet away from you.</p>\n \
+<p>If the creature succeeds on its saving throw, you can't use this feature on that creature again for 24 hours.</p>\n \
+</description>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Intimidating Presence</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Path of the Berserker</specialization>\n";
+
+addBardJackOfAllTrades = " \
+<actions>\n \
+<id-00001>\n \
+<durmod type=\"number\">0</durmod>\n \
+<label type=\"string\">Jack of all Trades; INIT:[HPRF]</label>\n \
+<order type=\"number\">1</order>\n \
+<targeting type=\"string\">self</targeting>\n \
+<type type=\"string\">effect</type>\n \
+</id-00001>\n \
+<id-00002>\n \
+<apply type=\"string\">roll</apply>\n \
+<durmod type=\"number\">0</durmod>\n \
+<label type=\"string\">Jack of all Trades; CHECK:[HPRF], all</label>\n \
+<order type=\"number\">2</order>\n \
+<targeting type=\"string\">self</targeting>\n \
+<type type=\"string\">effect</type>\n \
+</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+<p>Starting at 2nd level, you can add half your proficiency bonus, rounded down, to any ability check you make that doesn't already include that bonus.</p>\n \
+</description>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Jack of All Trades</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<source type=\"string\">Bard</source>\n";
+
+addBardicInspiration = " \
+<actions>\n \
+<id-00001>\n \
+<durmod type=\"number\">10</durmod>\n \
+<durunit type=\"string\">minute</durunit>\n \
+<label type=\"string\">Bardic Inspiration;</label>\n \
+<order type=\"number\">1</order>\n \
+<type type=\"string\">effect</type>\n \
+</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+<p>You can inspire others through stirring words or music. To do so, you use a bonus action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die, a d6.</p>\n \
+<p>Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw that it just made. The creature can wait until after it rolls the die for the ability check, attack roll, or saving throw, but before the DM says whether or not it succeeds or fails before deciding to use the Bardic Inspiration die. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time.</p>\n \
+<p>You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain any expended uses when you finish a long rest.</p>\n \
+<p>Your Bardic Inspiration die changes when you reach certain levels in this class. The die becomes a d8 at 5th level, a d10 at 10th level, and a d12 at 15th level.</p>\n \
+</description>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<name type=\"string\">Bardic Inspiration</name>\n";
+
+addBardSongOfRest = " \
+<actions>\n \
+<id-00001>\n \
+<heallist>\n \
+<id-00001>\n \
+<bonus type=\"number\">0</bonus>\n \
+<dice type=\"dice\">d12</dice>\n \
+</id-00001>\n \
+</heallist>\n \
+<order type=\"number\">1</order>\n \
+<type type=\"string\">heal</type>\n \
+</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+<p>Beginning at 2nd level, you can use soothing music or oration to help revitalize your wounded allies during a short rest. If you or any friendly creature who can hear your performance regains any hit points during the short rest, that creature regains 1d6 extra hit points at the end of the rest. A creature regains the extra hit points only if it spends one or more Hit Dice at the end of the short rest.</p>\n \
+<p>The extra hit points increase when you reach certain levels in this class: 1d8 at 9th level, 1d10 at 13th level, and 1d12 at 17th level.</p>\n \
+</description>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Song of Rest</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<source type=\"string\">Bard</source>\n";
+
+addBardCountercharm = " \
+<actions>\n \
+<id-00001>\n \
+<durmod type=\"number\">1</durmod>\n \
+<label type=\"string\">Countercharm;</label>\n \
+<order type=\"number\">1</order>\n \
+<type type=\"string\">effect</type>\n \
+</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+<p>At 6th level, you gain the ability to use musical notes or words of power to disrupt mind5 influencing effects. As an action, you can start a performance that lasts until the end of your next turn. During that time, you and any friendly creature within 30 feet of you have advantage on saving throws against being frightened or charmed. A creature must be able to hear you to gain this benefit. The performance ends early if you are incapacitated or silenced or you voluntarily end it (no action required).</p>\n \
+</description>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Countercharm</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<source type=\"string\">Bard</source>\n";
+
+addClericTurnUndead = " \
+<actions>\n \
+<id-00001>\n \
+<order type=\"number\">1</order>\n \
+<savetype type=\"string\">wisdom</savetype>\n \
+<type type=\"string\">cast</type>\n \
+</id-00001>\n \
+<id-00002>\n \
+<durmod type=\"number\">1</durmod>\n \
+<durunit type=\"string\">minute</durunit>\n \
+<label type=\"string\">Turned</label>\n \
+<order type=\"number\">2</order>\n \
+<type type=\"string\">effect</type>\n \
+</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+<p>At 2nd level, you gain the ability to channel divine energy directly from your deity, using that energy to fuel magical effects. You start with two such effects - Turn Undead and an effect determined by your domain. Some domains grant you additional effects as you advance in levels, as noted in the domain description.</p>\n \
+<p>When you use your Channel Divinity, you choose which effect to create. You must then finish a short or long rest to use your Channel Divinity again.</p>\n \
+<p>Some Channel Divinity effects require saving throws. When you use such an effect from this class, the DC equals your cleric spell save DC.</p>\n \
+<p>Beginning at 6th level, you can use your Channel Divinity twice between rests, and beginning at 18th level, you can use it three times between rests. When you finish a short or long rest, you regain your expended uses.</p>\n \
+<p><b>Channel Divinity: </b>Turn Undead</p>\n \
+<p>As an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage.</p>\n \
+<p>A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the Dodge action.</p>\n \
+</description>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Turn Undead</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Cleric</source>\n";
+
+addClericArcaneAbjuration = " \
+<actions>\n \
+<id-00001>\n \
+<order type=\"number\">1</order>\n \
+<savetype type=\"string\">wisdom</savetype>\n \
+<type type=\"string\">cast</type>\n \
+</id-00001>\n \
+<id-00002>\n \
+<durmod type=\"number\">1</durmod>\n \
+<durunit type=\"string\">minute</durunit>\n \
+<label type=\"string\">Turned</label>\n \
+<order type=\"number\">2</order>\n \
+<type type=\"string\">effect</type>\n \
+</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+<p>Starting at 2nd level, you can use your Channel Divinity to abjure otherworldly creatures.</p>\n \
+<p>As an action, you present your holy symbol, and one celestial, elemental, fey, or fiend of your choice that is within 30 feet of you must make a Wisdom saving throw, provided that the creature can see or hear you. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage.</p>\n \
+<p>A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly end its move in a space within 30 feet of you. It also can't take reactions. For its action, it can only use the Dash action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the Dodge action.</p>\n \
+<p>After you reach 5th level, when a creature fails its saving throw against your Arcane Abjuration feature, the creature is banished for 1 minute (as in the banishment spell, no concentration required) if it isn't on its plane of origin and its challenge rating is at or below a certain threshold, as shown on the Arcane Banishment table.</p>\n \
+<table>\n \
+<tr>\n \
+<td colspan=\"5\"><b>Arcane Banishment</b></td>\n \
+</tr>\n \
+<tr>\n \
+<td>Cleric Level</td>\n \
+<td colspan=\"4\">Banishes Creatures of CR...</td>\n \
+</tr>\n \
+<tr>\n \
+<td>5th</td>\n \
+<td colspan=\"4\">1/2 or lower</td>\n \
+</tr>\n \
+<tr>\n \
+<td>8th</td>\n \
+<td colspan=\"4\">1 or lower</td>\n \
+</tr>\n \
+<tr>\n \
+<td>11th</td>\n \
+<td colspan=\"4\">2 or lower</td>\n \
+</tr>\n \
+<tr>\n \
+<td>14th</td>\n \
+<td colspan=\"4\">3 or lower</td>\n \
+</tr>\n \
+<tr>\n \
+<td>17th</td>\n \
+<td colspan=\"4\">4 or lower</td>\n \
+</tr>\n \
+</table>\n \
+</description>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Arcane Abjuration</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Arcana Domain</specialization>\n";
+
+addClericCharmAnimals = " \
+<actions>\n \
+<id-00001>\n \
+<label type=\"string\">Charmed</label>\n \
+<order type=\"number\">1</order>\n \
+<type type=\"string\">effect</type>\n \
+</id-00001>\n \
+<id-00002>\n \
+<atkmod type=\"number\">0</atkmod>\n \
+<atkprof type=\"number\">1</atkprof>\n \
+<order type=\"number\">2</order>\n \
+<savedcmod type=\"number\">0</savedcmod>\n \
+<savedcprof type=\"number\">1</savedcprof>\n \
+<savetype type=\"string\">wisdom</savetype>\n \
+<type type=\"string\">cast</type>\n \
+</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+<p>Starting at 2nd level, you can use your Channel Divinity to charm animals and plants.</p>\n \
+<p>As an action, you present your holy symbol and invoke the name of your deity. Each beast or plant creature that can see you within 30 feet of you must make a Wisdom saying throw. If the creature fails its saving throw, it is charmed by you for 1 minute or until it takes damage. While it is charmed by you, it is friendly to you and other creatures you designate,</p>\n \
+</description>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Channel Divinity: Charm Animals And Plants</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Nature Domain</specialization>\n";
+
+addClericPreserveLife = " \
+<actions>\n \
+<id-00001>\n \
+<heallist>\n \
+<id-00001>\n \
+<bonus type=\"number\">5</bonus>\n \
+<dice type=\"dice\"></dice>\n \
+</id-00001>\n \
+</heallist>\n \
+<order type=\"number\">1</order>\n \
+<type type=\"string\">heal</type>\n \
+</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+<p>Starting at 2nd level, you can use your Channel Divinity to heal the badly injured.</p>\n \
+<p>As an action, you present your holy symbol and evoke healing energy that can restore a number of hit points equal to five times your cleric level. Choose any creatures within 30 feet of you, and divide those hit points among them. This feature can restore a creature to no more than half of its hit point maximum. You can't use this feature on an undead or a construct.</p>\n \
+</description>\n \
+\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Preserve Life</name>\n \
+<prepared type=\"number\">20</prepared>\n \
+<specialization type=\"string\">Life Domain</specialization>\n";
 
 var multiWarn = (function () {
     //Creating the demo window
@@ -2720,7 +3253,6 @@ var multiWarn = (function () {
 
 var dispLinks = (function () {
     function _createLinks() {
-        //console.log("Trying to create links");
         var userLinks = $('#displayLinks');
         var offset = userLinks.offset();
         $('#Linkwindow').jqxWindow({
@@ -2745,7 +3277,6 @@ var dispLinks = (function () {
 
 var clLinks = (function () {
     function _createCL() {
-        //console.log("Trying to create links");
         var userCL = $('#displayCL');
         var offset = userCL.offset();
         $('#CLwindow').jqxWindow({
