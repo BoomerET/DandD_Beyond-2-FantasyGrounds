@@ -1246,18 +1246,22 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         //}
         //if(holdProf.includes(prof.friendlySubtypeName) || (prof.friendlySubtypeName).match(/Saving Throws/)) {
             // FIXME: What is this?
-            console.log("We got here");
+            //console.log("We got here");
         } else {
-            switch (prof.friendlySubtypeName) {
-                case "Athletics": case "Acrobatics": case "Sleight of Hand": case "Stealth": case "Arcana": case "History": case "Investigation": case "Nature": case "Religion": case "Animal Handling": case "Insight": case "Medicine": case "Perception": case "Survival": case "Deception": case "Intimidation": case "Performance": case "Persuasion":
-                    return;
-                default:
-                    holdProf.push(prof.friendlySubtypeName);
-                    thisIteration = pad(i + 1, 5);
-                    totalProfs += 1;
-                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
-                    buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(prof.friendlySubtypeName) + "</name>\n";
-                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            if ((prof.friendlySubtypeName).match(/Saving Throws/) || holdProf.includes(prof.friendlySubtypeName)) {
+                // Skip Saving Throws in proficiencies
+            } else {
+                switch (prof.friendlySubtypeName) {
+                    case "Athletics": case "Acrobatics": case "Sleight of Hand": case "Stealth": case "Arcana": case "History": case "Investigation": case "Nature": case "Religion": case "Animal Handling": case "Insight": case "Medicine": case "Perception": case "Survival": case "Deception": case "Intimidation": case "Performance": case "Persuasion":
+                        return;
+                    default:
+                        holdProf.push(prof.friendlySubtypeName);
+                        thisIteration = pad(i + 1, 5);
+                        totalProfs += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(prof.friendlySubtypeName) + "</name>\n";
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
             }
         }
     });
