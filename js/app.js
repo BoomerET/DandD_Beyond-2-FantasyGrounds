@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 /* Original script by:
       Skype: RobinKuiper.eu
       Discord: Atheos#1095
@@ -536,7 +538,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                             });
                         }
                     }
-                })
+                });
             }
         } else if (thisClass == "bard") {
             isBard = 1;
