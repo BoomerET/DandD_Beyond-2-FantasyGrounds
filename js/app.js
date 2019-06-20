@@ -1,4 +1,5 @@
 /*jshint esversion: 6 */
+/*jshint multistr: true */
 
 /* Original script by:
       Skype: RobinKuiper.eu
@@ -647,11 +648,11 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     idCount = 1;
     hasHalf = 0;
     halfProf = false;
-    var halfprof = getObjects(character, 'type', 'half-proficiency');
-    for (var x in halfprof) {
-        var hfprof = halfprof[x];
-        var type = hfprof.subType;
-        if(type == "initiative") {
+    var halfprof2 = getObjects(character, 'type', 'half-proficiency');
+    for (var y in halfprof2) {
+        var hfprof2 = halfprof2[y];
+        var type2 = hfprof2.subType;
+        if(type2 == "initiative") {
             halfProf = true;
             buildXML += "\t\t\t<initiative>\n";
             switch (totalLevels) {
@@ -1114,7 +1115,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         }
         
         buildXML += "\t\t\t\t<description type=\"formattedtext\">\n";
-		buildXML += "\t\t\t\t\t<p>" + item.definition.description.replace(/\<br\>/g, "<br />") + "</p>\n";
+		buildXML += "\t\t\t\t\t<p>" + item.definition.description.replace(/<br>/g, "<br />") + "</p>\n";
         buildXML += "\t\t\t\t</description>\n";
         thisWeaponName = item.definition.name.toLowerCase().replace(/ /g, "_").replace(/\,/g, "");
         if(simpleRangedWeapon.indexOf(thisWeaponName) != -1) {
@@ -2218,10 +2219,10 @@ function convert_case(str) {
 function remove_tags_traits(badString) {
     var tempString1 = badString.replace(/\&lt\;/g, "<").replace(/\&gt\;/g, ">");
     var tempString2 = tempString1.replace(/\&rsquo\;/g, "'").replace(/\&lsquo\;/g, "'").replace(/\&rdquo\;/g, "\"").replace(/\&ldquo\;/g, "\"");
-    var tempString3 = tempString2.replace(/\&\#34\;/g, "\"").replace(/\<br\>/g, "<br />").replace(/\&ndash\;/g, "-");
-    var tempString4 = tempString3.replace(/\<th style/g, "<td style").replace(/<\/th\>/g, "</td>").replace(/\<th rowspan/g, "<td rowspan").replace(/\<th colspan/g, "<td colspan").replace(/\<th\>/g, "<td>");
-    var tempString5 = tempString4.replace(/\<span\>/g, "").replace(/\<\/span\>/g, "").replace(/\<span style\=\"font-weight\:400\"\>/g, "");
-    var tempString6 = tempString5.replace(/\&nbsp\;/g, " ").replace(/\<br\>/g, "\n").replace(/\<h5\>/g, "<p><b>").replace(/\<\/h5\>/g, "</b></p>").replace(/\<span style\=\"color\:\#[a-zA-Z0-9]{3}\"\>/g, "").replace(/\<span style\=\"color\:\#[a-zA-Z0-9]{6}\"\>/g, "");
+    var tempString3 = tempString2.replace(/\&\#34\;/g, "\"").replace(/<br\>/g, "<br />").replace(/\&ndash\;/g, "-");
+    var tempString4 = tempString3.replace(/<th style/g, "<td style").replace(/<\/th\>/g, "</td>").replace(/<th rowspan/g, "<td rowspan").replace(/<th colspan/g, "<td colspan").replace(/<th\>/g, "<td>");
+    var tempString5 = tempString4.replace(/<span\>/g, "").replace(/<\/span\>/g, "").replace(/<span style\=\"font-weight\:400\"\>/g, "");
+    var tempString6 = tempString5.replace(/\&nbsp\;/g, " ").replace(/<br\>/g, "\n").replace(/<h5\>/g, "<p><b>").replace(/<\/h5\>/g, "</b></p>").replace(/<span style\=\"color\:\#[a-zA-Z0-9]{3}\"\>/g, "").replace(/<span style\=\"color\:\#[a-zA-Z0-9]{6}\"\>/g, "");
 
     return tempString6;
 }
@@ -2243,12 +2244,12 @@ function remove_tags_featureSubclass(badString) {
     var string01 = tempString2.substring(0, tableSubstring1);
     var string03 = tempString2.substring(tableSubstring2);
     var tableStringFull = tempString2.substring(tableSubstring1, tableSubstring2);
-    var string02 = tableStringFull.replace(/\<p\>/g, "").replace(/\<\/p\>/g, "").replace(/\<p style\=\"text-align\:left\"\>/g, "");
+    var string02 = tableStringFull.replace(/<p\>/g, "").replace(/<\/p\>/g, "").replace(/<p style\=\"text-align\:left\"\>/g, "");
     //var string02 = tableStringFull;
     var newFullString = string01 + string02 + string03;
-    var tempString3 = newFullString.replace(/\<th style/g, "<td style").replace(/<\/th\>/g, "</td>").replace(/\<th rowspan/g, "<td rowspan").replace(/\<th colspan/g, "<td colspan").replace(/\<th\>/g, "<td>");
-    var tempString4 = tempString3.replace(/\<span\>/g, "").replace(/\<\/span\>/g, "").replace(/\<span style\=\"font-weight\:400\"\>/g, "").replace(/\<span style\=\"color\:\#47d18c\"\>/g, "").replace(/\<span style\=\"color\:\#704cd9\"\>/g, "");
-    var tempString5 = tempString4.replace(/\&nbsp\;/g, " ").replace(/\<br\>/g, "\n").replace(/\<h5\>/g, "<p><b>").replace(/\<\/h5\>/g, "</b></p>").replace(/\<thead\>/g, "").replace(/\<\/thead\>/g, "").replace(/\<tbody\>/g, "").replace(/\<\/tbody\>/g, "");
+    var tempString3 = newFullString.replace(/<th style/g, "<td style").replace(/<\/th\>/g, "</td>").replace(/<th rowspan/g, "<td rowspan").replace(/<th colspan/g, "<td colspan").replace(/<th\>/g, "<td>");
+    var tempString4 = tempString3.replace(/<span\>/g, "").replace(/<\/span\>/g, "").replace(/<span style\=\"font-weight\:400\"\>/g, "").replace(/<span style\=\"color\:\#47d18c\"\>/g, "").replace(/<span style\=\"color\:\#704cd9\"\>/g, "");
+    var tempString5 = tempString4.replace(/\&nbsp\;/g, " ").replace(/<br\>/g, "\n").replace(/<h5\>/g, "<p><b>").replace(/<\/h5\>/g, "</b></p>").replace(/<thead\>/g, "").replace(/<\/thead\>/g, "").replace(/<tbody\>/g, "").replace(/<\/tbody\>/g, "");
     return tempString5;
 }
 
@@ -3246,7 +3247,7 @@ var multiWarn = (function () {
                 $('#MCwindow').jqxWindow('focus');
             }
         });
-    };
+    }
     return {
         config: {
             dragArea: null
@@ -3270,7 +3271,7 @@ var dispLinks = (function () {
                 $('#Linkwindow').jqxWindow('focus');
             }
         });
-    };
+    }
     return {
         config: {
             dragArea: null
@@ -3299,7 +3300,7 @@ var clLinks = (function () {
                 $('#CLwindow').jqxWindow('focus');
             }
         });
-    };
+    }
     return {
         config: {
             dragArea: null
@@ -3323,7 +3324,7 @@ var donateFGC = (function () {
                 $('#DONwindow').jqxWindow('focus');
             }
         });
-    };
+    }
     return {
         config: {
             dragArea: null
@@ -3333,3 +3334,23 @@ var donateFGC = (function () {
         }
     };
 } ());
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+Completed:
+Tiefling
+    Hellish Resistance
+
+
+
+
+
+
+
+
+
+
+
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
