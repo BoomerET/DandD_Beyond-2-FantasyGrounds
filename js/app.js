@@ -997,12 +997,64 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             });
             thisProperties = thisProperties.trim().slice(0, -1);
             buildXML += "\t\t\t\t<properties type=\"string\">" + thisProperties + "</properties>\n";
-            buildXML += "\t\t\t\t<bonus type=\"number\">0</bonus>\n";
+
+            
+
+            
+
+            // Get bonus for weapon, but this is only for Inventory, need to fix attacks
+            for(d = 0; d <= item.definition.grantedModifiers.length - 1; d++) {
+                if (item.definition.grantedModifiers[d].type == "bonus" && item.equipped == true) {
+                    if (item.isAttuned == true && item.definition.canAttune == true) {
+                        buildXML += "\t\t\t\t<bonus type=\"number\">" + item.definition.grantedModifiers[0].value + "</bonus>\n";
+                        //weaponBonus.push(item.definition.grantedModifiers[d].value);
+                    } else if (item.definition.canAttune == false) {
+                        buildXML += "\t\t\t\t<bonus type=\"number\">" + item.definition.grantedModifiers[0].value + "</bonus>\n";
+                        //weaponBonus.push(item.definition.grantedModifiers[d].value);
+                    }
+                }
+            }
+
 
             weaponID.push(i + 1);
             weaponName.push(item.definition.name);
             weaponProperties.push(thisProperties);
-            weaponBonus.push(0);
+            //weaponBonus.push(0);
+
+            curWeapBon = 0;
+
+            if (item.hasOwnProperty("canAttune")) {
+                if (item.isAttuned == true && item.definition.canAttune == true) {
+                    //buildXML += "\t\t\t\t<bonus type=\"number\">" + item.definition.grantedModifiers[0].value + "</bonus>\n";
+                    //weaponBonus.push(item.definition.grantedModifiers[d].value);
+                    for(d = 0; d <= item.definition.grantedModifiers.length - 1; d++) {
+                        curWeapBon = item.definition.grantedModifiers[d].value;
+                    }
+                }
+            } else {
+                for(e = 0; e <= item.definition.grantedModifiers.length - 1; e++) {
+                    curWeapBon = item.definition.grantedModifiers[e].value;
+                }
+            }
+
+            //for(d = 0; d <= item.definition.grantedModifiers.length - 1; d++) {
+            //    if (item.definition.grantedModifiers[d].type == "bonus" && item.equipped == true) {
+            //        if (item.hasOwnProperty("canAttune"))
+            //        if (item.isAttuned == true && item.definition.canAttune == true) {
+            //            //buildXML += "\t\t\t\t<bonus type=\"number\">" + item.definition.grantedModifiers[0].value + "</bonus>\n";
+            //            //weaponBonus.push(item.definition.grantedModifiers[d].value);
+            //            curWeapBon = item.definition.grantedModifiers[d].value
+            //        } else if (canAttune == false) {
+            //            //buildXML += "\t\t\t\t<bonus type=\"number\">" + item.definition.grantedModifiers[0].value + "</bonus>\n";
+            //            //weaponBonus.push(item.definition.grantedModifiers[d].value);
+            //            curWeapBon = item.definition.grantedModifiers[d].value
+            //        }
+            //    }
+            //}
+            //console.log(item.definition.name + ": " + curWeapBon);
+            weaponBonus.push(curWeapBon);
+
+
             if(item.definition.damage != null) {
                 weaponDice.push("d" + item.definition.damage.diceValue);
             } else {
@@ -1066,6 +1118,8 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     }
                 });
             } else {
+                // This item has weapon properties, but the length is 0
+                //console.log(item.definition.name);
                 if (item.definition.hasOwnProperty("grantedModifiers")) {
                     if (item.definition.grantedModifiers.length > 0) {
                         //console.log(item.definition.name);
@@ -1202,7 +1256,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         buildXML += "\t\t\t\t\t</id-00001>\n";
 
         buildXML += "\t\t\t\t</damagelist>\n";
-        buildXML += "\t\t\t\t\t\t<attackbonus type=\"number\">" + weaponBonus[x] + "</attackbonus>\n";
+        buildXML += "\t\t\t\t<attackbonus type=\"number\">" + weaponBonus[x] + "</attackbonus>\n";
         // 0: Melee, 1: Ranged, 2: Thrown
         if(weaponProperties[x].match(/Thrown/)) {
             buildXML += "\t\t\t\t<type type=\"number\">2</type>\n";
