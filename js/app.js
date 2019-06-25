@@ -214,7 +214,7 @@ $(function() {
     $("#dlChar").jqxButton({ width: '120px', height: '35px', theme: 'darkblue' });
     $("#resetChar").jqxButton({ width: '120px', height: '35px', theme: 'darkblue' });
     // COMMENT OUT THE FOLLOWING LINE WHEN PUSHING TO PRODUCTION
-    //$("#popCharID").jqxDropDownList({ source: source, placeHolder: "Select Item", width: 250, height: 35, theme: "darkblue"});
+    $("#popCharID").jqxDropDownList({ source: source, placeHolder: "Select Item", width: 250, height: 35, theme: "darkblue"});
     // COMMENT OUT THE ABOVE LINE WHEN PUSHING TO PRODUCTION
     $("#jqxMenu").jqxMenu({ width: 95, height: '145px', mode: "vertical", theme: 'darkblue'});
     $("#jqxMenu").css('visibility', 'visible');
@@ -1939,7 +1939,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             }
         } else if (isCleric == 1) {
             // Cleric domains:
-            // Arcana, Death, Forge, Grave, Knowledge, Life, Light, Nature, Tempest, Trickery, War
+            // Arcana, Death, Forge, Grave, Knowledge, Life, Light, Nature, Order, Tempest, Trickery, War
             if (levelCleric >= 2) {
                 thisIteration = pad(totalSpells + 1, 5);
                 totalSpells += 1;
@@ -1957,8 +1957,12 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
 
                 } else if (clericDomain.match(/Knowledge/)) {
 
-                } else if (clericDomain.match(/Live/)) {
-
+                } else if (clericDomain.match(/Life/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericPreserveLife;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 } else if (clericDomain.match(/Light/)) {
 
                 } else if (clericDomain.match(/Nature/)) {
@@ -1973,6 +1977,91 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                     buildXML += addClericArcaneAbjuration;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (clericDomain.match(/Tempest/)) {
+
+                } else if (clericDomain.match(/Trickery/)) {
+
+                } else if (clericDomain.match(/War/)) {
+
+                } 
+            }
+            if (levelCleric >= 6) {
+                if (clericDomain.match(/Arcana/)) {
+
+                } else if (clericDomain.match(/Death/)) {
+
+                } else if (clericDomain.match(/Forge/)) {
+
+                } else if (clericDomain.match(/Grave/)) {
+
+                } else if (clericDomain.match(/Knowledge/)) {
+
+                } else if (clericDomain.match(/Life/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericBlessedHealer;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (clericDomain.match(/Light/)) {
+
+                } else if (clericDomain.match(/Nature/)) {
+                
+                } else if (clericDomain.match(/Order/)) {
+
+                } else if (clericDomain.match(/Tempest/)) {
+
+                } else if (clericDomain.match(/Trickery/)) {
+
+                } else if (clericDomain.match(/War/)) {
+
+                } 
+            }
+            if (levelCleric >= 8) {
+                if (clericDomain.match(/Arcana/)) {
+
+                } else if (clericDomain.match(/Death/)) {
+
+                } else if (clericDomain.match(/Forge/)) {
+
+                } else if (clericDomain.match(/Grave/)) {
+
+                } else if (clericDomain.match(/Knowledge/)) {
+
+                } else if (clericDomain.match(/Life/)) {
+                
+                } else if (clericDomain.match(/Light/)) {
+
+                } else if (clericDomain.match(/Nature/)) {
+                
+                } else if (clericDomain.match(/Order/)) {
+
+                } else if (clericDomain.match(/Tempest/)) {
+
+                } else if (clericDomain.match(/Trickery/)) {
+
+                } else if (clericDomain.match(/War/)) {
+
+                } 
+            }
+            if (levelCleric >= 17) {
+                if (clericDomain.match(/Arcana/)) {
+
+                } else if (clericDomain.match(/Death/)) {
+
+                } else if (clericDomain.match(/Forge/)) {
+
+                } else if (clericDomain.match(/Grave/)) {
+
+                } else if (clericDomain.match(/Knowledge/)) {
+
+                } else if (clericDomain.match(/Life/)) {
+                    
+                } else if (clericDomain.match(/Light/)) {
+
+                } else if (clericDomain.match(/Nature/)) {
+                
+                } else if (clericDomain.match(/Order/)) {
+
                 } else if (clericDomain.match(/Tempest/)) {
 
                 } else if (clericDomain.match(/Trickery/)) {
@@ -3267,6 +3356,44 @@ addClericPreserveLife = " \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Preserve Life</name>\n \
 <prepared type=\"number\">20</prepared>\n \
+<specialization type=\"string\">Life Domain</specialization>\n";
+
+
+addClericBlessedHealer=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">3</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t</id-00001>\n \
+\t\t</heallist>\n \
+\t\t<healtargeting type=\"string\">self</healtargeting>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">4</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t</id-00001>\n \
+\t\t</heallist>\n \
+\t\t<healtargeting type=\"string\">self</healtargeting>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+\t<description type=\"formattedtext\">\n \
+\t\t<p>Beginning at 6th level, the healing spells you cast on others heal you as well. When you cast a spell of 1st level or higher that restores hit points to a creature other than you, you regain hit points equal to 2 + the spell's level.</p>\n \
+\t</description>\n \
+<group type=\"string\">Life Domain</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Blessed Healer</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
 <specialization type=\"string\">Life Domain</specialization>\n";
 
 var multiWarn = (function () {
