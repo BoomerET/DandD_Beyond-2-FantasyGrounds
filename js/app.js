@@ -30,7 +30,7 @@ startXML += "\t<character>\n";
 var endXML = "\t</character>\n</root>\n";
 var allXML = "";
 
-payFlag = 0;
+payFlag = 1;
 
 var pcFilename = "";
 var addHP = 0;
@@ -214,7 +214,7 @@ $(function() {
     $("#dlChar").jqxButton({ width: '120px', height: '35px', theme: 'darkblue' });
     $("#resetChar").jqxButton({ width: '120px', height: '35px', theme: 'darkblue' });
     // COMMENT OUT THE FOLLOWING LINE WHEN PUSHING TO PRODUCTION
-    $("#popCharID").jqxDropDownList({ source: source, placeHolder: "Select Item", width: 250, height: 35, theme: "darkblue"});
+    //$("#popCharID").jqxDropDownList({ source: source, placeHolder: "Select Item", width: 250, height: 35, theme: "darkblue"});
     // COMMENT OUT THE ABOVE LINE WHEN PUSHING TO PRODUCTION
     $("#jqxMenu").jqxMenu({ width: 95, height: '145px', mode: "vertical", theme: 'darkblue'});
     $("#jqxMenu").css('visibility', 'visible');
