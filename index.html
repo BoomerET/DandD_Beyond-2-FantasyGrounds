@@ -7,12 +7,14 @@
         <link rel="stylesheet" type="text/css" href="css/styles/jqx.base.css">
         <link rel="stylesheet" type="text/css" href="css/styles/jqx.darkblue.css">
         <link rel="stylesheet" type="text/css" href="css/app.css">
-        <title>Fantasy Grounds FTW</title>
+        <!--<title>Fantasy Grounds FTW</title>-->
+        <title>Prodtest2 NRPE testing</title>
     </head>
     <body class="default">
       <div class="container">
         <div id="header">
-          D&amp;D Beyond to Fantasy Grounds Character Converter
+          <!-- D&amp;D Beyond to Fantasy Grounds Character Converter -->
+          <center>ProdTest2 Testing NRPE vs NSCA</center>
         </div>
         <div id='jqxMenu' style='visibility: hidden; margin-left: 5px;'>
           <ul>
@@ -39,7 +41,7 @@ Find the Character ID. In the above example it's <b>8675309</b>.
 Paste this ID in the 'Character ID' text box and click 'Get Character Data'.
 It will take a short while in order for the data to populate.
 Click the 'Download XML' button to save the character to your computer.</pre></b>
-        <b>Character ID:&nbsp;&nbsp;<input type="text" id="getcharID">&nbsp;&nbsp;<button id="grabChar">Get Character Data</button></b><br />
+        <b>Character ID:&nbsp;&nbsp;<input type="text" id="getcharID">&nbsp;&nbsp;<button id="grabChar">Get Character Data</button><button id="popCharID">Choose</button></b><br />
         <br />
         <textarea id="textHere"></textarea><br />
         <button id="dlChar">Download XML</button>&nbsp;&nbsp;<button id="resetChar">Reset ALL</button><br /><br />
@@ -162,6 +164,8 @@ This project would never have started were it not for them. <br />They do great 
     <script src="js/jqxwindow.js"></script>
     <script src="js/jqxscrollbar.js"></script>
     <script src="js/jqxmenu.js"></script>
+    <script src="js/jqxdropdownlist.js"></script>
+    <script src="js/jqxlistbox.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/app.js"></script>
 </html>

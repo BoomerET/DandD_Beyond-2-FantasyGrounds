@@ -20,8 +20,8 @@
 
 #popCharID {
     position: relative;
-    top: -55px;
-    left: 450px;
+    top: 11px;
+    left: 18px;
 }
 
 #jqxWidget {
@@ -31,16 +31,16 @@
 }
 
 body {
-    /* background-color: rgb(43, 226, 134); */
-    background-image: url("../images/consequences-16-8_70.jpg");
+    background-color: rgb(43, 226, 134);
+    /* background-image: url("../images/consequences-16-8_70.jpg"); */
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #popCharID {
     position: relative;
-    top: -35px;
-    left: 550px;
+    top: 11px;
+    left: 18px;
 }
 
 footer {

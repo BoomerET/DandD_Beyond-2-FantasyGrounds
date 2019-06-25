@@ -59,7 +59,12 @@ var source = [
     "Baradun(1215852)",
     "GuyWithNet(5054951)",
     "Arlo(7494686)",
-    "ReallyBasic(7748765)"
+    "ReallyBasic(7748765)",
+    "ElfRanger16(2343099)",
+    "GnomeRogue16(2364733)",
+    "TabaxiBarbarian10(2623686)",
+    "AasimarCleric16(7782019)",
+    "Sorcerer15(7413127)"
 ];
 
 var totalClasses = 0;
@@ -208,7 +213,9 @@ $(function() {
     //$("#getcharID").val("7920872");
     $("#dlChar").jqxButton({ width: '120px', height: '35px', theme: 'darkblue' });
     $("#resetChar").jqxButton({ width: '120px', height: '35px', theme: 'darkblue' });
-    //$("#popCharID").jqxDropDownList({ source: source, placeHolder: "Select Item", width: 250, height: 35, theme: "darkblue"});
+    // COMMENT OUT THE FOLLOWING LINE WHEN PUSHING TO PRODUCTION
+    $("#popCharID").jqxDropDownList({ source: source, placeHolder: "Select Item", width: 250, height: 35, theme: "darkblue"});
+    // COMMENT OUT THE ABOVE LINE WHEN PUSHING TO PRODUCTION
     $("#jqxMenu").jqxMenu({ width: 95, height: '145px', mode: "vertical", theme: 'darkblue'});
     $("#jqxMenu").css('visibility', 'visible');
 
@@ -998,23 +1005,16 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             thisProperties = thisProperties.trim().slice(0, -1);
             buildXML += "\t\t\t\t<properties type=\"string\">" + thisProperties + "</properties>\n";
 
-            
-
-            
-
             // Get bonus for weapon, but this is only for Inventory, need to fix attacks
             for(d = 0; d <= item.definition.grantedModifiers.length - 1; d++) {
                 if (item.definition.grantedModifiers[d].type == "bonus" && item.equipped == true) {
                     if (item.isAttuned == true && item.definition.canAttune == true) {
                         buildXML += "\t\t\t\t<bonus type=\"number\">" + item.definition.grantedModifiers[0].value + "</bonus>\n";
-                        //weaponBonus.push(item.definition.grantedModifiers[d].value);
                     } else if (item.definition.canAttune == false) {
                         buildXML += "\t\t\t\t<bonus type=\"number\">" + item.definition.grantedModifiers[0].value + "</bonus>\n";
-                        //weaponBonus.push(item.definition.grantedModifiers[d].value);
                     }
                 }
             }
-
 
             weaponID.push(i + 1);
             weaponName.push(item.definition.name);
