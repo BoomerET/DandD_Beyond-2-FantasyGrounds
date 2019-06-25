@@ -2792,23 +2792,23 @@ addBarbarianDangerSense = " \
 
 addBarbarianWolfTotemSpirit = " \
 <actions>\n \
-<id-00001>\n \
-<durmod type=\"number\">1</durmod>\n \
-<durunit type=\"string\">minute</durunit>\n \
-<label type=\"string\">Rage Wolf; ADVATK: melee</label>\n \
-<order type=\"number\">3</order>\n \
-<type type=\"string\">effect</type>\n \
-</id-00001>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">minute</durunit>\n \
+\t\t<label type=\"string\">Rage Wolf; ADVATK: melee</label>\n \
+\t\t<order type=\"number\">3</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
 </actions>\n \
 <cast type=\"number\">0</cast>\n \
 <description type=\"formattedtext\">\n \
-<p>At 3rd level, when you adopt this path, you choose a totem spirit and gain its feature. You must make or acquire a physical totem object- an amulet or similar adornment-that incorporates fur or feathers, claws, teeth, or bones of the totem animal. At your option, you also gain minor physical attributes that are reminiscent of your totem spirit. For example, if you have a bear totem spirit, you might be unusually hairy and thick&#62;skinned, or if your totem is the eagle, your eyes turn bright yellow.</p>\n \
-<p>Your totem animal might be an animal related to those listed here but more appropriate to your homeland. For example, you could choose a hawk or vulture in place of an eagle.</p>\n \
-<p><b>Bear. </b>While raging, you have resistance to all damage except psychic damage. The spirit of the bear makes you tough enough to stand up to any punishment.</p>\n \
-<p><b>Eagle. </b>While you're raging and aren't wearing heavy armor, other creatures have disadvantage on opportunity attack rolls against you, and you can the Dash action as a bonus action on your turn. The spirit of the eagle makes you into a predator who can weave through the fray with ease.</p>\n \
-<p><b>Wolf. </b>While you're raging, your friends have advantage on melee attack rolls against any hostile creature within 5 feet of you. The spirit of the wolf makes you a leader of hunters.</p>\n \
+\t<p>At 3rd level, when you adopt this path, you choose a totem spirit and gain its feature. You must make or acquire a physical totem object- an amulet or similar adornment-that incorporates fur or feathers, claws, teeth, or bones of the totem animal. At your option, you also gain minor physical attributes that are reminiscent of your totem spirit. For example, if you have a bear totem spirit, you might be unusually hairy and thick&#62;skinned, or if your totem is the eagle, your eyes turn bright yellow.</p>\n \
+\t<p>Your totem animal might be an animal related to those listed here but more appropriate to your homeland. For example, you could choose a hawk or vulture in place of an eagle.</p>\n \
+\t<p><b>Bear. </b>While raging, you have resistance to all damage except psychic damage. The spirit of the bear makes you tough enough to stand up to any punishment.</p>\n \
+\t<p><b>Eagle. </b>While you're raging and aren't wearing heavy armor, other creatures have disadvantage on opportunity attack rolls against you, and you can the Dash action as a bonus action on your turn. The spirit of the eagle makes you into a predator who can weave through the fray with ease.</p>\n \
+\t<p><b>Wolf. </b>While you're raging, your friends have advantage on melee attack rolls against any hostile creature within 5 feet of you. The spirit of the wolf makes you a leader of hunters.</p>\n \
 </description>\n \
-\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Totem Spirit (Wolf)</name>\n \
@@ -2818,24 +2818,24 @@ addBarbarianWolfTotemSpirit = " \
 
 addBarbarianEagleTotemSpirit = " \
 <actions>\n \
-<id-00001>\n \
-<durmod type=\"number\">1</durmod>\n \
-<durunit type=\"string\">minute</durunit>\n \
-<label type=\"string\">Rage Eagle; ADVCHK: strength; ADVSAV: strength; DMG: 4, melee; GRANTDISATK: opportunity; RESIST: bludgeoning, piercing, slashing</label>\n \
-<order type=\"number\">2</order>\n \
-<targeting type=\"string\">self</targeting>\n \
-<type type=\"string\">effect</type>\n \
-</id-00001>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">minute</durunit>\n \
+\t\t<label type=\"string\">Rage Eagle; ADVCHK: strength; ADVSAV: strength; DMG: 4, melee; GRANTDISATK: opportunity; RESIST: bludgeoning, piercing, slashing</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
 </actions>\n \
 <cast type=\"number\">0</cast>\n \
 <description type=\"formattedtext\">\n \
-<p>At 3rd level, when you adopt this path, you choose a totem spirit and gain its feature. You must make or acquire a physical totem object- an amulet or similar adornment-that incorporates fur or feathers, claws, teeth, or bones of the totem animal. At your option, you also gain minor physical attributes that are reminiscent of your totem spirit. For example, if you have a bear totem spirit, you might be unusually hairy and thick&#62;skinned, or if your totem is the eagle, your eyes turn bright yellow.</p>\n \
-<p>Your totem animal might be an animal related to those listed here but more appropriate to your homeland. For example, you could choose a hawk or vulture in place of an eagle.</p>\n \
-<p><b>Bear. </b>While raging, you have resistance to all damage except psychic damage. The spirit of the bear makes you tough enough to stand up to any punishment.</p>\n \
-<p><b>Eagle. </b>While you're raging and aren't wearing heavy armor, other creatures have disadvantage on opportunity attack rolls against you, and you can the Dash action as a bonus action on your turn. The spirit of the eagle makes you into a predator who can weave through the fray with ease.</p>\n \
-<p><b>Wolf. </b>While you're raging, your friends have advantage on melee attack rolls against any hostile creature within 5 feet of you. The spirit of the wolf makes you a leader of hunters.</p>\n \
+\t<p>At 3rd level, when you adopt this path, you choose a totem spirit and gain its feature. You must make or acquire a physical totem object- an amulet or similar adornment-that incorporates fur or feathers, claws, teeth, or bones of the totem animal. At your option, you also gain minor physical attributes that are reminiscent of your totem spirit. For example, if you have a bear totem spirit, you might be unusually hairy and thick&#62;skinned, or if your totem is the eagle, your eyes turn bright yellow.</p>\n \
+\t<p>Your totem animal might be an animal related to those listed here but more appropriate to your homeland. For example, you could choose a hawk or vulture in place of an eagle.</p>\n \
+\t<p><b>Bear. </b>While raging, you have resistance to all damage except psychic damage. The spirit of the bear makes you tough enough to stand up to any punishment.</p>\n \
+\t<p><b>Eagle. </b>While you're raging and aren't wearing heavy armor, other creatures have disadvantage on opportunity attack rolls against you, and you can the Dash action as a bonus action on your turn. The spirit of the eagle makes you into a predator who can weave through the fray with ease.</p>\n \
+\t<p><b>Wolf. </b>While you're raging, your friends have advantage on melee attack rolls against any hostile creature within 5 feet of you. The spirit of the wolf makes you a leader of hunters.</p>\n \
 </description>\n \
-\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Totem Spirit (Eagle)</name>\n \
@@ -2845,24 +2845,24 @@ addBarbarianEagleTotemSpirit = " \
 
 addBarbarianBearTotemSpirit = " \
 <actions>\n \
-<id-00001>\n \
-<durmod type=\"number\">1</durmod>\n \
-<durunit type=\"string\">minute</durunit>\n \
-<label type=\"string\">Rage Bear; ADVCHK: strength; ADVSAV: strength; DMG: 4, melee; RESIST: all, !psychic</label>\n \
-<order type=\"number\">1</order>\n \
-<targeting type=\"string\">self</targeting>\n \
-<type type=\"string\">effect</type>\n \
-</id-00001>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">minute</durunit>\n \
+\t\t<label type=\"string\">Rage Bear; ADVCHK: strength; ADVSAV: strength; DMG: 4, melee; RESIST: all, !psychic</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
 </actions>\n \
 <cast type=\"number\">0</cast>\n \
 <description type=\"formattedtext\">\n \
-<p>At 3rd level, when you adopt this path, you choose a totem spirit and gain its feature. You must make or acquire a physical totem object- an amulet or similar adornment-that incorporates fur or feathers, claws, teeth, or bones of the totem animal. At your option, you also gain minor physical attributes that are reminiscent of your totem spirit. For example, if you have a bear totem spirit, you might be unusually hairy and thick&#62;skinned, or if your totem is the eagle, your eyes turn bright yellow.</p>\n \
-<p>Your totem animal might be an animal related to those listed here but more appropriate to your homeland. For example, you could choose a hawk or vulture in place of an eagle.</p>\n \
-<p><b>Bear. </b>While raging, you have resistance to all damage except psychic damage. The spirit of the bear makes you tough enough to stand up to any punishment.</p>\n \
-<p><b>Eagle. </b>While you're raging and aren't wearing heavy armor, other creatures have disadvantage on opportunity attack rolls against you, and you can the Dash action as a bonus action on your turn. The spirit of the eagle makes you into a predator who can weave through the fray with ease.</p>\n \
-<p><b>Wolf. </b>While you're raging, your friends have advantage on melee attack rolls against any hostile creature within 5 feet of you. The spirit of the wolf makes you a leader of hunters.</p>\n \
+\t<p>At 3rd level, when you adopt this path, you choose a totem spirit and gain its feature. You must make or acquire a physical totem object- an amulet or similar adornment-that incorporates fur or feathers, claws, teeth, or bones of the totem animal. At your option, you also gain minor physical attributes that are reminiscent of your totem spirit. For example, if you have a bear totem spirit, you might be unusually hairy and thick&#62;skinned, or if your totem is the eagle, your eyes turn bright yellow.</p>\n \
+\t<p>Your totem animal might be an animal related to those listed here but more appropriate to your homeland. For example, you could choose a hawk or vulture in place of an eagle.</p>\n \
+\t<p><b>Bear. </b>While raging, you have resistance to all damage except psychic damage. The spirit of the bear makes you tough enough to stand up to any punishment.</p>\n \
+\t<p><b>Eagle. </b>While you're raging and aren't wearing heavy armor, other creatures have disadvantage on opportunity attack rolls against you, and you can the Dash action as a bonus action on your turn. The spirit of the eagle makes you into a predator who can weave through the fray with ease.</p>\n \
+\t<p><b>Wolf. </b>While you're raging, your friends have advantage on melee attack rolls against any hostile creature within 5 feet of you. The spirit of the wolf makes you a leader of hunters.</p>\n \
 </description>\n \
-\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Totem Spirit (Bear)</name>\n \
@@ -2887,7 +2887,7 @@ addBarbarianWolfBeastAspect = " \
 <p><b>Eagle. </b>You gain the eyesight of an eagle. You can see up to 1 mile away with no difficulty, able to discern even fine details as though looking at something no more than 100 feet away from you. Additionally, dim light doesn't impose disadvantage on your Wisdom (Perception) checks.</p>\n \
 <p><b>Wolf. </b>You gain the hunting sensibilities of a wolf. You can track other creatures while traveling at a fast pace, and you can move stealthily while traveling at a normal pace (see chapter 8 for rules on travel pace).</p>\n \
 </description>\n \
-\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Aspect of the Beast (Wolf)</name>\n \
@@ -2914,7 +2914,7 @@ addBarbarianEagleBeastAspect = " \
 <p><b>Eagle. </b>You gain the eyesight of an eagle. You can see up to 1 mile away with no difficulty, able to discern even fine details as though looking at something no more than 100 feet away from you. Additionally, dim light doesn't impose disadvantage on your Wisdom (Perception) checks.</p>\n \
 <p><b>Wolf. </b>You gain the hunting sensibilities of a wolf. You can track other creatures while traveling at a fast pace, and you can move stealthily while traveling at a normal pace (see chapter 8 for rules on travel pace).</p>\n \
 </description>\n \
-\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Aspect of the Beast (Eagle)</name>\n \
@@ -2941,7 +2941,7 @@ addBarbarianBearBeastAspect = " \
 <p><b>Eagle. </b>You gain the eyesight of an eagle. You can see up to 1 mile away with no difficulty, able to discern even fine details as though looking at something no more than 100 feet away from you. Additionally, dim light doesn't impose disadvantage on your Wisdom (Perception) checks.</p>\n \
 <p><b>Wolf. </b>You gain the hunting sensibilities of a wolf. You can track other creatures while traveling at a fast pace, and you can move stealthily while traveling at a normal pace (see chapter 8 for rules on travel pace).</p>\n \
 </description>\n \
-\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Aspect of the Beast (Bear)</name>\n \
@@ -2965,7 +2965,7 @@ addBarbarianRecklessAttack = " \
 <description type=\"formattedtext\">\n \
 <p>Starting at 2nd level, you can draw on your reserve of rage to throw aside all concern for defense and attack with fierce desperation. When you do so, you have advantage on melee weapon attack rolls using Strength during your turn, but attack rolls against you have advantage until your next turn.</p>\n \
 </description>\n \
-\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Reckless Attack</name>\n \
@@ -2988,7 +2988,7 @@ addBarbarianFeralInstinct = " \
 <p>By 7th level, your instincts are so honed that you have advantage on initiative rolls.</p>\n \
 <p>Additionally, if you are surprised at the beginning of combat and aren't incapacitated, you can act normally on your first turn, but only if you enter your rage on that turn.</p>\n \
 </description>\n \
-\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Feral Instinct</name>\n \
@@ -3011,7 +3011,7 @@ addBarbarianBrutalCritical = " \
 <p>Beginning at 9th level, you can roll one additional weapon damage die when determining the extra damage for a critical hit with a melee attack.</p>\n \
 <p>This increases to two additional dice at 13th level and three additional dice at 17th level.</p>\n \
 </description>\n \
-\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Brutal Critical</name>\n \
@@ -3033,7 +3033,7 @@ addBarbarianRelentlessRage = " \
 <p>Starting at 11th level, your rage can keep you fighting despite grievous wounds. If you drop to 0 hit points while you're raging and don't die outright, you can make a DC 10 Constitution saving throw. If you succeed, you drop to 1 hit point instead.</p>\n \
 <p>Each time you use this feature after the first, the DC increases by 5. When you finish a short or long rest, the DC resets to 10.</p>\n \
 </description>\n \
-\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Relentless Rage</name>\n \
@@ -3058,7 +3058,7 @@ addBarbarianTotemicAttunement = " \
 <p><b>Eagle. </b>While raging, you have a fly speed equal to your current speed. This benefit works only in short bursts; you fall if you end your turn in the air and nothing else is holding you aloft.</p>\n \
 <p><b>Wolf. </b>While you're raging, you can use a bonus action on your turn to knock a Large or smaller creature prone when you hit it with melee weapon attack.</p>\n \
 </description>\n \
-\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Totemic Attunement (Bear)</name>\n \
@@ -3081,7 +3081,7 @@ addBarbarianMindlessRage = " \
 <description type=\"formattedtext\">\n \
 <p>Beginning at 6th level, you cannot be charmed or frightened while raging. If you are charmed or frightened when you enter your rage, the effect is suspended for the duration of the rage.</p>\n \
 </description>\n \
-\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Mindless Rage</name>\n \
@@ -3114,7 +3114,7 @@ addBarbarianIntimidatingPresence = " \
 <p>Beginning at 10th level, you can use your action to roar frighteningly at someone. When you do so, choose one creature that you can see within 30 feet of you. If the creature can see or hear you, it must succeed on a Wisdom saving throw (DC equal to 8 + your proficiency bonus + your Charisma modifier) or be frightened of you until the end of your next turn. On subsequent turns, you can use your action to extend the duration of this effect on the frightened creature until the end of your next turn. This effect ends if the creature ends it turn out of line of sight or more than 60 feet away from you.</p>\n \
 <p>If the creature succeeds on its saving throw, you can't use this feature on that creature again for 24 hours.</p>\n \
 </description>\n \
-\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Intimidating Presence</name>\n \
@@ -3148,7 +3148,7 @@ addBardJackOfAllTrades = " \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Jack of All Trades</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<group type=\"string\">Class Features</group>\n \
 <source type=\"string\">Bard</source>\n";
 
 addBardicInspiration = " \
@@ -3170,7 +3170,7 @@ addBardicInspiration = " \
 </description>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
-\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<group type=\"string\">Class Features</group>\n \
 <name type=\"string\">Bardic Inspiration</name>\n";
 
 addBardSongOfRest = " \
@@ -3195,7 +3195,7 @@ addBardSongOfRest = " \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Song of Rest</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<group type=\"string\">Class Features</group>\n \
 <source type=\"string\">Bard</source>\n";
 
 addBardCountercharm = " \
@@ -3215,7 +3215,7 @@ addBardCountercharm = " \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Countercharm</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<group type=\"string\">Class Features</group>\n \
 <source type=\"string\">Bard</source>\n";
 
 addClericTurnUndead = " \
@@ -3243,7 +3243,7 @@ addClericTurnUndead = " \
 <p>As an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage.</p>\n \
 <p>A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the Dodge action.</p>\n \
 </description>\n \
-\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<group type=\"string\">Class Features</group>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Turn Undead</name>\n \
 <prepared type=\"number\">0</prepared>\n \
@@ -3300,7 +3300,7 @@ addClericArcaneAbjuration = " \
 </tr>\n \
 </table>\n \
 </description>\n \
-\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<group type=\"string\">Class Features</group>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Arcane Abjuration</name>\n \
 <prepared type=\"number\">0</prepared>\n \
@@ -3328,7 +3328,7 @@ addClericCharmAnimals = " \
 <p>Starting at 2nd level, you can use your Channel Divinity to charm animals and plants.</p>\n \
 <p>As an action, you present your holy symbol and invoke the name of your deity. Each beast or plant creature that can see you within 30 feet of you must make a Wisdom saying throw. If the creature fails its saving throw, it is charmed by you for 1 minute or until it takes damage. While it is charmed by you, it is friendly to you and other creatures you designate,</p>\n \
 </description>\n \
-\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<group type=\"string\">Class Features</group>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Channel Divinity: Charm Animals And Plants</name>\n \
 <prepared type=\"number\">0</prepared>\n \
@@ -3352,7 +3352,7 @@ addClericPreserveLife = " \
 <p>Starting at 2nd level, you can use your Channel Divinity to heal the badly injured.</p>\n \
 <p>As an action, you present your holy symbol and evoke healing energy that can restore a number of hit points equal to five times your cleric level. Choose any creatures within 30 feet of you, and divide those hit points among them. This feature can restore a creature to no more than half of its hit point maximum. You can't use this feature on an undead or a construct.</p>\n \
 </description>\n \
-\t\t\t\t<group type=\"string\">Class Features</group>\n \
+<group type=\"string\">Class Features</group>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Preserve Life</name>\n \
 <prepared type=\"number\">20</prepared>\n \
@@ -3388,13 +3388,179 @@ addClericBlessedHealer=" \
 \t<description type=\"formattedtext\">\n \
 \t\t<p>Beginning at 6th level, the healing spells you cast on others heal you as well. When you cast a spell of 1st level or higher that restores hit points to a creature other than you, you regain hit points equal to 2 + the spell's level.</p>\n \
 \t</description>\n \
-<group type=\"string\">Life Domain</group>\n \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Blessed Healer</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
 <specialization type=\"string\">Life Domain</specialization>\n";
+
+addClericCureWoundsSupreme=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">8</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t\t<stat type=\"string\">wisdom</stat>\n \
+\t\t\t</id-00001>\n \
+\t\t</heallist>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<castingtime type=\"string\">1 action</castingtime>\n \
+<components type=\"string\">V, S</components>\n \
+<description type=\"formattedtext\">\n \
+\t<p>A creature you touch regains a number of hit points equal to 1d8 + your spellcasting ability modifier. This spell has no effect on undead or constructs.</p>\n \
+\t<p><b>At Higher Levels. </b>When you cast this spell using a spell slot of 2nd level or higher, the healing increases by 1d8 for each slot level above 1st.</p>\n \
+</description>\n \
+<duration type=\"string\">Instantaneous</duration>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">1</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Cure Wounds (Supreme Heal)</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<range type=\"string\">Touch</range>\n \
+<school type=\"string\">Evocation</school>\n \
+<source type=\"string\">Bard, Cleric, Cleric Life Domain, Druid, Paladin, Ranger</source>\n";
+
+addClericCureWoundsLife=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">3</bonus>\n \
+\t\t\t\t<dice type=\"dice\">d8</dice>\n \
+\t\t\t\t<stat type=\"string\">base</stat>\n \
+\t\t\t</id-00001>\n \
+\t\t</heallist>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<castingtime type=\"string\">1 action</castingtime>\n \
+<components type=\"string\">V, S</components>\n \
+<description type=\"formattedtext\">\n \
+\t<p>A creature you touch regains a number of hit points equal to 1d8 + your spellcasting ability modifier. This spell has no effect on undead or constructs.</p>\n \
+\t<p><b>At Higher Levels. </b>When you cast this spell using a spell slot of 2nd level or higher, the healing increases by 1d8 for each slot level above 1st.</p>\n \
+</description>\n \
+<duration type=\"string\">Instantaneous</duration>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">1</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Cure Wounds (Disciple of Life)</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<range type=\"string\">Touch</range>\n \
+<school type=\"string\">Evocation</school>\n \
+<source type=\"string\">Bard, Cleric, Cleric Life Domain, Druid, Paladin, Ranger</source>\n";
+
+addClericWardingFlare=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">DISATK:</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Also at 1st level, you can interpose divine light between yourself and an attacking enemy. When you are attacked a creature within 30 feet of you that you can see, you can use your reaction to impose disadvantage on the attack roll, causing light to flare before the attacker before it hits or misses. An attacker that can't be blinded is immune to this feature.</p>\n \
+\t<p>You can use this feature a number of times equal to your Wisdom modifier (a minimum of once). You regain all expended uses when you finish a long rest.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Warding Flare</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Light Domain</specialization>\n";
+
+addClericRadianceOfDawn=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<onmissdamage type=\"string\">half</onmissdamage>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savetype type=\"string\">constitution</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<damagelist>\n \
+\t\t<id-00001>\n \
+\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t<dice type=\"dice\">d10,d10</dice>\n \
+\t\t\t<stat type=\"string\">cleric</stat>\n \
+\t\t\t<type type=\"string\">radiant</type>\n \
+\t\t</id-00001>\n \
+\t\t</damagelist>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">damage</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 2nd level, you can use your Channel Divinity so harness sunlight, banishing darkness and dealing additional damage to your foes.</p>\n \
+\t<p>As an action, you present your holy symbol, and any magical darkness within 30 feet of you is dispelled. Additionally each hostile creature within 30 feet of you must make a Constitution saving throw. A creature takes radiant damage equal to 2d10 + your cleric level on a failed saving throw, and half as much damage on a successful one. A creature that has total cover from you is not affected.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Channel Divinity: Radiance of the Dawn</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Light Domain</specialization>\n";
+
+addClericCoronaOfLight=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">minute</durunit>\n \
+\t\t<label type=\"string\">DISSAV: dexterity</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 17th level, you can use your action to activate in aura of sunlight that lasts for 1 minute or until you dismiss it using another action. You emit bright light in a 60-foot radius and dim light 30 feet beyond that. Your enemies in the bright light have disadvantage on saving throws against any spell that deals fire or radiant magic.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Corona of Light</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Light Domain</specialization>\n";
+
+addClericCharmAnimAndPlant=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<label type=\"string\">Charmed</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<atkmod type=\"number\">0</atkmod>\n \
+\t\t<atkprof type=\"number\">1</atkprof>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<savedcmod type=\"number\">0</savedcmod>\n \
+\t\t<savedcprof type=\"number\">1</savedcprof>\n \
+\t\t<savetype type=\"string\">wisdom</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 2nd level, you can use your Channel Divinity to charm animals and plants.</p>\n \
+\t<p>As an action, you present your holy symbol and invoke the name of your deity. Each beast or plant creature that can see you within 30 feet of you must make a Wisdom saying throw. If the creature fails its saving throw, it is charmed by you for 1 minute or until it takes damage. While it is charmed by you, it is friendly to you and other creatures you designate,</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Channel Divinity: Charm Animals And Plants</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Nature Domain</specialization>\n";
+
 
 var multiWarn = (function () {
     //Creating the demo window
