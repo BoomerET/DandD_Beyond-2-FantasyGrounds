@@ -3561,6 +3561,87 @@ addClericCharmAnimAndPlant=" \
 <prepared type=\"number\">0</prepared>\n \
 <specialization type=\"string\">Nature Domain</specialization>\n";
 
+addClericDampenElements=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">roll</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">RESIST: acid,cold,fire,lightning,thunder</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 6th level, when you or a creature within 30 feet of you takes acid, cold, fire, lightning, or thunder damage, you can use your reaction to grant resistance to the creature against that instance of the damage.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Dampen Elements</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Nature Domain</specialization>\n";
+
+addClericDivineStrike=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">roll</apply>\n \
+\t\t<label type=\"string\">DMG: 1d8</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack- to deal an extra 1d8 damage of the same type dealt by the weapon to the target. When you reach 14th level, the extra damage increases to 2d8.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Divine Strike</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">War Domain</specialization>\n";
+
+addClericWrathOfTheStorm=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<onmissdamage type=\"string\">half</onmissdamage>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savetype type=\"string\">dexterity</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<damagelist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\">d8,d8</dice>\n \
+\t\t\t\t<type type=\"string\">lightning</type>\n \
+\t\t\t</id-00001>\n \
+\t\t</damagelist>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">damage</type>\n \
+\t</id-00002>\n \
+\t<id-00003>\n \
+\t\t<damagelist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\">d8,d8</dice>\n \
+\t\t\t\t<type type=\"string\">thunder</type>\n \
+\t\t\t</id-00001>\n \
+\t\t</damagelist>\n \
+\t\t<order type=\"number\">3</order>\n \
+\t\t<type type=\"string\">damage</type>\n \
+\t</id-00003>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Also at 1st level, you can thunderously rebuke attackers. When a creature within 5 feet of you that you can see hits you with an attack. you can use your reaction to cause the creature to make a Dexterity saving throw. The creature takes 2d8 lightning or thunder damage (your choice) on a failed saving throw, and half as much damage on a successful one.</p>\n \
+\t<p>You can use this feature a number of times equal to your Wisdom modifier (a minimum of once). You regain all expended uses when you finish a long rest.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Wrath of the Storm</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<specialization type=\"string\">Tempest Domain</specialization>\n";
 
 var multiWarn = (function () {
     //Creating the demo window
