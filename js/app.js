@@ -3643,6 +3643,27 @@ addClericWrathOfTheStorm=" \
 <prepared type=\"number\">1</prepared>\n \
 <specialization type=\"string\">Tempest Domain</specialization>\n";
 
+addClericBlessingOfTheTrickster=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">hour</durunit>\n \
+\t\t<label type=\"string\">ADVSKILL:stealth</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting when you choose this domain at 1st level, you can use your action to touch a willing creature other than yourself to give it advantage on Dexterity (Stealth) checks. This blessing lasts for 1 hour or until you use this feature again.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Blessing of the Trickster</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Trickery Domain</specialization>\n";
+
+
 var multiWarn = (function () {
     //Creating the demo window
     function _createWindow() {
