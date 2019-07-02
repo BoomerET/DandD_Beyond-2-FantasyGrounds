@@ -1330,15 +1330,15 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     } else if (hasAppear == 2) {
         buildXML += "\t\t<appearance type=\"string\">Hair: " + fixQuote(character.hair) + "</appearance>\n";
     } else if (hasAppear == 3) {
-        buildXML += "\t\t<appearance type=\"string\">Eyes: " + fixQuote(character.eyes) + "\\nHair: " + fixQuote(character.hair) + "</appearance>\n";
+        buildXML += "\t\t<appearance type=\"string\">Eyes: " + fixQuote(character.eyes) + "\nHair: " + fixQuote(character.hair) + "</appearance>\n";
     } else if (hasAppear == 4) {
         buildXML += "\t\t<appearance type=\"string\">Skin: " + fixQuote(character.skin) + "</appearance>\n";
     } else if (hasAppear == 5) {
-        buildXML += "\t\t<appearance type=\"string\">Eyes: " + fixQuote(character.eyes) + "\\nSkin: " + fixQuote(character.skin) + "</appearance>\n";
+        buildXML += "\t\t<appearance type=\"string\">Eyes: " + fixQuote(character.eyes) + "\nSkin: " + fixQuote(character.skin) + "</appearance>\n";
     } else if (hasAppear == 6) {
-        buildXML += "\t\t<appearance type=\"string\">Hair: " + fixQuote(character.hair) + "\\nSkin: " + fixQuote(character.skin) + "</appearance>\n";
+        buildXML += "\t\t<appearance type=\"string\">Hair: " + fixQuote(character.hair) + "\nSkin: " + fixQuote(character.skin) + "</appearance>\n";
     } else if (hasAppear == 7) {
-        buildXML += "\t\t<appearance type=\"string\">Eyes: " + fixQuote(character.eyes) + "\\nHair: " + fixQuote(character.hair) + "\\nSkin: " + fixQuote(character.skin) + "</appearance>\n";
+        buildXML += "\t\t<appearance type=\"string\">Eyes: " + fixQuote(character.eyes) + "\nHair: " + fixQuote(character.hair) + "\nSkin: " + fixQuote(character.skin) + "</appearance>\n";
     }
 
     pactSlots = 0;
@@ -2714,28 +2714,6 @@ addTiefHellResist = " \
 \t\t\t\t<source type=\"string\">Tiefling</source>\n \
 \t\t\t\t<type type=\"string\">racial</type>\n";
 
-addMonkUnarmedStrike = " \
-\t\t\t\t<attackbonus type=\"number\">0</attackbonus> \
-\t\t\t\t<attackstat type=\"string\">dexterity</attackstat> \
-\t\t\t\t<carried type=\"number\">1</carried> \
-\t\t\t\t<damagelist> \
-\t\t\t\t<id-00001> \
-\t\t\t\t<bonus type=\"number\">0</bonus> \
-\t\t\t\t<dice type=\"dice\">d4</dice> \
-\t\t\t\t<stat type=\"string\">base</stat> \
-\t\t\t\t<statmult type=\"number\">1</statmult> \
-\t\t\t\t<type type=\"string\">bludgeoning</type> \
-\t\t\t\t</id-00001> \
-\t\t\t\t</damagelist> \
-\t\t\t\t<maxammo type=\"number\">0</maxammo> \
-\t\t\t\t<name type=\"string\">Unarmed Strike</name> \
-\t\t\t\t<prof type=\"number\">1</prof> \
-\t\t\t\t<shortcut type=\"windowreference\"> \
-\t\t\t\t<class></class> \
-\t\t\t\t<recordname></recordname> \
-\t\t\t\t</shortcut> \
-\t\t\t\t<type type=\"number\">0</type>\n";
-
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
 Start of Barbarian effects
@@ -3722,7 +3700,7 @@ addClericWarPriest=" \
 \t<p>From 1st level, your god delivers bolts of inspiration to you while you are engaged in battle. When you use the Attack action, you can make one weapon attack as a bonus action.</p>\n \
 \t<p>You can use this feature a number of times equal to your Wisdom modifier (a minimum of once). You regain all expended uses when you finish a long rest.</p>\n \
 </description>\n \
-<group type=\"string\">Class Features</group>\n \\n \
+<group type=\"string\">Class Features</group>\n \n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">War Priest</name>\n \
 <prepared type=\"number\">1</prepared>\n \
@@ -3782,6 +3760,1447 @@ addDruidLandStride=" \
 <prepared type=\"number\">0</prepared>\n \
 <source type=\"string\">Druid</source>\n \
 <specialization type=\"string\">Circle of the Land</specialization>\n";
+
+addDruidNaturalRecovery=" \
+<actions>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 2nd level, you can regain some of your magical energy by sitting in meditation and communing with nature. Once per day during a short rest, you choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your druid level (rounded up), and none of the slots can be 6th level or higher.</p>\n \
+\t<p>For example, when you area 4th-level druid, you can recover up to two levels worth of spell slots. You can recover either a 2nd-level spell slot or two 1st-level spell slots.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Natural Recovery</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<source type=\"string\">Druid</source>\n \
+<specialization type=\"string\">Circle of the Land</specialization>\n \
+<usesperiod type=\"string\">enc</usesperiod>\n";
+
+addDruidCircleOfLand=" \
+<actions>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 2nd level, you can regain some of your magical energy by sitting in meditation and communing with nature. Once per day during a short rest, you choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your druid level (rounded up), and none of the slots can be 6th level or higher.</p>\n \
+\t<p>For example, when you area 4th-level druid, you can recover up to two levels worth of spell slots. You can recover either a 2nd-level spell slot or two 1st-level spell slots.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Natural Recovery</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<source type=\"string\">Druid</source>\n \
+<specialization type=\"string\">Circle of the Land</specialization>\n \
+<usesperiod type=\"string\">enc</usesperiod>\n";
+
+addDruidNaturesSanctuary=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savetype type=\"string\">wisdom</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>When you reach 14th level, creatures of the natural world sense your connection to nature and become hesitant to attack you. When a beast or plant creature attacks you, that creature must make a Wisdom saving throw against your druid spell save DC. On a failed save, the creature must choose a different target, or the attack automatically misses. On a successful save, the creature is immune to this effect for 24 hours.</p>\n \
+\t<p>The creature is aware of this effect before it makes its attack against you.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Nature's Sanctuary</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Druid</source>\n \
+<specialization type=\"string\">Circle of the Land</specialization>\n";
+
+addDruidWildShape=" \
+<actions>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 2nd level, you can use your action to magically assume the shape of a beast. You can use this feature twice, and you regain expended uses when you finish a short or long rest.</p>\n \
+\t<p>Your druid level determines the beasts you can transform into, as shown in the Beast Shapes table. At 2nd level, for example, you can transform into any beast that has a Challenge Rating of 1/4 or lower that doesn't have a fly or swim speed.</p>\n \
+\t<p><b>Beast Shapes</b></p>\n \
+\t<table>\n \
+\t\t<tr>\n \
+\t\t\t<td><b>Level</b></td>\n \
+\t\t\t<td><b>Max. CR</b></td>\n \
+\t\t\t<td><b>Limitations</b></td>\n \
+\t\t\t<td><b>Example</b></td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td>2nd</td>\n \
+\t\t\t<td>1/4</td>\n \
+\t\t\t<td>No flying or swimming speed</td>\n \
+\t\t\t<td>Wolf</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td>4th</td>\n \
+\t\t\t<td>1/2</td>\n \
+\t\t\t<td>No fying speed</td>\n \
+\t\t\t<td>Crocodile</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td>8th</td>\n \
+\t\t\t<td>1</td>\n \
+\t\t\t<td>-</td>\n \
+\t\t\t<td>Giant eagle</td>\n \
+\t\t</tr>\n \
+\t</table>\n \
+\t<p>You can stay in a beast shape for a number of hours equal to half your druid level (rounded down). You then revert to your normal form unless you expend another use of this feature.</p>\n \
+\t<p>You can revert to your normal form earlier by using a bonus action on your turn. You automatically revert to your normal form if you fall unconscious, drop to 0 hit points, or die.</p>\n \
+\t<p>While you are transformed, the following rules apply:</p>\n \
+\t<list>\n \
+\t\t<li>Your game statistics are replaced by the statistics of the beast, but you retain your alignment and your Intelligence, Wisdom, and Charisma scores. You also retain all of your skill and saving throw proficiencies, in addition to gaining those of the creature. If both you and the creature have the same proficiency, use only the higher bonus.</li>\n \
+\t\t<li>When you transform, you assume the beast's hit points. When you revert to your normal form, you return to the number of hit points you had before you transformed. If you revert as a result of dropping to 0 hit points, however, any excess damage carries over to your normal form. For example, if you take 10 damage in animal form and have only 1 hit point left, you revert to your normal form and take 9 damage.</li>\n \
+\t\t<li>You can't cast spells, speak, or take any action that requires hands. Transforming doesn't break your concentration on a spell you've already cast, however, or prevent you from taking actions that are part of a spell you've already cast, such as call lightning.</li>\n \
+\t\t<li>You retain the benefit of any feature from your class, race, or other source and can use them if the new form is physically capable of doing so. However, you can't use any of your special senses, such as darkvision, unless your new form also has that sense.</li>\n \
+\t\t<li>You choose whether your equipment falls to the ground in your space, merges into your new form, or is worn by it. Worn equipment functions as normal, but the DM decides whether it is practical for the new form to wear a piece of equioment, based on the creature's shape or size. Your equipment doesn't change size or shape to match the new form, and any equipment that the new form can't wear must either fall to the ground or merge with it. Equipment that merges with the form has no effect until you leave the form.</li>\n \
+\t</list>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Wild Shape</name>\n \
+<prepared type=\"number\">2</prepared>\n \
+<source type=\"string\">Druid</source>\n \
+<usesperiod type=\"string\">enc</usesperiod>\n";
+
+addDruidNaturesWard=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">IMMUNE:poison; IMMUNE:poisoned; IFT:TYPE(elemental,fey);IMMUNE:charmed;IMMUNE:frightened</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+\t<id-00003>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Nature's Ward;IMMUNE: disease</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00003>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>When you reach 10th level, you can't be charmed or frightened by elementals or fey, and you are immune to poison and disease.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Nature's Ward</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Circle of the Land</specialization>\n";
+
+addDruidCombatWildShape=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\">d8</dice>\n \
+\t\t\t</id-00001>\n \
+\t\t</heallist>\n \
+\t\t<healtargeting type=\"string\">self</healtargeting>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\">d8,d8</dice>\n \
+\t\t\t</id-00001>\n \
+\t\t</heallist>\n \
+\t\t<healtargeting type=\"string\">self</healtargeting>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>When you choose this circle at 2nd level, you gain the ability to use Wild Shape on your turn as a bonus action, rather than as an action.</p>\n \
+\t<p>Additionally, while you are transformed by Wild Shape, you can use a bonus action to expend one spell slot to regain 1d8 hit points per level of the spell slot expended.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Combat Wild Shape</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Circle of the Moon</specialization>\n \
+<usesperiod type=\"string\">enc</usesperiod>\n";
+
+addDruidPrimalStrike=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">DMGTYPE:magic</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 6th level, your attacks in beast form count as being magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Primal Strike</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Circle of the Moon</specialization>\n";
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+End of Druid effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+Start of Fighter effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+addFighterActionSurge=" \
+<actions>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 2nd level, you can push yourself beyond your normal limits for a moment. On your turn, you can take one additional action on top of your regular action and a possible bonus action.</p>\n \
+\t<p>Once you use this feature, you must finish a short or long rest before you can use it again. Starting at 17th level, you can use it twice before a rest, but only once on the same turn.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Action Surge</name>\n \
+<prepared type=\"number\">2</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<source type=\"string\">Fighter</source>\n \
+<usesperiod type=\"string\">enc</usesperiod>\n";
+
+addFighterIndomitable=" \
+<actions>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Beginning at 9th level, you can reroll a saving throw that you fail. If you do so, you must use the new roll, and you can't use this feature again until you finish a long rest.</p>\n \
+\t<p>You can use this feature twice between long rests starting at 13th level and three times between long rests starting at 17th level.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Indomitable</name>\n \
+<prepared type=\"number\">4</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<source type=\"string\">Fighter</source>\n";
+
+addFighterSecondWind=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\">d10</dice>\n \
+\t\t\t\t<stat type=\"string\">fighter</stat>\n \
+\t\t\t</id-00001>\n \
+\t\t</heallist>\n \
+\t\t<healtargeting type=\"string\">self</healtargeting>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level.</p>\n \
+\t<p>Once you use this feature, you must finish a short or long rest before you can use it again.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Second Wind</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Fighter</source>\n \
+<usesperiod type=\"string\">enc</usesperiod>\n";
+
+addFighterRallyingCry=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t\t<stat type=\"string\">fighter</stat>\n \
+\t\t\t</id-00001>\n \
+\t\t</heallist>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>When you choose this archetype at 3rd level, you learn how to inspire your allies to fight on past their injuries.</p>\n \
+\t<p>When you use your Second Wind feature, you can choose up to three creatures within 60 feet of you that are allied with you. Each one regains hit points equal to your fighter level, provided that the creature can see or hear you.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Rallying Cry</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Purple Dragon Knight</specialization>\n \
+<usesperiod type=\"string\">enc</usesperiod>\n";
+
+addFighterRoyalEnvoy=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">SKILL:[PRF], persuasion</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>A Purple Dragon knight serves as an envoy of the Cormyrean crown. Knights of high standing are expected to conduct themselves with grace.</p>\n \
+\t<p>At 7th level, you gain proficiency in the Persuasion skill. If you are already proficient in it, you gain proficiency in one of the following skills of your choice: Animal Handling, Insight, Intimidation, or Performance.</p>\n \
+\t<p>Your proficiency bonus is doubled for any ability check you make that uses Persuasion. You receive this benefit regardless of the skill proficiency you gain from this feature.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Royal Envoy</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Purple Dragon Knight</specialization>\n";
+
+addFighterRemarkableAthlete=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">CHECK:[HPRF], strength; CHECK:[HPRF],dexterity; CHECK:[HPRF],constitution</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">INIT:[HPRF]</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 7th level, you can add half your proficiency bonus (round up) to any Strength, Dexterity, or Constitution check you make that doesn't already use your proficiency bonus.</p>\n \
+\t<p>In addition, when you make a running long jump, the distance you can cover increases by a number of feet equal to your Strength modifier.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Remarkable Athlete</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Champion</specialization>\n";
+
+addFighterSurvivor=" \
+<actions>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">IF:Bloodied; REGEN:5 [CON]</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 18th level, you attain the pinnacle of resilience in battle. At the start of each of your turns, you regain hit points equal to 5 + your Constitution modifier if you have no more than half of your hit points left. You don't gain this benefit if you have 0 hit points.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Survivor</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Champion</specialization>\n";
+
+addFighterCombatSuperiority=" \
+<actions>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>When you choose this archetype at 3rd level, you learn maneuvers that are fueled by special dice called superiority dice.</p>\n \
+\t<p><b>Maneuvers. </b>You learn three maneuvers of your choice, which are detailed under &#34;Maneuvers&#34; below. Many maneuvers enhance an attack in some way. You can use only one maneuver per attack.</p>\n \
+\t<p>You learn two additional maneuvers of your choice at 7th, 10th, and 15th level. Each time you learn new maneuvers, you can also replace one maneuver you know with a different one.</p>\n \
+\t<p><b>Maneuvers</b></p>\n \
+\t<p>The maneuvers are presented in alphabetical order.</p>\n \
+\t<table>\n \
+\t\t<tr>\n \
+\t\t\t<td><b>Maneuver</b></td>\n \
+\t\t\t<td colspan=\"3\"><b>Description</b></td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td><b>Commander's Strike</b></td>\n \
+\t\t\t<td colspan=\"3\">When you take the Attack action on your turn, you can forgo one of your attacks and use a bonus action to direct one of your companions to strike. When you do so, choose a friendly creature who can see or hear you and expend one superiority die. That creature can immediately use its reaction to make one weapon attack, adding the superiority die to the attack's damage roll.</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td><b>Disarming Attack</b></td>\n \
+\t\t\t<td colspan=\"3\">When you hit a creature with a weapon attack, you can expend one superiority die to attempt to disarm the target, forcing it to drop one item of your choice that it's holding. You add the superiority die to the attack's damage roll, and the target must make a Strength saving throw. On a failed save, it drops the object you choose. The object lands at its feet.</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td><b>Distracting Strike</b></td>\n \
+\t\t\t<td colspan=\"3\">When you hit a creature with a weapon attack, you can expend one superiority die to distract the creature, giving your allies an opening. You add the superiority die to the attack's damage roll. The next attack roll against the target by an attacker other than you has advantage if the attack is made before the start of your next turn.</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td><b>Evasive Footwork</b></td>\n \
+\t\t\t<td colspan=\"3\">When you move, you can expend one superiority die, rolling the die and adding the number rolled to your AC until you stop moving.</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td><b>Feinting Attack.</b></td>\n \
+\t\t\t<td colspan=\"3\">You can expend one superiority die and use a bonus action on your turn to feint, choosing one creature within 5 feet of you as your target. You have advantage on your next attack roll against that creature. If that attack hits, add the superiority die to the attack's damage roll. The advantage is lost if not used on the turn you gain it.</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td><b>Goading Attack</b></td>\n \
+\t\t\t<td colspan=\"3\">When you hit a creature with a weapon attack, you can expend one superiority die to attempt to goad the target into attacking you. You add the superiority die to the attack's damage roll, and the target must make a Wisdom saving throw. On a failed save, the target has disadvantage on all attack rolls against targets other than you until the end of your next turn.</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td><b>Lunging Attack</b></td>\n \
+\t\t\t<td colspan=\"3\">When you make a melee weapon attack on your turn, you can expend one superiority die to increase your reach for that attack by 5 feet. If you hit, you add the superiority die to the attack's damage roll.</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td><b>Maneuvering Attack</b></td>\n \
+\t\t\t<td colspan=\"3\">When you hit a creature with a weapon attack, you can expend one superiority die to maneuver one of your comrades into a more advantageous position. You add the superiority die to the attack's damage roll, and you choose a friendly creature who can see or hear you. That creature can use its reaction to move up to half its speed without provoking opportunity attacks from the target of your attack.</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td><b>Menacing Attack</b></td>\n \
+\t\t\t<td colspan=\"3\">When you hit a creature with a weapon attack, you can expend one superiority die to attempt to frighten the target. You add the superiority die to the attack's damage roll, and the target must make a Wisdom saving throw. On a failed save, it is frightened of you until the end of your next turn.</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td><b>Parry</b></td>\n \
+\t\t\t<td colspan=\"3\">When another creature damages you with a melee attack, you can use your reaction and expend one superiority die to reduce the damage by the number you roll on your superiority die + your Dexterity modifier.</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td><b>Precision Attack</b></td>\n \
+\t\t\t<td colspan=\"3\">When you make a weapon attack roll against a creature, you can expend one superiority die to add it to the roll. You can use this maneuver before or after making the attack roll, but before any effects of the attack are applied.</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td><b>Pushing Attack</b></td>\n \
+\t\t\t<td colspan=\"3\">When you hit a creature with a weapon attack, you can expend one superiority die to attempt to drive the target back. You add the superiority die to the attack's damage roll, and if the target is Large or smaller, it must make a Strength saving throw. On a failed save, you push the target up to 15 feet away from you.</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td><b>Rally</b></td>\n \
+\t\t\t<td colspan=\"3\">On your turn, you can use a bonus action and expend one superiority die to bolster the resolve of one of your companions. When you do so, choose a friendly creature who can see or hear you. That creature gains temporary hit points equal to the superiority die roll + your Charisma modifier.</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td><b>Riposte</b></td>\n \
+\t\t\t<td colspan=\"3\">When a creature misses you with a melee attack, you can use your reaction and expend one superiority die to make a melee weapon attack against the creature. If you hit, you add the superiority die to the attack's damage roll.</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td><b>Sweeping Attack</b></td>\n \
+\t\t\t<td colspan=\"3\">When you hit a creature with a melee weapon attack, you can expend one superiority die to attempt to damage another creature with the same attack. Choose another creature within 5 feet of the original target and within your reach. If the original attack roll would hit the second creature, it takes damage equal to the number you roll on your superiority die. The damage is of the same type dealt by the original attack.</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td><b>Trip Attack</b></td>\n \
+\t\t\t<td colspan=\"3\">When you hit a creature with a weapon attack, you can expend one superiority die to attempt to knock the target down. You add the superiority die to the attack's damage roll, and if the target is Large or smaller, it must make a Strength saving throw. On a failed save, you knock the target prone.</td>\n \
+\t\t</tr>\n \
+\t</table>\n \
+\t<p><b>Superiority Dice. </b>You have four superiority dice, which are d8s. A superiority die is expended when you use it. You regain all of your expended superiority dice when you finish a short or long rest.</p>\n \
+\t<p>You gain another superiority die at 7th level and one more at 15th level.</p>\n \
+\t<p><b>Saving Throws. </b>Some of your maneuvers require your target to make a saving throw to resist the maneuver's effects. The saving throw DC is calculated as follows:</p>\n \
+\t<p><b>Maneuver save DC </b>= 8 + your proficiency bonus + your Strength or Dexterity modifier (your choice)</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Combat Superiority</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Battle Master</specialization>\n";
+
+addFighterCommandersStrike=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">roll</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Commander's Strike;DMG: 1d8</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Commander's Strike</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addFighterDisarmingAttack=" \
+<actions>\n \
+\t<id-00002>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Disarming Strike; DMG: 1d8</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+\t<id-00003>\n \
+\t\t<atkmod type=\"number\">0</atkmod>\n \
+\t\t<atkprof type=\"number\">1</atkprof>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<savedcmod type=\"number\">0</savedcmod>\n \
+\t\t<savedcprof type=\"number\">1</savedcprof>\n \
+\t\t<savetype type=\"string\">strength</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00003>\n \
+\t<id-00004>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<label type=\"string\">Disarming Strike - item dropped;</label>\n \
+\t\t<order type=\"number\">3</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00004>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Disarming Attack</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addFighterDistractingStrike=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Distracting Strike; DMG: 1d8</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<label type=\"string\">Distracting Strike; GRANTADVATK:</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Distracting Strike</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addFighterReintingAttack=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">roll</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Feinting Attack; DMG: 1d8</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<label type=\"string\">Feinting Attack; ADVATK:</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Feinting Attack</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addFighterGoadingAttack=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Goading Attack; DMG: 1d8</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+\t<id-00003>\n \
+\t\t<atkmod type=\"number\">0</atkmod>\n \
+\t\t<atkprof type=\"number\">1</atkprof>\n \
+\t\t<order type=\"number\">3</order>\n \
+\t\t<savedcmod type=\"number\">0</savedcmod>\n \
+\t\t<savedcprof type=\"number\">1</savedcprof>\n \
+\t\t<savetype type=\"string\">wisdom</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00003>\n \
+\t<id-00004>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<label type=\"string\">Goaded; DISATK:</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00004>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Goading Attack</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addFighterLungingAttack=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Lunging Attack; DMG: 1d8</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Lunging Attack</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addFighterManeuveringAttack=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Maneuvering Attack; DMG: 1d8</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Maneuvering Attack</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addFighterMenacingAttack=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<atkmod type=\"number\">0</atkmod>\n \
+\t\t<atkprof type=\"number\">1</atkprof>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savedcmod type=\"number\">0</savedcmod>\n \
+\t\t<savedcprof type=\"number\">1</savedcprof>\n \
+\t\t<savetype type=\"string\">wisdom</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<label type=\"string\">Menaced; frightened</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+\t<id-00003>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Menacing Attack; DMG: 1d8</label>\n \
+\t\t<order type=\"number\">3</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00003>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Menacing Attack</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addFighterPrecisionAttack=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Precision Attack; ATK:1d8</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Precision Attack</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addFighterPushingAttack=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<atkmod type=\"number\">0</atkmod>\n \
+\t\t<atkprof type=\"number\">1</atkprof>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savedcmod type=\"number\">0</savedcmod>\n \
+\t\t<savedcprof type=\"number\">1</savedcprof>\n \
+\t\t<savetype type=\"string\">strength</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Pushing Attack; DMG: 1d8</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Pushing Attack</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addFighterRally=" \
+<actions>\n \
+\t<id-00002>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\">d8</dice>\n \
+\t\t\t\t<stat type=\"string\">charisma</stat>\n \
+\t\t\t</id-00001>\n \
+\t\t</heallist>\n \
+\t\t<healtype type=\"string\">temp</healtype>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Rally</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addFighterRiposte=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<label type=\"string\">Riposte; DMG:1d8</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Riposte</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addFighterSweepingAttack=" \
+<actions>\n \
+\t<id-00002>\n \
+\t\t<damagelist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\">d8</dice>\n \
+\t\t\t\t<type type=\"string\">slashing</type>\n \
+\t\t\t</id-00001>\n \
+\t\t</damagelist>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">damage</type>\n \
+\t</id-00002>\n \
+\t<id-00003>\n \
+\t\t<damagelist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\">d8</dice>\n \
+\t\t\t\t<type type=\"string\">piercing, magic</type>\n \
+\t\t\t</id-00001>\n \
+\t\t</damagelist>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">damage</type>\n \
+\t</id-00003>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Sweeping Attack</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addFighterTripAttack=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<atkmod type=\"number\">0</atkmod>\n \
+\t\t<atkprof type=\"number\">1</atkprof>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savedcmod type=\"number\">0</savedcmod>\n \
+\t\t<savedcprof type=\"number\">1</savedcprof>\n \
+\t\t<savetype type=\"string\">strength</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Trip Attack; prone</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+\t<id-00003>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Trip Attack; DMG:1d8</label>\n \
+\t\t<order type=\"number\">3</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00003>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Trip Attack</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addFighterEldritchStrike=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<label type=\"string\">Eldritch Strike; DISSAV:all;</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 10th level, you learn how to make your weapon strikes undercut a creature's resistance to your spells. When you hit a creature with a weapon attack, that creature has disadvantage on the next saving throw it makes against a spell you cast before the end of your next turn.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Eldritch Strike</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Eldritch Knight</specialization>\n";
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+End of Fighter effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+Start of Monk effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+addMonkUnarmedStrike = " \
+\t\t\t\t<attackbonus type=\"number\">0</attackbonus> \
+\t\t\t\t<attackstat type=\"string\">dexterity</attackstat> \
+\t\t\t\t<carried type=\"number\">1</carried> \
+\t\t\t\t<damagelist> \
+\t\t\t\t<id-00001> \
+\t\t\t\t<bonus type=\"number\">0</bonus> \
+\t\t\t\t<dice type=\"dice\">d4</dice> \
+\t\t\t\t<stat type=\"string\">base</stat> \
+\t\t\t\t<statmult type=\"number\">1</statmult> \
+\t\t\t\t<type type=\"string\">bludgeoning</type> \
+\t\t\t\t</id-00001> \
+\t\t\t\t</damagelist> \
+\t\t\t\t<maxammo type=\"number\">0</maxammo> \
+\t\t\t\t<name type=\"string\">Unarmed Strike</name> \
+\t\t\t\t<prof type=\"number\">1</prof> \
+\t\t\t\t<shortcut type=\"windowreference\"> \
+\t\t\t\t<class></class> \
+\t\t\t\t<recordname></recordname> \
+\t\t\t\t</shortcut> \
+\t\t\t\t<type type=\"number\">0</type>\n";
+
+
+addMonkEmptyBody=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">minute</durunit>\n \
+\t\t<label type=\"string\">Invisible</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">minute</durunit>\n \
+\t\t<label type=\"string\">RESIST:all,!force</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Beginning at 18th level, you can use your action to spend 4 ki points to become invisible for 1 minute.</p>\n \
+\t<p>During that time, you also have resistance to all damage but force damage. Additionally, you can spend 8 ki points to cast the astral projection spell, without needing material components. When you do so, you can't take any other creatures with you.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Empty Body</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Monk</source>\n";
+
+addMonkEvasion=" \
+<actions>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Evasion</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 7th level, your instinctive agility lets you dodge out of the way of certain area effects, such as a blue dragon's lightning breath or a fireball spell. When you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Evasion</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<source type=\"string\">Monk</source>\n";
+
+addMonkKi=" \
+<actions>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 2nd level, your training allows you to harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Your monk level determines the number of points you have, as shown in the Ki Points column of the Monk table. You can spend these points to fuel various ki features. You start knowing three such features: Flurry of Blows, Patient Defense, and Step of the Wind. You learn more ki features as you gain levels in this class. When you spend a ki point, it is unavailable until you finish a short or long rest, at the end of which you draw all of your expended ki back into yourself. You must spend at least 30 minutes of the rest meditating to regain your ki points.</p>\n \
+\t<p>Some of your ki features require your target to make a saving throw to resist the feature's effects. The saving throw DC is calculated as follows:</p>\n \
+\t<p><b>Ki save DC </b>= 8 + your proficiency bonus + your Wisdom modifier</p>\n \
+\t<p><b>Flurry of Blows</b></p>\n \
+\t<p>Immediately after you take the Attack action on your turn, you can spend 1 ki point to make two unarmed strikes as a bonus action.</p>\n \
+\t<p><b>Patient Defense</b></p>\n \
+\t<p>You can spend 1 ki point to take the Dodge action as a bonus action on your turn.</p>\n \
+\t<p><b>Step of the Wind</b></p>\n \
+\t<p>You can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Ki</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Monk</source>\n";
+
+addMonkFlurryOfBlows=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<atkmod type=\"number\">0</atkmod>\n \
+\t\t<atkprof type=\"number\">1</atkprof>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savedcmod type=\"number\">0</savedcmod>\n \
+\t\t<savedcprof type=\"number\">1</savedcprof>\n \
+\t\t<savetype type=\"string\">dexterity</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">prone</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+\t<id-00003>\n \
+\t\t<atkmod type=\"number\">0</atkmod>\n \
+\t\t<atkprof type=\"number\">1</atkprof>\n \
+\t\t<order type=\"number\">3</order>\n \
+\t\t<savedcmod type=\"number\">0</savedcmod>\n \
+\t\t<savedcprof type=\"number\">1</savedcprof>\n \
+\t\t<savetype type=\"string\">strength</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00003>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Flurry of Blows</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addMonkPatientDefense=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<label type=\"string\">dodge</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Patient Defense</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addMonkStepOfTheWind=" \
+<actions>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Step of the Wind</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addMonkPurityOfBody=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">IMMUNE: poison,poisoned</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Immunity to disease</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 10th level, your mastery of the ki flowing through you makes you immune to disease and poison.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Purity of Body</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<source type=\"string\">Monk</source>\n";
+
+addMonkSlowFall=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t\t<stat type=\"string\">level</stat>\n \
+\t\t\t</id-00001>\n \
+\t\t\t<id-00002>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t\t<stat type=\"string\">level</stat>\n \
+\t\t\t</id-00002>\n \
+\t\t\t<id-00003>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t\t<stat type=\"string\">level</stat>\n \
+\t\t\t</id-00003>\n \
+\t\t\t<id-00004>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t\t<stat type=\"string\">level</stat>\n \
+\t\t\t</id-00004>\n \
+\t\t\t<id-00005>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t\t<stat type=\"string\">level</stat>\n \
+\t\t\t</id-00005>\n \
+\t\t</heallist>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Beginning at 4th level, you can use your reaction when you fall to reduce any falling damage you take by an amount equal to five times your monk level.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Slow Fall</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<source type=\"string\">Monk</source>\n";
+
+addMonkStunningStrike=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savetype type=\"string\">constitution</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<label type=\"string\">Stunned</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 5th level, you can interfere with the flow of ki in an opponent's body. When you hit another creature with a melee weapon attack, you can spend 1 ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Stunning Strike</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Monk</source>\n";
+
+addMonkWholenessOfBody=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t\t<stat type=\"string\">monk</stat>\n \
+\t\t\t</id-00001>\n \
+\t\t\t<id-00002>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t\t<stat type=\"string\">monk</stat>\n \
+\t\t\t</id-00002>\n \
+\t\t\t<id-00003>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t\t<stat type=\"string\">monk</stat>\n \
+\t\t\t</id-00003>\n \
+\t\t</heallist>\n \
+\t\t<healtargeting type=\"string\">self</healtargeting>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 6th level, you gain the ability to heal yourself. As an action, you can regain hit points equal to three times your monk level. You must finish a long rest before you can use this feature again.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Wholeness of Body</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Way of the Open Hand</specialization>\n";
+
+addMonkTranquility=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<atkmod type=\"number\">0</atkmod>\n \
+\t\t<atkprof type=\"number\">1</atkprof>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savedcbase type=\"string\">ability</savedcbase>\n \
+\t\t<savedcmod type=\"number\">0</savedcmod>\n \
+\t\t<savedcprof type=\"number\">1</savedcprof>\n \
+\t\t<savedcstat type=\"string\">wisdom</savedcstat>\n \
+\t\t<savetype type=\"string\">wisdom</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Tranquility</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Beginning at 11th level, you can enter a special meditation that surrounds you with an aura of peace. At the end of a long rest, you gain the effect of a sanctuary spell that lasts until the start of your next long rest (the spell can end early as normal). The saving throw DC for the spell equals 8 + your Wisdom modifier + your proficiency bonus.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Tranquility</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Way of the Open Hand</specialization>\n";
+
+addMonkShadowStep=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<label type=\"string\">ADVATK: melee</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 6th level, you gain the ability to step from one shadow into another. When you are in dim light or darkness, as a bonus action you can teleport up to 60 feet to an unoccupied space you can see that is also in dim light or darkness. You then have advantage on the first melee attack you make before the end of the turn.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Shadow Step</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Way of Shadow</specialization>\n";
+
+addMonkCloakOfShadows=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<label type=\"string\">Invisible</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>By 11th level, you have learned to become one with the shadows. When you are in an area of dim light or darkness, you can use your action to become invisible. You remain invisible until you make an attack, cast a spell, or are in an area of bright light.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Cloak of Shadows</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Way of Shadow</specialization>\n";
+
+addMonkFangsOfTheFireStrike=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<damagelist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\">d10</dice>\n \
+\t\t\t\t<type type=\"string\">fire</type>\n \
+\t\t\t</id-00001>\n \
+\t\t</damagelist>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">damage</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Fangs of the Fire Strike</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addMonkFistOfUnbrokenAir=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<atkmod type=\"number\">0</atkmod>\n \
+\t\t<atkprof type=\"number\">1</atkprof>\n \
+\t\t<onmissdamage type=\"string\">half</onmissdamage>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savedcmod type=\"number\">0</savedcmod>\n \
+\t\t<savedcprof type=\"number\">1</savedcprof>\n \
+\t\t<savetype type=\"string\">strength</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<damagelist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\">d10,d10,d10</dice>\n \
+\t\t\t\t<type type=\"string\">bludgeoning</type>\n \
+\t\t\t</id-00001>\n \
+\t\t</damagelist>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">damage</type>\n \
+\t</id-00002>\n \
+\t<id-00003>\n \
+\t\t<damagelist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\">d10,d10,d10,d10</dice>\n \
+\t\t\t\t<type type=\"string\">bludgeoning</type>\n \
+\t\t\t</id-00001>\n \
+\t\t</damagelist>\n \
+\t\t<order type=\"number\">3</order>\n \
+\t\t<type type=\"string\">damage</type>\n \
+\t</id-00003>\n \
+\t<id-00004>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">prone</label>\n \
+\t\t<order type=\"number\">4</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00004>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Fist of Unbroken Air</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addMonkWaterWhip=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<atkmod type=\"number\">0</atkmod>\n \
+\t\t<atkprof type=\"number\">1</atkprof>\n \
+\t\t<onmissdamage type=\"string\">half</onmissdamage>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savedcmod type=\"number\">0</savedcmod>\n \
+\t\t<savedcprof type=\"number\">1</savedcprof>\n \
+\t\t<savetype type=\"string\">dexterity</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<damagelist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\">d10,d10,d10</dice>\n \
+\t\t\t\t<type type=\"string\">bludgeoning</type>\n \
+\t\t\t</id-00001>\n \
+\t\t</damagelist>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">damage</type>\n \
+\t</id-00002>\n \
+\t<id-00003>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">prone</label>\n \
+\t\t<order type=\"number\">3</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00003>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Water Whip</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addMonkTouchOfDeath=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t\t<stat type=\"string\">wisdom</stat>\n \
+\t\t\t</id-00001>\n \
+\t\t\t<id-00002>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t\t<stat type=\"string\">monk</stat>\n \
+\t\t\t</id-00002>\n \
+\t\t</heallist>\n \
+\t\t<healtargeting type=\"string\">self</healtargeting>\n \
+\t\t<healtype type=\"string\">temp</healtype>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting when you choose this tradition at 3rd level, your study of death allows you to extract vitality from another creature as it nears its demise. When you reduce a creature within 5 feet of you to 0 hit points, you gain temporary hit points equal to your Wisdom modifier + your monk level (minimum of 1 temporary hit point).</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Touch of Death</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Way of the Long Death</specialization>\n";
+
+addMonkHourOfReaping=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savetype type=\"string\">wisdom</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<label type=\"string\">Frightened</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 6th level, you gain the ability to unsettle or terrify those around you as an action, for your soul has been touched by the shadow of death. When you take this action, each creature within 30 feet of you that can see you must succeed on a Wisdom saving throw or be frightened of you until the end of your next turn.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Hour of Reaping</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Way of the Long Death</specialization>\n";
+
+addMonkTouchOfTheLongDeath=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<onmissdamage type=\"string\">half</onmissdamage>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savetype type=\"string\">constitution</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<damagelist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\">d10,d10</dice>\n \
+\t\t\t\t<type type=\"string\">necrotic</type>\n \
+\t\t\t</id-00001>\n \
+\t\t</damagelist>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">damage</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 17th level, your touch can channel the energy of death into a creature. As an action, you touch one creature within 5 feet of you, and you expend 1 to 10 ki points. The target must make a Constitution saving throw, and it takes 2d10 necrotic damage per ki point spent on a failed save, or half as much damage on a successful one.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Touch of the Long Death</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Way of the Long Death</specialization>\n";
+
+addMonkRadiantSunBolt=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<atkbase type=\"string\">ability</atkbase>\n \
+\t\t<atkmod type=\"number\">0</atkmod>\n \
+\t\t<atkprof type=\"number\">1</atkprof>\n \
+\t\t<atkstat type=\"string\">dexterity</atkstat>\n \
+\t\t<atktype type=\"string\">ranged</atktype>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savedcmod type=\"number\">0</savedcmod>\n \
+\t\t<savedcprof type=\"number\">1</savedcprof>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<damagelist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\">d4</dice>\n \
+\t\t\t\t<stat type=\"string\">dexterity</stat>\n \
+\t\t\t\t<type type=\"string\">radiant</type>\n \
+\t\t\t</id-00001>\n \
+\t\t</damagelist>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">damage</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Radiant Sun Bolt</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addMonkSunShield=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<damagelist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">5</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t\t<stat type=\"string\">wisdom</stat>\n \
+\t\t\t\t<type type=\"string\">radiant</type>\n \
+\t\t\t</id-00001>\n \
+\t\t</damagelist>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">damage</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 17th level, you become wreathed in a luminous aura. You shed bright light in a 30-foot radius and dim light for an additional 30 feet. You can extinguish or restore the light as a bonus action.</p>\n \
+\t<p>If a creature hits you with a melee attack while this light shines, you can use your reaction to deal radiant damage to the creature. The radiant damage equals 5 + your Wisdom modifier.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Sun Shield</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Way of the Sun Soul</specialization>\n";
 
 
 var multiWarn = (function () {
