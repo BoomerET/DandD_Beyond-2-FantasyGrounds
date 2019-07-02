@@ -2736,6 +2736,12 @@ addMonkUnarmedStrike = " \
 \t\t\t\t</shortcut> \
 \t\t\t\t<type type=\"number\">0</type>\n";
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+Start of Barbarian effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 addBarbarianRage = " \
 \t\t\t\t<actions>\n \
 \t\t\t\t\t<id-00001>\n \
@@ -3122,6 +3128,18 @@ addBarbarianIntimidatingPresence = " \
 <ritual type=\"number\">0</ritual>\n \
 <specialization type=\"string\">Path of the Berserker</specialization>\n";
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+End of Barbarian effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+Start of Bard effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 addBardJackOfAllTrades = " \
 <actions>\n \
 <id-00001>\n \
@@ -3217,6 +3235,18 @@ addBardCountercharm = " \
 <prepared type=\"number\">0</prepared>\n \
 <group type=\"string\">Class Features</group>\n \
 <source type=\"string\">Bard</source>\n";
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+End of Bard effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+Start of Cleric effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 addClericTurnUndead = " \
 <actions>\n \
@@ -3662,6 +3692,96 @@ addClericBlessingOfTheTrickster=" \
 <name type=\"string\">Blessing of the Trickster</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <specialization type=\"string\">Trickery Domain</specialization>\n";
+
+addClericCloakOfShadows=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<label type=\"string\">Invisible</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 6th level, you can use your Channel Divinity to vanish.</p>\n \
+\t<p>As an action, you become invisible until the end of your next turn. You become visible if you attack or cast a spell.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Channel Divinity: Cloak of Shadows</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Trickery Domain</specialization>\n";
+
+addClericWarPriest=" \
+<actions>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>From 1st level, your god delivers bolts of inspiration to you while you are engaged in battle. When you use the Attack action, you can make one weapon attack as a bonus action.</p>\n \
+\t<p>You can use this feature a number of times equal to your Wisdom modifier (a minimum of once). You regain all expended uses when you finish a long rest.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">War Priest</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<specialization type=\"string\">War Domain</specialization>\n";
+
+addClericAvatarOfBattle=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">RESIST:bludgeoning,piercing,slashing,!magic</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 17th level, you gain resistance to bludgeoning, piercing, and slashing damage from nonmagical weapons.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Avatar of Battle</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">War Domain</specialization>\n";
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+End of Cleric effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+Start of Druid effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+addDruidLandStride=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Land's Stride; ADVSAV:all</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 6th level, moving through nonmagical difficult terrain costs you no extra movement. You can also pass through nonmagical plants without being slowed by them and without taking damage from them if they have thorns, spines, or a similar hazard.</p>\n \
+\t<p>In addition, you have advantage on saving throws against plants that are magically created or manipulated to impede movement, such those created by the entangle spell.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Land's Stride</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Druid</source>\n \
+<specialization type=\"string\">Circle of the Land</specialization>\n";
 
 
 var multiWarn = (function () {
