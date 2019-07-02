@@ -5202,6 +5202,593 @@ addMonkSunShield=" \
 <ritual type=\"number\">0</ritual>\n \
 <specialization type=\"string\">Way of the Sun Soul</specialization>\n";
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+End of Monk effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+Start of Paladin effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+addPaladinAuraOfCourage=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Aura of Courage; IMMUNE: frightened</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 10th level, you and friendly creatures within 10 feet of you can't be frightened while you are conscious.</p>\n \
+\t<p>At 18th level, the range of this aura increases to 30 feet.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Aura of Courage</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Paladin</source>\n";
+
+addPaladinAuraOfProtection=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Aura of Protection; SAVE: [CHA]</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 6th level, whenever you or a friendly creature within 10 feet of you must make a saving throw, the creature gains a bonus to the saving throw equal to your Charisma modifier (with a minimum bonus of +1). You must be conscious to grant this bonus.</p>\n \
+\t<p>At 18th level, the range of this aura increases to 30 feet.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Aura of Protection</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Paladin</source>\n";
+
+addPaladinDivineHealth=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Divine Health - immune to disease;</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>By 3rd level, the divine magic flowing through you makes you immune to disease.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Divine Health</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Paladin</source>\n";
+
+addPaladinDivineSmite=" \
+<actions>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>The presence of strong evil registers on your senses like a noxious odor, and powerful good rings like heavenly music in your ears. As an action, you can open your awareness to detect such forces. Until the end of your next turn, you know the location of any celestial, fiend, or undead within 60 feet of you that is not behind total cover. You know the type (celestial, fiend, or undead) of any being whose presence you sense, but not its identity (the vampire Count Strahd von Zarovich, for instance).</p>\n \
+\t<p>Within the same radius, you also detect the presence of any place or object that has been consecrated or desecrated, as with the hallow spell.</p>\n \
+\t<p>You can use this feature a number of times equal to 1 + your Charisma modifier. When you finish a long rest, you regain all expended uses.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Divine Sense</name>\n \
+<prepared type=\"number\">2</prepared>\n \
+<source type=\"string\">Paladin</source>\n";
+
+addPaladinDivingSmite=" \
+<actions>\n \
+\t<id-00003>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">DMG: 2d8 radiant; IFT: TYPE(fiend,undead);DMG:1d8 radiant</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00003>\n \
+\t<id-00004>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">DMG: 3d8 radiant; IFT: TYPE(fiend,undead);DMG:1d8 radiant</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00004>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 2nd level, when you hit a creature with a melee weapon attack, you can expend one spell slot to deal radiant damage to the target, in addition to the weapon's damage. The extra damage is 2d8 for a 1st-level spell slot, plus 1d8 for each spell level higher than 1st, to a maximum of 5d8. The damage increases by 1d8 if the target is an undead or a fiend.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Divine Smite</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<source type=\"string\">Paladin</source>\n";
+
+addPaladinExaltedChampion=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">hour</durunit>\n \
+\t\t<label type=\"string\">RESIST:bludgeoning,piercing,slashing,!magic;ADVSAV: wisdom; ADVDEATH</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 20th level, your presence on the field of battle is an inspiration to those dedicated to your cause. You can use your action to gain the following benefits for 1 hour:</p>\n \
+\t<list>\n \
+\t\t<li>You have resistance to bludgeoning, piercing, and slashing damage from nonmagical weapons.</li>\n \
+\t\t<li>Your allies have advantage on death saving throws while within 30 feet of you.</li>\n \
+\t\t<li>You have advantage on Wisdom saving throws, as do your allies within 30 feet of you.</li>\n \
+\t</list>\n \
+\t<p>This effect ends early if you are incapacitated or die. Once you use this feature, you can't use it again until you finish a long rest.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Exalted Champion</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<source type=\"string\">Paladin</source>\n \
+<specialization type=\"string\">Oath of the Crown</specialization>\n";
+
+addPaladinImprovedDivineSmite=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">DMG: 1d8 radiant, melee</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>By 11th level, you are so suffused with righteous might that all your melee weapon strikes carry divine power with them. Whenever you hit a creature with a melee weapon, the creature takes an extra 1d8 radiant damage. If you also use your Divine Smite with an attack, you add this damage to the extra damage of your Divine Smite.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Improved Divine Smite</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Paladin</source>\n";
+
+addPaladinLayOnHands=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">5</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t</id-00001>\n \
+\t\t</heallist>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your paladin level x5. As an action, you can touch a creature and draw power from the pool to restore a number of hit points to that creature, up to the maximum amount remaining in your pool.</p>\n \
+\t<p>Alternatively, you can expend 5 hit points from your pool of healing to cure the target of one disease or neutralize one poison affecting it. You can cure multiple diseases and neutralize multiple poisons with a single use of Lay on Hands, expending hit points separately for each one.</p>\n \
+\t<p>This feature has no effect on undead and constructs.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Lay on Hands</name>\n \
+<prepared type=\"number\">20</prepared>\n \
+<source type=\"string\">Paladin</source>\n";
+
+addPaladinChampionChallengeCrown=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savetype type=\"string\">wisdom</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>When you take this oath at 3rd level, you gain the following Channel Divinity options.</p>\n \
+\t<p><b>Champion Challenge. </b>You issue a challenge that compels other creatures to do battle with you. Each creature of your choice that you can see within 30 feet of you must make a Wisdom saving throw. On a failed save, a creature can't willingly move more than 30 feet away from you. This effect ends on the creature if you are incapacitated or die or if the creature is moved more than 30 feet away from you.</p>\n \
+\t<p><b>Turn the Tide. </b>As a bonus action, you can bolster injured creatures with your Channel Divinity. Each creature of your choice that can hear you within 30 feet of you regains hit points equal to 1d6 + your Charisma modifier (minimum of 1) if it has no more than half of its hit points.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Champion Challenge (Crown)</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Oath of the Crown</specialization>\n";
+
+addPaladinTurnTheTideCrown=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\">d6</dice>\n \
+\t\t\t\t<stat type=\"string\">charisma</stat>\n \
+\t\t\t</id-00001>\n \
+\t\t</heallist>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Turn the Tide (Crown)</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addPaladinUnyieldingSpirit=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Oath of the Crown adv to save vs stunned or paralyzed;</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 15th level, you have advantage on saving throws to avoid becoming paralyzed or stunned.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Unyielding Spirit</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Oath of the Crown</specialization>\n";
+
+addPaladinSacredWeaponDevotion=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">minute</durunit>\n \
+\t\t<label type=\"string\">Sacred Weapon; ATK: [CHA];  DMGTYPE: magic</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Sacred Weapon (Devotion)</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addPaladinTurnTheUnholyDevotion=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<atkmod type=\"number\">0</atkmod>\n \
+\t\t<atkprof type=\"number\">1</atkprof>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savedcmod type=\"number\">0</savedcmod>\n \
+\t\t<savedcprof type=\"number\">1</savedcprof>\n \
+\t\t<savetype type=\"string\">wisdom</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">minute</durunit>\n \
+\t\t<label type=\"string\">turned</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Turn the Unholy (Devotion)</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addPaladinAuraOfDevotion=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">IMMUNE: charmed</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 7th level, you and friendly creatures within 10 feet of you can't be charmed while you are conscious. At 18th level, the range of this aura increases to 30 feet.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Aura of Devotion</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Oath of Devotion</specialization>\n";
+
+addPaladinPurityOfSpirit=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">IFT: TYPE(aberration,celestial,elemental,fey,fiend,undead);GRANTDISATK:</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">IFT: TYPE(aberration,celestial,elemental,fey,fiend,undead); IMMUNE: charmed, frightened</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Beginning at 15th level, you are always under the effects of a protection from evil and good spell.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Purity of Spirit</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Oath of Devotion</specialization>\n";
+
+addPaladinHolyNimbus=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<damagelist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">10</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t\t<type type=\"string\">radiant</type>\n \
+\t\t\t</id-00001>\n \
+\t\t</damagelist>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">damage</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 20th level, as an action, you can emanate an aura of sunlight. For 1 minute, bright light shines from you in a 30-foot radius, and dim light shines 30 feet beyond that. Whenever an enemy creature starts its turn in the bright light, the creature takes 10 radiant damage.</p>\n \
+\t<p>In addition, for the duration, you have advantage on saving throws against spells cast by fiends or undead. Once you use this feature, you can't use it again until you finish a long rest.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Holy Nimbus</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Oath of Devotion</specialization>\n";
+
+addPaladinNaturesWrathAncients=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<atkmod type=\"number\">0</atkmod>\n \
+\t\t<atkprof type=\"number\">1</atkprof>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savedcmod type=\"number\">0</savedcmod>\n \
+\t\t<savedcprof type=\"number\">1</savedcprof>\n \
+\t\t<savetype type=\"string\">strength</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<atkmod type=\"number\">0</atkmod>\n \
+\t\t<atkprof type=\"number\">1</atkprof>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<savedcmod type=\"number\">0</savedcmod>\n \
+\t\t<savedcprof type=\"number\">1</savedcprof>\n \
+\t\t<savetype type=\"string\">dexterity</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00002>\n \
+\t<id-00003>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">restrained</label>\n \
+\t\t<order type=\"number\">3</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00003>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p></p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">0</locked>\n \
+<name type=\"string\">Nature's Wrath (Ancients)</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n";
+
+addPaladinTurnTheFaithlessAncients=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<atkmod type=\"number\">0</atkmod>\n \
+\t\t<atkprof type=\"number\">1</atkprof>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savedcmod type=\"number\">0</savedcmod>\n \
+\t\t<savedcprof type=\"number\">1</savedcprof>\n \
+\t\t<savetype type=\"string\">wisdom</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">minute</durunit>\n \
+\t\t<label type=\"string\">turned</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Turn the Faithless (Ancients)</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addPaladinAuraOfWarding=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">RESIST: all</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Beginning at 7th level, ancient magic lies so heavily upon you that it forms an eldritch ward. You and friendly creatures within 10 feet of you have resistance to damage from spells.</p>\n \
+\t<p>At 18th level, the range of this aura increases to 30 feet.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Aura of Warding</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Oath of the Ancients</specialization>\n";
+
+addPaladinUndyingSentinal=" \
+<actions>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Undying Sentinel</name>\n \
+<prepared type=\"number\">1</prepared>\n";
+
+addPaladinElderChampion=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Elder Champion; REGEN: 10</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">DISSAV: all</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Elder Champion</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addPaladinAbjureEnemyVengeance=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<atkmod type=\"number\">0</atkmod>\n \
+\t\t<atkprof type=\"number\">1</atkprof>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savedcmod type=\"number\">0</savedcmod>\n \
+\t\t<savedcprof type=\"number\">1</savedcprof>\n \
+\t\t<savetype type=\"string\">wisdom</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">minute</durunit>\n \
+\t\t<label type=\"string\">frightened</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+\t<id-00003>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">IF: TYPE(fiend,undead);DISSAV:</label>\n \
+\t\t<order type=\"number\">3</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00003>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group> <level type=\"number\">0</level>\n \
+<name type=\"string\">Abjure Enemy (Vengeance)</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addPaladinVowOfEnmityVengeance=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">minute</durunit>\n \
+\t\t<label type=\"string\">ADVATK:</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<name type=\"string\">Vow of Enmity (Vengeance)</name>\n \
+<prepared type=\"number\">0</prepared>\n";
+
+addPaladinAvengingAngel=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savetype type=\"string\">wisdom</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">minute</durunit>\n \
+\t\t<label type=\"string\">frightened</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+\t<id-00003>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">minute</durunit>\n \
+\t\t<label type=\"string\">GRANTADVATK:</label>\n \
+\t\t<order type=\"number\">3</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00003>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 20th level, you can assume the form of an angelic avenger. Using your action, you undergo a transformation. For 1 hour, you gain the following benefits:</p>\n \
+\t<list>\n \
+\t\t<li>Wings sprout from your back and grant you a flying speed of 60 feet.</li>\n \
+\t\t<li>You emanate an aura of menace in a 30-foot radius. The first time any enemy creature enters the aura or starts its turn there during a battle, the creature must succeed on a Wisdom saving throw or become frightened of you for 1 minute or until it takes any damage. Attack rolls against the frightened creature have advantage.</li>\n \
+\t</list>\n \
+\t<p>Once you use this feature, you can't use it again until you finish a long rest.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group> \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Avenging Angel</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Oath of Vengeance</specialization>\n";
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+End of Paladin effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 var multiWarn = (function () {
     //Creating the demo window
