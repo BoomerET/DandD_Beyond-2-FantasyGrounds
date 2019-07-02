@@ -9,3 +9,4 @@ $charID = $_GET['charID'];
     }
 
 ?>
+
