@@ -4584,25 +4584,25 @@ Start of Monk effects
 * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 addMonkUnarmedStrike = " \
-\t\t\t\t<attackbonus type=\"number\">0</attackbonus> \
-\t\t\t\t<attackstat type=\"string\">dexterity</attackstat> \
-\t\t\t\t<carried type=\"number\">1</carried> \
-\t\t\t\t<damagelist> \
-\t\t\t\t<id-00001> \
-\t\t\t\t<bonus type=\"number\">0</bonus> \
-\t\t\t\t<dice type=\"dice\">d4</dice> \
-\t\t\t\t<stat type=\"string\">base</stat> \
-\t\t\t\t<statmult type=\"number\">1</statmult> \
-\t\t\t\t<type type=\"string\">bludgeoning</type> \
-\t\t\t\t</id-00001> \
-\t\t\t\t</damagelist> \
-\t\t\t\t<maxammo type=\"number\">0</maxammo> \
-\t\t\t\t<name type=\"string\">Unarmed Strike</name> \
-\t\t\t\t<prof type=\"number\">1</prof> \
-\t\t\t\t<shortcut type=\"windowreference\"> \
-\t\t\t\t<class></class> \
-\t\t\t\t<recordname></recordname> \
-\t\t\t\t</shortcut> \
+\t\t\t\t<attackbonus type=\"number\">0</attackbonus>\n \
+\t\t\t\t<attackstat type=\"string\">dexterity</attackstat>\n \
+\t\t\t\t<carried type=\"number\">1</carried>\n \
+\t\t\t\t<damagelist>\n \
+\t\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\">d4</dice>\n \
+\t\t\t\t<stat type=\"string\">base</stat>\n \
+\t\t\t\t<statmult type=\"number\">1</statmult>\n \
+\t\t\t\t<type type=\"string\">bludgeoning</type>\n \
+\t\t\t\t</id-00001>\n \
+\t\t\t\t</damagelist>\n \
+\t\t\t\t<maxammo type=\"number\">0</maxammo>\n \
+\t\t\t\t<name type=\"string\">Unarmed Strike</name>\n \
+\t\t\t\t<prof type=\"number\">1</prof>\n \
+\t\t\t\t<shortcut type=\"windowreference\">\n \
+\t\t\t\t<class></class>\n \
+\t\t\t\t<recordname></recordname>\n \
+\t\t\t\t</shortcut>\n \
 \t\t\t\t<type type=\"number\">0</type>\n";
 
 
@@ -5229,7 +5229,7 @@ addPaladinAuraOfCourage=" \
 \t<p>Starting at 10th level, you and friendly creatures within 10 feet of you can't be frightened while you are conscious.</p>\n \
 \t<p>At 18th level, the range of this aura increases to 30 feet.</p>\n \
 </description>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Aura of Courage</name>\n \
@@ -5250,7 +5250,7 @@ addPaladinAuraOfProtection=" \
 \t<p>Starting at 6th level, whenever you or a friendly creature within 10 feet of you must make a saving throw, the creature gains a bonus to the saving throw equal to your Charisma modifier (with a minimum bonus of +1). You must be conscious to grant this bonus.</p>\n \
 \t<p>At 18th level, the range of this aura increases to 30 feet.</p>\n \
 </description>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Aura of Protection</name>\n \
@@ -5270,7 +5270,7 @@ addPaladinDivineHealth=" \
 <description type=\"formattedtext\">\n \
 \t<p>By 3rd level, the divine magic flowing through you makes you immune to disease.</p>\n \
 </description>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Divine Health</name>\n \
@@ -5286,7 +5286,7 @@ addPaladinDivineSmite=" \
 \t<p>Within the same radius, you also detect the presence of any place or object that has been consecrated or desecrated, as with the hallow spell.</p>\n \
 \t<p>You can use this feature a number of times equal to 1 + your Charisma modifier. When you finish a long rest, you regain all expended uses.</p>\n \
 </description>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Divine Sense</name>\n \
@@ -5316,7 +5316,7 @@ addPaladinDivingSmite=" \
 <description type=\"formattedtext\">\n \
 \t<p>Starting at 2nd level, when you hit a creature with a melee weapon attack, you can expend one spell slot to deal radiant damage to the target, in addition to the weapon's damage. The extra damage is 2d8 for a 1st-level spell slot, plus 1d8 for each spell level higher than 1st, to a maximum of 5d8. The damage increases by 1d8 if the target is an undead or a fiend.</p>\n \
 </description>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Divine Smite</name>\n \
@@ -5344,7 +5344,7 @@ addPaladinExaltedChampion=" \
 \t</list>\n \
 \t<p>This effect ends early if you are incapacitated or die. Once you use this feature, you can't use it again until you finish a long rest.</p>\n \
 </description>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Exalted Champion</name>\n \
@@ -5367,7 +5367,7 @@ addPaladinImprovedDivineSmite=" \
 <description type=\"formattedtext\">\n \
 \t<p>By 11th level, you are so suffused with righteous might that all your melee weapon strikes carry divine power with them. Whenever you hit a creature with a melee weapon, the creature takes an extra 1d8 radiant damage. If you also use your Divine Smite with an attack, you add this damage to the extra damage of your Divine Smite.</p>\n \
 </description>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Improved Divine Smite</name>\n \
@@ -5393,7 +5393,7 @@ addPaladinLayOnHands=" \
 \t<p>Alternatively, you can expend 5 hit points from your pool of healing to cure the target of one disease or neutralize one poison affecting it. You can cure multiple diseases and neutralize multiple poisons with a single use of Lay on Hands, expending hit points separately for each one.</p>\n \
 \t<p>This feature has no effect on undead and constructs.</p>\n \
 </description>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Lay on Hands</name>\n \
@@ -5414,7 +5414,7 @@ addPaladinChampionChallengeCrown=" \
 \t<p><b>Champion Challenge. </b>You issue a challenge that compels other creatures to do battle with you. Each creature of your choice that you can see within 30 feet of you must make a Wisdom saving throw. On a failed save, a creature can't willingly move more than 30 feet away from you. This effect ends on the creature if you are incapacitated or die or if the creature is moved more than 30 feet away from you.</p>\n \
 \t<p><b>Turn the Tide. </b>As a bonus action, you can bolster injured creatures with your Channel Divinity. Each creature of your choice that can hear you within 30 feet of you regains hit points equal to 1d6 + your Charisma modifier (minimum of 1) if it has no more than half of its hit points.</p>\n \
 </description>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Champion Challenge (Crown)</name>\n \
@@ -5436,7 +5436,7 @@ addPaladinTurnTheTideCrown=" \
 \t</id-00001>\n \
 </actions>\n \
 <cast type=\"number\">0</cast>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Turn the Tide (Crown)</name>\n \
 <prepared type=\"number\">0</prepared>\n";
@@ -5455,7 +5455,7 @@ addPaladinUnyieldingSpirit=" \
 <description type=\"formattedtext\">\n \
 \t<p>Starting at 15th level, you have advantage on saving throws to avoid becoming paralyzed or stunned.</p>\n \
 </description>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Unyielding Spirit</name>\n \
@@ -5474,7 +5474,7 @@ addPaladinSacredWeaponDevotion=" \
 \t</id-00001>\n \
 </actions>\n \
 <cast type=\"number\">0</cast>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Sacred Weapon (Devotion)</name>\n \
 <prepared type=\"number\">0</prepared>\n";
@@ -5499,7 +5499,7 @@ addPaladinTurnTheUnholyDevotion=" \
 \t</id-00002>\n \
 </actions>\n \
 <cast type=\"number\">0</cast>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Turn the Unholy (Devotion)</name>\n \
 <prepared type=\"number\">0</prepared>\n";
@@ -5517,7 +5517,7 @@ addPaladinAuraOfDevotion=" \
 <description type=\"formattedtext\">\n \
 \t<p>Starting at 7th level, you and friendly creatures within 10 feet of you can't be charmed while you are conscious. At 18th level, the range of this aura increases to 30 feet.</p>\n \
 </description>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Aura of Devotion</name>\n \
@@ -5545,7 +5545,7 @@ addPaladinPurityOfSpirit=" \
 <description type=\"formattedtext\">\n \
 \t<p>Beginning at 15th level, you are always under the effects of a protection from evil and good spell.</p>\n \
 </description>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Purity of Spirit</name>\n \
@@ -5572,7 +5572,7 @@ addPaladinHolyNimbus=" \
 \t<p>At 20th level, as an action, you can emanate an aura of sunlight. For 1 minute, bright light shines from you in a 30-foot radius, and dim light shines 30 feet beyond that. Whenever an enemy creature starts its turn in the bright light, the creature takes 10 radiant damage.</p>\n \
 \t<p>In addition, for the duration, you have advantage on saving throws against spells cast by fiends or undead. Once you use this feature, you can't use it again until you finish a long rest.</p>\n \
 </description>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Holy Nimbus</name>\n \
@@ -5611,7 +5611,7 @@ addPaladinNaturesWrathAncients=" \
 <description type=\"formattedtext\">\n \
 \t<p></p>\n \
 </description>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">0</locked>\n \
 <name type=\"string\">Nature's Wrath (Ancients)</name>\n \
@@ -5638,7 +5638,7 @@ addPaladinTurnTheFaithlessAncients=" \
 \t</id-00002>\n \
 </actions>\n \
 <cast type=\"number\">0</cast>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Turn the Faithless (Ancients)</name>\n \
 <prepared type=\"number\">0</prepared>\n";
@@ -5658,7 +5658,7 @@ addPaladinAuraOfWarding=" \
 \t<p>Beginning at 7th level, ancient magic lies so heavily upon you that it forms an eldritch ward. You and friendly creatures within 10 feet of you have resistance to damage from spells.</p>\n \
 \t<p>At 18th level, the range of this aura increases to 30 feet.</p>\n \
 </description>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Aura of Warding</name>\n \
@@ -5669,7 +5669,7 @@ addPaladinUndyingSentinal=" \
 <actions>\n \
 </actions>\n \
 <cast type=\"number\">0</cast>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Undying Sentinel</name>\n \
 <prepared type=\"number\">1</prepared>\n";
@@ -5692,7 +5692,7 @@ addPaladinElderChampion=" \
 \t</id-00002>\n \
 </actions>\n \
 <cast type=\"number\">0</cast>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Elder Champion</name>\n \
 <prepared type=\"number\">0</prepared>\n";
@@ -5740,7 +5740,7 @@ addPaladinVowOfEnmityVengeance=" \
 \t</id-00001>\n \
 </actions>\n \
 <cast type=\"number\">0</cast>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Vow of Enmity (Vengeance)</name>\n \
 <prepared type=\"number\">0</prepared>\n";
@@ -5776,7 +5776,7 @@ addPaladinAvengingAngel=" \
 \t</list>\n \
 \t<p>Once you use this feature, you can't use it again until you finish a long rest.</p>\n \
 </description>\n \
-<group type=\"string\">Class Features</group> \
+<group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Avenging Angel</name>\n \
@@ -5787,6 +5787,1612 @@ addPaladinAvengingAngel=" \
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
 End of Paladin effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+Start of Ranger effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+addRangerFavoredEnemy=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">ADVSKILL: survival</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">ADVCHK:intelligence</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Beginning at 1st level, you have significant experience studying, tracking, hunting, and even talking to a certain type of enemy.</p>\n \
+\t<p>Choose a type of favored enemy: aberrations, beasts, celestials, constructs, dragons, elementals, fey, fiends, giants, monstrosities, oozes, plants, or undead.</p>\n \
+\t<p>Alternatively, you can select two races of humanoid (such as gnolls and orcs) as favored enemies.</p>\n \
+\t<p>You have advantage on Wisdom(Survival) checks to track your favored enemies, as well as on Intelligence checks to recall information about them.</p>\n \
+\t<p>When you gain this feature, you also learn one language of your choice that is spoken by your favored enemies, if they speak one at all.</p>\n \
+\t<p>You choose one additional favored enemy, as well as an associated language, at 6th and 14th level. As you gain levels, your choices should reflect the types of monsters you have encountered on your adventures.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Favored Enemy</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Ranger</source>\n";
+
+addRangerFeralSenses=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">IFT: invisible;ADVATK:</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 18th level, you gain preternatural senses that help you fight creatures you can't see. When you attack a creature you can't see, your inability to see it doesn't impose disadvantage on your attack rolls against it. You are also aware of the location of any invisible creature within 30 feet of you, provided that the creature isn't hidden from you and you aren't blinded or deafened.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Feral Senses</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Ranger</source>\n";
+
+addRangerFoeSlayer=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">ATK:[WIS]</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">IFT: TYPE(giant,orc); DMG:[WIS]</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 20th level, you become an unparalleled hunter of your enemies. Once on each of your turns, you can add your Wisdom modifier to the attack roll or the damage roll of an attack you make against one of your favored enemies. You can choose to use this feature before or after the roll, but before any effects of the roll are applied.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Foe Slayer</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Ranger</source>\n";
+
+addRangerHideInPlainSight=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">SKILL: 10, stealth</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 10th level, you can spend 1 minute creating camouflage for yourself. You must have access to fresh mud, dirt, plants, soot, and other naturally occurring materials with which to create your camouflage.</p>\n \
+\t<p>Once you are camouflaged in this way, you can try to hide by pressing yourself up against a solid surface, such as a tree or wall, that is at least as tall and wide as you are. You gain a +10 bonus to Dexterity (Stealth) checks as long as you remain there without moving or taking actions. Once you move or take an action or a reaction, you must camouflage yourself again to gain this benefit.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Hide in Plain Sight</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Ranger</source>\n";
+
+addRangerLandsStride=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">ADVSAV:all</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 8th level, moving through nonmagical difficult terrain costs you no extra movement. You can also pass through nonmagical plants without being slowed by them and without taking damage from them if they have thorns, spines, or a similar hazard. In addition, you have advantage on saving throws against plants that are magically created or manipulated to impede movement, such those created by the entangle spell.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Land's Stride</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Ranger</source>\n";
+
+addRangerColossusSlayer=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">roll</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">IFT: Wounded; DMG: 1d8</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 3rd level, you gain one of the following features of your choice.</p>\n \
+\t<p><b>Colossus Slayer. </b>Your tenacity can wear down the most potent foes. When you hit a creature with a weapon attack, the creature takes an extra 1d8 damage if it's below its hit point maximum. You can deal this extra damage only once per turn.</p>\n \
+\t<p><b>Giant Killer. </b>When a Large or larger creature within 5 feet of you hits or misses you with an attack, you can use your reaction to attack that creature immediately after its attack, provided that you can see the creature.</p>\n \
+\t<p><b>Horde Breaker. </b>Once on each of your turns when you make a weapon attack, you can make another attack with the same weapon against a different creature that is within 5 feet of the original target and within range of your weapon.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Colossus Slayer</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Hunter</specialization>\n";
+
+addRangerDefensiveTactics=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<label type=\"string\">AC:4</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 7th level, you gain one of the following features of your choice.</p>\n \
+\t<p><b>Escape the Horde. </b>Opportunity attacks against you are made with disadvantage.</p>\n \
+\t<p><b>Multiattack Defense. </b>When a creature hits you with an attack, you gain a +4 bonus to AC against all subsequent attacks made by that creature for the rest of the turn.</p>\n \
+\t<p><b>Steel Will. </b>You have advantage on saving throws against being frightened.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Defensive Tactics</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Hunter</specialization>\n";
+
+addRangerSuperiorHuntersDefense=" \
+<actions>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Evasion</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 15th level, you gain one of the following features of your choice.</p>\n \
+\t<p><b>Evasion. </b>You can nimbly dodge out of the way of certain area effects, such as a red dragon's fiery breath or a lightning bolt spell. When you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.</p>\n \
+\t<p><b>Stand Against the Tide. </b>When a hostile creature misses you with a melee attack, you can use your reaction to force that creature to repeat the same attack against another creature (other than itself) of your choice.</p>\n \
+\t<p><b>Uncanny Dodge. </b>When an attacker that you can see hits you with an attack, you can use your reaction to halve the attack's damage against you.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Superior Hunter's Defense</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Hunter</specialization>\n";
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+End of Ranger effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+Start of Rogue effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+addRogueEvasion=" \
+<actions>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Evasion</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Beginning at 7th level, you can nimbly dodge out of the way of certain area effects, such as a red dragon's fiery breath or an ice storm spell. When you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Evasion</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<source type=\"string\">Rogue</source>\n";
+
+addRogueSneakAttack=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">roll</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">DMG: 10d6</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Beginning at 1st level, you know how to strike subtly and exploit a foe's distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon.</p>\n \
+\t<p>You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll.</p>\n \
+\t<p>The amount of the extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Sneak Attack</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Rogue</source>\n";
+
+addRogueRakishAudacity=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">INIT:[CHA]</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 3rd level, your unmistakable confidence propels you into battle. You can add your Charisma modifier to your initiative rolls.</p>\n \
+\t<p>In addition, you don't need advantage on your attack roll to use your Sneak Attack if no creature other than your target is within 5 feet of you. All the other rules for the Sneak Attack class feature still apply to you.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Rakish Audacity</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Swashbuckler</specialization>\n";
+
+addRoguePanache=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">minute</durunit>\n \
+\t\t<label type=\"string\">Charmed</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">minute</durunit>\n \
+\t\t<label type=\"string\">GRANTDISATK:</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 9th level, your charm becomes extraordinarily beguiling. As an action, you can make a Charisma (Persuasion) check contested by a creature's Wisdom (Insight) check. The creature must be able to hear you, and the two of you must share a language.</p>\n \
+\t<p>If you succeed on the check and the creature is hostile to you, it has disadvantage on attack rolls against targets other than you and can't make opportunity attacks against targets other than you. This effect lasts for 1 minute, until one of your companions attacks the target or affects it with a spell, or until you and the target are more than 60 feet apart.</p>\n \
+\t<p>If you succeed on the check and the creature isn't hostile to you, it is charmed by you for 1 minute. While charmed, it regards you as a friendly acquaintance. This effect ends immediately if you or your companions do anything harmful to it.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Panache</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Swashbuckler</specialization>\n";
+
+addRogueElegantManeuver=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">roll</apply>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<label type=\"string\">ADVSKILL: acrobatics; ADVSKILL: athletics</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 13th level, you can use a bonus action on your turn to gain advantage on the next Dexterity (Acrobatics) or Strength (Athletics) check you make during the same turn.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Elegant Maneuver</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Swashbuckler</specialization>\n";
+
+addRogueDeathStrike=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savetype type=\"string\">constitution</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 17th level, you become a master of instant death. When you attack and hit a creature that is surprised, it must make a Constitution saving throw (DC 8 + your Dexterity modifier + your proficiency bonus). On a failed save, double the damage of your attack against the creature.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Death Strike</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Assassin</specialization>\n";
+
+addRogueMagicalAmbush=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">roll</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">DISSAV: all;</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 9th level, if you are hidden from a creature when you cast a spell on it, the creature has disadvantage on any saving throw it makes against the spell this turn.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Magical Ambush</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Arcane Trickster</specialization>\n";
+
+addRogueVersatileTrickster=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<label type=\"string\">ADVATK:</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 13th level, you gain the ability to distract targets with your mage hand. As a bonus action on your turn, you can designate a creature within 5 feet of the spectral hand created by the spell. Doing so gives you advantage on attack rolls against that creature until the end of the turn.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Versatile Trickster</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Arcane Trickster</specialization>\n";
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+End of Rogue effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+Start of Sorcerer effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+addSorcererFontOfMagic=" \
+<actions>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 2nd level, you tap into a deep wellspring of magic within yourself. This wellspring is represented by sorcery points, which allow you to create a variety of magical effects.</p>\n \
+\t<p><b>Sorcery Points</b></p>\n \
+\t<p>You have 2 sorcery points, and you gain more as you reach higher levels, as shown in the Sorcery Points column of the Sorcerer table. You can never have more sorcery points than shown on the table for your level. You regain all spent sorcery points when you finish a long rest.</p>\n \
+\t<p><b>Flexible Casting</b></p>\n \
+\t<p>You can use your sorcery points to gain additional spell slots, or sacrifice spell slots to gain additional sorcery points. You learn other ways to use your sorcery points as you reach higher levels. The created spell slots vanish at the end of a long rest.</p>\n \
+\t<p><b>Creating Spell Slots. </b>You can transform unexpended sorcery points into one spell slot as a bonus action on your turn. The Creating Spell Slots table shows the cost of creating a spell slot of a given level. You can create spell slots no higher in level than 5th.</p>\n \
+\t<p><b>Creating Spell Slots</b></p>\n \
+\t<table>\n \
+\t\t<tr>\n \
+\t\t\t<td><b>Spell Slot Sorcery Level</b></td>\n \
+\t\t\t<td><b>Point Cost</b></td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td>1st</td>\n \
+\t\t\t<td>2</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td>2nd</td>\n \
+\t\t\t<td>3</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td>3rd</td>\n \
+\t\t\t<td>5</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td>4th</td>\n \
+\t\t\t<td>6</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td>5th</td>\n \
+\t\t\t<td>7</td>\n \
+\t\t</tr>\n \
+\t</table>\n \
+\t<p>Converting a Spell Slot to Sorcery Points. As a bonus action on your turn, you can expend one spell slot and gain a number of sorcery points equal to the slot's level.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Font of Magic</name>\n \
+<prepared type=\"number\">20</prepared>\n \
+<source type=\"string\">Sorcerer</source>\n";
+
+addSorcererHeartOfTheStorm=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">RESIST: lightning,thunder</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+\t<id-00005>\n \
+\t\t<damagelist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">10</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t\t<type type=\"string\">lightning</type>\n \
+\t\t\t</id-00001>\n \
+\t\t</damagelist>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">damage</type>\n \
+\t</id-00005>\n \
+\t<id-00006>\n \
+\t\t<damagelist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">10</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t\t<type type=\"string\">thunder</type>\n \
+\t\t\t</id-00001>\n \
+\t\t</damagelist>\n \
+\t\t<order type=\"number\">3</order>\n \
+\t\t<type type=\"string\">damage</type>\n \
+\t</id-00006>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 6th level, you gain resistance to lightning and thunder damage. In addition, whenever you start casting a spell of 1st level or higher that deals lightning or thunder damage, stormy magic erupts from you. This eruption causes creatures of your choice that you can see within 10 feet of you to take lightning or thunder damage (choose each time this ability activates) equal to half your sorcerer level.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Heart of the Storm</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Storm Sorcery</specialization>\n";
+
+addSorcererStormsFury=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<damagelist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t\t<stat type=\"string\">level</stat>\n \
+\t\t\t\t<type type=\"string\">lightning</type>\n \
+\t\t\t</id-00001>\n \
+\t\t</damagelist>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">damage</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<atkmod type=\"number\">0</atkmod>\n \
+\t\t<atkprof type=\"number\">1</atkprof>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<savedcmod type=\"number\">0</savedcmod>\n \
+\t\t<savedcprof type=\"number\">1</savedcprof>\n \
+\t\t<savetype type=\"string\">strength</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 14th level, when you are hit by a melee attack, you can use your reaction to deal lightning damage to the attacker. The damage equals your sorcerer level. The attacker must also make a Strength saving throw against your sorcerer spell save DC. On a failed save, the attacker is pushed in a straight line up to 20 feet away from you.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Storm's Fury</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Storm Sorcery</specialization>\n";
+
+addSorcererWindSoul=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">IMMUNE:lightning,thunder</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 18th level, you gain immunity to lightning and thunder damage.</p>\n \
+\t<p>You also gain a magical flying speed of 60 feet. As an action, you can reduce your flying speed to 30 feet for 1 hour and choose a number of creatures within 30 feet of you equal to 3 + your Charisma modifier. The chosen creatures gain a magical flying speed of 30 feet for 1 hour. Once you reduce your flying speed in this way, you can't do so again until you finish a short or long rest.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Wind Soul</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Storm Sorcery</specialization>\n";
+
+addSorcererDragonAncestor=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">CHECK:[2PRF], charisma</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 1st level, you choose one type of dragon as your ancestor. The damage type associated with each dragon is used by features you gain later.</p>\n \
+\t<p><b>Draconic Ancestry</b></p>\n \
+\t<table>\n \
+\t\t<tr>\n \
+\t\t\t<td><b>Dragon</b></td>\n \
+\t\t\t<td><b>Damage Type</b></td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td>Black</td>\n \
+\t\t\t<td>Acid</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td>Blue</td>\n \
+\t\t\t<td>Lightning</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td>Brass</td>\n \
+\t\t\t<td>Fire</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td>Bronze</td>\n \
+\t\t\t<td>Lightning</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td>Copper</td>\n \
+\t\t\t<td>Acid</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td>Cold</td>\n \
+\t\t\t<td>Fire</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td>Green</td>\n \
+\t\t\t<td>Poison</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td>Red</td>\n \
+\t\t\t<td>Fire</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td>Silver</td>\n \
+\t\t\t<td>Cold</td>\n \
+\t\t</tr>\n \
+\t\t<tr>\n \
+\t\t\t<td>White</td>\n \
+\t\t\t<td>Cold</td>\n \
+\t\t</tr>\n \
+\t</table>\n \
+\t<p>You can speak, read, and write Draconic. Additionally, whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Dragon Ancestor</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Draconic Bloodline</specialization>\n";
+
+addSorcererElementalAffinity=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">hour</durunit>\n \
+\t\t<label type=\"string\">RESIST;fire</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">Affinity fire; DMG:[CHA]</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 6th level, when you cast a spell that deals damage of the type associated with your draconic ancestry, add your Charisma modifier to that damage. At the same time, you can spend 1 sorcery point to gain resistance to that damage type for 1 hour. The damage bonus applies to one damage roll of a spell, not multiple rolls.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Elemental Affinity</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Draconic Bloodline</specialization>\n";
+
+addSorcererDraconicPresence=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savetype type=\"string\">wisdom</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">minute</durunit>\n \
+\t\t<label type=\"string\">Charmed</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Beginning at 18th level, you can channel the dread presence of your dragon ancestor, causing those around you to become awestruck or frightened. As an action, you can spend 5 sorcery points to draw on this power and exude an aura of awe or fear (your choice) to a distance of 60 feet. For 1 minute or until you lose your concentration (as if you were casting a concentration spell), each hostile creature that starts its turn in this aura must succeed on a Wisdom saving throw or be charmed (if you chose awe) or frightened (if you chose fear) until the aura ends. A creature that succeeds on this saving throw is immune to your aura for 24 hours.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Draconic Presence</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">Draconic Bloodline</specialization>\n";
+
+addSorcererTidesOfChaos=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">ADVATK; ADVCHK; ADVSAV</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 1st level, you can manipulate the forces of chance and chaos to gain advantage on one attack roll, ability check, or saving throw. Once you do so, you must finish a long rest before you can use this feature again. Any time before you regain the use of this feature, the DM can have you roll on the Wild Magic Surge table immediately after you cast a sorcerer spell of 1st level or higher. You then regain the use of this feature.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Tides of Chaos</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<specialization type=\"string\">Wild Magic</specialization>\n";
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+End of Sorcerer effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+Start of Warlock effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+addWarlockEldritchMaster=" \
+<actions>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 20th level, you can draw on your inner reserve of mystical power while entreating your patron to regain expended spell slots. You can spend 1 minute entreating your patron for aid to regain all your expended spell slots from your Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again.</p>\n \
+</description>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Eldritch Master</name>\n \
+<group type=\"string\">Class Features</group>\n \
+<prepared type=\"number\">1</prepared>\n \
+<source type=\"string\">Warlock</source>\n";
+
+addWarlockMysticArcanum=" \
+<actions>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 11th level, your patron bestows upon you a magical secret called an arcanum. Choose one 6th-level spell from the warlock spell list as this arcanum. You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.</p>\n \
+\t<p>At higher levels, you gain more warlock spells of your choice that can be cast in this way: one 7th-level spell at 13th level, one 8th-level spell at 15th level, and one 9th-level spell at 17th level. You regain all uses of your Mystic Arcanum when you finish a long rest.</p>\n \
+</description>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Mystic Arcanum</name>\n \
+<group type=\"string\">Class Features</group>\n \
+<prepared type=\"number\">1</prepared>\n \
+<source type=\"string\">Warlock</source>\n";
+
+addWarlockFeyPresence=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savetype type=\"string\">wisdom</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<label type=\"string\">charmed</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+\t<id-00003>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<label type=\"string\">frightened</label>\n \
+\t\t<order type=\"number\">3</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00003>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 1st level, your patron bestows upon you the ability to project the beguiling and fearsome presence of the fey. As an action, you can cause each creature in a 10-foot cube originating from you to make a Wisdom saving throw against your warlock spell save DC. The creatures that fail their saving throws are all charmed or frightened by you (your choice) until the end of your next turn. Once you use this feature, you can't use it again until you finish a short or long rest.</p>\n \
+</description>\n \
+<group type=\"string\"Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Fey Presence</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">The Archfey</specialization>\n \
+<usesperiod type=\"string\">enc</usesperiod>\n";
+
+addWarlockMistyEscape=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<label type=\"string\">invisible</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 6th level, you can vanish in a puff of mist in response to harm. When you take damage, you can use your reaction to turn invisible and teleport up to 60 feet to an unoccupied space you can see. You remain invisible until the start of your next turn or until you attack or cast a spell.</p>\n \
+\t<p>Once you use this feature, you can't use it again until you finish a short or long rest.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Misty Escape</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">The Archfey</specialization>\n \
+<usesperiod type=\"string\">enc</usesperiod>\n";
+
+addWarlockBeguilingDefenses=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savetype type=\"string\">wisdom</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">minute</durunit>\n \
+\t\t<label type=\"string\">Charmed</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+\t<id-00003>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">IMMUNE:charmed</label>\n \
+\t\t<order type=\"number\">3</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00003>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Beginning at 10th level, your patron teaches you how to turn the mind-affecting magic of your enemies against them. You are immune to being charmed, and when another creature attempts to charm you, you can use your reaction to attempt to turn the charm back on that creature. The creature must succeed on a Wisdom saving throw against your warlock spell save DC or be charmed by you for 1 minute or until the creature takes any damage.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Beguiling Defenses</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">The Archfey</specialization>\n";
+
+addWarlockDarkDelirium=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savetype type=\"string\">wisdom</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">minute</durunit>\n \
+\t\t<label type=\"string\">Charmed</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+\t<id-00003>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">minute</durunit>\n \
+\t\t<label type=\"string\">frightened</label>\n \
+\t\t<order type=\"number\">3</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00003>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 14th level, you can plunge a creature into an illusory realm. As an action, choose a creature that you can see within 60 feet of you. It must make a Wisdom saving throw against your warlock spell save DC. On a failed save, it is charmed or frightened by you (your choice) for 1 minute or until your concentration is broken (as if you are concentrating on a spell). This effect ends early if the creature takes any damage.</p>\n \
+\t<p>Until this illusion ends, the creature thinks it is lost in a misty realm, the appearance of which you choose. The creature can see and hear only itself, you, and the illusion.</p>\n \
+\t<p>You must finish a short or long rest before you can use this feature again.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Dark Delirium</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">The Archfey</specialization>\n \
+<usesperiod type=\"string\">enc</usesperiod>\n";
+
+addWarlockDarkOnesBlessing=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t\t<stat type=\"string\">charisma</stat>\n \
+\t\t\t</id-00001>\n \
+\t\t\t<id-00002>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t\t<stat type=\"string\">warlock</stat>\n \
+\t\t\t</id-00002>\n \
+\t\t</heallist>\n \
+\t\t<healtargeting type=\"string\">self</healtargeting>\n \
+\t\t<healtype type=\"string\">temp</healtype>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 1st level, when you reduce a hostile creature to 0 hit points, you gain temporary hit points equal to your Charisma modifier + your warlock level (minimum of 1).</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Dark One's Blessing</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">The Fiend</specialization>\n \
+<usesperiod type=\"string\">enc</usesperiod>\n";
+
+addWarlockFiendishResilience=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">RESIST:fire,!magic,!silver</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 10th level, you can choose one damage type when you finish a short or long rest. You gain resistance to that damage type until you choose a different one with this feature. Damage from magical weapons or silver weapons ignores this resistance.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Fiendish Resilience</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">The Fiend</specialization>\n \
+<usesperiod type=\"string\">enc</usesperiod>\n";
+
+addWarlockHurlThroughHell=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<damagelist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\">d10,d10,d10,d10,d10,d10,d10,d10,d10,d10</dice>\n \
+\t\t\t\t<type type=\"string\">psychic</type>\n \
+\t\t\t</id-00001>\n \
+\t\t</damagelist>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">damage</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 14th level, when you hit a creature with an attack, you can use this feature to instantly transport the target through the lower planes. The creature disappears and hurtles through a nightmare landscape. At the end of your next turn, the target returns to the space it previously occupied, or the nearest unoccupied space. If the target is not a fiend, it takes 10d 10 psychic damage as it reels from its horrific experience. Once you use this feature, you can't use it again until you finish a long rest.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Hurl Through Hell</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">The Fiend</specialization>\n";
+
+addWarlockDarkOnesOwnLuck=" \
+<actions>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 6th level, you can call on your patron to alter fate in your favor. When you make an ability check or a saving throw, you can use this feature to add a d 10 to your roll. You can do so after seeing the initial roll but before any of the roll's effects occur.</p>\n \
+\t<p>Once you use this feature, you can't use it again until you finish a short or long rest.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Dark One's Own Luck</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<specialization type=\"string\">The Fiend</specialization>\n \
+<usesperiod type=\"string\">enc</usesperiod>\n";
+
+addWarlockEntropicWard=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">DISATK:</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<label type=\"string\">ADVATK:</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 6th level, you learn to magically ward yourself against attack and to turn an enemy's failed strike into good luck for yourself. When a creature makes an attack roll against you, you can use your reaction to impose disadvantage on that roll. If the attack misses you, your next attack roll against the creature has advantage if you make it before the end of your next turn.</p>\n \
+\t<p>Once you use this feature, you can't use it again until you finish a short or long rest.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Entropic Ward</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<specialization type=\"string\">The Great Old One</specialization>\n \
+<usesperiod type=\"string\">enc</usesperiod>\n";
+
+addWarlockThoughtShield=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">RESIST:psychic</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 10th level, your thoughts can't be read by telepathy or other m eans unless you allow it. You also have resistance to psychic damage, and whenever a creature deals psychic damage to you, that creature takes the same amount of damage that you do.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Thought Shield</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">The Great Old One</specialization>\n";
+
+addWarlockCreateThrall=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">charmed</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 14th level, you gain the ability to infect a humanoid's mind with the alien magic of your patron. You can use your action to touch an incapacitated humanoid. That creature is then charmed by you until a remove curse spell is cast on it, the charmed condition is removed from it, or you use this feature again.</p>\n \
+\t<p>You can communicate telepathically with the charmed creature as long as the two of you are on the same plane of existence.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Create Thrall</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">The Great Old One</specialization>\n";
+
+addWarlockAmongTheDead=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savetype type=\"string\">wisdom</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 1st level, you learn the spare the dying cantrip, which counts as a warlock cantrip for you. You also have advantage on saving throws against any disease.</p>\n \
+\t<p>Additionally, undead have difficulty harming you. If an undead targets you directly with an attack or a harmful spell, that creature must make a Wisdom saving throw against your spell save DC (an undead needn't make the save when it includes you in an area effect, such as the explosion of fireball). On a failed save, the creature must choose a new target or forfeit targeting someone instead of you, potentially wasting the attack or spell. On a successful save, the creature is immune to this effect for 24 hours. An undead is also immune to this effect for 24 hours if you target it with an attack or a harmful spell.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Among the Dead</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">The Undying</specialization>\n";
+
+addWarlockDefyDeath=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\">d8</dice>\n \
+\t\t\t\t<stat type=\"string\">constitution</stat>\n \
+\t\t\t</id-00001>\n \
+\t\t</heallist>\n \
+\t\t<healtargeting type=\"string\">self</healtargeting>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 6th level, you can give yourself vitality when you cheat death or when you help someone else cheat it. You can regain hit points equal to 1d8 + your Constitution modifier (minimum of 1 hit point) when you succeed on a death saving throw or when you stabilize a creature with spare the dying.</p>\n \
+\t<p>Once you use this feature, you can't use it again until you finish a long rest.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Defy Death</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<specialization type=\"string\">The Undying</specialization>\n";
+
+addWarlockIndestructibleLife=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\">d8</dice>\n \
+\t\t\t\t<stat type=\"string\">warlock</stat>\n \
+\t\t\t</id-00001>\n \
+\t\t</heallist>\n \
+\t\t<healtargeting type=\"string\">self</healtargeting>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>When you reach 14th level, you partake of some of the true secrets of the Undying. On your turn, you can use a bonus action to regain hit points equal to 1d8 + your warlock level. Additionally, if you put a severed body part of yours back in place when you use this feature, the part reattaches.</p>\n \
+\t<p>Once you use this feature, you can't use it again until you finish a short or long rest.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Indestructible Life</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<specialization type=\"string\">The Undying</specialization>\n \
+<usesperiod type=\"string\">enc</usesperiod>\n";
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+End of Warlock effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+Start of Wizard effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+addWizardArcaneRecovery=" \
+<actions>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>You have learned to regain some of your magical energy by studying your spellbook. Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher.</p>\n \
+\t<p>For example, if you're a 4th-level wizard, you can recover up to two levels worth of spell slots. You can recover either a 2nd-level spell slot or two 1st-level spell slots.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Arcane Recovery</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<source type=\"string\">Wizard</source>\n";
+
+addWizardArcaneWard=" \
+<actions>\n \
+\t<id-00002>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t\t<stat type=\"string\">level</stat>\n \
+\t\t\t</id-00001>\n \
+\t\t\t<id-00002>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t\t<stat type=\"string\">level</stat>\n \
+\t\t\t</id-00002>\n \
+\t\t\t<id-00003>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t\t<stat type=\"string\">intelligence</stat>\n \
+\t\t\t</id-00003>\n \
+\t\t</heallist>\n \
+\t\t<healtargeting type=\"string\">self</healtargeting>\n \
+\t\t<healtype type=\"string\">temp</healtype>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00002>\n \
+\t<id-00004>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">2</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t</id-00001>\n \
+\t\t</heallist>\n \
+\t\t<healtargeting type=\"string\">self</healtargeting>\n \
+\t\t<healtype type=\"string\">temp</healtype>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00004>\n \
+\t<id-00005>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">4</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t</id-00001>\n \
+\t\t</heallist>\n \
+\t\t<healtargeting type=\"string\">self</healtargeting>\n \
+\t\t<healtype type=\"string\">temp</healtype>\n \
+\t\t<order type=\"number\">3</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00005>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 2nd level, you can weave magic around yourself for protection. When you cast an abjuration spell of 1st level or higher, you can simultaneously use a strand of the spell's magic to create a magical ward on yourself that lasts until you finish a long rest. The ward has hit points equal to twice your wizard level + your Intelligence modifier. Whenever you take damage, the ward takes the damage instead. If this damage reduces the ward to 0 hit points, you take any remaining damage.</p>\n \
+\t<p>While the ward has 0 hit points, it can't absorb damage, but its magic remains. Whenever you cast an abjuration spell of 1st level or higher, the ward regains a number of hit points equal to twice the level of the spell. Once you create the ward, you can't create it again until you finish a long rest.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Arcane Ward</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<specialization type=\"string\">School of Abjuration</specialization>\n";
+
+addWizardImprovedAbjuration=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">CHECK:[PRF]</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Beginning at 10th level, when you cast an abjuration spell that requires you to make an ability check as a part of casting that spell (as in counterspell and dispel magic), you add your proficiency bonus to that ability check.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Improved Abjuration</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">School of Abjuration</specialization>\n";
+
+addWizardSpellResistance=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">RESIST: all; ADVSAV: all</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 14th level, you have advantage on saving throws against spells. Furthermore, you have resistance against the damage of spells.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Spell Resistance</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">School of Abjuration</specialization>\n";
+
+addWizardBenignTransposition=" \
+<actions>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 6th level, you can use your action to teleport up to 30 feet to an unoccupied space that you can see.</p>\n \
+\t<p>Alternatively, you can choose a space within range that is occupied by a Small or M edium creature. If that creature is willing, you both teleport, swapping places. Once you use this feature, you can't use it again until you finish a long rest or you cast a conjuration spell of 1st level or higher.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Benign Transposition</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<specialization type=\"string\">School of Conjuration</specialization>\n";
+
+addWizardDurableSummons=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">30</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t</id-00001>\n \
+\t\t</heallist>\n \
+\t\t<healtype type=\"string\">temp</healtype>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 14th level, any creature that you summon or create with a conjuration spell has 30 temporary hit points.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Durable Summons</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">School of Conjuration</specialization>\n";
+
+addWizardPortent=" \
+<actions>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 2nd level when you choose this school, glimpses of the future begin to press in on your awareness. When you finish a long rest, roll two d20s and record the numbers rolled. You can replace any attack roll, saving throw, or ability check made by you or a creature that you can see with one of these foretelling rolls. You must choose to do so before the roll, and you can replace a roll in this way only once per turn. Each foretelling roll can be used only once. When you finish a long rest, you lose any unused foretelling rolls.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<level type=\"number\">0</level>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Portent</name>\n \
+<prepared type=\"number\">2</prepared>\n \
+<ritual type=\"number\">0</ritual>\n \
+<specialization type=\"string\">School of Divination</specialization>\n";
+
+addWizardHypnoticGaze=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savetype type=\"string\">wisdom</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<label type=\"string\">Charmed</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+\t<id-00003>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<label type=\"string\">Incapacitated</label>\n \
+\t\t<order type=\"number\">3</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00003>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 2nd level when you choose this school, your soft words and enchanting gaze can magically enthrall another creature. A s an action, choose one creature that you can see within 5 feet of you. If the target can see or hear you, it must succeed on a Wisdom saving throw against your wizard spell save DC or be charmed by you until the end of your next turn. The charmed creature's speed drops to 0, and the creature is incapacitated and visibly dazed.</p>\n \
+\t<p>On subsequent turns, you can use your action to maintain this effect, extending its duration until the end of your next turn. However, the effect ends if you move more than 5 feet away from the creature, if the creature can neither see nor hear you, or if the creature takes damage.</p>\n \
+\t<p>Once the effect ends, or if the creature succeeds on its initial saving throw against this effect, you can't use this feature on that creature again until you finish a long rest.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Hypnotic Gaze</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">School of Enchantment</specialization>\n";
+
+addWizardInstinctiveCharm=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savetype type=\"string\">wisdom</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Beginning at 6th level, when a creature you can see within 30 feet of you makes an attack roll against you, you can use your reaction to divert the attack, provided that another creature is within the attack's range. The attacker must make a Wisdom saving throw against your wizard spell save DC. On a failed save, the attacker must target the creature that is closest to it, not including you or itself. If multiple creatures are closest, the attacker chooses which one to target. On a successful save, you can't use this feature on the attacker again until you finish a long rest.</p>\n \
+\t<p>You must choose to use this feature before knowing whether the attack hits or misses. Creatures that can't be charmed are immune to this effect.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Instinctive Charm</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">School of Enchantment</specialization>\n";
+
+addWizardAlterMemories=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savetype type=\"string\">intelligence</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 14th level, you gain the ability to make a creature unaware of your magical influence on it. When you cast an enchantment spell to charm one or more creatures, you can alter one creature's understanding so that it remains unaware of being charmed.</p>\n \
+\t<p>Additionally, once before the spell expires, you can use your action to try to make the chosen creature forget some of the time it spent charmed. The creature must succeed on an Intelligence saving throw against your wizard spell save DC or lose a number of hours of its memories equal to 1 + your Charisma modifier (minimum 1). You can make the creature forget less time, and the amount of time can't exceed the duration of your enchantment spell.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Alter Memories</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">School of Enchantment</specialization>\n";
+
+addWizardEmpoweredEvocation=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">DMG:[INT]</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Beginning at 10th level, you can add your Intelligence modifier to the damage roll of any wizard evocation spell you cast. The damage bonus applies to one damage roll of a spell, not multiple rolls.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Empowered Evocation</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">School of Evocation</specialization>\n";
+
+addWizardOverchannel=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<damagelist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">0</bonus>\n \
+\t\t\t\t<dice type=\"dice\">d12,d12</dice>\n \
+\t\t\t\t<type type=\"string\">necrotic</type>\n \
+\t\t\t</id-00001>\n \
+\t\t</damagelist>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">damage</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 14th level, you can increase the power of your simpler spells. When you cast a wizard spell of 5th level or lower that deals damage, you can deal maximum damage with that spell.</p>\n \
+\t<p>The first time you do so, you suffer no adverse effect. If you use this feature again before you finish a long rest, you take 2d12 necrotic damage for each level of the spell, immediately after you cast it. Each time you use this feature again before finishing a long rest, the necrotic damage per spell level increases by 1d12. This damage ignores resistance and immunity.</p>\n \
+\t<p>The feature doesn't benefit cantrips.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Overchannel</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">School of Evocation</specialization>\n";
+
+addWizardIllusorySelf=" \
+<actions>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Beginning at 10th level, you can create an illusory duplicate of yourself as an instant, almost instinctual reaction to danger. When a creature makes an attack roll against you, you can use your reaction to interpose the illusory duplicate between the attacker and yourself. The attack automatically misses you, then the illusion dissipates.</p>\n \
+\t<p>Once you use this feature, you can't use it again until</p>\n \
+\t<p>you finish a short or long rest.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Illusory Self</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<specialization type=\"string\">School of Illusion</specialization>\n";
+
+addWizardGrimHarvest=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">2</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t</id-00001>\n \
+\t\t</heallist>\n \
+\t\t<healtargeting type=\"string\">self</healtargeting>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">4</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t</id-00001>\n \
+\t\t</heallist>\n \
+\t\t<healtargeting type=\"string\">self</healtargeting>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 2nd level, you gain the ability to reap life energy from creatures you kill with your spells. Once per turn when you kill one or more creatures with a spell of 1st level or higher, you regain hit points equal to twice the spell's level, or three times its level if the spell belongs to the School of Necromancy. You don't gain this benefit for killing constructs or undead.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Grim Harvest</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">School of Necromancy</specialization>\n";
+
+addWizardInuredToDeath=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">RESIST:necrotic</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Beginning at 10th level, you have resistance to necrotic damage, and your hit point maximum can't be reduced. You have spent so much time dealing with undead and the forces that animate them that you have become inured to some of their worst effects.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Inured to Undeath</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">School of Necromancy</specialization>\n";
+
+addWizardCommandUndead=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<savetype type=\"string\">charisma</savetype>\n \
+\t\t<type type=\"string\">cast</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 14th level, you can use magic to bring undead under your control, even those created by other wizards. As an action, you can choose one undead that you can see within 60 feet of you. That creature must make a Charisma saving throw against your wizard spell save DC. If it succeeds, you can't use this feature on it again. If it fails, it becomes friendly to you and obeys your commands until you use this feature again. Intelligent undead are harder to control in this way. If the target has an Intelligence of 8 or higher, it has advantage on the saving throw. If it fails the saving throw and has an Intelligence of 12 or higher, it can repeat the saving throw at the end of every hour until it succeeds and breaks free.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Command Undead</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">School of Necromancy</specialization>\n";
+
+addWizardTransmutersStone=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">RESIST: acid</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">CON:[PRF]</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 6th level, you can spend 8 hours creating a transmuter's stone that stores transmutation magic. You can benefit from the stone yourself or give it to another creature. A creature gains a benefit of your choice as long as the stone is in the creature's possession. When you create the stone, choose the benefit from the following options:</p>\n \
+\t<list>\n \
+\t\t<li>Darkvision out to a range of 60 feet, as described in chapter 8</li>\n \
+\t\t<li>An increase to speed of 10 feet while the creature is unencumbered</li>\n \
+\t\t<li>Proficiency in Constitution saving throws</li>\n \
+\t\t<li>Resistance to acid, cold, fire, lightning, or thunder damage (your choice whenever you choose this benefit)</li>\n \
+\t</list>\n \
+\t<p>Each time you cast a transmutation spell of 1st level or higher, you can change the effect of your stone if the stone is on your person.</p>\n \
+\t<p>If you create a new transmuter's stone, the previous one ceases to function.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Transmuter's Stone</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">School of Transmutation</specialization>\n";
+
+addWizardShapechanger=" \
+<actions>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>At 10th level, you add the polymorph spell to your spellbook, if it is not there already. You can cast polymorph without expending a spell slot. When you do so, you can target only yourself and transform into a beast whose challenge rating is 1 or lower. Once you cast polymorph in this way, you can't do so again until you finish a short or long rest, though you can still cast it normally using an available spell slot.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Shapechanger</name>\n \
+<prepared type=\"number\">1</prepared>\n \
+<specialization type=\"string\">School of Transmutation</specialization>\n";
+
+addWizardBladesong=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">minute</durunit>\n \
+\t\t<label type=\"string\">AC:[INT];ADVSKILL:acrobatics</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
+\t\t<apply type=\"string\">action</apply>\n \
+\t\t<durmod type=\"number\">0</durmod>\n \
+\t\t<label type=\"string\">SAVE:[INT],constitution</label>\n \
+\t\t<order type=\"number\">2</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00002>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 2nd level, you can invoke a secret elven magic called the Bladesong, provided that you aren't wearing medium or heavy armor or using a shield. It graces you with supernatural speed, agility, and focus.</p>\n \
+\t<p>You can use a bonus action to start the Bladesong, which lasts for 1 minute. It ends early if you are incapacitated, if you don medium or heavy armor or a shield, or if you use two hands to make an attack with a weapon. You can also dismiss the Bladesong at any time you choose (no action required).</p>\n \
+\t<p>While your Bladesong is active, you gain the following benefits:</p>\n \
+\t<list>\n \
+\t\t<li>You gain a bonus to your AC equal to your Intelligence modifier (minimum of +1).</li>\n \
+\t\t<li>Your walking speed increases by 10 feet.</li>\n \
+\t\t<li>You have advantage on Dexterity (Acrobatics) checks.</li>\n \
+\t\t<li>You gain a bonus to any Constitution saving throw you make to maintain your concentration on a spell. The bonus equals your Intelligence modifier (minimum of +1).</li>\n \
+\t</list>\n \
+\t<p>You can use this feature twice. You regain all expended uses of it when you finish a short or long rest.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Bladesong</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Bladesinging</specialization>\n";
+
+addWizardSongOfVictory=" \
+<actions>\n \
+\t<id-00001>\n \
+\t\t<durmod type=\"number\">1</durmod>\n \
+\t\t<durunit type=\"string\">minute</durunit>\n \
+\t\t<label type=\"string\">DMG:[INT],melee</label>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<targeting type=\"string\">self</targeting>\n \
+\t\t<type type=\"string\">effect</type>\n \
+\t</id-00001>\n \
+</actions>\n \
+<cast type=\"number\">0</cast>\n \
+<description type=\"formattedtext\">\n \
+\t<p>Starting at 14th level, you add your Intelligence modifier (minimum of +1) to the damage of your melee weapon attacks while your Bladesong is active.</p>\n \
+</description>\n \
+<group type=\"string\">Class Features</group>\n \
+<locked type=\"number\">1</locked>\n \
+<name type=\"string\">Song of Victory</name>\n \
+<prepared type=\"number\">0</prepared>\n \
+<specialization type=\"string\">Bladesinging</specialization>";
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+End of Wizard effects
 
 * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
