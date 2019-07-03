@@ -1940,6 +1940,53 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         } else if (isCleric == 1) {
             // Cleric domains:
             // Arcana, Death, Forge, Grave, Knowledge, Life, Light, Nature, Order, Tempest, Trickery, War
+            if (levelCleric >= 1) {
+                if (clericDomain.match(/Arcana/)) {
+
+                } else if (clericDomain.match(/Death/)) {
+
+                } else if (clericDomain.match(/Forge/)) {
+
+                } else if (clericDomain.match(/Grave/)) {
+
+                } else if (clericDomain.match(/Knowledge/)) {
+
+                } else if (clericDomain.match(/Life/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericCureWoundsLife;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (clericDomain.match(/Light/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericWardingFlare;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (clericDomain.match(/Nature/)) {
+                
+                } else if (clericDomain.match(/Order/)) {
+
+                } else if (clericDomain.match(/Tempest/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericWrathOfTheStorm;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (clericDomain.match(/Trickery/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericBlessingOfTheTrickster;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (clericDomain.match(/War/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericWarPriest;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } 
+            }
             if (levelCleric >= 2) {
                 thisIteration = pad(totalSpells + 1, 5);
                 totalSpells += 1;
@@ -1948,7 +1995,11 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                 buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 //console.log("Cleric Domain: " + clericDomain);
                 if (clericDomain.match(/Arcana/)) {
-
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericArcaneAbjuration;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 } else if (clericDomain.match(/Death/)) {
 
                 } else if (clericDomain.match(/Forge/)) {
@@ -1964,7 +2015,11 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += addClericPreserveLife;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 } else if (clericDomain.match(/Light/)) {
-
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericRadianceOfDawn;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 } else if (clericDomain.match(/Nature/)) {
                     thisIteration = pad(totalSpells + 1, 5);
                     totalSpells += 1;
@@ -1972,11 +2027,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += addClericCharmAnimals;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 } else if (clericDomain.match(/Order/)) {
-                    thisIteration = pad(totalSpells + 1, 5);
-                    totalSpells += 1;
-                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
-                    buildXML += addClericArcaneAbjuration;
-                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    
                 } else if (clericDomain.match(/Tempest/)) {
 
                 } else if (clericDomain.match(/Trickery/)) {
@@ -2005,13 +2056,21 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                 } else if (clericDomain.match(/Light/)) {
 
                 } else if (clericDomain.match(/Nature/)) {
-                
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericDampenElements;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 } else if (clericDomain.match(/Order/)) {
 
                 } else if (clericDomain.match(/Tempest/)) {
 
                 } else if (clericDomain.match(/Trickery/)) {
-
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericCloakOfShadows;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 } else if (clericDomain.match(/War/)) {
 
                 } 
@@ -2020,27 +2079,59 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                 if (clericDomain.match(/Arcana/)) {
 
                 } else if (clericDomain.match(/Death/)) {
-
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericDivineStrike;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 } else if (clericDomain.match(/Forge/)) {
-
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericDivineStrike;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 } else if (clericDomain.match(/Grave/)) {
 
                 } else if (clericDomain.match(/Knowledge/)) {
 
                 } else if (clericDomain.match(/Life/)) {
-                
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericDivineStrike;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 } else if (clericDomain.match(/Light/)) {
 
                 } else if (clericDomain.match(/Nature/)) {
-                
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericDivineStrike;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 } else if (clericDomain.match(/Order/)) {
-
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericDivineStrike;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 } else if (clericDomain.match(/Tempest/)) {
-
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericDivineStrike;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 } else if (clericDomain.match(/Trickery/)) {
-
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericDivineStrike;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 } else if (clericDomain.match(/War/)) {
-
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericDivineStrike;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 } 
             }
             if (levelCleric >= 17) {
@@ -2055,9 +2146,17 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                 } else if (clericDomain.match(/Knowledge/)) {
 
                 } else if (clericDomain.match(/Life/)) {
-                    
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericCureWoundsSupreme;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 } else if (clericDomain.match(/Light/)) {
-
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericCoronaOfLight;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 } else if (clericDomain.match(/Nature/)) {
                 
                 } else if (clericDomain.match(/Order/)) {
@@ -2067,7 +2166,11 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                 } else if (clericDomain.match(/Trickery/)) {
 
                 } else if (clericDomain.match(/War/)) {
-
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addClericAvatarOfBattle;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 } 
             }
         }
@@ -3540,34 +3643,6 @@ addClericCoronaOfLight=" \
 <name type=\"string\">Corona of Light</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <specialization type=\"string\">Light Domain</specialization>\n";
-
-addClericCharmAnimAndPlant=" \
-<actions>\n \
-\t<id-00001>\n \
-\t\t<label type=\"string\">Charmed</label>\n \
-\t\t<order type=\"number\">1</order>\n \
-\t\t<type type=\"string\">effect</type>\n \
-\t</id-00001>\n \
-\t<id-00002>\n \
-\t\t<atkmod type=\"number\">0</atkmod>\n \
-\t\t<atkprof type=\"number\">1</atkprof>\n \
-\t\t<order type=\"number\">2</order>\n \
-\t\t<savedcmod type=\"number\">0</savedcmod>\n \
-\t\t<savedcprof type=\"number\">1</savedcprof>\n \
-\t\t<savetype type=\"string\">wisdom</savetype>\n \
-\t\t<type type=\"string\">cast</type>\n \
-\t</id-00002>\n \
-</actions>\n \
-<cast type=\"number\">0</cast>\n \
-<description type=\"formattedtext\">\n \
-\t<p>Starting at 2nd level, you can use your Channel Divinity to charm animals and plants.</p>\n \
-\t<p>As an action, you present your holy symbol and invoke the name of your deity. Each beast or plant creature that can see you within 30 feet of you must make a Wisdom saying throw. If the creature fails its saving throw, it is charmed by you for 1 minute or until it takes damage. While it is charmed by you, it is friendly to you and other creatures you designate,</p>\n \
-</description>\n \
-<group type=\"string\">Class Features</group>\n \
-<locked type=\"number\">1</locked>\n \
-<name type=\"string\">Channel Divinity: Charm Animals And Plants</name>\n \
-<prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Nature Domain</specialization>\n";
 
 addClericDampenElements=" \
 <actions>\n \
