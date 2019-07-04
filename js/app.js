@@ -165,6 +165,9 @@ barbBeastAspect = "";
 
 bardCollege = "";
 clericDomain = "";
+druidCircle = "";
+fighterArchetype = "";
+monkWay = "";
 
 sorcSorcOrig = "";
 
@@ -563,10 +566,14 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         } else if (thisClass == "druid") {
             isDruid = 1;
             levelDruid = current_class.level;
+            if(current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
+                druidCircle = current_class.subclassDefinition.name;
+            }
         } else if (thisClass == "fighter") {
             isFighter = 1;
             levelFighter = current_class.level;
             if(current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
+                fighterArchetype = current_class.subclassDefinition.name;
                 if(current_class.subclassDefinition.name == "Eldritch Knight") {
                     fighterSubclassEldritchKnight = 1;
                 }
@@ -574,6 +581,9 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         } else if (thisClass == "monk") {
             isMonk = 1;
             levelMonk = current_class.level;
+            if(current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
+                monkWay = current_class.subclassDefinition.name;
+            }
         } else if (thisClass == "paladin") {
             isPaladin = 1;
             levelPaladin = current_class.level;
@@ -1786,7 +1796,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
 
     // Okay, let's get ready for the paid version
     if (payFlag == 1) {
-        if (isTiefling) {
+        if (isTiefling == 1) {
             thisIteration = pad(totalSpells + 1, 5);
             totalSpells += 1;
             buildXML += "\t\t\t<id-" + thisIteration + ">\n";
@@ -2172,6 +2182,383 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += addClericAvatarOfBattle;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 } 
+            }
+        } else if (isDruid == 1) {
+            if (levelDruid >= 2) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addDruidWildShape;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                if (druidCircle.match(/Dreams/)) {
+                    
+                } else if (druidCircle.match(/Spores/)) {
+                    
+                } else if (druidCircle.match(/Land/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addDruidNaturalRecovery;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (druidCircle.match(/Moon/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addDruidCombatWildShape;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (druidCircle.match(/Shepherd/)) {
+                    
+                }
+            }
+            if (levelDruid >= 6) {
+                if (druidCircle.match(/Dreams/)) {
+                    
+                } else if (druidCircle.match(/Spores/)) {
+                    
+                } else if (druidCircle.match(/Land/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addDruidLandStride;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (druidCircle.match(/Moon/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addDruidPrimalStrike;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (druidCircle.match(/Shepherd/)) {
+                    
+                }
+            }
+            if (levelDruid >= 10) {
+                if (druidCircle.match(/Dreams/)) {
+                    
+                } else if (druidCircle.match(/Spores/)) {
+                    
+                } else if (druidCircle.match(/Land/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addDruidNaturesWard;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (druidCircle.match(/Moon/)) {
+                    
+                } else if (druidCircle.match(/Shepherd/)) {
+                   
+                }
+            }
+            if (levelDruid >= 14) {
+                if (druidCircle.match(/Dreams/)) {
+                    
+                } else if (druidCircle.match(/Spores/)) {
+                    
+                } else if (druidCircle.match(/Land/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addDruidNaturesSanctuary;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (druidCircle.match(/Moon/)) {
+                    
+                } else if (druidCircle.match(/Shepherd/)) {
+                    
+                }
+            }
+        } else if (isFighter == 1) {
+            thisIteration = pad(totalSpells + 1, 5);
+            totalSpells += 1;
+            buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+            buildXML += addFighterSecondWind;
+            buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            if (fighterArchetype.match(/Battle/)) {
+                character.options.class.some(function(battlemaster, p) {
+                    bmmName = battlemaster.definition.name;
+                    if (bmmName == "Feinting Attack") {
+                        thisIteration = pad(totalSpells + 1, 5);
+                        totalSpells += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += addFighterFeintingAttack;
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    } else if (bmmName == "Riposte") {
+                        thisIteration = pad(totalSpells + 1, 5);
+                        totalSpells += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += addFighterRiposte;
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    } else if (bmmName == "Commander's Strike") {
+                        thisIteration = pad(totalSpells + 1, 5);
+                        totalSpells += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += addFighterCommandersStrike;
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    } else if (bmmName == "Disarming Attack") {
+                        thisIteration = pad(totalSpells + 1, 5);
+                        totalSpells += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += addFighterDisarmingAttack;
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    } else if (bmmName == "Distracting Attack") {
+                        thisIteration = pad(totalSpells + 1, 5);
+                        totalSpells += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += addFighterDistractingStrike;
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    } else if (bmmName == "Goading Attack") {
+                        thisIteration = pad(totalSpells + 1, 5);
+                        totalSpells += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += addFighterGoadingAttack;
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    } else if (bmmName == "Lunging Attack") {
+                        thisIteration = pad(totalSpells + 1, 5);
+                        totalSpells += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += addFighterLungingAttack;
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    } else if (bmmName == "Maneuvering Attack") {
+                        thisIteration = pad(totalSpells + 1, 5);
+                        totalSpells += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += addFighterManeuveringAttack;
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    } else if (bmmName == "Menacing Attack") {
+                        thisIteration = pad(totalSpells + 1, 5);
+                        totalSpells += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += addFighterMenacingAttack;
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    } else if (bmmName == "Menacing Attack") {
+                        thisIteration = pad(totalSpells + 1, 5);
+                        totalSpells += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += addFighterPrecisionAttack;
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    } else if (bmmName == "Pushing Attack") {
+                        thisIteration = pad(totalSpells + 1, 5);
+                        totalSpells += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += addFighterPushingAttack;
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    } else if (bmmName == "Rally") {
+                        thisIteration = pad(totalSpells + 1, 5);
+                        totalSpells += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += addFighterRally;
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    } else if (bmmName == "Sweeping Attack") {
+                        thisIteration = pad(totalSpells + 1, 5);
+                        totalSpells += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += addFighterSweepingAttack;
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    } else if (bmmName == "Trip Attack") {
+                        thisIteration = pad(totalSpells + 1, 5);
+                        totalSpells += 1;
+                        buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                        buildXML += addFighterTripAttack;
+                        buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    }
+                });
+            }
+            if (levelFighter >= 2) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addFighterActionSurge;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelFighter >= 3) {
+                if (fighterArchetype.match(/Battle/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addFighterCombatSuperiority;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+            if (levelFighter >= 7) {
+                if (fighterArchetype.match(/Purple/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addFighterRoyalEnvoy;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (fighterArchetype.match(/Champion/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addFighterRemarkableAthlete;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+            if (levelFighter >= 9) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addFighterIndomitable;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                if (fighterArchetype.match(/Purple/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addFighterRallyingCry;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+            if (levelFighter >= 10) {
+                if (fighterArchetype.match(/Eldritch/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addFighterEldritchStrike;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+            if (levelFighter >= 18) {
+                if (fighterArchetype.match(/Purple/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addFighterSurvivor;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+        } else if (isMonk == 1) {
+            if (monkWay.match(/Elements/)) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addMonkFangsOfTheFireSnake;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addMonkFistOfUnbrokenAir;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addMonkWaterWhip;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            } else if (monkWay.match(/Death/)) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addMonkTouchOfDeath;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            } else if (monkWay.match(/Soul/)) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addMonkRadiantSunBolt;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelMonk >= 2) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addMonkKi;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addMonkFlurryOfBlows;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addMonkPatientDefense;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addMonkStepOfTheWind;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelMonk >= 4) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addMonkSlowFall;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelMonk >= 5) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addMonkStunningStrike;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelMonk >= 6) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addMonkWholenessOfBody;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                if (monkWay.match(/Shadow/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addMonkShadowStep;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (monkWay.match(/Death/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addMonkHourOfReaping;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+            if (levelMonk >= 7) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addMonkEvasion;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelMonk >= 10) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addMonkPurityOfBody;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelMonk >= 11) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addMonkTranquility;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                if (monkWay.match(/Shadow/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addMonkCloakOfShadows;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+            if (levelMonk >= 17) {
+                if (monkWay.match(/Death/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addMonkTouchOfTheLongDeath;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (monkWay.match(/Soul/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addMonkSunShield;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+            if (levelMonk >= 18) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addMonkEmptyBody;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
             }
         }
     }
@@ -3852,22 +4239,6 @@ addDruidNaturalRecovery=" \
 <specialization type=\"string\">Circle of the Land</specialization>\n \
 <usesperiod type=\"string\">enc</usesperiod>\n";
 
-addDruidCircleOfLand=" \
-<actions>\n \
-</actions>\n \
-<cast type=\"number\">0</cast>\n \
-<description type=\"formattedtext\">\n \
-\t<p>Starting at 2nd level, you can regain some of your magical energy by sitting in meditation and communing with nature. Once per day during a short rest, you choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your druid level (rounded up), and none of the slots can be 6th level or higher.</p>\n \
-\t<p>For example, when you area 4th-level druid, you can recover up to two levels worth of spell slots. You can recover either a 2nd-level spell slot or two 1st-level spell slots.</p>\n \
-</description>\n \
-<group type=\"string\">Class Features</group>\n \
-<locked type=\"number\">1</locked>\n \
-<name type=\"string\">Natural Recovery</name>\n \
-<prepared type=\"number\">1</prepared>\n \
-<source type=\"string\">Druid</source>\n \
-<specialization type=\"string\">Circle of the Land</specialization>\n \
-<usesperiod type=\"string\">enc</usesperiod>\n";
-
 addDruidNaturesSanctuary=" \
 <actions>\n \
 \t<id-00001>\n \
@@ -4357,7 +4728,7 @@ addFighterDistractingStrike=" \
 <name type=\"string\">Distracting Strike</name>\n \
 <prepared type=\"number\">0</prepared>\n";
 
-addFighterReintingAttack=" \
+addFighterFeintingAttack=" \
 <actions>\n \
 \t<id-00001>\n \
 \t\t<apply type=\"string\">roll</apply>\n \
@@ -5023,7 +5394,7 @@ addMonkCloakOfShadows=" \
 <ritual type=\"number\">0</ritual>\n \
 <specialization type=\"string\">Way of Shadow</specialization>\n";
 
-addMonkFangsOfTheFireStrike=" \
+addMonkFangsOfTheFireSnake=" \
 <actions>\n \
 \t<id-00001>\n \
 \t\t<damagelist>\n \
@@ -5040,7 +5411,7 @@ addMonkFangsOfTheFireStrike=" \
 <cast type=\"number\">0</cast>\n \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
-<name type=\"string\">Fangs of the Fire Strike</name>\n \
+<name type=\"string\">Fangs of the Fire Snake</name>\n \
 <prepared type=\"number\">0</prepared>\n";
 
 addMonkFistOfUnbrokenAir=" \
