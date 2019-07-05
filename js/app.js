@@ -168,8 +168,12 @@ clericDomain = "";
 druidCircle = "";
 fighterArchetype = "";
 monkWay = "";
-
-sorcSorcOrig = "";
+paladinOath = "";
+rangerArchtype = "";
+rogueArchetype = "";
+sorcererOrigin = "";
+warlockPatron = "";
+wizardSchool = "";
 
 wearingArmor = 0;
 usingHeavyArmor = 0;
@@ -587,13 +591,20 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         } else if (thisClass == "paladin") {
             isPaladin = 1;
             levelPaladin = current_class.level;
+            if(current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
+                paladinOath = current_class.subclassDefinition.name;
+            }
         } else if (thisClass == "ranger") {
             isRanger = 1;
             levelRanger = current_class.level;
+            if(current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
+                rangerArchtype = current_class.subclassDefinition.name;
+            }
         } else if (thisClass == "rogue") {
             isRogue = 1;
             levelRogue = current_class.level;
             if (current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
+                rogueArchetype = current_class.subclassDefinition.name;
                 if(current_class.subclassDefinition.name == "Arcane Trickster") {
                     rogueSubclassArcaneTrickster = 1;
                 }
@@ -602,14 +613,20 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             isSorcerer = 1;
             levelSorcerer = current_class.level;
             if (current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
-                sorcSorcOrig = current_class.subclassDefinition.name;
+                sorcererOrigin = current_class.subclassDefinition.name;
             }
         } else if (thisClass == "warlock") {
             isWarlock = 1;
             levelWarlock = current_class.level;
+            if (current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
+                warlockPatron = current_class.subclassDefinition.name;
+            }
         } else if (thisClass == "wizard") {
             isWizard = 1;
             levelWizard = current_class.level;
+            if (current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
+                wizardSchool = current_class.subclassDefinition.name;
+            }
         } else if (thisClass == "blood hunter") {
             isBloodHunter = 1;
             levelBloodHunter = current_class.level;
@@ -713,7 +730,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             addHP += totalLevels * 2;
         }
     });
-    if(isSorcerer == 1 && sorcSorcOrig.match(/Draconic Bloodline/)) {
+    if(isSorcerer == 1 && sorcererOrigin.match(/Draconic Bloodline/)) {
         // Draconic Resilience adds 1 to HP
         addHP += levelSorcerer;
     }
@@ -1951,17 +1968,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             // Cleric domains:
             // Arcana, Death, Forge, Grave, Knowledge, Life, Light, Nature, Order, Tempest, Trickery, War
             if (levelCleric >= 1) {
-                if (clericDomain.match(/Arcana/)) {
-
-                } else if (clericDomain.match(/Death/)) {
-
-                } else if (clericDomain.match(/Forge/)) {
-
-                } else if (clericDomain.match(/Grave/)) {
-
-                } else if (clericDomain.match(/Knowledge/)) {
-
-                } else if (clericDomain.match(/Life/)) {
+                if (clericDomain.match(/Life/)) {
                     thisIteration = pad(totalSpells + 1, 5);
                     totalSpells += 1;
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
@@ -1973,10 +1980,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                     buildXML += addClericWardingFlare;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                } else if (clericDomain.match(/Nature/)) {
-                
-                } else if (clericDomain.match(/Order/)) {
-
                 } else if (clericDomain.match(/Tempest/)) {
                     thisIteration = pad(totalSpells + 1, 5);
                     totalSpells += 1;
@@ -2010,14 +2013,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                     buildXML += addClericArcaneAbjuration;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                } else if (clericDomain.match(/Death/)) {
-
-                } else if (clericDomain.match(/Forge/)) {
-
-                } else if (clericDomain.match(/Grave/)) {
-
-                } else if (clericDomain.match(/Knowledge/)) {
-
                 } else if (clericDomain.match(/Life/)) {
                     thisIteration = pad(totalSpells + 1, 5);
                     totalSpells += 1;
@@ -2036,59 +2031,31 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                     buildXML += addClericCharmAnimals;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                } else if (clericDomain.match(/Order/)) {
-                    
-                } else if (clericDomain.match(/Tempest/)) {
-
-                } else if (clericDomain.match(/Trickery/)) {
-
-                } else if (clericDomain.match(/War/)) {
-
                 } 
             }
             if (levelCleric >= 6) {
-                if (clericDomain.match(/Arcana/)) {
-
-                } else if (clericDomain.match(/Death/)) {
-
-                } else if (clericDomain.match(/Forge/)) {
-
-                } else if (clericDomain.match(/Grave/)) {
-
-                } else if (clericDomain.match(/Knowledge/)) {
-
-                } else if (clericDomain.match(/Life/)) {
+                if (clericDomain.match(/Life/)) {
                     thisIteration = pad(totalSpells + 1, 5);
                     totalSpells += 1;
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                     buildXML += addClericBlessedHealer;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                } else if (clericDomain.match(/Light/)) {
-
                 } else if (clericDomain.match(/Nature/)) {
                     thisIteration = pad(totalSpells + 1, 5);
                     totalSpells += 1;
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                     buildXML += addClericDampenElements;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                } else if (clericDomain.match(/Order/)) {
-
-                } else if (clericDomain.match(/Tempest/)) {
-
                 } else if (clericDomain.match(/Trickery/)) {
                     thisIteration = pad(totalSpells + 1, 5);
                     totalSpells += 1;
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                     buildXML += addClericCloakOfShadows;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                } else if (clericDomain.match(/War/)) {
-
                 } 
             }
             if (levelCleric >= 8) {
-                if (clericDomain.match(/Arcana/)) {
-
-                } else if (clericDomain.match(/Death/)) {
+                if (clericDomain.match(/Death/)) {
                     thisIteration = pad(totalSpells + 1, 5);
                     totalSpells += 1;
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
@@ -2100,18 +2067,12 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                     buildXML += addClericDivineStrike;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                } else if (clericDomain.match(/Grave/)) {
-
-                } else if (clericDomain.match(/Knowledge/)) {
-
                 } else if (clericDomain.match(/Life/)) {
                     thisIteration = pad(totalSpells + 1, 5);
                     totalSpells += 1;
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                     buildXML += addClericDivineStrike;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                } else if (clericDomain.match(/Light/)) {
-
                 } else if (clericDomain.match(/Nature/)) {
                     thisIteration = pad(totalSpells + 1, 5);
                     totalSpells += 1;
@@ -2145,17 +2106,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                 } 
             }
             if (levelCleric >= 17) {
-                if (clericDomain.match(/Arcana/)) {
-
-                } else if (clericDomain.match(/Death/)) {
-
-                } else if (clericDomain.match(/Forge/)) {
-
-                } else if (clericDomain.match(/Grave/)) {
-
-                } else if (clericDomain.match(/Knowledge/)) {
-
-                } else if (clericDomain.match(/Life/)) {
+                if (clericDomain.match(/Life/)) {
                     thisIteration = pad(totalSpells + 1, 5);
                     totalSpells += 1;
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
@@ -2167,14 +2118,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                     buildXML += addClericCoronaOfLight;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                } else if (clericDomain.match(/Nature/)) {
-                
-                } else if (clericDomain.match(/Order/)) {
-
-                } else if (clericDomain.match(/Tempest/)) {
-
-                } else if (clericDomain.match(/Trickery/)) {
-
                 } else if (clericDomain.match(/War/)) {
                     thisIteration = pad(totalSpells + 1, 5);
                     totalSpells += 1;
@@ -2192,8 +2135,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                 buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 if (druidCircle.match(/Dreams/)) {
                     
-                } else if (druidCircle.match(/Spores/)) {
-                    
                 } else if (druidCircle.match(/Land/)) {
                     thisIteration = pad(totalSpells + 1, 5);
                     totalSpells += 1;
@@ -2206,16 +2147,10 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                     buildXML += addDruidCombatWildShape;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                } else if (druidCircle.match(/Shepherd/)) {
-                    
                 }
             }
             if (levelDruid >= 6) {
-                if (druidCircle.match(/Dreams/)) {
-                    
-                } else if (druidCircle.match(/Spores/)) {
-                    
-                } else if (druidCircle.match(/Land/)) {
+                if (druidCircle.match(/Land/)) {
                     thisIteration = pad(totalSpells + 1, 5);
                     totalSpells += 1;
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
@@ -2227,42 +2162,24 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                     buildXML += addDruidPrimalStrike;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                } else if (druidCircle.match(/Shepherd/)) {
-                    
                 }
             }
             if (levelDruid >= 10) {
-                if (druidCircle.match(/Dreams/)) {
-                    
-                } else if (druidCircle.match(/Spores/)) {
-                    
-                } else if (druidCircle.match(/Land/)) {
+                if (druidCircle.match(/Land/)) {
                     thisIteration = pad(totalSpells + 1, 5);
                     totalSpells += 1;
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                     buildXML += addDruidNaturesWard;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                } else if (druidCircle.match(/Moon/)) {
-                    
-                } else if (druidCircle.match(/Shepherd/)) {
-                   
                 }
             }
             if (levelDruid >= 14) {
-                if (druidCircle.match(/Dreams/)) {
-                    
-                } else if (druidCircle.match(/Spores/)) {
-                    
-                } else if (druidCircle.match(/Land/)) {
+                if (druidCircle.match(/Land/)) {
                     thisIteration = pad(totalSpells + 1, 5);
                     totalSpells += 1;
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                     buildXML += addDruidNaturesSanctuary;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                } else if (druidCircle.match(/Moon/)) {
-                    
-                } else if (druidCircle.match(/Shepherd/)) {
-                    
                 }
             }
         } else if (isFighter == 1) {
@@ -2328,7 +2245,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                         buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                         buildXML += addFighterMenacingAttack;
                         buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                    } else if (bmmName == "Menacing Attack") {
+                    } else if (bmmName == "Precision Attack") {
                         thisIteration = pad(totalSpells + 1, 5);
                         totalSpells += 1;
                         buildXML += "\t\t\t<id-" + thisIteration + ">\n";
@@ -2559,6 +2476,586 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                 buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                 buildXML += addMonkEmptyBody;
                 buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+        } else if (isPaladin == 1) {
+            thisIteration = pad(totalSpells + 1, 5);
+            totalSpells += 1;
+            buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+            buildXML += addPaladinDivineSense;
+            buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            thisIteration = pad(totalSpells + 1, 5);
+            totalSpells += 1;
+            buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+            buildXML += addPaladinLayOnHands;
+            buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            if (levelPaladin >= 2) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addPaladinDivineSmite;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelPaladin >= 3) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addPaladinDivineHealth;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                if (paladinOath.match(/Crown/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addPaladinChampionChallengeCrown;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addPaladinTurnTheTideCrown;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (paladinOath.match(/Devotion/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addPaladinSacredWeaponDevotion;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addPaladinTurnTheUnholyDevotion;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (paladinOath.match(/Ancients/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addPaladinNaturesWrathAncients;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addPaladinTurnTheFaithlessAncients;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (paladinOath.match(/Vengeance/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addPaladinAbjureEnemyVengeance;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addPaladinVowOfEnmityVengeance;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }  
+            }
+            if (levelPaladin >= 6) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addPaladinAuraOfProtection;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelPaladin >= 7) {
+                if (paladinOath.match(/Devotion/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addPaladinAuraOfDevotion;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (paladinOath.match(/Ancients/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addPaladinAuraOfWarding;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+            if (levelPaladin >= 10) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addPaladinAuraOfCourage;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelPaladin >= 11) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addPaladinImprovedDivineSmite;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelPaladin >= 15) {
+                if (paladinOath.match(/Crown/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addPaladinUnyieldingSpirit;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (paladinOath.match(/Devotion/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addPaladinPurityOfSpirit;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (paladinOath.match(/Ancients/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addPaladinUndyingSentinal;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+            if (levelPaladin >= 20) {
+                if (paladinOath.match(/Vengeance/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addPaladinExaltedChampion;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (paladinOath.match(/Devotion/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addPaladinHolyNimbus;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (paladinOath.match(/Ancients/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addPaladinElderChampion;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (paladinOath.match(/Ancients/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addPaladinAvengingAngel;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+        } else if (isRanger == 1) {
+            thisIteration = pad(totalSpells + 1, 5);
+            totalSpells += 1;
+            buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+            buildXML += addRangerFavoredEnemy;
+            buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            
+            if (levelRanger >= 3) {
+                if (rangerArchtype.match(/Hunter/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addRangerColossusSlayer;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+            if (levelRanger >= 7) {
+                if (rangerArchtype.match(/Hunter/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addRangerDefensiveTactics;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+            if (levelRanger >= 8) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addRangerLandsStride;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelRanger >= 10) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addRangerHideInPlainSight;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelRanger >= 15) {
+                if (rangerArchtype.match(/Hunter/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addRangerSuperiorHuntersDefense;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+            if (levelRanger >= 18) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addRangerFeralSenses;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelRanger >= 20) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addRangerFoeSlayer;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+        } else if (isRogue == 1) {
+            
+            thisIteration = pad(totalSpells + 1, 5);
+            totalSpells += 1;
+            buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+            buildXML += addRogueSneakAttack;
+            buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            if (levelRogue >= 3) {
+                if (rogueArchetype.match(/Swashbuckler/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addRogueRakishAudacity;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+            if (levelRogue >= 7) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addRogueEvasion;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelRogue >= 9) {
+                if (rogueArchetype.match(/Swashbuckler/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addRoguePanache;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (rogueArchetype.match(/Trickster/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addRogueMagicalAmbush;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+            if (levelRogue >= 13) {
+                if (rogueArchetype.match(/Swashbuckler/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addRogueElegantManeuver;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (rogueArchetype.match(/Trickster/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addRogueVersatileTrickster;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+
+            }
+            if (levelRogue >= 17) {
+                if (rogueArchetype.match(/Assassin/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addRogueDeathStrike;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+        } else if (isSorcerer == 1) {
+            if (sorcererOrigin.match(/Draconic/)) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addSorcererDragonAncestor;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            } else if (sorcererOrigin.match(/Wild/)) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addSorcererTidesOfChaos;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelSorcerer >= 2) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addSorcererFontOfMagic;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelSorcerer >= 6) {
+                if (sorcererOrigin.match(/Storm/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addSorcererHeartOfTheStorm;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (sorcererOrigin.match(/Draconic/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addSorcererElementalAffinity;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+            if (levelSorcerer >= 14) {
+                if (sorcererOrigin.match(/Storm/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addSorcererStormsFury;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+            if (levelSorcerer >= 18) {
+                if (sorcererOrigin.match(/Storm/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addSorcererWindSoul;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (sorcererOrigin.match(/Draconic/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addSorcererDraconicPresence;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+        } else if (isWarlock == 1) {
+            if (warlockPatron.match(/Archfey/)) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addWarlockFeyPresence;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            } else if (warlockPatron.match(/Fiend/)) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addWarlockDarkOnesBlessing;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            } else if (warlockPatron.match(/Undying/)) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addWarlockAmongTheDead;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelWarlock >= 6) {
+                if (warlockPatron.match(/Archfey/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWarlockMistyEscape;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (warlockPatron.match(/Fiend/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWarlockDarkOnesOwnLuck;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (warlockPatron.match(/Great/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWarlockEntropicWard;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (warlockPatron.match(/Undying/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWarlockDefyDeath;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+            if (levelWarlock >= 10) {
+                if (warlockPatron.match(/Archfey/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWarlockBeguilingDefenses;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (warlockPatron.match(/Fiend/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWarlockFiendishResilience;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (warlockPatron.match(/Great/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWarlockThoughtShield;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+            if (levelWarlock >= 14) {
+                if (warlockPatron.match(/Archfey/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWarlockDarkDelirium;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (warlockPatron.match(/Fiend/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWarlockHurlThroughHell;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (warlockPatron.match(/Great/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWarlockCreateThrall;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (warlockPatron.match(/Undying/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWarlockIndestructibleLife;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+            if (levelWarlock >= 11) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addWarlockMysticArcanum;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+            if (levelWarlock >= 20) {
+                thisIteration = pad(totalSpells + 1, 5);
+                totalSpells += 1;
+                buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                buildXML += addWarlockEldritchMaster;
+                buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            }
+        } else if (isWizard == 1) {
+            thisIteration = pad(totalSpells + 1, 5);
+            totalSpells += 1;
+            buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+            buildXML += addWizardArcaneRecovery;
+            buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            if (levelWizard >= 2) {
+                if (wizardSchool.match(/Abjuration/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWizardArcaneWard;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (wizardSchool.match(/Divination/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWizardPortent;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (wizardSchool.match(/Enchantment/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWizardHypnoticGaze;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (wizardSchool.match(/Necromancy/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWizardGrimHarvest;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }  else if (wizardSchool.match(/Bladesinging/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWizardBladesong;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+            if (levelWizard >= 6) {
+                if (wizardSchool.match(/Conjuration/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWizardBenignTransposition;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (wizardSchool.match(/Enchantment/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWizardInstinctiveCharm;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (wizardSchool.match(/Transmutation/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWizardTransmutersStone;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+            if (levelWizard >= 10) {
+                if (wizardSchool.match(/Abjuration/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWizardImprovedAbjuration;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (wizardSchool.match(/Evocation/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWizardEmpoweredEvocation;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (wizardSchool.match(/Illusion/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWizardIllusorySelf;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (wizardSchool.match(/Necromancy/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWizardInuredToDeath;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (wizardSchool.match(/Transmutation/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWizardShapechanger;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
+            }
+            if (levelWizard >= 14) {
+                if (wizardSchool.match(/Abjuration/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWizardSpellResistance;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (wizardSchool.match(/Conjuration/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWizardDurableSummons;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (wizardSchool.match(/Enchantment/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWizardAlterMemories;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (wizardSchool.match(/Evocation/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWizardOverchannel;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (wizardSchool.match(/Necromancy/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWizardCommandUndead;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                } else if (wizardSchool.match(/Bladesinging/)) {
+                    thisIteration = pad(totalSpells + 1, 5);
+                    totalSpells += 1;
+                    buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+                    buildXML += addWizardSongOfVictory;
+                    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+                }
             }
         }
     }
@@ -5723,7 +6220,7 @@ addPaladinDivineHealth=" \
 <prepared type=\"number\">0</prepared>\n \
 <source type=\"string\">Paladin</source>\n";
 
-addPaladinDivineSmite=" \
+addPaladinDivineSense=" \
 <actions>\n \
 </actions>\n \
 <cast type=\"number\">0</cast>\n \
@@ -5739,7 +6236,7 @@ addPaladinDivineSmite=" \
 <prepared type=\"number\">2</prepared>\n \
 <source type=\"string\">Paladin</source>\n";
 
-addPaladinDivingSmite=" \
+addPaladinDivineSmite=" \
 <actions>\n \
 \t<id-00003>\n \
 \t\t<apply type=\"string\">action</apply>\n \
