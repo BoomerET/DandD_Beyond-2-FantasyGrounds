@@ -1898,7 +1898,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                         thisIteration = pad(totalSpells + 1, 5);
                         totalSpells += 1;
                         buildXML += "\t\t\t<id-" + thisIteration + ">\n";
-                        buildXML += addBarbarianbearBeastAspect;
+                        buildXML += addBarbarianBearBeastAspect;
                         buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                     }
                     if (levelBarbarian >= 14) {
