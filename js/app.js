@@ -1177,8 +1177,11 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             
         }
         
+        //remove_tags_traits(fixQuote(
+
+
         buildXML += "\t\t\t\t<description type=\"formattedtext\">\n";
-		buildXML += "\t\t\t\t\t<p>" + item.definition.description.replace(/<br>/g, "<br />") + "</p>\n";
+		buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(item.definition.description)).replace(/<br>/g, "<br />") + "</p>\n";
         buildXML += "\t\t\t\t</description>\n";
         thisWeaponName = item.definition.name.toLowerCase().replace(/ /g, "_").replace(/\,/g, "");
         if(simpleRangedWeapon.indexOf(thisWeaponName) != -1) {
@@ -3318,7 +3321,7 @@ function fixQuote(badString) {
     if(badString == "" || badString == null) {
         return "";
     }
-    return badString.replace(/\n/g, '\n').replace(/\u2019/g, "'").replace(/\u2014/g, "-").replace(/\"/g, "&#34;").replace(/\u2022/g, ":").replace(/</g, "&lt;").replace(/>/g, "&gt;").trim();
+    return badString.replace(/\n/g, '\n').replace(/\u2019/g, "'").replace(/\u2014/g, "-").replace(/\"/g, "&#34;").replace(/\u2022/g, ":").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\&nbsp\;/g, " ").replace(/\&rsquo\;/g, "'").trim();
 }
 
 function convert_case(str) {
