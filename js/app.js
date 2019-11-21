@@ -788,7 +788,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         buildXML += "\t\t\t\t<text type=\"formattedtext\">\n";
         //buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(current_trait.definition.description)) + "</p>\n";
         // CHANGED/FIXME
-        buildXML += "\t\t\t\t\t" + current_trait.definition.description.replace(/<br>/g, "<br />") + "\n";
+        buildXML += "\t\t\t\t\t" + fixDesc(current_trait.definition.description) + "\n";
         buildXML += "\t\t\t\t</text>\n";
         buildXML += "\t\t\t\t<type type=\"string\">racial</type>\n";
         buildXML += "\t\t\t</id-" + thisIteration + ">\n";
@@ -830,7 +830,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += "\t\t\t\t<text type=\"formattedtext\">\n";
                     //CHANGED/FIXME
                     //buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(current_feature.description)) + "</p>\n";
-                    buildXML += "\t\t\t\t\t" + current_feature.description.replace(/<br>/g, "<br />") + "\n";
+                    buildXML += "\t\t\t\t\t" + fixDesc(current_feature.description) + "\n";
                     buildXML += "\t\t\t\t</text>\n";
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 }
@@ -851,7 +851,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += "\t\t\t\t<text type=\"formattedtext\">\n";
                     // CHANGED/FIXME
                     //buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(current_class.subclassDefinition.description)) + "</    >\n";
-                    buildXML += "\t\t\t\t\t" + current_class.subclassDefinition.description.replace(/<br>/g, "<br />") + "\n";
+                    buildXML += "\t\t\t\t\t" + fixDesc(current_class.subclassDefinition.description) + "\n";
                     buildXML += "\t\t\t\t</text>\n";
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 }
@@ -882,7 +882,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                             buildXML += "\t\t\t\t<text type=\"formattedtext\">\n";
                             // CHANGED/FIXME
                             //buildXML += "\t\t\t\t\t" + remove_tags_featureSubclass(fixQuote(charSubClass.description)) + "\n";
-                            buildXML += "\t\t\t\t\t" + charSubClass.description.replace(/<br>/g, "<br />") + "\n";
+                            buildXML += "\t\t\t\t\t" + fixDesc(charSubClass.description) + "\n";
                             buildXML += "\t\t\t\t</text>\n";
                             buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                         }
@@ -915,7 +915,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         buildXML += "\t\t\t\t<text type=\"formattedtext\">\n";
         // CHANGED/FIXME
         //buildXML += "\t\t\t\t\t>" + remove_tags_traits(fixQuote(thisOption.definition.description)) + "</p>\n";
-        buildXML += "\t\t\t\t\t" + thisOption.definition.description.replace(/<br>/g, "<br />") + "\n";
+        buildXML += "\t\t\t\t\t" + fixDesc(thisOption.definition.description) + "\n";
         buildXML += "\t\t\t\t</text>\n";
         buildXML += "\t\t\t</id-" + thisIteration + ">\n";
     });
@@ -930,7 +930,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             buildXML += "\t\t\t\t<text type=\"formattedtext\">\n";
             // CHANGED/FIXME
             //buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(character.background.definition.featureDescription)) + "</p>\n";
-            buildXML += "\t\t\t\t\t" + character.background.definition.featureDescription + "\n";
+            buildXML += "\t\t\t\t\t" + fixDesc(character.background.definition.featureDescription) + "\n";
             buildXML += "\t\t\t\t</text>\n";
             buildXML += "\t\t\t\t<type type=\"string\">background</type>\n";
             buildXML += "\t\t\t</id-" + thisIteration + ">\n";
@@ -1195,7 +1195,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         buildXML += "\t\t\t\t<description type=\"formattedtext\">\n";
         // CHANGED/FIXME
         //buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(item.definition.description)).replace(/<br>/g, "<br />") + "</p>\n";
-        buildXML += "\t\t\t\t\t" + item.definition.description.replace(/<br>/g, "<br />") + "\n";
+        buildXML += "\t\t\t\t\t" + fixDesc(item.definition.description) + "\n";
         buildXML += "\t\t\t\t</description>\n";
         thisWeaponName = item.definition.name.toLowerCase().replace(/ /g, "_").replace(/\,/g, "");
         if(simpleRangedWeapon.indexOf(thisWeaponName) != -1) {
@@ -1314,7 +1314,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         buildXML += "\t\t\t\t<text type=\"formattedtext\">\n";
         // CHANGED/FIXME
         //buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(thisFeat.definition.description)) + "</p>\n";
-        buildXML += "\t\t\t\t\t" + thisFeat.definition.description.replace(/<br>/g, "<br />") + "\n";
+        buildXML += "\t\t\t\t\t" + fixDesc(thisFeat.definition.description) + "\n";
         buildXML += "\t\t\t\t</text>\n";
         buildXML += "\t\t\t</id-" + thisIteration + ">\n";
     });
@@ -1636,7 +1636,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             buildXML += "\t\t\t\t<description type=\"formattedtext\">\n";
             // CHANGED/FIXME
             //buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(eachSpell.definition.description)) + "</p>\n";
-            buildXML += "\t\t\t\t\t" + eachSpell.definition.description.replace(/<br>/g, "<br />") + "\n";
+            buildXML += "\t\t\t\t\t" + fixDesc(eachSpell.definition.description) + "\n";
             buildXML += "\t\t\t\t</description>\n";
             if(eachSpell.definition.duration.durationType == "Time") {
 		        buildXML += "\t\t\t\t<duration type=\"string\">" + eachSpell.definition.duration.durationInterval + " " + eachSpell.definition.duration.durationUnit + "</duration>\n";
@@ -1714,7 +1714,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             buildXML += "\t\t\t\t<description type=\"formattedtext\">\n";
             // CHANGED/FIXME
             //buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(eachSpell.definition.description)) + "</p>\n";
-            buildXML += "\t\t\t\t\t" + eachSpell.definition.description.replace(/<br>/g, "<br />") + "\n";
+            buildXML += "\t\t\t\t\t" + fixDesc(eachSpell.definition.description) + "\n";
             buildXML += "\t\t\t\t</description>\n";
             if(eachSpell.definition.duration.durationType == "Time") {
 		        buildXML += "\t\t\t\t<duration type=\"string\">" + eachSpell.definition.duration.durationInterval + " " + eachSpell.definition.duration.durationUnit + "</duration>\n";
@@ -1798,7 +1798,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                             buildXML += "\t\t\t\t<description type=\"formattedtext\">\n";
                             // CHANGED/FIXME
                             //buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(spell.definition.description)) + "</p>\n";
-                            buildXML += "\t\t\t\t\t" + spell.definition.description.replace(/<br>/g, "<br />") + "\n";
+                            buildXML += "\t\t\t\t\t" + fixDesc(spell.definition.description) + "\n";
                             buildXML += "\t\t\t\t</description>\n";
                             if(spell.definition.duration.durationType == "Time") {
 		                        buildXML += "\t\t\t\t<duration type=\"string\">" + spell.definition.duration.durationInterval + " " + spell.definition.duration.durationUnit + "</duration>\n";
@@ -3344,6 +3344,13 @@ function fixQuote(badString) {
         return "";
     }
     return badString.replace(/\n/g, '\n').replace(/\u2019/g, "'").replace(/\u2014/g, "-").replace(/\"/g, "&#34;").replace(/\u2022/g, ":").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\&nbsp\;/g, " ").replace(/\&rsquo\;/g, "'").replace(/\&/g, "&amp;").trim();
+}
+
+function fixDesc(badString) {
+    if(badString == "" || badString == null) {
+        return "";
+    }
+    return badString.replace(/<br>/g, "<br />").replace(/\&rsquo\;/g, "'").replace(/\&nbsp\;/g, " ").trim();
 }
 
 function convert_case(str) {
