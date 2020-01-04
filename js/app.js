@@ -398,7 +398,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     buildXML += "\t\t\t<recordname>reference.backgrounddata." + background.toLowerCase().replace(/\s/g, "") + "@*</recordname>\n";
     buildXML += "\t\t</backgroundlink>\n";
 
-    buildXML += "\t\t<race type=\"string\">" + character.race.baseName + "</race>\n";
+    buildXML += "\t\t<race type=\"string\">" + character.race.fullName + "</race>\n";
     buildXML += "\t\t<racelink type=\"windowreference\">\n";
     buildXML += "\t\t\t<class>reference_race</class>\n";
     buildXML += "\t\t\t<recordname>reference.racedata." + replaceDash(character.race.baseName.toLowerCase()) + "@*</recordname>\n";
@@ -1077,7 +1077,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             weaponBonus.push(curWeapBon);
 
             if(item.definition.damage != null) {
-                weaponDice.push("d" + item.definition.damage.diceValue);
+                weaponDice.push(item.definition.damage.diceCount + "d" + item.definition.damage.diceValue);
             } else {
                 weaponDice.push("d0");
             }
@@ -1123,7 +1123,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                 weaponName.push(item.definition.name);
                 weaponProperties.push(thisProperties);
                 if(item.definition.weaponBehaviors[0].damage != null) {
-                    weaponDice.push("d" + item.definition.weaponBehaviors[0].damage.diceValue);
+                    weaponDice.push(item.definition.weaponBehaviors[0].damage.diceCount + "d" + item.definition.weaponBehaviors[0].damage.diceValue);
                 } else {
                     weaponDice.push("d0");
                 }
@@ -3350,7 +3350,9 @@ function fixDesc(badString) {
     if(badString == "" || badString == null) {
         return "";
     }
-    return badString.replace(/<br>/g, "<br />").replace(/\&rsquo\;/g, "'").replace(/\&nbsp\;/g, " ").trim();
+
+    var tempString1 = badString.replace(/<a.*nofollow\">/g, "").replace(/<\/a>/g, "");
+    return tempString1.replace(/<br>/g, "<br />").replace(/\&rsquo\;/g, "'").replace(/\&nbsp\;/g, " ").replace(/\&ldquo\;/g, '"').replace(/\&rdquo\;/g, '"').replace(/\&mdash\;/g, "-").trim();
 }
 
 function convert_case(str) {
