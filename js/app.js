@@ -200,6 +200,36 @@ dexMod = 0;
 wisScore = 0;
 wisMod = 0;
 
+hpBarbarian = 7;
+hpBard = 5;
+hpCleric = 5;
+hpDruid = 5;
+hpFighter = 6;
+hpMonk = 5;
+hpPaladin = 6;
+hpRanger = 6;
+hpRogue = 5;
+hpSorcerer = 4;
+hpWarlock = 5;
+hpWizard = 4;
+hpBloodHunter = 6;
+
+hpStartBarbarian = 12;
+hpStartBard = 8;
+hpStartCleric = 8;
+hpStartDruid = 8;
+hpStartFighter = 10;
+hpStartMonk = 8;
+hpStartPaladin = 10;
+hpStartRanger = 10;
+hpStartRogue = 8;
+hpStartSorcerer = 6;
+hpStartWarlock = 8;
+hpStartWizard = 6;
+hpStartBloodhunter = 10;
+
+sumHP = 0;
+
 /* * * * * * * * * * */
 
 glCharID = "";
@@ -507,6 +537,12 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
          if (thisClass == "barbarian") {
             isBarbarian = 1;
             levelBarbarian = current_class.level;
+            if (current_class.isStartingClass == true) {
+                sumHP += hpStartBarbarian + ((levelBarbarian - 1) * hpBarbarian);
+            } else {
+                sumHP += levelBarbarian  * hpBarbarian;
+            }
+
             switch (parseInt(levelBarbarian)) {
                 case 1: case 2:
                     barbRages = 2;
@@ -558,24 +594,44 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         } else if (thisClass == "bard") {
             isBard = 1;
             levelBard = current_class.level;
+            if (current_class.isStartingClass == true) {
+                sumHP += hpStartBard + ((levelBard - 1) * hpBard);
+            } else {
+                sumHP += levelBard  * hpBard;
+            }
             if(current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
                 bardCollege = current_class.subclassDefinition.name;
             }
         } else if (thisClass == "cleric") {
             isCleric = 1;
             levelCleric = current_class.level;
+            if (current_class.isStartingClass == true) {
+                sumHP += hpStartCleric + ((levelCleric - 1) * hpCleric);
+            } else {
+                sumHP += levelCleric  * hpCleric;
+            }
             if(current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
                 clericDomain = current_class.subclassDefinition.name;
             }
         } else if (thisClass == "druid") {
             isDruid = 1;
             levelDruid = current_class.level;
+            if (current_class.isStartingClass == true) {
+                sumHP += hpStartDruid + ((levelDruid - 1) * hpDruid);
+            } else {
+                sumHP += levelDruid  * hpDruid;
+            }
             if(current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
                 druidCircle = current_class.subclassDefinition.name;
             }
         } else if (thisClass == "fighter") {
             isFighter = 1;
             levelFighter = current_class.level;
+            if (current_class.isStartingClass == true) {
+                sumHP += hpStartFighter + ((levelFighter - 1) * hpFighter);
+            } else {
+                sumHP += levelFighter  * hpFighter;
+            }
             if(current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
                 fighterArchetype = current_class.subclassDefinition.name;
                 if(current_class.subclassDefinition.name == "Eldritch Knight") {
@@ -585,24 +641,44 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         } else if (thisClass == "monk") {
             isMonk = 1;
             levelMonk = current_class.level;
+            if (current_class.isStartingClass == true) {
+                sumHP += hpStartMonk + ((levelMonk - 1) * hpMonk);
+            } else {
+                sumHP += levelMonk  * hpMonk;
+            }
             if(current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
                 monkWay = current_class.subclassDefinition.name;
             }
         } else if (thisClass == "paladin") {
             isPaladin = 1;
             levelPaladin = current_class.level;
+            if (current_class.isStartingClass == true) {
+                sumHP += hpStartPaladin + ((levelPaladin - 1) * hpPaladin);
+            } else {
+                sumHP += levelPaladin  * hpPaladin;
+            }
             if(current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
                 paladinOath = current_class.subclassDefinition.name;
             }
         } else if (thisClass == "ranger") {
             isRanger = 1;
             levelRanger = current_class.level;
+            if (current_class.isStartingClass == true) {
+                sumHP += hpStarRanger + ((levelRanger - 1) * hpRanger);
+            } else {
+                sumHP += levelRanger  * hpRanger;
+            }
             if(current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
                 rangerArchtype = current_class.subclassDefinition.name;
             }
         } else if (thisClass == "rogue") {
             isRogue = 1;
             levelRogue = current_class.level;
+            if (current_class.isStartingClass == true) {
+                sumHP += hpStarRogue + ((levelRogue - 1) * hpRogue);
+            } else {
+                sumHP += levelRogue  * hpRogue;
+            }
             if (current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
                 rogueArchetype = current_class.subclassDefinition.name;
                 if(current_class.subclassDefinition.name == "Arcane Trickster") {
@@ -612,24 +688,44 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         } else if (thisClass == "sorcerer") {
             isSorcerer = 1;
             levelSorcerer = current_class.level;
+            if (current_class.isStartingClass == true) {
+                sumHP += hpStartSorcerer + ((levelSorcerer - 1) * hpSorcerer);
+            } else {
+                sumHP += levelSorcerer  * hpSorcerer;
+            }
             if (current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
                 sorcererOrigin = current_class.subclassDefinition.name;
             }
         } else if (thisClass == "warlock") {
             isWarlock = 1;
             levelWarlock = current_class.level;
+            if (current_class.isStartingClass == true) {
+                sumHP += hpStarRogue + ((levelRogue - 1) * hpRogue);
+            } else {
+                sumHP += levelRogue  * hpRogue;
+            }
             if (current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
                 warlockPatron = current_class.subclassDefinition.name;
             }
         } else if (thisClass == "wizard") {
             isWizard = 1;
             levelWizard = current_class.level;
+            if (current_class.isStartingClass == true) {
+                sumHP += hpStartWizard + ((levelWizard - 1) * hpWizard);
+            } else {
+                sumHP += levelWizard  * hpWizard;
+            }
             if (current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
                 wizardSchool = current_class.subclassDefinition.name;
             }
         } else if (thisClass == "blood hunter") {
             isBloodHunter = 1;
             levelBloodHunter = current_class.level;
+            if (current_class.isStartingClass == true) {
+                sumHP += hpStartBloodhunter + ((levelBloodHunter - 1) * hpBloodHunter);
+            } else {
+                sumHP += levelBloodHunter  * hpBloodHunter;
+            }
         }
         totalClasses += 1;
         totalLevels += current_class.level;
@@ -663,6 +759,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         buildXML += "\t\t\t</id-" + thisIteration + ">\n";
         
     });
+    //console.log("SUM HP: " + sumHP);
     buildXML += "\t\t</classes>\n";
 
     if (isBarbarian == 1 && levelBarbarian >= 5 && usingHeavyArmor < 1) {
@@ -727,7 +824,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     });
     character.feats.some(function(current_feat, i) {
         if (current_feat.definition.name == "Tough") {
-            addHP += totalLevels * 2;
+            addHP += (totalLevels * 2);
         }
     });
     if(isSorcerer == 1 && sorcererOrigin.match(/Draconic Bloodline/)) {
@@ -735,7 +832,13 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         addHP += levelSorcerer;
     }
 
-    totalHP = parseInt(character.baseHitPoints) + (Math.floor( ( ( getTotalAbilityScore(character, 3) - 10 ) / 2 )) * totalLevels ) + addHP;
+    //console.log("Con HP bonus: " + (Math.floor((getTotalAbilityScore(character, 3) - 10 ) / 2)) * totalLevels);
+    //console.log("Con HP bonus: " + (Math.floor( ( ( getTotalAbilityScore(character, 3) - 10 ) / 2 )) * totalLevels ));
+    //console.log("Bonus HP for feats/traits: " + addHP);
+
+    //totalHP = parseInt(character.baseHitPoints) + (Math.floor( ( ( getTotalAbilityScore(character, 3) - 10 ) / 2 )) * totalLevels ) + addHP;
+
+
     buildXML += "\t\t<hp>\n";
     if(character.deathSaves.failCount != null) {
         buildXML += "\t\t\t<deathsavefail type=\"number\">" + character.deathSaves.failCount + "</deathsavefail>\n";
@@ -1251,14 +1354,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         buildXML += "\t\t\t</" + thisAbility + ">\n";
     });
     buildXML += "\t\t</abilities>\n";
-
-
-
-
-
-
-
-
 
     buildXML += "\t\t<weaponlist>\n";
     var weaponCount = 0;
@@ -3352,7 +3447,7 @@ function fixDesc(badString) {
     }
 
     var tempString1 = badString.replace(/<a.*nofollow\">/g, "").replace(/<\/a>/g, "");
-    return tempString1.replace(/<br>/g, "<br />").replace(/\&rsquo\;/g, "'").replace(/\&nbsp\;/g, " ").replace(/\&ldquo\;/g, '"').replace(/\&rdquo\;/g, '"').replace(/\&mdash\;/g, "-").trim();
+    return tempString1.replace(/<br>/g, "<br />").replace(/\&rsquo\;/g, "'").replace(/\&nbsp\;/g, " ").replace(/\&ldquo\;/g, '"').replace(/\&rdquo\;/g, '"').replace(/\&mdash\;/g, "-").replace(/\&times\;/g, "*").trim();
 }
 
 function convert_case(str) {
@@ -8474,23 +8569,3 @@ var donateFGC = (function () {
         }
     };
 } ());
-
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-Completed:
-Tiefling
-    Hellish Resistance
-
-
-
-
-
-
-
-
-
-
-
-
-
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
