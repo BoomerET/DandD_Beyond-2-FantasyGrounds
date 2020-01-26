@@ -700,9 +700,9 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             isWarlock = 1;
             levelWarlock = current_class.level;
             if (current_class.isStartingClass == true) {
-                sumHP += hpStarRogue + ((levelRogue - 1) * hpRogue);
+                sumHP += hpStarWarlock + ((levelWarlock - 1) * hpWarlock);
             } else {
-                sumHP += levelRogue  * hpRogue;
+                sumHP += levelWarlock  * hpWarlock;
             }
             if (current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
                 warlockPatron = current_class.subclassDefinition.name;
@@ -837,7 +837,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     //console.log("Bonus HP for feats/traits: " + addHP);
 
     //totalHP = parseInt(character.baseHitPoints) + (Math.floor( ( ( getTotalAbilityScore(character, 3) - 10 ) / 2 )) * totalLevels ) + addHP;
-
+    totalHP = addHP + sumHP + (Math.floor((getTotalAbilityScore(character, 3) - 10 ) / 2) * totalLevels);
 
     buildXML += "\t\t<hp>\n";
     if(character.deathSaves.failCount != null) {
