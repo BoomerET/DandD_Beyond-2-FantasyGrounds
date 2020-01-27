@@ -2606,7 +2606,9 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             thisIteration = pad(totalSpells + 1, 5);
             totalSpells += 1;
             buildXML += "\t\t\t<id-" + thisIteration + ">\n";
-            buildXML += addPaladinLayOnHands;
+            buildXML += addPaladinLayOnHands01;
+            buildXML += "<prepared type=\"number\">" + (levelPaladin * 5) + "</prepared>\n";
+            buildXML += addPaladinLayOnHands02;
             buildXML += "\t\t\t</id-" + thisIteration + ">\n";
             if (levelPaladin >= 2) {
                 thisIteration = pad(totalSpells + 1, 5);
@@ -6446,9 +6448,19 @@ addPaladinImprovedDivineSmite=" \
 <prepared type=\"number\">0</prepared>\n \
 <source type=\"string\">Paladin</source>\n";
 
-addPaladinLayOnHands=" \
+addPaladinLayOnHands01=" \
 <actions>\n \
 \t<id-00001>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">1</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t</id-00001>\n \
+\t\t</heallist>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00001>\n \
+\t<id-00002>\n \
 \t\t<heallist>\n \
 \t\t\t<id-00001>\n \
 \t\t\t\t<bonus type=\"number\">5</bonus>\n \
@@ -6457,7 +6469,17 @@ addPaladinLayOnHands=" \
 \t\t</heallist>\n \
 \t\t<order type=\"number\">1</order>\n \
 \t\t<type type=\"string\">heal</type>\n \
-\t</id-00001>\n \
+\t</id-00002>\n \
+\t<id-00003>\n \
+\t\t<heallist>\n \
+\t\t\t<id-00001>\n \
+\t\t\t\t<bonus type=\"number\">10</bonus>\n \
+\t\t\t\t<dice type=\"dice\"></dice>\n \
+\t\t\t</id-00001>\n \
+\t\t</heallist>\n \
+\t\t<order type=\"number\">1</order>\n \
+\t\t<type type=\"string\">heal</type>\n \
+\t</id-00003>\n \
 </actions>\n \
 <cast type=\"number\">0</cast>\n \
 <description type=\"formattedtext\">\n \
@@ -6468,8 +6490,10 @@ addPaladinLayOnHands=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
-<name type=\"string\">Lay on Hands</name>\n \
-<prepared type=\"number\">20</prepared>\n \
+<name type=\"string\">Lay on Hands</name>\n";
+//<prepared type=\"number\">" + (levelPaladin * 5) + "</prepared>\n \
+// Thanks Vex for recommending 1, 5 & 10 buttons
+addPaladinLayOnHands02=" \
 <source type=\"string\">Paladin</source>\n";
 
 addPaladinChampionChallengeCrown=" \
