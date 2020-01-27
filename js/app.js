@@ -30,25 +30,25 @@ startXML += "\t<character>\n";
 var endXML = "\t</character>\n</root>\n";
 var allXML = "";
 
-payFlag = 1;
+var payFlag = 1;
 
 var pcFilename = "";
 var addHP = 0;
 
-charSpellSlots1 = 0;
-charSpellSlots2 = 0;
-charSpellSlots3 = 0;
-charSpellSlots4 = 0;
-charSpellSlots5 = 0;
-charSpellSlots6 = 0;
-charSpellSlots7 = 0;
-charSpellSlots8 = 0;
-charSpellSlots9 = 0;
+var charSpellSlots1 = 0;
+var charSpellSlots2 = 0;
+var charSpellSlots3 = 0;
+var charSpellSlots4 = 0;
+var charSpellSlots5 = 0;
+var charSpellSlots6 = 0;
+var charSpellSlots7 = 0;
+var charSpellSlots8 = 0;
+var charSpellSlots9 = 0;
 
-holdFeats = [];
-holdTraits = [];
-holdFeatures = [];
-holdProf = [];
+var holdFeats = [];
+var holdTraits = [];
+var holdFeatures = [];
+var holdProf = [];
 
 var hasAppear = 0;
 
@@ -90,149 +90,149 @@ const max2DexArmor = ["hide","chain_shirt","scale_mail","breastplate","half_plat
 const noDexArmor = ["ring_mail","chain_mail","splint","plate"];
 const disStealth = ["padded","scale_mail","half_plate","ring_mail","chain_mail","splint","plate"];
 
-totalLevels = 0;
-totalHP = 0;
-isBarbarian = 0;
-isBard = 0;
-isCleric = 0;
-isDruid = 0;
-isFighter = 0;
-isMonk = 0;
-isPaladin = 0;
-isRanger = 0;
-isRogue = 0;
-isSorcerer = 0;
-isWarlock = 0;
-isWizard = 0;
-isBloodHunter = 0;
-isDragonborn = 0;
-isDwarf = 0;
-isElf = 0;
-isHalfling = 0;
-isHalfOrc = 0;
-isHalfElf = 0;
-isHuman = 0;
-isTiefling = 0;
-isGnome = 0;
-isAarakocra = 0;
-isGenasi = 0;
-isGoliath = 0;
-isAasimar = 0;
-isBugbear = 0;
-isFirbolg = 0;
-isGoblin = 0;
-isHobgoblin = 0;
-isKenku = 0;
-isKobold = 0;
-isLizardfolk = 0;
-isOrc = 0;
-isTabaxi = 0;
-isTriton = 0;
-isYyantiPureblood = 0;
-isFeralTiefling = 0;
-isTortle = 0;
-isGith = 0;
-isChangling = 0;
-isKalashtar = 0;
-isShifter = 0;
-isWarforged = 0;
-isCentaur = 0;
-isLoxodon = 0;
-isMinotaur = 0;
-isSimicHybrid = 0;
-isVedalken = 0;
-levelBarbarian = 0;
-levelBard = 0;
-levelCleric = 0;
-levelDruid = 0;
-levelFighter = 0;
-levelMonk = 0;
-levelPaladin = 0;
-levelRanger = 0;
-levelRogue = 0;
-levelSorcerer = 0;
-levelWarlock = 0;
-levelWizard = 0;
-levelBloodHunter = 0;
+var totalLevels = 0;
+var totalHP = 0;
+var isBarbarian = 0;
+var isBard = 0;
+var isCleric = 0;
+var isDruid = 0;
+var isFighter = 0;
+var isMonk = 0;
+var isPaladin = 0;
+var isRanger = 0;
+var isRogue = 0;
+var isSorcerer = 0;
+var isWarlock = 0;
+var isWizard = 0;
+var isBloodHunter = 0;
+var isDragonborn = 0;
+var isDwarf = 0;
+var isElf = 0;
+var isHalfling = 0;
+var isHalfOrc = 0;
+var isHalfElf = 0;
+var isHuman = 0;
+var isTiefling = 0;
+var isGnome = 0;
+var isAarakocra = 0;
+var isGenasi = 0;
+var isGoliath = 0;
+var isAasimar = 0;
+var isBugbear = 0;
+var isFirbolg = 0;
+var isGoblin = 0;
+var isHobgoblin = 0;
+var isKenku = 0;
+var isKobold = 0;
+var isLizardfolk = 0;
+var isOrc = 0;
+var isTabaxi = 0;
+var isTriton = 0;
+var isYyantiPureblood = 0;
+var isFeralTiefling = 0;
+var isTortle = 0;
+var isGith = 0;
+var isChangling = 0;
+var isKalashtar = 0;
+var isShifter = 0;
+var isWarforged = 0;
+var isCentaur = 0;
+var isLoxodon = 0;
+var isMinotaur = 0;
+var isSimicHybrid = 0;
+var isVedalken = 0;
+var levelBarbarian = 0;
+var levelBard = 0;
+var levelCleric = 0;
+var levelDruid = 0;
+var levelFighter = 0;
+var levelMonk = 0;
+var levelPaladin = 0;
+var levelRanger = 0;
+var levelRogue = 0;
+var levelSorcerer = 0;
+var levelWarlock = 0;
+var levelWizard = 0;
+var levelBloodHunter = 0;
 
-fighterSubclassEldritchKnight = 0;
-rogueSubclassArcaneTrickster = 0;
+var fighterSubclassEldritchKnight = 0;
+var rogueSubclassArcaneTrickster = 0;
 
-barbRages = 0;
-barbPrimalPath = "";
-barbTotemSpirit = "";
-barbBeastAspect = "";
+var barbRages = 0;
+var barbPrimalPath = "";
+var barbTotemSpirit = "";
+var barbBeastAspect = "";
 
-bardCollege = "";
-clericDomain = "";
-druidCircle = "";
-fighterArchetype = "";
-monkWay = "";
-paladinOath = "";
-rangerArchtype = "";
-rogueArchetype = "";
-sorcererOrigin = "";
-warlockPatron = "";
-wizardSchool = "";
+var bardCollege = "";
+var clericDomain = "";
+var druidCircle = "";
+var fighterArchetype = "";
+var monkWay = "";
+var paladinOath = "";
+var rangerArchtype = "";
+var rogueArchetype = "";
+var sorcererOrigin = "";
+var warlockPatron = "";
+var wizardSchool = "";
 
-wearingArmor = 0;
-usingHeavyArmor = 0;
-usingMediumArmor = 0;
-usingLightArmor = 0;
-usingShield = 0;
+var wearingArmor = 0;
+var usingHeavyArmor = 0;
+var usingMediumArmor = 0;
+var usingLightArmor = 0;
+var usingShield = 0;
 
-addBonusArmorAC = 0;
-addBonusOtherAC = 0;
-addSavingThrows = 0;
+var addBonusArmorAC = 0;
+var addBonusOtherAC = 0;
+var addSavingThrows = 0;
 
-addSpeed = 0;
+var addSpeed = 0;
 
-strScore = 0;
-strMod = 0;
-chaScore = 0;
-chaMod = 0;
-conScore = 0;
-conMod = 0;
-intScore = 0;
-intMod = 0;
-dexScore = 0;
-dexMod = 0;
-wisScore = 0;
-wisMod = 0;
+var strScore = 0;
+var strMod = 0;
+var chaScore = 0;
+var chaMod = 0;
+var conScore = 0;
+var conMod = 0;
+var intScore = 0;
+var intMod = 0;
+var dexScore = 0;
+var dexMod = 0;
+var wisScore = 0;
+var wisMod = 0;
 
-hpBarbarian = 7;
-hpBard = 5;
-hpCleric = 5;
-hpDruid = 5;
-hpFighter = 6;
-hpMonk = 5;
-hpPaladin = 6;
-hpRanger = 6;
-hpRogue = 5;
-hpSorcerer = 4;
-hpWarlock = 5;
-hpWizard = 4;
-hpBloodHunter = 6;
+var hpBarbarian = 7;
+var hpBard = 5;
+var hpCleric = 5;
+var hpDruid = 5;
+var hpFighter = 6;
+var hpMonk = 5;
+var hpPaladin = 6;
+var hpRanger = 6;
+var hpRogue = 5;
+var hpSorcerer = 4;
+var hpWarlock = 5;
+var hpWizard = 4;
+var hpBloodHunter = 6;
 
-hpStartBarbarian = 12;
-hpStartBard = 8;
-hpStartCleric = 8;
-hpStartDruid = 8;
-hpStartFighter = 10;
-hpStartMonk = 8;
-hpStartPaladin = 10;
-hpStartRanger = 10;
-hpStartRogue = 8;
-hpStartSorcerer = 6;
-hpStartWarlock = 8;
-hpStartWizard = 6;
-hpStartBloodhunter = 10;
+var hpStartBarbarian = 12;
+var hpStartBard = 8;
+var hpStartCleric = 8;
+var hpStartDruid = 8;
+var hpStartFighter = 10;
+var hpStartMonk = 8;
+var hpStartPaladin = 10;
+var hpStartRanger = 10;
+var hpStartRogue = 8;
+var hpStartSorcerer = 6;
+var hpStartWarlock = 8;
+var hpStartWizard = 6;
+var hpStartBloodhunter = 10;
 
-sumHP = 0;
+var sumHP = 0;
 
 /* * * * * * * * * * */
 
-glCharID = "";
+var glCharID = "";
 
 $(function() {
     multiWarn.init();
@@ -345,9 +345,8 @@ Either the character doesn't actually exist,\n \
 or the character is set to 'Private' instead of 'Public'.\n\nYes, your character MUST be set to PUBLIC.");
     } else {
     allXML = startXML;
-    buildXML = "\t\t<!--" + $("#getcharID").val().trim() + "-->\n";
+    var buildXML = "\t\t<!--" + $("#getcharID").val().trim() + "-->\n";
     
-
     pcFilename = character.name.replace(/\W/g, '');
     buildXML += "\t\t<name type=\"string\">" + character.name + "</name>\n";
 
@@ -361,7 +360,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     // 7. Lawful Evil
     // 8. Neutral Evil
     // 9. Chaotic Evil
-    charAlign = "";
+    var charAlign = "";
     switch(character.alignmentId) {
         case 1:
             charAlign = "Lawful Good";
@@ -466,10 +465,10 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     
 
     // Attempt at skill list
-    idCount = 1;
-    hasHalf = 0;
-    halfProf = false;
-    profValue = 0;
+    var idCount = 1;
+    var hasHalf = 0;
+    //var halfProf = false;
+    var profValue = 0;
     var halfprof = getObjects(character, 'type', 'half-proficiency');
     for (var x in halfprof) {
         var hfprof = halfprof[x];
