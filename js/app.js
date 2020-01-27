@@ -92,6 +92,7 @@ const disStealth = ["padded","scale_mail","half_plate","ring_mail","chain_mail",
 
 var totalLevels = 0;
 var totalHP = 0;
+var isArtificer = 0;
 var isBarbarian = 0;
 var isBard = 0;
 var isCleric = 0;
