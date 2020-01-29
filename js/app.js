@@ -675,7 +675,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             isRogue = 1;
             levelRogue = current_class.level;
             if (current_class.isStartingClass == true) {
-                sumHP += hpStarRogue + ((levelRogue - 1) * hpRogue);
+                sumHP += hpStartRogue + ((levelRogue - 1) * hpRogue);
             } else {
                 sumHP += levelRogue  * hpRogue;
             }
