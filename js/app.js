@@ -664,7 +664,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             isRanger = 1;
             levelRanger = current_class.level;
             if (current_class.isStartingClass == true) {
-                sumHP += hpStarRanger + ((levelRanger - 1) * hpRanger);
+                sumHP += hpStartRanger + ((levelRanger - 1) * hpRanger);
             } else {
                 sumHP += levelRanger  * hpRanger;
             }
@@ -700,7 +700,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             isWarlock = 1;
             levelWarlock = current_class.level;
             if (current_class.isStartingClass == true) {
-                sumHP += hpStarWarlock + ((levelWarlock - 1) * hpWarlock);
+                sumHP += hpStartWarlock + ((levelWarlock - 1) * hpWarlock);
             } else {
                 sumHP += levelWarlock  * hpWarlock;
             }
