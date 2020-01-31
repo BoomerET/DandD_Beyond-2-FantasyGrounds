@@ -31,8 +31,8 @@
 }
 
 body {
-    /* background-color: rgb(43, 226, 134); */
-    background-image: url("../images/consequences-16-8_70.jpg");
+    background-color: rgb(43, 226, 134);
+    /* background-image: url("../images/consequences-16-8_70.jpg"); */
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -75,4 +75,16 @@ footer {
 
 #displayDon {
     position: absolute;
+}
+
+#verButtonC {
+    position: relative;
+    left: 150px;
+    top: -25px;
+}
+
+#verButtonU {
+    position: relative;
+    left: 250px;
+    top: -51px;
 }

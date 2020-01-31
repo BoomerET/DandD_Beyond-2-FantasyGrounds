@@ -11,7 +11,7 @@
     Further modifications by Matt DeKok
        Discord: Sillvva#2532
        Roll20: https://app.roll20.net/users/494585/sillvva
-       Github: https://github.com/sillvva/Roll20-API-Scripts
+       Github: https://github.com/sillvva/Roll20APIScripts
 
     Fantasy Ground adaptation by David Berkompas
        Skype: david.berkompas
@@ -231,6 +231,8 @@ var hpStartBloodhunter = 10;
 
 var sumHP = 0;
 
+var fgVersion = 0;
+
 /* * * * * * * * * * */
 
 var glCharID = "";
@@ -251,6 +253,8 @@ $(function() {
     //$("#getcharID").val("7920872");
     $("#dlChar").jqxButton({ width: '120px', height: '35px', theme: 'darkblue' });
     $("#resetChar").jqxButton({ width: '120px', height: '35px', theme: 'darkblue' });
+    $("#verButtonC").jqxRadioButton({width: 250, height: 25, checked: true, theme: 'darkblue'});
+    $("#verButtonU").jqxRadioButton({width: 250, height: 25, theme: 'darkblue'});
     // COMMENT OUT THE FOLLOWING LINE WHEN PUSHING TO PRODUCTION
     // $("#popCharID").jqxDropDownList({ source: source, placeHolder: "Select Item", width: 250, height: 35, theme: "darkblue"});-->
     // COMMENT OUT THE ABOVE LINE WHEN PUSHING TO PRODUCTION
@@ -335,6 +339,18 @@ $(function() {
 
     $("#resetChar").on("click", function() {
         window.location.reload(false); 
+    });
+
+    // fgVersion = 0: Classic; = 1: Unity
+    $("#verButtonC").on('change', function (event) {
+        var checked = event.args.checked;
+        if (checked) {
+            fgVersion = 0;
+            //console.log("FG Version: Classic");
+        } else {
+            fgVersion = 1;
+            //console.log("FG Version: Unity");
+        }
     });
 });
 
@@ -1069,6 +1085,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(item.definition.name) + "</name>\n";
         buildXML += "\t\t\t\t<weight type=\"number\">" + parseInt(item.definition.weight) / parseInt(item.definition.bundleSize) + "</weight>\n";
         buildXML += "\t\t\t\t<locked type=\"number\">1</locked>\n";
+        buildXML += "\t\t\t\t<isidentified type=\"number\">1</isidentified>\n";
         
         if(item.definition.subType == null) {
             buildXML += "\t\t\t\t<type type=\"string\">" + fixQuote(item.definition.filterType) + "</type>\n";
@@ -1375,9 +1392,9 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
 		buildXML += "\t\t\t\t\t\t<stat type=\"string\">base</stat>\n";
 		buildXML += "\t\t\t\t\t\t<type type=\"string\">" + weaponType[x] + "</type>\n";
         buildXML += "\t\t\t\t\t</id-00001>\n";
-
         buildXML += "\t\t\t\t</damagelist>\n";
         buildXML += "\t\t\t\t<attackbonus type=\"number\">" + weaponBonus[x] + "</attackbonus>\n";
+        buildXML += "\t\t\t\t<isidentified type=\"number\">1</isidentified>\n";
         // 0: Melee, 1: Ranged, 2: Thrown
         if(weaponProperties[x].match(/Thrown/)) {
             buildXML += "\t\t\t\t<type type=\"number\">2</type>\n";
