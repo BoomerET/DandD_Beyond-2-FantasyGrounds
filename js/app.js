@@ -372,6 +372,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         } else {
             startXML = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
             startXML += "<root version=\"4\" dataversion=\"20191121\" release=\"8|CoreRPG:4\">\n";
+            startXML += "\t<character>\n";
         }
     allXML = startXML;
     var buildXML = "\t\t<!--" + $("#getcharID").val().trim() + "-->\n";
@@ -1210,11 +1211,22 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             weaponBonus.push(curWeapBon);
 
             if(item.definition.damage != null) {
-                weaponDice.push("d" + item.definition.damage.diceValue);
-                weaponDiceMult.push(item.definition.damage.diceCount);
+                if (fgVersion == 0) {
+                    var realString = "";
+                    // Classic and Unity do these differently
+                    for (wd40 = 0; wd40 < item.definition.damage.diceCount; wd40++) {
+                        realString += "d" + item.definition.damage.diceValue + ",";
+                    }
+                    realString = realString.slice(0, -1);
+                    //weaponDice.push("d" + item.definition.damage.diceValue);
+                    weaponDice.push(realString);
+                    //weaponDiceMult.push(item.definition.damage.diceCount);
+                } else {
+                    weaponDice.push(item.definition.damage.diceCount + "d" + item.definition.damage.diceValue);
+                }
             } else {
                 weaponDice.push("d0");
-                weaponDiceMult.push("0");
+                //weaponDiceMult.push("0");
             }
             if (item.definition.damageType != null) {
                 weaponType.push(item.definition.damageType.toLowerCase());
@@ -1407,7 +1419,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         buildXML += "\t\t\t\t\t\t<bonus type=\"number\">" +  weaponBonus[x] + "</bonus>\n";
 		buildXML += "\t\t\t\t\t\t<dice type=\"dice\">" + weaponDice[x] + "</dice>\n";
         buildXML += "\t\t\t\t\t\t<stat type=\"string\">base</stat>\n";
-        buildXML += "\t\t\t\t\t\t<statmult type=\"number\">" + weaponDiceMult[x] + "</statmult>\n";
+        //buildXML += "\t\t\t\t\t\t<statmult type=\"number\">" + weaponDiceMult[x] + "</statmult>\n";
 		buildXML += "\t\t\t\t\t\t<type type=\"string\">" + weaponType[x] + "</type>\n";
         buildXML += "\t\t\t\t\t</id-00001>\n";
         buildXML += "\t\t\t\t</damagelist>\n";
