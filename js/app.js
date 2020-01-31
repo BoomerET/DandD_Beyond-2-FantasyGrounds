@@ -26,6 +26,10 @@
 
 var startXML = "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n";
 startXML += "<root version=\"3.3\" release=\"8|CoreRPG:4\">\n";
+/*
+<?xml version="1.0" encoding="utf-8"?>
+<root version="4" dataversion="20191121" release="8|CoreRPG:4">
+*/
 startXML += "\t<character>\n";
 var endXML = "\t</character>\n</root>\n";
 var allXML = "";
@@ -361,6 +365,14 @@ function parseCharacter(inputChar) {
 Either the character doesn't actually exist,\n \
 or the character is set to 'Private' instead of 'Public'.\n\nYes, your character MUST be set to PUBLIC.");
     } else {
+        if (fgVersion == 0) {
+            startXML = "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n";
+            startXML += "<root version=\"3.3\" release=\"8|CoreRPG:4\">\n";
+            startXML += "\t<character>\n";
+        } else {
+            startXML = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
+            startXML += "<root version=\"4\" dataversion=\"20191121\" release=\"8|CoreRPG:4\">\n";
+        }
     allXML = startXML;
     var buildXML = "\t\t<!--" + $("#getcharID").val().trim() + "-->\n";
     
@@ -1073,6 +1085,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     var weaponName = [];
     var weaponProperties = [];
     var weaponDice = [];
+    var weaponDiceMult = [];
     var weaponType = [];
     var weaponBonus = [];
     buildXML += "\t\t<inventorylist>\n";
@@ -1197,9 +1210,11 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             weaponBonus.push(curWeapBon);
 
             if(item.definition.damage != null) {
-                weaponDice.push(item.definition.damage.diceCount + "d" + item.definition.damage.diceValue);
+                weaponDice.push("d" + item.definition.damage.diceValue);
+                weaponDiceMult.push(item.definition.damage.diceCount);
             } else {
                 weaponDice.push("d0");
+                weaponDiceMult.push("0");
             }
             if (item.definition.damageType != null) {
                 weaponType.push(item.definition.damageType.toLowerCase());
@@ -1243,9 +1258,11 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                 weaponName.push(item.definition.name);
                 weaponProperties.push(thisProperties);
                 if(item.definition.weaponBehaviors[0].damage != null) {
-                    weaponDice.push(item.definition.weaponBehaviors[0].damage.diceCount + "d" + item.definition.weaponBehaviors[0].damage.diceValue);
+                    weaponDice.push("d" + item.definition.weaponBehaviors[0].damage.diceValue);
+                    weaponDiceMult.push(item.definition.weaponBehaviors[0].damage.diceCount);
                 } else {
                     weaponDice.push("d0");
+                    weaponDiceMult.push("0");
                 }
                 if (item.definition.weaponBehaviors[0].damageType != null) {
                     weaponType.push(item.definition.weaponBehaviors[0].damageType.toLowerCase());
@@ -1389,7 +1406,8 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         buildXML += "\t\t\t\t\t<id-00001>\n";
         buildXML += "\t\t\t\t\t\t<bonus type=\"number\">" +  weaponBonus[x] + "</bonus>\n";
 		buildXML += "\t\t\t\t\t\t<dice type=\"dice\">" + weaponDice[x] + "</dice>\n";
-		buildXML += "\t\t\t\t\t\t<stat type=\"string\">base</stat>\n";
+        buildXML += "\t\t\t\t\t\t<stat type=\"string\">base</stat>\n";
+        buildXML += "\t\t\t\t\t\t<statmult type=\"number\">" + weaponDiceMult[x] + "</statmult>\n";
 		buildXML += "\t\t\t\t\t\t<type type=\"string\">" + weaponType[x] + "</type>\n";
         buildXML += "\t\t\t\t\t</id-00001>\n";
         buildXML += "\t\t\t\t</damagelist>\n";
