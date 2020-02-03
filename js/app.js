@@ -3509,7 +3509,7 @@ function fixDesc(badString) {
     }
 
     var tempString1 = badString.replace(/<a.*nofollow\">/g, "").replace(/<\/a>/g, "");
-    return tempString1.replace(/<br>/g, "<br />").replace(/\&rsquo\;/g, "'").replace(/\&nbsp\;/g, " ").replace(/\&ldquo\;/g, '"').replace(/\&rdquo\;/g, '"').replace(/\&mdash\;/g, "-").replace(/\&times\;/g, "*").replace(/<\/em>/, "").trim();
+    return tempString1.replace(/<br>/g, "<br />").replace(/\&rsquo\;/g, "'").replace(/\&nbsp\;/g, " ").replace(/\&ldquo\;/g, '"').replace(/\&rdquo\;/g, '"').replace(/\&mdash\;/g, "-").replace(/\&times\;/g, "*").replace(/<\/em>/g, "").replace(/<em>/g, "").trim();
 }
 
 function convert_case(str) {
