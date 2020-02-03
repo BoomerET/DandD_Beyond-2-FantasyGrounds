@@ -360,6 +360,19 @@ $(function() {
 
 function parseCharacter(inputChar) {
     var character = jQuery.extend(true, {}, inputChar);
+    if (fgVersion == 0) {
+        if (confirm("You're creating a character for FG Classic, NOT FG Unity.")){
+            //
+        } else {
+            return(false);
+        }
+    } else {
+        if (confirm("You're creating a character for FG Unity, NOT FG Classic.")){
+            //
+        } else {
+            return(false);
+        }
+    }
     if(character.hasOwnProperty("errorCode")) {
         alert("Character " + $("#getcharID").val() + " could not be found.\n \
 Either the character doesn't actually exist,\n \
