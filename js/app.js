@@ -159,6 +159,7 @@ var levelSorcerer = 0;
 var levelWarlock = 0;
 var levelWizard = 0;
 var levelBloodHunter = 0;
+var levelArtificer = 0;
 
 var fighterSubclassEldritchKnight = 0;
 var rogueSubclassArcaneTrickster = 0;
@@ -218,6 +219,7 @@ var hpSorcerer = 4;
 var hpWarlock = 5;
 var hpWizard = 4;
 var hpBloodHunter = 6;
+var hpArtificer = 5;
 
 var hpStartBarbarian = 12;
 var hpStartBard = 8;
@@ -232,6 +234,7 @@ var hpStartSorcerer = 6;
 var hpStartWarlock = 8;
 var hpStartWizard = 6;
 var hpStartBloodhunter = 10;
+var hpStartArtificer = 8;
 
 var sumHP = 0;
 
@@ -767,6 +770,14 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                 sumHP += hpStartBloodhunter + ((levelBloodHunter - 1) * hpBloodHunter);
             } else {
                 sumHP += levelBloodHunter  * hpBloodHunter;
+            }
+        } else if (thisClass == "artificer") {
+            isArtificer = 1;
+            levelArtificer = current_class.level;
+            if (current_class.isStartingClass == true) {
+                sumHP += hpStartArtificer + ((levelArtificer - 1) * hpArtificer);
+            } else {
+                sumHP += levelArtificer  * hpArtificer;
             }
         }
         totalClasses += 1;
