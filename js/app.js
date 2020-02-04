@@ -361,13 +361,13 @@ $(function() {
 function parseCharacter(inputChar) {
     var character = jQuery.extend(true, {}, inputChar);
     if (fgVersion == 0) {
-        if (confirm("You're creating a character for FG Classic, NOT FG Unity.")){
+        if (confirm("You've selected to create a character for FG Classic. Is this correct?")){
             //
         } else {
             return(false);
         }
     } else {
-        if (confirm("You're creating a character for FG Unity, NOT FG Classic.")){
+        if (confirm("You've selected to create a character for FG Unity. Is this correct?")){
             //
         } else {
             return(false);
