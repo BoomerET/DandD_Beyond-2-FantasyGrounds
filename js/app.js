@@ -1698,7 +1698,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         buildXML += "\t\t\t\t<stat type=\"string\">charisma</stat>\n";
         buildXML += "\t\t\t\t<castertype type=\"string\">memorization</castertype>\n";
         buildXML += "\t\t\t</id-00001>\n";
-    } else if(isWizard == 1) {
+    } else if(isWizard == 1 || isArtificer == 1) {
         buildXML += "\t\t\t<id-00001>\n";
         buildXML += "\t\t\t\t<name type=\"string\">Spells</name>\n";
         buildXML += "\t\t\t\t<stat type=\"string\">intelligence</stat>\n";
@@ -3250,6 +3250,8 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 }
             }
+        } else if (isArtificer == 1) {
+            // FIXME
         }
     }
 
@@ -3866,6 +3868,88 @@ function getSpellSlots(slotClass, slotLevel, slotSubClass) {
                 charSpellSlots3 = 3;
                 charSpellSlots4 = 1;
             }
+        }
+    } else if (slotClass === "artificer") {
+        if (slotLevel == 1) {
+            charSpellSlots1 = 2;
+        } else if (slotLevel == 2) {
+            charSpellSlots1 = 2;
+        } else if (slotLevel == 3) {
+            charSpellSlots1 = 3;
+        } else if (slotLevel == 4) {
+            charSpellSlots1 = 3;
+        } else if (slotLevel == 5) {
+            charSpellSlots1 = 4;
+            charSpellSlots2 = 2;
+        } else if (slotLevel == 6) {
+            charSpellSlots1 = 4;
+            charSpellSlots2 = 2;
+        } else if (slotLevel == 7) {
+            charSpellSlots1 = 4;
+            charSpellSlots2 = 3;
+        } else if (slotLevel == 8) {
+            charSpellSlots1 = 4;
+            charSpellSlots2 = 3;
+        } else if (slotLevel == 9) {
+            charSpellSlots1 = 4;
+            charSpellSlots2 = 3;
+            charSpellSlots3 = 2;
+        } else if (slotLevel == 10) {
+            charSpellSlots1 = 4;
+            charSpellSlots2 = 3;
+            charSpellSlots3 = 2;
+        } else if (slotLevel == 11) {
+            charSpellSlots1 = 4;
+            charSpellSlots2 = 3;
+            charSpellSlots3 = 3;
+        } else if (slotLevel == 12) {
+            charSpellSlots1 = 4;
+            charSpellSlots2 = 3;
+            charSpellSlots3 = 3;
+        } else if (slotLevel == 13) {
+            charSpellSlots1 = 4;
+            charSpellSlots2 = 3;
+            charSpellSlots3 = 3;
+            charSpellSlots4 = 1;
+        } else if (slotLevel == 14) {
+            charSpellSlots1 = 4;
+            charSpellSlots2 = 3;
+            charSpellSlots3 = 3;
+            charSpellSlots4 = 1;
+        } else if (slotLevel == 15) {
+            charSpellSlots1 = 4;
+            charSpellSlots2 = 3;
+            charSpellSlots3 = 3;
+            charSpellSlots4 = 2;
+        } else if (slotLevel == 16) {
+            charSpellSlots1 = 4;
+            charSpellSlots2 = 3;
+            charSpellSlots3 = 3;
+            charSpellSlots4 = 2;
+        } else if (slotLevel == 17) {
+            charSpellSlots1 = 4;
+            charSpellSlots2 = 3;
+            charSpellSlots3 = 3;
+            charSpellSlots4 = 3;
+            charSpellSlots5 = 1;
+        } else if (slotLevel == 18) {
+            charSpellSlots1 = 4;
+            charSpellSlots2 = 3;
+            charSpellSlots3 = 3;
+            charSpellSlots4 = 3;
+            charSpellSlots5 = 1;
+        } else if (slotLevel == 19) {
+            charSpellSlots1 = 4;
+            charSpellSlots2 = 3;
+            charSpellSlots3 = 3;
+            charSpellSlots4 = 3;
+            charSpellSlots5 = 2;
+        } else if (slotLevel == 20) {
+            charSpellSlots1 = 4;
+            charSpellSlots2 = 3;
+            charSpellSlots3 = 3;
+            charSpellSlots4 = 3;
+            charSpellSlots5 = 2;
         }
     } else {
         //charSpellSlots1 = 0;
@@ -8560,6 +8644,19 @@ addWizardSongOfVictory=" \
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
 End of Wizard effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+Start of Artificer effects
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+End of Artificer effects
 
 * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
