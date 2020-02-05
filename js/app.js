@@ -290,6 +290,19 @@ $(function() {
     });
 
     $('#grabChar').on("click", function() {
+        if (fgVersion == 0) {
+            if (confirm("You've selected to create a character for FG Classic. Is this correct?")){
+                //
+            } else {
+                return(false);
+            }
+        } else {
+            if (confirm("You've selected to create a character for FG Unity. Is this correct?")){
+                //
+            } else {
+                return(false);
+            }
+        }
         if(!$('#getcharID').val().trim().match(/\d+/)) {
             alert("Um, please enter your Character ID");
         } else if ($('#textHere').val() != "")  {
@@ -363,6 +376,7 @@ $(function() {
 
 function parseCharacter(inputChar) {
     var character = jQuery.extend(true, {}, inputChar);
+    /*
     if (fgVersion == 0) {
         if (confirm("You've selected to create a character for FG Classic. Is this correct?")){
             //
@@ -376,6 +390,7 @@ function parseCharacter(inputChar) {
             return(false);
         }
     }
+    */
     if(character.hasOwnProperty("errorCode")) {
         alert("Character " + $("#getcharID").val() + " could not be found.\n \
 Either the character doesn't actually exist,\n \
@@ -793,7 +808,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         } else {
             buildXML += "\t\t\t\t<casterpactmagic type=\"number\">0</casterpactmagic>\n";
         }
-        if((thisClass == "bard") || (thisClass == "cleric") || (thisClass == "druid")  || (thisClass == "sorcerer") || (thisClass == "warlock")  || (thisClass == "wizard")) {
+        if((thisClass == "bard") || (thisClass == "cleric") || (thisClass == "druid")  || (thisClass == "sorcerer") || (thisClass == "warlock")  || (thisClass == "wizard")  || (thisClass == "artificer")) {
             buildXML += "\t\t\t\t<casterlevelinvmult type=\"number\">1</casterlevelinvmult>\n";
         } else if ((thisClass == "paladin" || thisClass == "ranger") && current_class.level >= 2) {
             buildXML += "\t\t\t\t<casterlevelinvmult type=\"number\">2</casterlevelinvmult>\n";
@@ -1911,13 +1926,19 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
 		    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
         }
     });
+
+
+    /* * * * FIXME - Just because a spell is a ritual, doesn't mean we automatically add it. * * * */
     character.classes.some(function(current_class, i) {
         for(var j in character.classSpells) {
             var spells = character.classSpells[j];
+            //console.log(spells);
             if(character.classSpells[j].characterClassId == current_class.id) {
                 character.classSpells[j].spells.some(function(spell) {
                     if(!spellList.includes(spell.definition.name)) {
-                        if(spell.prepared == true || spell.alwaysPrepared == true || spell.definition.level == 0 || spell.definition.ritual == true || isSorcerer == 1 || isRanger == 1 || isBard == 1 || rogueSubclassArcaneTrickster == 1 ||fighterSubclassEldritchKnight == 1) {
+                        //if(spell.prepared == true || spell.alwaysPrepared == true || spell.definition.level == 0 || spell.definition.ritual == true || isSorcerer == 1 || isRanger == 1 || isBard == 1 || rogueSubclassArcaneTrickster == 1 ||fighterSubclassEldritchKnight == 1) {
+                            if(spell.prepared == true || spell.alwaysPrepared == true || spell.definition.level == 0 || isSorcerer == 1 || isRanger == 1 || isBard == 1 || rogueSubclassArcaneTrickster == 1 || fighterSubclassEldritchKnight == 1) {
+
                             spellList.push(spell.definition.name);
                             totalSpells += 1;
                             thisIteration = pad(totalSpells, 5);
