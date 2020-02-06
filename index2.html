@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="google-signin-client_id" content="644368423560-jaglfeta79719ooopnht2l5epqf2dv8l.apps.googleusercontent.com">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/styles/jqx.base.css">
+        <link rel="stylesheet" type="text/css" href="css/styles/jqx.darkblue.css">
+        <link rel="stylesheet" type="text/css" href="css/app2.css">
+        <!-- <title>Fantasy Grounds FTW</title> -->
+        <title>Prodtest2 NRPE testing</title>
+    </head>
+    <body class="default">
+      <div class="container">
+        <div id="header">
+          <!-- D&amp;D Beyond to Fantasy Grounds Character Converter -->
+          <center>ProdTest2 Testing NRPE vs NSCA</center>
+        </div>
+        <div id="gsignin"><div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <div id="gsignout">
+          <a href="#" onclick="signOut();">Sign out</a>
+          <script>
+            function signOut() {
+              var auth2 = gapi.auth2.getAuthInstance();
+              auth2.signOut().then(function () {
+                console.log('User signed out.');
+              });
+            }
+          </script>
+        </div>
+        <div id='jqxMenu' style='visibility: hidden; margin-left: 5px;'>
+          <ul>
+            <li><a id="goHome" href="">Home</a></li>
+            <li><a id="extLinks" href="">Links</a></li>
+            <li><a id="contactUs" href="">Contact</a></li>
+            <li><a id="showChangelog" href="">Changelog</a></li>
+            <li><a id="showDonations" href="">Donate</a></li>
+          </ul>
+        </div>
+        <h2>Instructions</h2> Select FG Version: <div id="verButtonC">Classic</div><div id="verButtonU">Unity</div>
+        <pre>
+Log into your <a href="https://www.dndbeyond.com/my-content/characters" target="_blank">D&amp;D Beyond Account</a>.
+Move your mouse over the 'Characters' tab at the top of the window and select 'My Characters'.
+Find the character you want to convert and click 'View'.
+Take a look at the Address bar, it should look something like:
+https://www.dndbeyond.com/profile/YourUserName/characters/<b>8675309</b>
+
+Find the Character ID. In the above example it's <b>8675309</b>.
+Paste this ID in the 'Character ID' text box and click 'Get Character Data'.
+It will take a short while in order for the data to populate.
+Click the 'Download XML' button to save the character to your computer.</pre>
+For instructions on how to import the XML file into Fantasy Grounds,
+please watch <a href="https://www.youtube.com/watch?v=Rzd6zPxClFY">
+<b>this video</b></a> by Digital Dungeon Master.<br /><br />
+        <!--<b>Character ID:&nbsp;&nbsp;<input type="text" id="getcharID">&nbsp;&nbsp;<button id="grabChar">Get Character Data</button><button id="popCharID">Choose</button></b><br />-->
+        <b>Character ID:&nbsp;&nbsp;<input type="text" id="getcharID">&nbsp;&nbsp;<button id="grabChar">Get Character Data</button></b><br />
+        <br />
+        <textarea id="textHere"></textarea><br />
+        <button id="dlChar">Download XML</button>&nbsp;&nbsp;<button id="resetChar">Reset ALL</button><br /><br />
+
+        <h5>Have a suggestion? Found a problems? Please use <b>CONTACT</b> in the left side menu.</h5>
+
+      <div id="multiClassWarn">
+          <div style="width: 100%; height: 650px; margin-top: 50px;" id="MCcontainer">
+              <div id="MCwindow">
+                  <div id="windowHeader">
+                      <span>
+                          WARNING
+                      </span>
+                  </div>
+                  <div style="overflow: hidden;" id="MCwindowContent">
+                    <div>
+                      The character you've selected is a multiclass character.
+                      Multiclass characters are currently partially supported.
+                      After importing, you'll very likely need to adjust fields 
+                      such as Armor Class and other assorted things.
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <div id="displayLinks">
+        <div style="width: 100%; height: 650px; margin-top: 50px;" id="dispLinkContainer">
+            <div id="Linkwindow">
+                <div id="LinkwindowHeader">
+                    <span>
+                        External Links
+                    </span>
+                </div>
+                <div style="overflow: hidden;" id="LinkwindowContent">
+                  <div>
+                    &nbsp;&nbsp;&nbsp;<a href="http://www.fantasygrounds.com" target="_blank">Fantasy Grounds VTT</a><br />
+                    &nbsp;&nbsp;&nbsp;<a href="https://discord.gg/VKbhkSt" target="_blank">Fantasy Grounds Discord server</a><br />
+                    &nbsp;&nbsp;&nbsp;<a href="https://fantasygroundscollege.net/" target="_blank">Fantasy Grounds College (FGC)</a><br />
+                    &nbsp;&nbsp;&nbsp;<a href="https://discordapp.com/invite/Ew6nYyw" target="_blank">FGC Discord server</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <div id="displayCL">
+        <div style="width: 100%; height: 650px; margin-top: 50px;" id="changelogContainer">
+            <div id="CLwindow">
+                <div id="CLwindowHeader">
+                    <span>
+                        Changelog
+                    </span>
+                </div>
+                <div style="overflow: hidden;" id="CLwindowContent">
+                  <div>
+                    <p>20190202-2: <br />
+                      &nbsp;&nbsp;&nbsp;Fixed damage dice count.
+                    </p>
+                    <p>20200126-1: <br />
+                      &nbsp;&nbsp;&nbsp;HP for Multi-class fixed.
+                    </p>
+                    <p>20200126-2: <br />
+                      &nbsp;&nbsp;&nbsp;Fixed code for Paladin Laying on Hands.
+                    </p>
+                    <p>20200128-1: <br />
+                      &nbsp;&nbsp;&nbsp;Fixed code for Paladin Laying on Hands.
+                    </p>
+                    <p>20200131-1: <br />
+                      &nbsp;&nbsp;&nbsp;Fixed weapon code, SW looks to have added a field.
+                    </p>
+                    <p>20200131-2: <br />
+                      &nbsp;&nbsp;&nbsp;Really hopefully fixed weapon code. Added FG version selection.
+                    </p>
+                    <p>20200203-1: <br />
+                      &nbsp;&nbsp;&nbsp;Removed opening and closing emphasis tags from descriptions.
+                    </p>
+                    <p>20200204-1: <br />
+                      &nbsp;&nbsp;&nbsp;Added code for Artificer class (HP for now)
+                    </p>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <div id="displayDon">
+        <div style="width: 100%; height: 650px; margin-top: 50px;" id="donateContainer">
+            <div id="DONwindow">
+                <div id="DONwindowHeader">
+                    <span>
+                        Donations
+                    </span>
+                </div>
+                <div style="overflow: hidden;" id="DONwindowContent">
+                  <div>
+                    <p>If you want to donate:<br />
+Please consider becoming a <a href="https://www.patreon.com/FGC" target="_blank">Patreon of FGC.</a><br />
+&nbsp;&nbsp;&nbsp;<b>OR</b><br />
+Make a donation to <a href="https://www.hollandhospice.org/give-today/" target="_blank">Holland Hospice.</a><br /><br />
+I have no financial affiliations with <a href="https://fantasygroundscollege.net/" target="_blank">FGC</a> (Fantasy Grounds College).<br />
+This project would never have started were it not for them. <br />They do great work.
+                    </p>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+      <footer>
+        &nbsp;&nbsp;&copy;David S. Berkompas, 2019
+    </footer>
+    </body>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jqxcore.js"></script>
+    <script src="js/jqxbuttons.js"></script>
+    <script src="js/jqxinput.js"></script>
+    <script src="js/jqxtextarea.js"></script>
+    <script src="js/jqxwindow.js"></script>
+    <script src="js/jqxscrollbar.js"></script>
+    <script src="js/jqxmenu.js"></script>
+    <script src="js/jqxdropdownlist.js"></script>
+    <script src="js/jqxlistbox.js"></script>
+    <script src="js/jqxradiobutton.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+</html>
