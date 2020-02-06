@@ -1,5 +1,5 @@
 <?php
-$charID = $_GET['charID'];
+    $charID = $_GET['charID'];
 
     $xmlData = @file_get_contents('https://www.dndbeyond.com/character/' . $charID . '/json');
     if($xmlData === FALSE) {

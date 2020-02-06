@@ -24,6 +24,8 @@
        (All contributions are donated to Hospice, or go here: https://www.hollandhospice.org/giving/donate-now/)
 */
 
+var userName = "";
+
 var startXML = "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n";
 startXML += "<root version=\"3.3\" release=\"8|CoreRPG:4\">\n";
 /*
@@ -34,7 +36,7 @@ startXML += "\t<character>\n";
 var endXML = "\t</character>\n</root>\n";
 var allXML = "";
 
-var payFlag = 1;
+var payFlag = 0;
 
 var pcFilename = "";
 var addHP = 0;
@@ -61,14 +63,6 @@ var fleetFoot = 0;
 var source = [
     "Barakas(1387127)",
     "Baradun(1215852)",
-    "GuyWithNet(5054951)",
-    "Arlo(7494686)",
-    "ReallyBasic(7748765)",
-    "ElfRanger16(2343099)",
-    "GnomeRogue16(2364733)",
-    "TabaxiBarbarian10(2623686)",
-    "AasimarCleric16(7782019)",
-    "Sorcerer15(7413127)"
 ];
 
 var totalClasses = 0;
@@ -1109,6 +1103,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     }
 
     // FIXME: What is/was this for?
+    /*
     character.modifiers.class.some(function(thisMod, i) {
         if (thisMod.isGranted == true) {
             if (thisMod.type != "proficiency" && thisMod.type != "set" && thisMod.type != "language") {
@@ -1116,6 +1111,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             }
         }
     });
+    */
     
     buildXML += "\t\t</featurelist>\n";
 
@@ -4092,7 +4088,8 @@ addBarbarianWolfTotemSpirit = " \
 <name type=\"string\">Totem Spirit (Wolf)</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Path of the Totem Warrior</specialization>\n";
+<specialization type=\"string\">Path of the Totem Warrior</specialization>\n \
+<source type=\"string\">Barbarian</source>\n";
 
 addBarbarianEagleTotemSpirit = " \
 <actions>\n \
@@ -4119,7 +4116,9 @@ addBarbarianEagleTotemSpirit = " \
 <name type=\"string\">Totem Spirit (Eagle)</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Path of the Totem Warrior</specialization>\n";
+<specialization type=\"string\">Path of the Totem Warrior</specialization>\n \
+<source type=\"string\">Barbarian</source>\n";
+
 
 addBarbarianBearTotemSpirit = " \
 <actions>\n \
@@ -4146,7 +4145,9 @@ addBarbarianBearTotemSpirit = " \
 <name type=\"string\">Totem Spirit (Bear)</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Path of the Totem Warrior</specialization>\n";
+<specialization type=\"string\">Path of the Totem Warrior</specialization>\n \
+<source type=\"string\">Barbarian</source>\n";
+
 
 addBarbarianWolfBeastAspect = " \
 <actions>\n \
@@ -4294,7 +4295,9 @@ addBarbarianBrutalCritical = " \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Brutal Critical</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<ritual type=\"number\">0</ritual>\n";
+<ritual type=\"number\">0</ritual>\n \
+<source type=\"string\">Barbarian</source>\n";
+
 
 addBarbarianRelentlessRage = " \
 <actions>\n \
@@ -4342,7 +4345,9 @@ addBarbarianTotemicAttunement = " \
 <name type=\"string\">Totemic Attunement (Bear)</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Path of the Totem Warrior</specialization>\n";
+<specialization type=\"string\">Path of the Totem Warrior</specialization>\n \
+<source type=\"string\">Barbarian</source>\n";
+
 
 addBarbarianMindlessRage = " \
 <actions>\n \
@@ -4365,7 +4370,9 @@ addBarbarianMindlessRage = " \
 <name type=\"string\">Mindless Rage</name>\n \
 <prepared type=\"number\">6</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Path of the Berserker</specialization>\n";
+<specialization type=\"string\">Path of the Berserker</specialization>\n \
+<source type=\"string\">Barbarian</source>\n";
+
 
 addBarbarianIntimidatingPresence = " \
 <actions>\n \
@@ -4398,7 +4405,9 @@ addBarbarianIntimidatingPresence = " \
 <name type=\"string\">Intimidating Presence</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Path of the Berserker</specialization>\n";
+<specialization type=\"string\">Path of the Berserker</specialization>\n \
+<source type=\"string\">Barbarian</source>\n";
+
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
@@ -4461,7 +4470,8 @@ addBardicInspiration = " \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
 <group type=\"string\">Class Features</group>\n \
-<name type=\"string\">Bardic Inspiration</name>\n";
+<name type=\"string\">Bardic Inspiration</name>\n \
+<source type=\"string\">Bard</source>\n";
 
 addBardSongOfRest = " \
 <actions>\n \
@@ -4606,7 +4616,8 @@ addClericArcaneAbjuration = " \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Arcane Abjuration</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Arcana Domain</specialization>\n";
+<specialization type=\"string\">Arcana Domain</specialization>\n \
+<source type=\"string\">Cleric</source>\n";
 
 addClericCharmAnimals = " \
 <actions>\n \
@@ -4634,7 +4645,8 @@ addClericCharmAnimals = " \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Channel Divinity: Charm Animals And Plants</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Nature Domain</specialization>\n";
+<specialization type=\"string\">Nature Domain</specialization>\n \
+<source type=\"string\">Cleric</source>\n";
 
 addClericPreserveLife = " \
 <actions>\n \
@@ -4658,7 +4670,8 @@ addClericPreserveLife = " \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Preserve Life</name>\n \
 <prepared type=\"number\">20</prepared>\n \
-<specialization type=\"string\">Life Domain</specialization>\n";
+<specialization type=\"string\">Life Domain</specialization>\n \
+<source type=\"string\">Cleric</source>\n";
 
 
 addClericBlessedHealer=" \
@@ -4696,7 +4709,8 @@ addClericBlessedHealer=" \
 <name type=\"string\">Blessed Healer</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Life Domain</specialization>\n";
+<specialization type=\"string\">Life Domain</specialization>\n \
+<source type=\"string\">Cleric</source>\n";
 
 addClericCureWoundsSupreme=" \
 <actions>\n \
@@ -4781,7 +4795,8 @@ addClericWardingFlare=" \
 <name type=\"string\">Warding Flare</name>\n \
 <prepared type=\"number\">1</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Light Domain</specialization>\n";
+<specialization type=\"string\">Light Domain</specialization>\n \
+<source type=\"string\">Cleric</source>\n";
 
 addClericRadianceOfDawn=" \
 <actions>\n \
@@ -4813,7 +4828,8 @@ addClericRadianceOfDawn=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Channel Divinity: Radiance of the Dawn</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Light Domain</specialization>\n";
+<specialization type=\"string\">Light Domain</specialization>\n \
+<source type=\"string\">Cleric</source>\n";
 
 addClericCoronaOfLight=" \
 <actions>\n \
@@ -4833,7 +4849,8 @@ addClericCoronaOfLight=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Corona of Light</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Light Domain</specialization>\n";
+<specialization type=\"string\">Light Domain</specialization>\n \
+<source type=\"string\">Cleric</source>\n";
 
 addClericDampenElements=" \
 <actions>\n \
@@ -4853,7 +4870,8 @@ addClericDampenElements=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Dampen Elements</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Nature Domain</specialization>\n";
+<specialization type=\"string\">Nature Domain</specialization>\n \
+<source type=\"string\">Cleric</source>\n";
 
 addClericDivineStrike=" \
 <actions>\n \
@@ -4873,7 +4891,8 @@ addClericDivineStrike=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Divine Strike</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">War Domain</specialization>\n";
+<specialization type=\"string\">War Domain</specialization>\n \
+<source type=\"string\">Cleric</source>\n";
 
 addClericWrathOfTheStorm=" \
 <actions>\n \
@@ -4915,7 +4934,8 @@ addClericWrathOfTheStorm=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Wrath of the Storm</name>\n \
 <prepared type=\"number\">1</prepared>\n \
-<specialization type=\"string\">Tempest Domain</specialization>\n";
+<specialization type=\"string\">Tempest Domain</specialization>\n \
+<source type=\"string\">Cleric</source>\n";
 
 addClericBlessingOfTheTrickster=" \
 <actions>\n \
@@ -4935,7 +4955,8 @@ addClericBlessingOfTheTrickster=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Blessing of the Trickster</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Trickery Domain</specialization>\n";
+<specialization type=\"string\">Trickery Domain</specialization>\n \
+<source type=\"string\">Cleric</source>\n";
 
 addClericCloakOfShadows=" \
 <actions>\n \
@@ -4956,7 +4977,8 @@ addClericCloakOfShadows=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Channel Divinity: Cloak of Shadows</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Trickery Domain</specialization>\n";
+<specialization type=\"string\">Trickery Domain</specialization>\n \
+<source type=\"string\">Cleric</source>\n";
 
 addClericWarPriest=" \
 <actions>\n \
@@ -4970,7 +4992,8 @@ addClericWarPriest=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">War Priest</name>\n \
 <prepared type=\"number\">1</prepared>\n \
-<specialization type=\"string\">War Domain</specialization>\n";
+<specialization type=\"string\">War Domain</specialization>\n \
+<source type=\"string\">Cleric</source>\n";
 
 addClericAvatarOfBattle=" \
 <actions>\n \
@@ -4990,7 +5013,8 @@ addClericAvatarOfBattle=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Avatar of Battle</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">War Domain</specialization>\n";
+<specialization type=\"string\">War Domain</specialization>\n \
+<source type=\"string\">Cleric</source>\n";
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
@@ -5140,7 +5164,8 @@ addDruidNaturesWard=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Nature's Ward</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Circle of the Land</specialization>\n";
+<specialization type=\"string\">Circle of the Land</specialization>\n \
+<source type=\"string\">Druid</source>\n";
 
 addDruidCombatWildShape=" \
 <actions>\n \
@@ -5177,7 +5202,8 @@ addDruidCombatWildShape=" \
 <name type=\"string\">Combat Wild Shape</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <specialization type=\"string\">Circle of the Moon</specialization>\n \
-<usesperiod type=\"string\">enc</usesperiod>\n";
+<usesperiod type=\"string\">enc</usesperiod>\n \
+<source type=\"string\">Druid</source>\n";
 
 addDruidPrimalStrike=" \
 <actions>\n \
@@ -5197,7 +5223,8 @@ addDruidPrimalStrike=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Primal Strike</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Circle of the Moon</specialization>\n";
+<specialization type=\"string\">Circle of the Moon</specialization>\n \
+<source type=\"string\">Druid</source>\n";
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
@@ -5295,7 +5322,8 @@ addFighterRallyingCry=" \
 <name type=\"string\">Rallying Cry</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <specialization type=\"string\">Purple Dragon Knight</specialization>\n \
-<usesperiod type=\"string\">enc</usesperiod>\n";
+<usesperiod type=\"string\">enc</usesperiod>\n \
+<source type=\"string\">Fighter</source>\n";
 
 addFighterRoyalEnvoy=" \
 <actions>\n \
@@ -5317,7 +5345,8 @@ addFighterRoyalEnvoy=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Royal Envoy</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Purple Dragon Knight</specialization>\n";
+<specialization type=\"string\">Purple Dragon Knight</specialization>\n \
+<source type=\"string\">Fighter</source>\n";
 
 addFighterRemarkableAthlete=" \
 <actions>\n \
@@ -5348,7 +5377,8 @@ addFighterRemarkableAthlete=" \
 <name type=\"string\">Remarkable Athlete</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Champion</specialization>\n";
+<specialization type=\"string\">Champion</specialization>\n \
+<source type=\"string\">Fighter</source>\n";
 
 addFighterSurvivor=" \
 <actions>\n \
@@ -5368,7 +5398,8 @@ addFighterSurvivor=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Survivor</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Champion</specialization>\n";
+<specialization type=\"string\">Champion</specialization>\n \
+<source type=\"string\">Fighter</source>\n";
 
 addFighterCombatSuperiority=" \
 <actions>\n \
@@ -5459,7 +5490,8 @@ addFighterCombatSuperiority=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Combat Superiority</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Battle Master</specialization>\n";
+<specialization type=\"string\">Battle Master</specialization>\n \
+<source type=\"string\">Fighter</source>\n";
 
 addFighterCommandersStrike=" \
 <actions>\n \
@@ -5475,7 +5507,8 @@ addFighterCommandersStrike=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Commander's Strike</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Fighter</source>\n";
 
 addFighterDisarmingAttack=" \
 <actions>\n \
@@ -5507,7 +5540,8 @@ addFighterDisarmingAttack=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Disarming Attack</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Fighter</source>\n";
 
 addFighterDistractingStrike=" \
 <actions>\n \
@@ -5530,7 +5564,8 @@ addFighterDistractingStrike=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Distracting Strike</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Fighter</source>\n";
 
 addFighterFeintingAttack=" \
 <actions>\n \
@@ -5555,7 +5590,8 @@ addFighterFeintingAttack=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Feinting Attack</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Fighter</source>\n";
 
 addFighterGoadingAttack=" \
 <actions>\n \
@@ -5587,7 +5623,8 @@ addFighterGoadingAttack=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Goading Attack</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Fighter</source>\n";
 
 addFighterLungingAttack=" \
 <actions>\n \
@@ -5604,7 +5641,8 @@ addFighterLungingAttack=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Lunging Attack</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Fighter</source>\n";
 
 addFighterManeuveringAttack=" \
 <actions>\n \
@@ -5621,7 +5659,8 @@ addFighterManeuveringAttack=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Maneuvering Attack</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Fighter</source>\n";
 
 addFighterMenacingAttack=" \
 <actions>\n \
@@ -5653,7 +5692,8 @@ addFighterMenacingAttack=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Menacing Attack</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Fighter</source>\n";
 
 addFighterPrecisionAttack=" \
 <actions>\n \
@@ -5670,7 +5710,8 @@ addFighterPrecisionAttack=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Precision Attack</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Fighter</source>\n";
 
 addFighterPushingAttack=" \
 <actions>\n \
@@ -5696,7 +5737,8 @@ addFighterPushingAttack=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Pushing Attack</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Fighter</source>\n";
 
 addFighterRally=" \
 <actions>\n \
@@ -5717,7 +5759,8 @@ addFighterRally=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Rally</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Fighter</source>\n";
 
 addFighterRiposte=" \
 <actions>\n \
@@ -5734,7 +5777,8 @@ addFighterRiposte=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Riposte</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Fighter</source>\n";
 
 addFighterSweepingAttack=" \
 <actions>\n \
@@ -5765,7 +5809,8 @@ addFighterSweepingAttack=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Sweeping Attack</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Fighter</source>\n";
 
 addFighterTripAttack=" \
 <actions>\n \
@@ -5797,7 +5842,8 @@ addFighterTripAttack=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Trip Attack</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Fighter</source>\n";
 
 addFighterEldritchStrike=" \
 <actions>\n \
@@ -5819,7 +5865,8 @@ addFighterEldritchStrike=" \
 <name type=\"string\">Eldritch Strike</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Eldritch Knight</specialization>\n";
+<specialization type=\"string\">Eldritch Knight</specialization>\n \
+<source type=\"string\">Fighter</source>\n";
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
@@ -5959,7 +6006,8 @@ addMonkFlurryOfBlows=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Flurry of Blows</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Monk</source>\n";
 
 addMonkPatientDefense=" \
 <actions>\n \
@@ -5975,7 +6023,8 @@ addMonkPatientDefense=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Patient Defense</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Monk</source>\n";
 
 addMonkStepOfTheWind=" \
 <actions>\n \
@@ -5984,7 +6033,8 @@ addMonkStepOfTheWind=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Step of the Wind</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Monk</source>\n";
 
 addMonkPurityOfBody=" \
 <actions>\n \
@@ -6120,7 +6170,8 @@ addMonkWholenessOfBody=" \
 <name type=\"string\">Wholeness of Body</name>\n \
 <prepared type=\"number\">1</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Way of the Open Hand</specialization>\n";
+<specialization type=\"string\">Way of the Open Hand</specialization>\n \
+<source type=\"string\">Monk</source>\n";
 
 addMonkTranquility=" \
 <actions>\n \
@@ -6153,7 +6204,8 @@ addMonkTranquility=" \
 <name type=\"string\">Tranquility</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Way of the Open Hand</specialization>\n";
+<specialization type=\"string\">Way of the Open Hand</specialization>\n \
+<source type=\"string\">Monk</source>\n";
 
 addMonkShadowStep=" \
 <actions>\n \
@@ -6176,7 +6228,8 @@ addMonkShadowStep=" \
 <name type=\"string\">Shadow Step</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Way of Shadow</specialization>\n";
+<specialization type=\"string\">Way of Shadow</specialization>\n \
+<source type=\"string\">Monk</source>\n";
 
 addMonkCloakOfShadows=" \
 <actions>\n \
@@ -6196,7 +6249,8 @@ addMonkCloakOfShadows=" \
 <name type=\"string\">Cloak of Shadows</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Way of Shadow</specialization>\n";
+<specialization type=\"string\">Way of Shadow</specialization>\n \
+<source type=\"string\">Monk</source>\n";
 
 addMonkFangsOfTheFireSnake=" \
 <actions>\n \
@@ -6216,7 +6270,8 @@ addMonkFangsOfTheFireSnake=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Fangs of the Fire Snake</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Monk</source>\n";
 
 addMonkFistOfUnbrokenAir=" \
 <actions>\n \
@@ -6263,7 +6318,8 @@ addMonkFistOfUnbrokenAir=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Fist of Unbroken Air</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Monk</source>\n";
 
 addMonkWaterWhip=" \
 <actions>\n \
@@ -6299,7 +6355,8 @@ addMonkWaterWhip=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Water Whip</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Monk</source>\n";
 
 addMonkTouchOfDeath=" \
 <actions>\n \
@@ -6332,7 +6389,8 @@ addMonkTouchOfDeath=" \
 <name type=\"string\">Touch of Death</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Way of the Long Death</specialization>\n";
+<specialization type=\"string\">Way of the Long Death</specialization>\n \
+<source type=\"string\">Monk</source>\n";
 
 addMonkHourOfReaping=" \
 <actions>\n \
@@ -6358,7 +6416,8 @@ addMonkHourOfReaping=" \
 <name type=\"string\">Hour of Reaping</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Way of the Long Death</specialization>\n";
+<specialization type=\"string\">Way of the Long Death</specialization>\n \
+<source type=\"string\">Monk</source>\n";
 
 addMonkTouchOfTheLongDeath=" \
 <actions>\n \
@@ -6390,7 +6449,8 @@ addMonkTouchOfTheLongDeath=" \
 <name type=\"string\">Touch of the Long Death</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Way of the Long Death</specialization>\n";
+<specialization type=\"string\">Way of the Long Death</specialization>\n \
+<source type=\"string\">Monk</source>\n";
 
 addMonkRadiantSunBolt=" \
 <actions>\n \
@@ -6422,7 +6482,8 @@ addMonkRadiantSunBolt=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Radiant Sun Bolt</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Monk</source>\n";
 
 addMonkSunShield=" \
 <actions>\n \
@@ -6450,7 +6511,8 @@ addMonkSunShield=" \
 <name type=\"string\">Sun Shield</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Way of the Sun Soul</specialization>\n";
+<specialization type=\"string\">Way of the Sun Soul</specialization>\n \
+<source type=\"string\">Monk</source>\n";
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
@@ -6691,7 +6753,8 @@ addPaladinChampionChallengeCrown=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Champion Challenge (Crown)</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Oath of the Crown</specialization>\n";
+<specialization type=\"string\">Oath of the Crown</specialization>\n \
+<source type=\"string\">Paladin</source>\n";
 
 addPaladinTurnTheTideCrown=" \
 <actions>\n \
@@ -6711,7 +6774,8 @@ addPaladinTurnTheTideCrown=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Turn the Tide (Crown)</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Paladin</source>\n";
 
 addPaladinUnyieldingSpirit=" \
 <actions>\n \
@@ -6732,7 +6796,8 @@ addPaladinUnyieldingSpirit=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Unyielding Spirit</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Oath of the Crown</specialization>\n";
+<specialization type=\"string\">Oath of the Crown</specialization>\n \
+<source type=\"string\">Paladin</source>\n";
 
 addPaladinSacredWeaponDevotion=" \
 <actions>\n \
@@ -6749,7 +6814,8 @@ addPaladinSacredWeaponDevotion=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Sacred Weapon (Devotion)</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Paladin</source>\n";
 
 addPaladinTurnTheUnholyDevotion=" \
 <actions>\n \
@@ -6774,7 +6840,8 @@ addPaladinTurnTheUnholyDevotion=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Turn the Unholy (Devotion)</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Paladin</source>\n";
 
 addPaladinAuraOfDevotion=" \
 <actions>\n \
@@ -6794,7 +6861,8 @@ addPaladinAuraOfDevotion=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Aura of Devotion</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Oath of Devotion</specialization>\n";
+<specialization type=\"string\">Oath of Devotion</specialization>\n \
+<source type=\"string\">Paladin</source>\n";
 
 addPaladinPurityOfSpirit=" \
 <actions>\n \
@@ -6823,7 +6891,8 @@ addPaladinPurityOfSpirit=" \
 <name type=\"string\">Purity of Spirit</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Oath of Devotion</specialization>\n";
+<specialization type=\"string\">Oath of Devotion</specialization>\n \
+<source type=\"string\">Paladin</source>\n";
 
 addPaladinHolyNimbus=" \
 <actions>\n \
@@ -6850,7 +6919,8 @@ addPaladinHolyNimbus=" \
 <name type=\"string\">Holy Nimbus</name>\n \
 <prepared type=\"number\">1</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Oath of Devotion</specialization>\n";
+<specialization type=\"string\">Oath of Devotion</specialization>\n \
+<source type=\"string\">Paladin</source>\n";
 
 addPaladinNaturesWrathAncients=" \
 <actions>\n \
@@ -6888,7 +6958,8 @@ addPaladinNaturesWrathAncients=" \
 <locked type=\"number\">0</locked>\n \
 <name type=\"string\">Nature's Wrath (Ancients)</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<ritual type=\"number\">0</ritual>\n";
+<ritual type=\"number\">0</ritual>\n \
+<source type=\"string\">Paladin</source>\n";
 
 addPaladinTurnTheFaithlessAncients=" \
 <actions>\n \
@@ -6913,7 +6984,8 @@ addPaladinTurnTheFaithlessAncients=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Turn the Faithless (Ancients)</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Paladin</source>\n";
 
 addPaladinAuraOfWarding=" \
 <actions>\n \
@@ -6935,7 +7007,8 @@ addPaladinAuraOfWarding=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Aura of Warding</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Oath of the Ancients</specialization>\n";
+<specialization type=\"string\">Oath of the Ancients</specialization>\n \
+<source type=\"string\">Paladin</source>\n";
 
 addPaladinUndyingSentinal=" \
 <actions>\n \
@@ -6944,7 +7017,8 @@ addPaladinUndyingSentinal=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Undying Sentinel</name>\n \
-<prepared type=\"number\">1</prepared>\n";
+<prepared type=\"number\">1</prepared>\n \
+<source type=\"string\">Paladin</source>\n";
 
 addPaladinElderChampion=" \
 <actions>\n \
@@ -6967,7 +7041,8 @@ addPaladinElderChampion=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Elder Champion</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Paladin</source>\n";
 
 addPaladinAbjureEnemyVengeance=" \
 <actions>\n \
@@ -6998,7 +7073,8 @@ addPaladinAbjureEnemyVengeance=" \
 <cast type=\"number\">0</cast>\n \
 <group type=\"string\">Class Features</group> <level type=\"number\">0</level>\n \
 <name type=\"string\">Abjure Enemy (Vengeance)</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Paladin</source>\n";
 
 addPaladinVowOfEnmityVengeance=" \
 <actions>\n \
@@ -7015,7 +7091,8 @@ addPaladinVowOfEnmityVengeance=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <name type=\"string\">Vow of Enmity (Vengeance)</name>\n \
-<prepared type=\"number\">0</prepared>\n";
+<prepared type=\"number\">0</prepared>\n \
+<source type=\"string\">Paladin</source>\n";
 
 addPaladinAvengingAngel=" \
 <actions>\n \
@@ -7054,7 +7131,8 @@ addPaladinAvengingAngel=" \
 <name type=\"string\">Avenging Angel</name>\n \
 <prepared type=\"number\">1</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Oath of Vengeance</specialization>\n";
+<specialization type=\"string\">Oath of Vengeance</specialization>\n \
+<source type=\"string\">Paladin</source>\n";
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
@@ -7216,7 +7294,8 @@ addRangerColossusSlayer=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Colossus Slayer</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Hunter</specialization>\n";
+<specialization type=\"string\">Hunter</specialization>\n \
+<source type=\"string\">Ranger</source>\n";
 
 addRangerDefensiveTactics=" \
 <actions>\n \
@@ -7239,7 +7318,8 @@ addRangerDefensiveTactics=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Defensive Tactics</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Hunter</specialization>\n";
+<specialization type=\"string\">Hunter</specialization>\n \
+<source type=\"string\">Ranger</source>\n";
 
 addRangerSuperiorHuntersDefense=" \
 <actions>\n \
@@ -7262,7 +7342,8 @@ addRangerSuperiorHuntersDefense=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Superior Hunter's Defense</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Hunter</specialization>\n";
+<specialization type=\"string\">Hunter</specialization>\n \
+<source type=\"string\">Ranger</source>\n";
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
@@ -7342,7 +7423,8 @@ addRogueRakishAudacity=" \
 <name type=\"string\">Rakish Audacity</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Swashbuckler</specialization>\n";
+<specialization type=\"string\">Swashbuckler</specialization>\n \
+<source type=\"string\">Rogue</source>\n";
 
 addRoguePanache=" \
 <actions>\n \
@@ -7373,7 +7455,8 @@ addRoguePanache=" \
 <name type=\"string\">Panache</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Swashbuckler</specialization>\n";
+<specialization type=\"string\">Swashbuckler</specialization>\n \
+<source type=\"string\">Rogue</source>\n";
 
 addRogueElegantManeuver=" \
 <actions>\n \
@@ -7394,7 +7477,8 @@ addRogueElegantManeuver=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Elegant Maneuver</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Swashbuckler</specialization>\n";
+<specialization type=\"string\">Swashbuckler</specialization>\n \
+<source type=\"string\">Rogue</source>\n";
 
 addRogueDeathStrike=" \
 <actions>\n \
@@ -7412,7 +7496,8 @@ addRogueDeathStrike=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Death Strike</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Assassin</specialization>\n";
+<specialization type=\"string\">Assassin</specialization>\n \
+<source type=\"string\">Rogue</source>\n";
 
 addRogueMagicalAmbush=" \
 <actions>\n \
@@ -7432,7 +7517,8 @@ addRogueMagicalAmbush=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Magical Ambush</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Arcane Trickster</specialization>\n";
+<specialization type=\"string\">Arcane Trickster</specialization>\n \
+<source type=\"string\">Rogue</source>\n";
 
 addRogueVersatileTrickster=" \
 <actions>\n \
@@ -7452,7 +7538,8 @@ addRogueVersatileTrickster=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Versatile Trickster</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Arcane Trickster</specialization>\n";
+<specialization type=\"string\">Arcane Trickster</specialization>\n \
+<source type=\"string\">Rogue</source>\n";
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
@@ -7555,7 +7642,8 @@ addSorcererHeartOfTheStorm=" \
 <name type=\"string\">Heart of the Storm</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Storm Sorcery</specialization>\n";
+<specialization type=\"string\">Storm Sorcery</specialization>\n \
+<source type=\"string\">Sorcerer</source>\n";
 
 addSorcererStormsFury=" \
 <actions>\n \
@@ -7590,7 +7678,8 @@ addSorcererStormsFury=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Storm's Fury</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Storm Sorcery</specialization>\n";
+<specialization type=\"string\">Storm Sorcery</specialization>\n \
+<source type=\"string\">Sorcerer</source>\n";
 
 addSorcererWindSoul=" \
 <actions>\n \
@@ -7612,7 +7701,8 @@ addSorcererWindSoul=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Wind Soul</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Storm Sorcery</specialization>\n";
+<specialization type=\"string\">Storm Sorcery</specialization>\n \
+<source type=\"string\">Sorcerer</source>\n";
 
 addSorcererDragonAncestor=" \
 <actions>\n \
@@ -7682,7 +7772,8 @@ addSorcererDragonAncestor=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Dragon Ancestor</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Draconic Bloodline</specialization>\n";
+<specialization type=\"string\">Draconic Bloodline</specialization>\n \
+<source type=\"string\">Sorcerer</source>\n";
 
 addSorcererElementalAffinity=" \
 <actions>\n \
@@ -7712,7 +7803,8 @@ addSorcererElementalAffinity=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Elemental Affinity</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Draconic Bloodline</specialization>\n";
+<specialization type=\"string\">Draconic Bloodline</specialization>\n \
+<source type=\"string\">Sorcerer</source>\n";
 
 addSorcererDraconicPresence=" \
 <actions>\n \
@@ -7739,7 +7831,8 @@ addSorcererDraconicPresence=" \
 <name type=\"string\">Draconic Presence</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">Draconic Bloodline</specialization>\n";
+<specialization type=\"string\">Draconic Bloodline</specialization>\n \
+<source type=\"string\">Sorcerer</source>\n";
 
 addSorcererTidesOfChaos=" \
 <actions>\n \
@@ -7761,7 +7854,8 @@ addSorcererTidesOfChaos=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Tides of Chaos</name>\n \
 <prepared type=\"number\">1</prepared>\n \
-<specialization type=\"string\">Wild Magic</specialization>\n";
+<specialization type=\"string\">Wild Magic</specialization>\n \
+<source type=\"string\">Sorcerer</source>\n";
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
@@ -7833,7 +7927,8 @@ addWarlockFeyPresence=" \
 <prepared type=\"number\">1</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
 <specialization type=\"string\">The Archfey</specialization>\n \
-<usesperiod type=\"string\">enc</usesperiod>\n";
+<usesperiod type=\"string\">enc</usesperiod>\n \
+<source type=\"string\">Warlock</source>\n";
 
 addWarlockMistyEscape=" \
 <actions>\n \
@@ -7856,7 +7951,8 @@ addWarlockMistyEscape=" \
 <prepared type=\"number\">1</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
 <specialization type=\"string\">The Archfey</specialization>\n \
-<usesperiod type=\"string\">enc</usesperiod>\n";
+<usesperiod type=\"string\">enc</usesperiod>\n \
+<source type=\"string\">Warlock</source>\n";
 
 addWarlockBeguilingDefenses=" \
 <actions>\n \
@@ -7890,7 +7986,8 @@ addWarlockBeguilingDefenses=" \
 <name type=\"string\">Beguiling Defenses</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">The Archfey</specialization>\n";
+<specialization type=\"string\">The Archfey</specialization>\n \
+<source type=\"string\">Warlock</source>\n";
 
 addWarlockDarkDelirium=" \
 <actions>\n \
@@ -7927,7 +8024,8 @@ addWarlockDarkDelirium=" \
 <prepared type=\"number\">1</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
 <specialization type=\"string\">The Archfey</specialization>\n \
-<usesperiod type=\"string\">enc</usesperiod>\n";
+<usesperiod type=\"string\">enc</usesperiod>\n \
+<source type=\"string\">Warlock</source>\n";
 
 addWarlockDarkOnesBlessing=" \
 <actions>\n \
@@ -7961,7 +8059,8 @@ addWarlockDarkOnesBlessing=" \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
 <specialization type=\"string\">The Fiend</specialization>\n \
-<usesperiod type=\"string\">enc</usesperiod>\n";
+<usesperiod type=\"string\">enc</usesperiod>\n \
+<source type=\"string\">Warlock</source>\n";
 
 addWarlockFiendishResilience=" \
 <actions>\n \
@@ -7984,7 +8083,8 @@ addWarlockFiendishResilience=" \
 <prepared type=\"number\">1</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
 <specialization type=\"string\">The Fiend</specialization>\n \
-<usesperiod type=\"string\">enc</usesperiod>\n";
+<usesperiod type=\"string\">enc</usesperiod>\n \
+<source type=\"string\">Warlock</source>\n";
 
 addWarlockHurlThroughHell=" \
 <actions>\n \
@@ -8010,7 +8110,8 @@ addWarlockHurlThroughHell=" \
 <name type=\"string\">Hurl Through Hell</name>\n \
 <prepared type=\"number\">1</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">The Fiend</specialization>\n";
+<specialization type=\"string\">The Fiend</specialization>\n \
+<source type=\"string\">Warlock</source>\n";
 
 addWarlockDarkOnesOwnLuck=" \
 <actions>\n \
@@ -8025,7 +8126,8 @@ addWarlockDarkOnesOwnLuck=" \
 <name type=\"string\">Dark One's Own Luck</name>\n \
 <prepared type=\"number\">1</prepared>\n \
 <specialization type=\"string\">The Fiend</specialization>\n \
-<usesperiod type=\"string\">enc</usesperiod>\n";
+<usesperiod type=\"string\">enc</usesperiod>\n \
+<source type=\"string\">Warlock</source>\n";
 
 addWarlockEntropicWard=" \
 <actions>\n \
@@ -8054,7 +8156,8 @@ addWarlockEntropicWard=" \
 <name type=\"string\">Entropic Ward</name>\n \
 <prepared type=\"number\">1</prepared>\n \
 <specialization type=\"string\">The Great Old One</specialization>\n \
-<usesperiod type=\"string\">enc</usesperiod>\n";
+<usesperiod type=\"string\">enc</usesperiod>\n \
+<source type=\"string\">Warlock</source>\n";
 
 addWarlockThoughtShield=" \
 <actions>\n \
@@ -8076,7 +8179,8 @@ addWarlockThoughtShield=" \
 <name type=\"string\">Thought Shield</name>\n \
 <prepared type=\"number\">0</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">The Great Old One</specialization>\n";
+<specialization type=\"string\">The Great Old One</specialization>\n \
+<source type=\"string\">Warlock</source>\n";
 
 addWarlockCreateThrall=" \
 <actions>\n \
@@ -8096,7 +8200,8 @@ addWarlockCreateThrall=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Create Thrall</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">The Great Old One</specialization>\n";
+<specialization type=\"string\">The Great Old One</specialization>\n \
+<source type=\"string\">Warlock</source>\n";
 
 addWarlockAmongTheDead=" \
 <actions>\n \
@@ -8115,7 +8220,8 @@ addWarlockAmongTheDead=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Among the Dead</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">The Undying</specialization>\n";
+<specialization type=\"string\">The Undying</specialization>\n \
+<source type=\"string\">Warlock</source>\n";
 
 addWarlockDefyDeath=" \
 <actions>\n \
@@ -8141,7 +8247,8 @@ addWarlockDefyDeath=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Defy Death</name>\n \
 <prepared type=\"number\">1</prepared>\n \
-<specialization type=\"string\">The Undying</specialization>\n";
+<specialization type=\"string\">The Undying</specialization>\n \
+<source type=\"string\">Warlock</source>\n";
 
 addWarlockIndestructibleLife=" \
 <actions>\n \
@@ -8168,7 +8275,8 @@ addWarlockIndestructibleLife=" \
 <name type=\"string\">Indestructible Life</name>\n \
 <prepared type=\"number\">1</prepared>\n \
 <specialization type=\"string\">The Undying</specialization>\n \
-<usesperiod type=\"string\">enc</usesperiod>\n";
+<usesperiod type=\"string\">enc</usesperiod>\n \
+<source type=\"string\">Warlock</source>\n";
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
@@ -8255,7 +8363,8 @@ addWizardArcaneWard=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Arcane Ward</name>\n \
 <prepared type=\"number\">1</prepared>\n \
-<specialization type=\"string\">School of Abjuration</specialization>\n";
+<specialization type=\"string\">School of Abjuration</specialization>\n \
+<source type=\"string\">Wizard</source>\n";
 
 addWizardImprovedAbjuration=" \
 <actions>\n \
@@ -8276,7 +8385,8 @@ addWizardImprovedAbjuration=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Improved Abjuration</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">School of Abjuration</specialization>\n";
+<specialization type=\"string\">School of Abjuration</specialization>\n \
+<source type=\"string\">Wizard</source>\n";
 
 addWizardSpellResistance=" \
 <actions>\n \
@@ -8297,7 +8407,8 @@ addWizardSpellResistance=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Spell Resistance</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">School of Abjuration</specialization>\n";
+<specialization type=\"string\">School of Abjuration</specialization>\n \
+<source type=\"string\">Wizard</source>\n";
 
 addWizardBenignTransposition=" \
 <actions>\n \
@@ -8311,7 +8422,8 @@ addWizardBenignTransposition=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Benign Transposition</name>\n \
 <prepared type=\"number\">1</prepared>\n \
-<specialization type=\"string\">School of Conjuration</specialization>\n";
+<specialization type=\"string\">School of Conjuration</specialization>\n \
+<source type=\"string\">Wizard</source>\n";
 
 addWizardDurableSummons=" \
 <actions>\n \
@@ -8335,7 +8447,8 @@ addWizardDurableSummons=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Durable Summons</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">School of Conjuration</specialization>\n";
+<specialization type=\"string\">School of Conjuration</specialization>\n \
+<source type=\"string\">Wizard</source>\n";
 
 addWizardPortent=" \
 <actions>\n \
@@ -8350,7 +8463,8 @@ addWizardPortent=" \
 <name type=\"string\">Portent</name>\n \
 <prepared type=\"number\">2</prepared>\n \
 <ritual type=\"number\">0</ritual>\n \
-<specialization type=\"string\">School of Divination</specialization>\n";
+<specialization type=\"string\">School of Divination</specialization>\n \
+<source type=\"string\">Wizard</source>\n";
 
 addWizardHypnoticGaze=" \
 <actions>\n \
@@ -8382,7 +8496,8 @@ addWizardHypnoticGaze=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Hypnotic Gaze</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">School of Enchantment</specialization>\n";
+<specialization type=\"string\">School of Enchantment</specialization>\n \
+<source type=\"string\">Wizard</source>\n";
 
 addWizardInstinctiveCharm=" \
 <actions>\n \
@@ -8401,7 +8516,8 @@ addWizardInstinctiveCharm=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Instinctive Charm</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">School of Enchantment</specialization>\n";
+<specialization type=\"string\">School of Enchantment</specialization>\n \
+<source type=\"string\">Wizard</source>\n";
 
 addWizardAlterMemories=" \
 <actions>\n \
@@ -8420,7 +8536,8 @@ addWizardAlterMemories=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Alter Memories</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">School of Enchantment</specialization>\n";
+<specialization type=\"string\">School of Enchantment</specialization>\n \
+<source type=\"string\">Wizard</source>\n";
 
 addWizardEmpoweredEvocation=" \
 <actions>\n \
@@ -8441,7 +8558,8 @@ addWizardEmpoweredEvocation=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Empowered Evocation</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">School of Evocation</specialization>\n";
+<specialization type=\"string\">School of Evocation</specialization>\n \
+<source type=\"string\">Wizard</source>\n";
 
 addWizardOverchannel=" \
 <actions>\n \
@@ -8467,7 +8585,8 @@ addWizardOverchannel=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Overchannel</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">School of Evocation</specialization>\n";
+<specialization type=\"string\">School of Evocation</specialization>\n \
+<source type=\"string\">Wizard</source>\n";
 
 addWizardIllusorySelf=" \
 <actions>\n \
@@ -8482,7 +8601,8 @@ addWizardIllusorySelf=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Illusory Self</name>\n \
 <prepared type=\"number\">1</prepared>\n \
-<specialization type=\"string\">School of Illusion</specialization>\n";
+<specialization type=\"string\">School of Illusion</specialization>\n \
+<source type=\"string\">Wizard</source>\n";
 
 addWizardGrimHarvest=" \
 <actions>\n \
@@ -8517,7 +8637,8 @@ addWizardGrimHarvest=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Grim Harvest</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">School of Necromancy</specialization>\n";
+<specialization type=\"string\">School of Necromancy</specialization>\n \
+<source type=\"string\">Wizard</source>\n";
 
 addWizardInuredToDeath=" \
 <actions>\n \
@@ -8537,7 +8658,8 @@ addWizardInuredToDeath=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Inured to Undeath</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">School of Necromancy</specialization>\n";
+<specialization type=\"string\">School of Necromancy</specialization>\n \
+<source type=\"string\">Wizard</source>\n";
 
 addWizardCommandUndead=" \
 <actions>\n \
@@ -8555,7 +8677,8 @@ addWizardCommandUndead=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Command Undead</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">School of Necromancy</specialization>\n";
+<specialization type=\"string\">School of Necromancy</specialization>\n \
+<source type=\"string\">Wizard</source>\n";
 
 addWizardTransmutersStone=" \
 <actions>\n \
@@ -8588,7 +8711,8 @@ addWizardTransmutersStone=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Transmuter's Stone</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">School of Transmutation</specialization>\n";
+<specialization type=\"string\">School of Transmutation</specialization>\n \
+<source type=\"string\">Wizard</source>\n";
 
 addWizardShapechanger=" \
 <actions>\n \
@@ -8601,7 +8725,8 @@ addWizardShapechanger=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Shapechanger</name>\n \
 <prepared type=\"number\">1</prepared>\n \
-<specialization type=\"string\">School of Transmutation</specialization>\n";
+<specialization type=\"string\">School of Transmutation</specialization>\n \
+<source type=\"string\">Wizard</source>\n";
 
 addWizardBladesong=" \
 <actions>\n \
@@ -8639,7 +8764,8 @@ addWizardBladesong=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Bladesong</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Bladesinging</specialization>\n";
+<specialization type=\"string\">Bladesinging</specialization>\n \
+<source type=\"string\">Wizard</source>\n";
 
 addWizardSongOfVictory=" \
 <actions>\n \
@@ -8660,7 +8786,8 @@ addWizardSongOfVictory=" \
 <locked type=\"number\">1</locked>\n \
 <name type=\"string\">Song of Victory</name>\n \
 <prepared type=\"number\">0</prepared>\n \
-<specialization type=\"string\">Bladesinging</specialization>";
+<specialization type=\"string\">Bladesinging</specialization> \
+<source type=\"string\">Wizard</source>\n";
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
@@ -8782,3 +8909,42 @@ var donateFGC = (function () {
         }
     };
 } ());
+
+var nickel = "";
+
+function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    var id_token = googleUser.getAuthResponse().id_token;
+    //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    //console.log('Name: ' + profile.getName());
+    //console.log('Image URL: ' + profile.getImageUrl());
+    //console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+    $.ajax({
+        data: { email: profile.getEmail(), name: profile.getName(), id_token: id_token },
+        url: 'scripts/getUser.php',
+        method: 'GET',
+        success: function(data) {
+            try {
+                //parseCharacter($.parseJSON(data));
+                //console.log(data);
+                if (data == 1) {
+                    payFlag = 1;
+                } else {
+                    payFlag = 0;
+                    // We should add the user to our database
+                }
+                //console.log("Paid: " + payFlag);
+            } catch(e) {
+                alert("Unable to get Database info");
+                console.error(e);
+                return;
+            }
+        },
+        failure: function(msg) {
+            alert("Unable to get data from Database.");
+            return;
+        }
+    });
+    
+}
