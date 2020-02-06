@@ -1,7 +1,7 @@
 <?php
     $user_email = $_GET['email'];
     $user_name = $_GET['name'];
-    $user_token = $GET['id_token'];
+    $user_token = $_GET['id_token'];
 
     $servername="localhost";
     $username = "root";
