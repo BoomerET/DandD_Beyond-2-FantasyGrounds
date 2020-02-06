@@ -1,0 +1,90 @@
+#vidCounter {
+    position: absolute;
+    top: 75px;
+    left: 115px;
+}
+
+#header {
+
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+#published {
+    font-size: small;
+}
+
+.tocdone {
+    color: red;
+}
+
+#popCharID {
+    position: relative;
+    top: 11px;
+    left: 18px;
+}
+
+#jqxWidget {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+body {
+    background-color: rgb(43, 226, 134);
+    /* background-image: url("../images/consequences-16-8_70.jpg"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#popCharID {
+    position: relative;
+    top: 11px;
+    left: 18px;
+}
+
+footer {
+     position: fixed;  bottom: 0;
+     width: 100%;
+     display: block;
+}
+
+#container { 
+    min-height:100%; 
+    padding-bottom:40px; 
+    margin-bottom:-40px; 
+}
+
+#jqxMenu {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+#multiClassWarn {
+    position: absolute;
+}
+
+#displayLinks {
+    position: absolute;
+}
+
+#displayCL {
+    position: absolute;
+}
+
+#displayDon {
+    position: absolute;
+}
+
+#verButtonC {
+    position: relative;
+    left: 150px;
+    top: -25px;
+}
+
+#verButtonU {
+    position: relative;
+    left: 250px;
+    top: -51px;
+}
