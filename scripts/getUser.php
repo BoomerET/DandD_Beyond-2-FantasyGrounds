@@ -15,7 +15,7 @@
     }
     //echo "Connected successfully";
 
-    $sql = "SELECT user_name, user_paid FROM users WHERE user_email='" . $email . "'";
+    $sql = "SELECT user_name, user_paid FROM users WHERE user_email='" . $user_email . "'";
     #$sql = "SELECT * FROM users";0
     $result = $conn->query($sql);
 
