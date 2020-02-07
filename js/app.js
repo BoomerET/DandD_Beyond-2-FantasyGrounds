@@ -1196,6 +1196,8 @@ function parseCharacter(inputChar) {
             item.definition.properties.some(function(weapProp, i) {
                 if(weapProp.name == "Ammunition" ) {
                     thisProperties += "Ammunition (" + item.definition.range + "/" + item.definition.longRange + "), ";
+                } else if(weapProp.name == "Thrown" ) {
+                    thisProperties += "Thrown (" + item.definition.range + "/" + item.definition.longRange + "), ";
                 } else {
                     thisProperties += weapProp.name + ", ";
                 }
@@ -1363,6 +1365,7 @@ function parseCharacter(inputChar) {
 
     buildXML += "\t\t<weaponlist>\n";
     var weaponCount = 0;
+    var thrownCount = 0;
     for(x = 0; x < weaponID.length; x++) {
         weaponCount += 1;
         thisIteration = pad(x + 1, 5);
@@ -1394,6 +1397,34 @@ function parseCharacter(inputChar) {
         }
 
         buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+        if(weaponProperties[x].includes("Thrown")) {
+            thrownCount += 1;
+            // If it's thrown, should we add it twice, once w/ Melee and once with Ranged?
+            //console.log(weaponName[x] + ": " + weaponProperties[x]);
+            weaponCount += 1;
+            thisIteration = pad(weaponID.length + thrownCount, 5);
+            // We need to add these to the end, providing a higher weaponID.length
+            inventNum = pad(parseInt(weaponID[x]), 5);
+            buildXML += "\t\t\t<id-" + thisIteration + ">\n";
+            buildXML += "\t\t\t\t<shortcut type=\"windowreference\">\n";
+            buildXML += "\t\t\t\t\t<class>item</class>\n";
+            buildXML += "\t\t\t\t\t<recordname>....inventorylist.id-" + inventNum + "</recordname>\n";
+            buildXML += "\t\t\t\t</shortcut>\n";
+            buildXML += "\t\t\t\t<name type=\"string\">" + weaponName[x] + "</name>\n";
+            buildXML += "\t\t\t\t<properties type=\"string\">" + weaponProperties[x] + "</properties>\n";
+            buildXML += "\t\t\t\t<damagelist>\n";
+            buildXML += "\t\t\t\t\t<id-00001>\n";
+            buildXML += "\t\t\t\t\t\t<bonus type=\"number\">" +  weaponBonus[x] + "</bonus>\n";
+            buildXML += "\t\t\t\t\t\t<dice type=\"dice\">" + weaponDice[x] + "</dice>\n";
+            buildXML += "\t\t\t\t\t\t<stat type=\"string\">" + weaponBase[x] + "</stat>\n";
+            buildXML += "\t\t\t\t\t\t<type type=\"string\">" + weaponType[x] + "</type>\n";
+            buildXML += "\t\t\t\t\t</id-00001>\n";
+            buildXML += "\t\t\t\t</damagelist>\n";
+            buildXML += "\t\t\t\t<attackbonus type=\"number\">" + weaponBonus[x] + "</attackbonus>\n";
+            buildXML += "\t\t\t\t<isidentified type=\"number\">1</isidentified>\n";
+            buildXML += "\t\t\t\t<type type=\"number\">0</type>\n";
+            buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+        }
     }
     if (isMonk == 1) {
         weaponCount += 1;
