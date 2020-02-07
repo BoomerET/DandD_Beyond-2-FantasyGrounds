@@ -21,18 +21,12 @@
        Reddit: https://www.reddit.com/user/BoomerET
        Roll20: https://app.roll20.net/users/9982/boomeret
        Paypal.me: https://paypal.me/boomeret
-       (All contributions are donated to Hospice, or go here: https://www.hollandhospice.org/giving/donate-now/)
+       (All contributions are donated to Hospice,
+          or go here: https://www.hollandhospice.org/giving/donate-now/)
 */
 
-var userName = "";
+var startXML = "";
 
-var startXML = "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n";
-startXML += "<root version=\"3.3\" release=\"8|CoreRPG:4\">\n";
-/*
-<?xml version="1.0" encoding="utf-8"?>
-<root version="4" dataversion="20191121" release="8|CoreRPG:4">
-*/
-startXML += "\t<character>\n";
 var endXML = "\t</character>\n</root>\n";
 var allXML = "";
 
@@ -51,14 +45,10 @@ var charSpellSlots7 = 0;
 var charSpellSlots8 = 0;
 var charSpellSlots9 = 0;
 
-var holdFeats = [];
-var holdTraits = [];
 var holdFeatures = [];
 var holdProf = [];
 
 var hasAppear = 0;
-
-var fleetFoot = 0;
 
 var source = [
     "Barakas(1387127)",
@@ -68,12 +58,12 @@ var source = [
 var totalClasses = 0;
 
 /* * * * * * * * */
-const _ABILITIES = {1:'STR',2:'DEX',3:'CON',4:'INT',5:'WIS',6:'CHA'};
-const _ABILITY = {'STR': 'strength', 'DEX': 'dexterity', 'CON': 'constitution', 'INT': 'intelligence', 'WIS': 'wisdom', 'CHA': 'charisma'};
-const justAbilities = ['strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma'];
+const _ABILITIES = {1:"STR",2:"DEX",3:"CON",4:"INT",5:"WIS",6:"CHA"};
+const _ABILITY = {"STR": "strength", "DEX": "dexterity", "CON": "constitution", "INT": "intelligence", "WIS": "wisdom", "CHA": "charisma"};
+const justAbilities = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
 
-const skills = ['acrobatics', 'animal_handling', 'arcana', 'athletics', 'deception', 'history', 'insight', 'intimidation', 'investigation', 'medicine', 'nature', 'perception', 'performance', 'persuasion', 'religion', 'sleight_of_hand', 'stealth', 'survival'];
-const skillsRef = ['dexterity', 'wisdom', 'intelligence', 'strength', 'charisma', 'intelligence', 'wisdom', 'charisma', 'intelligence', 'wisdom', 'intelligence', 'wisdom', 'charisma', 'charisma', 'intelligence', 'dexterity', 'dexterity', 'wisdom'];
+const skills = ["acrobatics", "animal_handling", "arcana", "athletics", "deception", "history", "insight", "intimidation", "investigation", "medicine", "nature", "perception", "performance", "persuasion", "religion", "sleight_of_hand", "stealth", "survival"];
+const skillsRef = ["dexterity", "wisdom", "intelligence", "strength", "charisma", "intelligence", "wisdom", "charisma", "intelligence", "wisdom", "intelligence", "wisdom", "charisma", "charisma", "intelligence", "dexterity", "dexterity", "wisdom"];
 const simpleMeleeWeapon = ["club","dagger","greatclub","handaxe","javelin","light_hammer","mace","quartrsfaff","sickle","spear"];
 const simpleRangedWeapon = ["crossbow_light","dart","showtbow","sling"];
 const martialMeleeWeapon = ["battleaxe","flail","glaive","greataxe","greatsword","halberd","lance","longsword","maul","morningstar","pike","rapier","scimitar","shortsword","trident","war_pick","warhammer","whip"];
@@ -86,7 +76,7 @@ const fullDexArmor = ["padded","leather","studded_leather"];
 const max3DexArmor = [];
 const max2DexArmor = ["hide","chain_shirt","scale_mail","breastplate","half_plate"];
 const noDexArmor = ["ring_mail","chain_mail","splint","plate"];
-const disStealth = ["padded","scale_mail","half_plate","ring_mail","chain_mail","splint","plate"];
+//const disStealth = ["padded","scale_mail","half_plate","ring_mail","chain_mail","splint","plate"];
 
 var totalLevels = 0;
 var totalHP = 0;
@@ -243,24 +233,20 @@ $(function() {
     dispLinks.init();
     clLinks.init();
     donateFGC.init();
-    
-    $('#MCwindow').jqxWindow('close');
-    $('#Linkwindow').jqxWindow('close');
-    $('#CLwindow').jqxWindow('close');
-    $('#DONwindow').jqxWindow('close');
-    $("#grabChar").jqxButton({ width: '150px', height: '35px', theme: 'darkblue' });
-    $('#textHere').jqxTextArea({ theme: 'darkblue', width: 750, height: 150, placeHolder: 'XML will appear here.' });
-    $("#getcharID").jqxInput({ placeHolder: "Enter Character ID", height: '35px', width: 200, minLength: 4, theme: 'darkblue'});
-    //$("#getcharID").val("7920872");
-    $("#dlChar").jqxButton({ width: '120px', height: '35px', theme: 'darkblue' });
-    $("#resetChar").jqxButton({ width: '120px', height: '35px', theme: 'darkblue' });
-    $("#verButtonC").jqxRadioButton({width: 250, height: 25, checked: true, theme: 'darkblue'});
-    $("#verButtonU").jqxRadioButton({width: 250, height: 25, theme: 'darkblue'});
-    // COMMENT OUT THE FOLLOWING LINE WHEN PUSHING TO PRODUCTION
-    // $("#popCharID").jqxDropDownList({ source: source, placeHolder: "Select Item", width: 250, height: 35, theme: "darkblue"});-->
-    // COMMENT OUT THE ABOVE LINE WHEN PUSHING TO PRODUCTION
-    $("#jqxMenu").jqxMenu({ width: 95, height: '145px', mode: "vertical", theme: 'darkblue'});
-    $("#jqxMenu").css('visibility', 'visible');
+
+    $("#MCwindow").jqxWindow("close");
+    $("#Linkwindow").jqxWindow("close");
+    $("#CLwindow").jqxWindow("close");
+    $("#DONwindow").jqxWindow("close");
+    $("#grabChar").jqxButton({ width: "150px", height: "35px", theme: "darkblue" });
+    $("#textHere").jqxTextArea({ theme: "darkblue", width: 750, height: 150, placeHolder: "XML will appear here." });
+    $("#getcharID").jqxInput({ placeHolder: "Enter Character ID", height: "35px", width: 200, minLength: 4, theme: "darkblue"});
+    $("#dlChar").jqxButton({ width: "120px", height: "35px", theme: "darkblue" });
+    $("#resetChar").jqxButton({ width: "120px", height: "35px", theme: "darkblue" });
+    $("#verButtonC").jqxRadioButton({width: 250, height: 25, checked: true, theme: "darkblue"});
+    $("#verButtonU").jqxRadioButton({width: 250, height: 25, theme: "darkblue"});
+    $("#jqxMenu").jqxMenu({ width: 95, height: "145px", mode: "vertical", theme: "darkblue"});
+    $("#jqxMenu").css("visibility", "visible");
 
     $('#extLinks').click(function(e) {
         e.preventDefault();
@@ -268,7 +254,7 @@ $(function() {
     });
     $('#goHome').click(function(e) {
         e.preventDefault();
-        window.location.reload(false); 
+        window.location.reload(false);
     });
     $('#contactUs').click(function(e) {
         e.preventDefault();
@@ -302,7 +288,7 @@ $(function() {
         } else if ($('#textHere').val() != "")  {
             var resetMe = confirm("You need to clear previous data, do you want me to do that for you?");
             if (resetMe == 1) {
-                window.location.reload(false); 
+                window.location.reload(false);
             }
         } else {
             $.ajax({
@@ -344,7 +330,7 @@ $(function() {
         invokeSaveAsDialog(textFile, pcFilename);
     });
 
-    $("#popCharID").on("change", function(event) {  
+    $("#popCharID").on("change", function(event) {
         var firstNumber = event.args.item.label.indexOf("(");
         var secondNumber = event.args.item.label.indexOf(")");
         glCharID = event.args.item.label.substring(firstNumber + 1, secondNumber);
@@ -352,7 +338,7 @@ $(function() {
     });
 
     $("#resetChar").on("click", function() {
-        window.location.reload(false); 
+        window.location.reload(false);
     });
 
     // fgVersion = 0: Classic; = 1: Unity
@@ -370,25 +356,12 @@ $(function() {
 
 function parseCharacter(inputChar) {
     var character = jQuery.extend(true, {}, inputChar);
-    /*
-    if (fgVersion == 0) {
-        if (confirm("You've selected to create a character for FG Classic. Is this correct?")){
-            //
-        } else {
-            return(false);
-        }
-    } else {
-        if (confirm("You've selected to create a character for FG Unity. Is this correct?")){
-            //
-        } else {
-            return(false);
-        }
-    }
-    */
     if(character.hasOwnProperty("errorCode")) {
-        alert("Character " + $("#getcharID").val() + " could not be found.\n \
-Either the character doesn't actually exist,\n \
-or the character is set to 'Private' instead of 'Public'.\n\nYes, your character MUST be set to PUBLIC.");
+        var alertString = " could not be found.\n";
+        alertString += "Either the character doesn't actually exist,\n";
+        alertString += "or the character is set to 'Private' instead of 'Public'.\n\n";
+        alertString += "Yes, your character MUST be set to PUBLIC.";
+        alert("Character " + $("#getcharID").val() + alertString);
     } else {
         if (fgVersion == 0) {
             startXML = "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n";
@@ -401,7 +374,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         }
     allXML = startXML;
     var buildXML = "\t\t<!--" + $("#getcharID").val().trim() + "-->\n";
-    
+
     pcFilename = character.name.replace(/\W/g, '');
     buildXML += "\t\t<name type=\"string\">" + character.name + "</name>\n";
 
@@ -474,9 +447,9 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     buildXML += "\t\t<background type=\"string\">" + background + "</background>\n";
     buildXML += "\t\t<backgroundlink type=\"windowreference\">\n";
     buildXML += "\t\t\t<class>reference_background</class>\n";
-    if(background.match(/Artisan \/ Guild/)) {
+    if(background.match(/Artisan\s\/\sGuild/)) {
         background = "Guild Artisan";
-    } else if(background.match(/House Agent/)) {
+    } else if(background.match(/House\sAgent/)) {
         background = "houseagent";
     }
     buildXML += "\t\t\t<recordname>reference.backgrounddata." + background.toLowerCase().replace(/\s/g, "") + "@*</recordname>\n";
@@ -517,7 +490,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             isHuman = 1;
             break;
     }
-    
 
     // Attempt at skill list
     var idCount = 1;
@@ -546,7 +518,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             buildXML += "\t\t\t\t<name type=\"string\">" + capitalizeFirstLetter(element) + "</name>\n";
         }
         buildXML += "\t\t\t\t<stat type=\"string\">" + skillsRef[idCount - 1] + "</stat>\n";
-        
+
         var proficiencies = getObjects(character, 'type', 'proficiency');
         if(proficiencies != null) {
             proficiencies.some(function(prof) {
@@ -578,14 +550,13 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             buildXML += "\t\t\t\t<prof type=\"number\">2</prof>\n";
         }
 
-
         buildXML += "\t\t\t</id-" + thisIteration + ">\n";
         idCount += 1;
     });
     buildXML += "\t\t</skilllist>\n";
 
     buildXML += "\t\t<classes>\n";
-    
+
     character.classes.some(function(current_class, i) {
         thisClass = current_class.definition.name.toLowerCase();
          if (thisClass == "barbarian") {
@@ -816,10 +787,10 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         buildXML += "\t\t\t\t<level type=\"number\">" + current_class.level + "</level>\n";
         buildXML += "\t\t\t\t<shortcut type=\"windowreference\">\n";
         buildXML += "\t\t\t\t\t<class>reference_class</class>\n";
-        buildXML += "\t\t\t\t\t<recordname>reference.classdata." + thisClass.replace(/ /g, "") + "@*</recordname>\n";
+        buildXML += "\t\t\t\t\t<recordname>reference.classdata." + thisClass.replace(/\s/g, "") + "@*</recordname>\n";
         buildXML += "\t\t\t\t</shortcut>\n";
         buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-        
+
     });
     //console.log("SUM HP: " + sumHP);
     buildXML += "\t\t</classes>\n";
@@ -872,9 +843,9 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                 default:
                     buildXML += "\t\t\t\t<misc type=\"number\">0</misc>\n";
             }
-			
-			buildXML += "\t\t\t\t<temporary type=\"number\">0</temporary>\n";
-			buildXML += "\t\t\t\t</initiative>\n";
+
+            buildXML += "\t\t\t\t<temporary type=\"number\">0</temporary>\n";
+            buildXML += "\t\t\t\t</initiative>\n";
         }
     }
 
@@ -889,7 +860,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             addHP += (totalLevels * 2);
         }
     });
-    if(isSorcerer == 1 && sorcererOrigin.match(/Draconic Bloodline/)) {
+    if(isSorcerer == 1 && sorcererOrigin.match(/Draconic\sBloodline/)) {
         // Draconic Resilience adds 1 to HP
         addHP += levelSorcerer;
     }
@@ -925,14 +896,14 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     });
     buildXML += "\t\t</languagelist>\n";
 
-    character.race.racialTraits.some(function(current_trait, i) {
+    character.race.racialTraits.some(function(current_trait) {
         if(current_trait.definition.name == "Darkvision") {
             buildXML += "\t\t<senses type=\"string\">Darkvision 60ft.</senses>\n";
         } else if(current_trait.definition.name == "Superior Darkvision") {
             buildXML += "\t\t<senses type=\"string\">Darkvision 120ft.</senses>\n";
         }
     });
- 
+
     buildXML += "\t\t<traitlist>\n";
     character.race.racialTraits.some(function(current_trait, i) {
         switch (current_trait.definition.name) {
@@ -958,16 +929,16 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         buildXML += "\t\t\t\t<type type=\"string\">racial</type>\n";
         buildXML += "\t\t\t</id-" + thisIteration + ">\n";
     });
-    
+
     buildXML += "\t\t</traitlist>\n";
 
     totalFeatures = 0;
     buildXML += "\t\t<featurelist>\n";
-    character.classes.some(function(current_class, i) {
+    character.classes.some(function(current_class) {
         classLevel = current_class.level;
-        current_class.definition.classFeatures.some(function(current_feature, j) {
-            
-            
+        current_class.definition.classFeatures.some(function(current_feature) {
+
+
             switch (current_feature.name) {
                 case "Hit Points": case "Proficiencies": case "Martial Archetype": case "Fighting Style":
                 case "Ability Score Improvement": case "Oath Spells": case "Spellcasting":
@@ -993,8 +964,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(current_feature.name) + "</name>\n";
                     buildXML += "\t\t\t\t<source type=\"string\">" + convert_case(replaceDash(current_class.definition.name.toLowerCase())) + "</source>\n";
                     buildXML += "\t\t\t\t<text type=\"formattedtext\">\n";
-                    //CHANGED/FIXME
-                    //buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(current_feature.description)) + "</p>\n";
                     buildXML += "\t\t\t\t\t" + fixDesc(current_feature.description) + "\n";
                     buildXML += "\t\t\t\t</text>\n";
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
@@ -1003,7 +972,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         });
         if(current_class.hasOwnProperty("subclassDefinition")) {
             if(current_class.subclassDefinition != null) {
-                
+
                 if(holdFeatures.includes(current_class.subclassDefinition.name)) {
                     // Skip this one, it's already in the array
                 } else {
@@ -1014,13 +983,11 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += "\t\t\t\t<locked type=\"number\">1</locked>\n";
                     buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(current_class.subclassDefinition.name) + "</name>\n";
                     buildXML += "\t\t\t\t<text type=\"formattedtext\">\n";
-                    // CHANGED/FIXME
-                    //buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(current_class.subclassDefinition.description)) + "</    >\n";
                     buildXML += "\t\t\t\t\t" + fixDesc(current_class.subclassDefinition.description) + "\n";
                     buildXML += "\t\t\t\t</text>\n";
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                 }
-                current_class.subclassDefinition.classFeatures.some(function(charSubClass, i) {
+                current_class.subclassDefinition.classFeatures.some(function(charSubClass) {
                     switch (charSubClass.name) {
                         case "Hit Points": case "Proficiencies": case "Martial Archetype": case "Fighting Style":
                         case "Ability Score Improvement": case "Oath Spells":
@@ -1045,8 +1012,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                             buildXML += "\t\t\t\t<locked type=\"number\">1</locked>\n";
                             buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(charSubClass.name) + "</name>\n";
                             buildXML += "\t\t\t\t<text type=\"formattedtext\">\n";
-                            // CHANGED/FIXME
-                            //buildXML += "\t\t\t\t\t" + remove_tags_featureSubclass(fixQuote(charSubClass.description)) + "\n";
                             buildXML += "\t\t\t\t\t" + fixDesc(charSubClass.description) + "\n";
                             buildXML += "\t\t\t\t</text>\n";
                             buildXML += "\t\t\t</id-" + thisIteration + ">\n";
@@ -1055,10 +1020,10 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                 });
             }
         }
-        
+
     });
     const charOptions = character.options.class;
-    if (charOptions != null) charOptions.some(function(thisOption, i) {
+    if (charOptions != null) charOptions.some(function(thisOption) {
         switch (thisOption.definition.name) {
             case "Hit Points": case "Proficiencies": case "Martial Archetype": case "Fighting Style":
             case "Ability Score Improvement": case "Oath Spells":
@@ -1078,8 +1043,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         buildXML += "\t\t\t\t<locked type=\"number\">1</locked>\n";
         buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(thisOption.definition.name) + "</name>\n";
         buildXML += "\t\t\t\t<text type=\"formattedtext\">\n";
-        // CHANGED/FIXME
-        //buildXML += "\t\t\t\t\t>" + remove_tags_traits(fixQuote(thisOption.definition.description)) + "</p>\n";
         buildXML += "\t\t\t\t\t" + fixDesc(thisOption.definition.description) + "\n";
         buildXML += "\t\t\t\t</text>\n";
         buildXML += "\t\t\t</id-" + thisIteration + ">\n";
@@ -1093,8 +1056,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(character.background.definition.featureName).trim() + "</name>\n";
             buildXML += "\t\t\t\t<source type=\"string\">" + convert_case(replaceDash(character.background.definition.name.toLowerCase())) + "</source>\n";
             buildXML += "\t\t\t\t<text type=\"formattedtext\">\n";
-            // CHANGED/FIXME
-            //buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(character.background.definition.featureDescription)) + "</p>\n";
             buildXML += "\t\t\t\t\t" + fixDesc(character.background.definition.featureDescription) + "\n";
             buildXML += "\t\t\t\t</text>\n";
             buildXML += "\t\t\t\t<type type=\"string\">background</type>\n";
@@ -1102,18 +1063,45 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         }
     }
 
-    // FIXME: What is/was this for?
-    /*
-    character.modifiers.class.some(function(thisMod, i) {
-        if (thisMod.isGranted == true) {
-            if (thisMod.type != "proficiency" && thisMod.type != "set" && thisMod.type != "language") {
-                //console.log(thisMod.friendlySubtypeName);
-            }
-        }
-    });
-    */
-    
     buildXML += "\t\t</featurelist>\n";
+
+    buildXML += "\t\t<abilities>\n";
+    justAbilities.some(function(thisAbility, ja) {
+        abilScore = parseInt(getTotalAbilityScore(character, ja + 1));
+        modScore = parseInt(abilScore / 2) - 5;
+
+        if(thisAbility == "strength") {
+            strScore = abilScore;
+            strMod = modScore;
+        } else if(thisAbility == "dexterity") {
+            dexScore = abilScore;
+            dexMod = modScore;
+        } else if(thisAbility == "constitution") {
+            conScore = abilScore;
+            conMod = modScore;
+        } else if(thisAbility == "intelligence") {
+            intScore = abilScore;
+            intMod = modScore;
+        } else if(thisAbility == "wisdom") {
+            wisScore = abilScore;
+            wisMod = modScore;
+        } else if(thisAbility == "charisma") {
+            chaScore = abilScore;
+            chaMod = modScore;
+        }
+        buildXML += "\t\t\t<" + thisAbility + ">\n";
+        buildXML += "\t\t\t\t<bonus type=\"number\">" + modScore + "</bonus>\n";
+
+        buildXML += "\t\t\t\t<savemodifier type=\"number\">" + addSavingThrows + "</savemodifier>\n";
+        character.modifiers.class.some(function(thisMod) {
+            if(thisMod.subType == thisAbility + "-saving-throws") {
+                buildXML += "\t\t\t\t<saveprof type=\"number\">1</saveprof>\n";
+            }
+        });
+        buildXML += "\t\t\t\t<score type=\"number\">" + abilScore + "</score>\n";
+        buildXML += "\t\t\t</" + thisAbility + ">\n";
+    });
+    buildXML += "\t\t</abilities>\n";
 
     // Character Inventory
     var weaponList = [];
@@ -1124,18 +1112,20 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     var weaponDiceMult = [];
     var weaponType = [];
     var weaponBonus = [];
+    var weaponBase = [];
+
     buildXML += "\t\t<inventorylist>\n";
     const inventory = character.inventory;
     if(inventory != null) inventory.some(function(item, i) {
         thisIteration = pad(i + 1, 5);
-        
+
         buildXML += "\t\t\t<id-" + thisIteration + ">\n";
         buildXML += "\t\t\t\t<count type=\"number\">" + parseInt(item.quantity) + "</count>\n";
         buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(item.definition.name) + "</name>\n";
         buildXML += "\t\t\t\t<weight type=\"number\">" + parseInt(item.definition.weight) / parseInt(item.definition.bundleSize) + "</weight>\n";
         buildXML += "\t\t\t\t<locked type=\"number\">1</locked>\n";
         buildXML += "\t\t\t\t<isidentified type=\"number\">1</isidentified>\n";
-        
+
         if(item.definition.subType == null) {
             buildXML += "\t\t\t\t<type type=\"string\">" + fixQuote(item.definition.filterType) + "</type>\n";
             if(item.definition.filterType == "Armor") {
@@ -1164,7 +1154,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         } else {
             buildXML += "\t\t\t\t<cost type=\"string\">" + item.definition.cost + " gp" + "</cost>\n";
         }
-        
+
         if(item.definition.canAttune == true) {
             buildXML += "\t\t\t\t<rarity type=\"string\">" + item.definition.rarity + " (Requires Attunement)</rarity>\n";
         } else {
@@ -1189,14 +1179,14 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         } else {
             buildXML += "\t\t\t\t<carried type=\"number\">1</carried>\n";
         }
-        
+
         if(item.definition.hasOwnProperty("damage")) {
             thisDamage = "";
             thisDamType = "";
             if(item.definition.damage != null) {
                 thisDamage = item.definition.damage.diceString;
             }
-                
+
             if(item.definition.damageType != null) {
                 thisDamType = item.definition.damageType;
             }
@@ -1227,13 +1217,20 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             weaponID.push(i + 1);
             weaponName.push(item.definition.name);
             weaponProperties.push(thisProperties);
+            if(thisProperties.includes("Finesse")) {
+                if(strScore >= dexScore) {
+                    weaponBase.push("strength");
+                } else {
+                    weaponBase.push("dexterity");
+                }
+            } else {
+                weaponBase.push("base");
+            }
 
             curWeapBon = 0;
 
             if (item.hasOwnProperty("canAttune")) {
                 if (item.isAttuned == true && item.definition.canAttune == true) {
-                    //buildXML += "\t\t\t\t<bonus type=\"number\">" + item.definition.grantedModifiers[0].value + "</bonus>\n";
-                    //weaponBonus.push(item.definition.grantedModifiers[d].value);
                     for(d = 0; d <= item.definition.grantedModifiers.length - 1; d++) {
                         curWeapBon = item.definition.grantedModifiers[d].value;
                     }
@@ -1253,15 +1250,12 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                         realString += "d" + item.definition.damage.diceValue + ",";
                     }
                     realString = realString.slice(0, -1);
-                    //weaponDice.push("d" + item.definition.damage.diceValue);
                     weaponDice.push(realString);
-                    //weaponDiceMult.push(item.definition.damage.diceCount);
                 } else {
                     weaponDice.push(item.definition.damage.diceCount + "d" + item.definition.damage.diceValue);
                 }
             } else {
                 weaponDice.push("d0");
-                //weaponDiceMult.push("0");
             }
             if (item.definition.damageType != null) {
                 weaponType.push(item.definition.damageType.toLowerCase());
@@ -1269,9 +1263,8 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                 weaponType.push("");
             }
         }
-        
+
         if (item.definition.hasOwnProperty("weaponBehaviors")) {
-            //console.log("Array size: " + item.definition.weaponBehaviors.length);
             if (item.definition.weaponBehaviors.length > 0) {
                 thisDamage = "";
                 thisDamType = "";
@@ -1285,7 +1278,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
 
                 buildXML += "\t\t\t\t<damage type=\"string\">" + thisDamage + " " + thisDamType + "</damage>\n";
                 thisProperties = "";
-                item.definition.weaponBehaviors[0].properties.some(function(weapProp, i) {
+                item.definition.weaponBehaviors[0].properties.some(function(weapProp) {
                     if(weapProp.name == "Ammunition" ) {
                         thisProperties += "Ammunition (" + item.definition.range + "/" + item.definition.longRange + "), ";
                     } else {
@@ -1324,10 +1317,8 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                 });
             } else {
                 // This item has weapon properties, but the length is 0
-                //console.log(item.definition.name);
                 if (item.definition.hasOwnProperty("grantedModifiers")) {
                     if (item.definition.grantedModifiers.length > 0) {
-                        //console.log(item.definition.name);
                         for(l = 0; l <= item.definition.grantedModifiers.length - 1; l++) {
                             if (item.definition.grantedModifiers[l].subType == "armor-class" && item.equipped == true && item.definition.grantedModifiers[l].type == "bonus") {
                                 addBonusOtherAC += item.definition.grantedModifiers[l].value;
@@ -1337,14 +1328,11 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                             }
                         }
                     }
-                    
                 }
             }
-        } else { 
+        } else {
             // Item does not have weaponBehaviors
             if (item.definition.hasOwnProperty("grantedModifiers")) {
-            //console.log(item.definition.name);
-            //console.log ("gM length: " + item.definition.grantedModifiers[0].length);
                 for(m = 0; m <= item.definition.grantedModifiers.length - 1; m++) {
                     if (item.definition.grantedModifiers[m].subType == "armor-class" && item.equipped == true && item.definition.grantedModifiers[m].type == "bonus") {
                         addBonusArmorAC += item.definition.grantedModifiers[m].value;
@@ -1354,34 +1342,12 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     }
                 }
             }
-            //    console.log(item.definition.grantedModifiers[l].subType);
-            //}
-            //item.definition.grantedModifiers.some(function(checksBonus, k) {
-            //    console.log(checksBonus.subType);
-            //});
-            //console.log(item.definition.grantedModifiers[1].subType);
-            //if (item.definition.grantedModifiers[0].length > 0) {
-            //});
-            //$.each( item.definition.grantedModifiers, function( key, value ) {
-            //    console.log( key + ": " + value );
-            //  });
-            //for (var key in item.definition.grantedModifiers[1]) {
-            //   if (item.definition.grantedModifiers[0].hasOwnProperty(key)) {
-            //        console.log(key + " -> " + item.definition.grantedModifiers[1][key]);
-            //    }
-            //}
-            
         }
-        
-        //remove_tags_traits(fixQuote(
-
 
         buildXML += "\t\t\t\t<description type=\"formattedtext\">\n";
-        // CHANGED/FIXME
-        //buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(item.definition.description)).replace(/<br>/g, "<br />") + "</p>\n";
         buildXML += "\t\t\t\t\t" + fixDesc(item.definition.description) + "\n";
         buildXML += "\t\t\t\t</description>\n";
-        thisWeaponName = item.definition.name.toLowerCase().replace(/ /g, "_").replace(/\,/g, "");
+        thisWeaponName = item.definition.name.toLowerCase().replace(/\s/g, "_").replace(/,/g, "");
         if(simpleRangedWeapon.indexOf(thisWeaponName) != -1) {
             buildXML += "\t\t\t\t<subtype type=\"string\">Simple Ranged Weapon</subtype>\n";
         } else if(simpleMeleeWeapon.indexOf(thisWeaponName) != -1) {
@@ -1390,51 +1356,10 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             buildXML += "\t\t\t\t<subtype type=\"string\">Martial Ranged Weapon</subtype>\n";
         }  else if(martialMeleeWeapon.indexOf(thisWeaponName) != -1) {
             buildXML += "\t\t\t\t<subtype type=\"string\">Martial Melee Weapon</subtype>\n";
-        } 
+        }
         buildXML += "\t\t\t</id-" + thisIteration + ">\n";
     });
     buildXML += "\t\t</inventorylist>\n";
-
-
-
-
-    buildXML += "\t\t<abilities>\n";
-    justAbilities.some(function(thisAbility, i) {
-        abilScore = parseInt(getTotalAbilityScore(character, i + 1));
-        modScore = parseInt(abilScore / 2) - 5;
-
-        if(thisAbility == "strength") {
-            strScore = abilScore;
-            strMod = modScore;
-        } else if(thisAbility == "dexterity") {
-            dexScore = abilScore;
-            dexMod = modScore;
-        } else if(thisAbility == "constitution") {
-            conScore = abilScore;
-            conMod = modScore;
-        } else if(thisAbility == "intelligence") {
-            intScore = abilScore;
-            intMod = modScore;
-        } else if(thisAbility == "wisdom") {
-            wisScore = abilScore;
-            wisMod = modScore;
-        } else if(thisAbility == "charisma") {
-            chaScore = abilScore;
-            chaMod = modScore;
-        }
-        buildXML += "\t\t\t<" + thisAbility + ">\n";
-        buildXML += "\t\t\t\t<bonus type=\"number\">" + modScore + "</bonus>\n";
-
-        buildXML += "\t\t\t\t<savemodifier type=\"number\">" + addSavingThrows + "</savemodifier>\n";
-        character.modifiers.class.some(function(thisMod, i) {
-            if(thisMod.subType == thisAbility + "-saving-throws") {
-                buildXML += "\t\t\t\t<saveprof type=\"number\">1</saveprof>\n";
-            }
-        });
-        buildXML += "\t\t\t\t<score type=\"number\">" + abilScore + "</score>\n";
-        buildXML += "\t\t\t</" + thisAbility + ">\n";
-    });
-    buildXML += "\t\t</abilities>\n";
 
     buildXML += "\t\t<weaponlist>\n";
     var weaponCount = 0;
@@ -1444,18 +1369,17 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         inventNum = pad(parseInt(weaponID[x]), 5);
         buildXML += "\t\t\t<id-" + thisIteration + ">\n";
         buildXML += "\t\t\t\t<shortcut type=\"windowreference\">\n";
-		buildXML += "\t\t\t\t\t<class>item</class>\n";
-		buildXML += "\t\t\t\t\t<recordname>....inventorylist.id-" + inventNum + "</recordname>\n";
-		buildXML += "\t\t\t\t</shortcut>\n";
+        buildXML += "\t\t\t\t\t<class>item</class>\n";
+        buildXML += "\t\t\t\t\t<recordname>....inventorylist.id-" + inventNum + "</recordname>\n";
+        buildXML += "\t\t\t\t</shortcut>\n";
         buildXML += "\t\t\t\t<name type=\"string\">" + weaponName[x] + "</name>\n";
         buildXML += "\t\t\t\t<properties type=\"string\">" + weaponProperties[x] + "</properties>\n";
         buildXML += "\t\t\t\t<damagelist>\n";
         buildXML += "\t\t\t\t\t<id-00001>\n";
         buildXML += "\t\t\t\t\t\t<bonus type=\"number\">" +  weaponBonus[x] + "</bonus>\n";
-		buildXML += "\t\t\t\t\t\t<dice type=\"dice\">" + weaponDice[x] + "</dice>\n";
-        buildXML += "\t\t\t\t\t\t<stat type=\"string\">base</stat>\n";
-        //buildXML += "\t\t\t\t\t\t<statmult type=\"number\">" + weaponDiceMult[x] + "</statmult>\n";
-		buildXML += "\t\t\t\t\t\t<type type=\"string\">" + weaponType[x] + "</type>\n";
+        buildXML += "\t\t\t\t\t\t<dice type=\"dice\">" + weaponDice[x] + "</dice>\n";
+        buildXML += "\t\t\t\t\t\t<stat type=\"string\">" + weaponBase[x] + "</stat>\n";
+        buildXML += "\t\t\t\t\t\t<type type=\"string\">" + weaponType[x] + "</type>\n";
         buildXML += "\t\t\t\t\t</id-00001>\n";
         buildXML += "\t\t\t\t</damagelist>\n";
         buildXML += "\t\t\t\t<attackbonus type=\"number\">" + weaponBonus[x] + "</attackbonus>\n";
@@ -1468,7 +1392,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         } else {
             buildXML += "\t\t\t\t<type type=\"number\">0</type>\n";
         }
-        
+
         buildXML += "\t\t\t</id-" + thisIteration + ">\n";
     }
     if (isMonk == 1) {
@@ -1489,8 +1413,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         buildXML += "\t\t\t\t<locked type=\"number\">1</locked>\n";
         buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(thisFeat.definition.name) + "</name>\n";
         buildXML += "\t\t\t\t<text type=\"formattedtext\">\n";
-        // CHANGED/FIXME
-        //buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(thisFeat.definition.description)) + "</p>\n";
         buildXML += "\t\t\t\t\t" + fixDesc(thisFeat.definition.description) + "\n";
         buildXML += "\t\t\t\t</text>\n";
         buildXML += "\t\t\t</id-" + thisIteration + ">\n";
@@ -1510,7 +1432,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             // FIXME: What is this?
             //console.log("We got here");
         } else {
-            if ((prof.friendlySubtypeName).match(/Saving Throws/) || holdProf.includes(prof.friendlySubtypeName)) {
+            if ((prof.friendlySubtypeName).match(/Saving\sThrows/) || holdProf.includes(prof.friendlySubtypeName)) {
                 // Skip Saving Throws in proficiencies
             } else {
                 switch (prof.friendlySubtypeName) {
@@ -1566,7 +1488,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
 
     pactSlots = 0;
     pactLevel = 0;
-    character.classes.some(function(current_class, i) {
+    character.classes.some(function(current_class) {
         charClass = current_class.definition.name.toLowerCase();
         if(charClass === "warlock") {
             pactSlots = getPactMagicSlots(current_class.level);
@@ -1690,13 +1612,13 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
 
     // Power Groups
     buildXML += "\t\t<powergroup>\n";
-	//buildXML += "\t\t\t<id-00001>\n";
-	//buildXML += "\t\t\t\t<name type=\"string\">Resistances</name>\n";
-	//buildXML += "\t\t\t</id-00001>\n";
+    //buildXML += "\t\t\t<id-00001>\n";
+    //buildXML += "\t\t\t\t<name type=\"string\">Resistances</name>\n";
+    //buildXML += "\t\t\t</id-00001>\n";
     //buildXML += "\t\t\t<id-00002>\n";
     //buildXML += "\t\t\t\t<name type=\"string\">Immunities</name>\n";
     //buildXML += "\t\t\t</id-00002>\n";
-    
+
     if(isDruid == 1 || isCleric == 1 || isBard == 1) {
         buildXML += "\t\t\t<id-00001>\n";
         buildXML += "\t\t\t\t<name type=\"string\">Spells</name>\n";
@@ -1740,7 +1662,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         buildXML += "\t\t\t\t<castertype type=\"string\">memorization</castertype>\n";
         buildXML += "\t\t\t</id-00001>\n";
     }
-    
+
     buildXML += "\t\t</powergroup>\n";
 
     // Spells sourceId:
@@ -1756,7 +1678,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     // activation.activationType
     //    null
     //    1: action
-    
+
     //    3: bonus action
     //    4: reaction
     //    5: second
@@ -1785,7 +1707,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             } else if(eachSpell.definition.activation.activationType == 3) {
                 castingTime += " bonus action";
             } else if(eachSpell.definition.activation.activationType == 4) {
-                castingTime += " reaction"; 
+                castingTime += " reaction";
             } else if(eachSpell.definition.activation.activationType == 5) {
                     castingTime += " second";
             } else if(eachSpell.definition.activation.activationType == 6) {
@@ -1811,19 +1733,17 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             componentList = componentList.trim().slice(0, -1);
             buildXML += "\t\t\t\t<components type=\"string\">" + componentList + "</components>\n";
             buildXML += "\t\t\t\t<description type=\"formattedtext\">\n";
-            // CHANGED/FIXME
-            //buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(eachSpell.definition.description)) + "</p>\n";
             buildXML += "\t\t\t\t\t" + fixDesc(eachSpell.definition.description) + "\n";
             buildXML += "\t\t\t\t</description>\n";
             if(eachSpell.definition.duration.durationType == "Time") {
-		        buildXML += "\t\t\t\t<duration type=\"string\">" + eachSpell.definition.duration.durationInterval + " " + eachSpell.definition.duration.durationUnit + "</duration>\n";
+                buildXML += "\t\t\t\t<duration type=\"string\">" + eachSpell.definition.duration.durationInterval + " " + eachSpell.definition.duration.durationUnit + "</duration>\n";
             } else if(eachSpell.definition.duration.durationType == "Instantaneous") {
                 buildXML += "\t\t\t\t<duration type=\"string\">Instantaneous</duration>\n";
             }
             buildXML += "\t\t\t\t<group type=\"string\">Spells</group>\n";
-		    buildXML += "\t\t\t\t<level type=\"number\">" + eachSpell.definition.level + "</level>\n";
-		    buildXML += "\t\t\t\t<locked type=\"number\">1</locked>\n";
-		    buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(eachSpell.definition.name) + "</name>\n";
+            buildXML += "\t\t\t\t<level type=\"number\">" + eachSpell.definition.level + "</level>\n";
+            buildXML += "\t\t\t\t<locked type=\"number\">1</locked>\n";
+            buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(eachSpell.definition.name) + "</name>\n";
             buildXML += "\t\t\t\t<prepared type=\"number\">0</prepared>\n";
             if (eachSpell.definition.ritual == true) {
                 buildXML += "\t\t\t\t<ritual type=\"number\">1</ritual>\n";
@@ -1841,7 +1761,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             if (payFlag == 1) {
                 buildXML += "\t\t\t\t<parse type=\"number\">1</parse>\n";
             }
-		    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            buildXML += "\t\t\t</id-" + thisIteration + ">\n";
         }
     });
     character.spells.class.some(function(eachSpell, i) {
@@ -1864,7 +1784,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             } else if(eachSpell.definition.activation.activationType == 3) {
                 castingTime += " bonus action";
             } else if(eachSpell.definition.activation.activationType == 4) {
-                castingTime += " reaction"; 
+                castingTime += " reaction";
             } else if(eachSpell.definition.activation.activationType == 5) {
                     castingTime += " second";
             } else if(eachSpell.definition.activation.activationType == 6) {
@@ -1889,19 +1809,17 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             componentList = componentList.trim().slice(0, -1);
             buildXML += "\t\t\t\t<components type=\"string\">" + componentList + "</components>\n";
             buildXML += "\t\t\t\t<description type=\"formattedtext\">\n";
-            // CHANGED/FIXME
-            //buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(eachSpell.definition.description)) + "</p>\n";
             buildXML += "\t\t\t\t\t" + fixDesc(eachSpell.definition.description) + "\n";
             buildXML += "\t\t\t\t</description>\n";
             if(eachSpell.definition.duration.durationType == "Time") {
-		        buildXML += "\t\t\t\t<duration type=\"string\">" + eachSpell.definition.duration.durationInterval + " " + eachSpell.definition.duration.durationUnit + "</duration>\n";
+                buildXML += "\t\t\t\t<duration type=\"string\">" + eachSpell.definition.duration.durationInterval + " " + eachSpell.definition.duration.durationUnit + "</duration>\n";
             } else if(eachSpell.definition.duration.durationType == "Instantaneous") {
                 buildXML += "\t\t\t\t<duration type=\"string\">Instantaneous</duration>\n";
             }
             buildXML += "\t\t\t\t<group type=\"string\">Spells</group>\n";
-		    buildXML += "\t\t\t\t<level type=\"number\">" + eachSpell.definition.level + "</level>\n";
-		    buildXML += "\t\t\t\t<locked type=\"number\">1</locked>\n";
-		    buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(eachSpell.definition.name) + "</name>\n";
+            buildXML += "\t\t\t\t<level type=\"number\">" + eachSpell.definition.level + "</level>\n";
+            buildXML += "\t\t\t\t<locked type=\"number\">1</locked>\n";
+            buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(eachSpell.definition.name) + "</name>\n";
             buildXML += "\t\t\t\t<prepared type=\"number\">0</prepared>\n";
             if (eachSpell.definition.ritual == true) {
                 buildXML += "\t\t\t\t<ritual type=\"number\">1</ritual>\n";
@@ -1919,7 +1837,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             if (payFlag == 1) {
                 buildXML += "\t\t\t\t<parse type=\"number\">1</parse>\n";
             }
-		    buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+            buildXML += "\t\t\t</id-" + thisIteration + ">\n";
         }
     });
 
@@ -1953,7 +1871,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                             } else if(spell.definition.activation.activationType == 3) {
                                 castingTime += " bonus action";
                             } else if(spell.definition.activation.activationType == 4) {
-                                castingTime += " reaction"; 
+                                castingTime += " reaction";
                             } else if(spell.definition.activation.activationType == 5) {
                                     castingTime += " second";
                             } else if(spell.definition.activation.activationType == 6) {
@@ -1984,14 +1902,14 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                             buildXML += "\t\t\t\t\t" + fixDesc(spell.definition.description) + "\n";
                             buildXML += "\t\t\t\t</description>\n";
                             if(spell.definition.duration.durationType == "Time") {
-		                        buildXML += "\t\t\t\t<duration type=\"string\">" + spell.definition.duration.durationInterval + " " + spell.definition.duration.durationUnit + "</duration>\n";
+                                buildXML += "\t\t\t\t<duration type=\"string\">" + spell.definition.duration.durationInterval + " " + spell.definition.duration.durationUnit + "</duration>\n";
                             } else if(spell.definition.duration.durationType == "Instantaneous") {
                                 buildXML += "\t\t\t\t<duration type=\"string\">Instantaneous</duration>\n";
                             }
                             buildXML += "\t\t\t\t<group type=\"string\">Spells</group>\n";
-		                    buildXML += "\t\t\t\t<level type=\"number\">" + spell.definition.level + "</level>\n";
+                            buildXML += "\t\t\t\t<level type=\"number\">" + spell.definition.level + "</level>\n";
                             buildXML += "\t\t\t\t<locked type=\"number\">1</locked>\n";
-		                    buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(spell.definition.name) + "</name>\n";
+                            buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(spell.definition.name) + "</name>\n";
                             buildXML += "\t\t\t\t<prepared type=\"number\">0</prepared>\n";
                             if (spell.definition.ritual == true) {
                                 buildXML += "\t\t\t\t<ritual type=\"number\">1</ritual>\n";
@@ -2010,14 +1928,12 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                                 buildXML += "\t\t\t\t<parse type=\"number\">1</parse>\n";
                             }
                             buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                        }   
+                        }
                     }
                 });
             }
         }
     });
-
-    // I think this sould be moved. We have class things for this, maybe have racial as well.
 
     // Okay, let's get ready for the paid version
     if (payFlag == 1) {
@@ -2070,7 +1986,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             }
 
             if (levelBarbarian >= 3) {
-                if (barbPrimalPath.match(/Totem Warrior/)) {
+                if (barbPrimalPath.match(/Totem\sWarrior/)) {
                     if (barbTotemSpirit == "Wolf") {
                         thisIteration = pad(totalSpells + 1, 5);
                         totalSpells += 1;
@@ -2135,9 +2051,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                         buildXML += addBarbarianIntimidatingPresence;
                         buildXML += "\t\t\t</id-" + thisIteration + ">\n";
                     }
-
                 }
-
             }
         } else if (isBard == 1) {
             thisIteration = pad(totalSpells + 1, 5);
@@ -2206,7 +2120,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                     buildXML += addClericWarPriest;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                } 
+                }
             }
             if (levelCleric >= 2) {
                 thisIteration = pad(totalSpells + 1, 5);
@@ -2239,7 +2153,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                     buildXML += addClericCharmAnimals;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                } 
+                }
             }
             if (levelCleric >= 6) {
                 if (clericDomain.match(/Life/)) {
@@ -2260,7 +2174,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                     buildXML += addClericCloakOfShadows;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                } 
+                }
             }
             if (levelCleric >= 8) {
                 if (clericDomain.match(/Death/)) {
@@ -2311,7 +2225,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                     buildXML += addClericDivineStrike;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                } 
+                }
             }
             if (levelCleric >= 17) {
                 if (clericDomain.match(/Life/)) {
@@ -2332,7 +2246,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                     buildXML += addClericAvatarOfBattle;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                } 
+                }
             }
         } else if (isDruid == 1) {
             if (levelDruid >= 2) {
@@ -2341,9 +2255,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                 buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                 buildXML += addDruidWildShape;
                 buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                if (druidCircle.match(/Dreams/)) {
-                    
-                } else if (druidCircle.match(/Land/)) {
+                if (druidCircle.match(/Land/)) {
                     thisIteration = pad(totalSpells + 1, 5);
                     totalSpells += 1;
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
@@ -2755,7 +2667,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                     buildXML += addPaladinVowOfEnmityVengeance;
                     buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                }  
+                }
             }
             if (levelPaladin >= 6) {
                 thisIteration = pad(totalSpells + 1, 5);
@@ -2847,7 +2759,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
             buildXML += "\t\t\t<id-" + thisIteration + ">\n";
             buildXML += addRangerFavoredEnemy;
             buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-            
+
             if (levelRanger >= 3) {
                 if (rangerArchtype.match(/Hunter/)) {
                     thisIteration = pad(totalSpells + 1, 5);
@@ -2904,7 +2816,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                 buildXML += "\t\t\t</id-" + thisIteration + ">\n";
             }
         } else if (isRogue == 1) {
-            
             thisIteration = pad(totalSpells + 1, 5);
             totalSpells += 1;
             buildXML += "\t\t\t<id-" + thisIteration + ">\n";
@@ -3301,7 +3212,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
                     if(eachInventory.definition.stealthCheck == 2) {
                         armDis = 1;
                     }
-                    thisArmor = eachInventory.definition.name.toLowerCase().replace(/ /g, "_").replace(/-/g, "_");
+                    thisArmor = eachInventory.definition.name.toLowerCase().replace(/\s/g, "_").replace(/-/g, "_");
                     if(noDexArmor.includes(thisArmor)) {
                         dexBonus = 0;
                         if(holdProf.includes("Heavy Armor")) {
@@ -3337,8 +3248,6 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
         }
     });
 
-    
-
     // We need to figure out dex bonus: full, max 3, max 2, none
     buildXML += "\t\t<defenses>\n";
     buildXML += "\t\t\t<ac>\n";
@@ -3371,7 +3280,7 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     if(isBarbarian == 1 && wearingArmor == 0) {
         buildXML += "\t\t\t\t<stat2 type=\"string\">constitution</stat2>\n";
     }
-	if(armShieldProf < 0) {
+    if(armShieldProf < 0) {
         buildXML += "\t\t\t\t<prof type=\"number\">0</prof>\n";
     } else {
         buildXML += "\t\t\t\t<prof type=\"number\">1</prof>\n";
@@ -3379,10 +3288,10 @@ or the character is set to 'Private' instead of 'Public'.\n\nYes, your character
     if(shieldYes == 1) {
         buildXML += "\t\t\t\t<shield type=\"number\">" + shieldAC + "</shield>\n";
     }
-	
-	buildXML += "\t\t\t\t<temporary type=\"number\">0</temporary>\n";
-	buildXML += "\t\t\t</ac>\n";
-	buildXML += "\t\t</defenses>\n";
+
+    buildXML += "\t\t\t\t<temporary type=\"number\">0</temporary>\n";
+    buildXML += "\t\t\t</ac>\n";
+    buildXML += "\t\t</defenses>\n";
 
     allXML += buildXML + endXML;
     $('#textHere').val(allXML);
@@ -3462,7 +3371,7 @@ const getObjects = function(obj, key, val) {
 
 function replaceDash(str) {
     firstStep = str.replace(/-/g, "_");
-    return firstStep.replace(/ /g, "_");
+    return firstStep.replace(/\s/g, "_");
 }
 
 function capitalizeFirstLetter(string) {
@@ -3530,7 +3439,7 @@ function fixQuote(badString) {
     if(badString == "" || badString == null) {
         return "";
     }
-    return badString.replace(/\n/g, '\n').replace(/\u2019/g, "'").replace(/\u2014/g, "-").replace(/\"/g, "&#34;").replace(/\u2022/g, ":").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\&nbsp\;/g, " ").replace(/\&rsquo\;/g, "'").replace(/\&/g, "&amp;").trim();
+    return badString.replace(/\n/g, '\n').replace(/\u2019/g, "'").replace(/\u2014/g, "-").replace(/"/g, "&#34;").replace(/\u2022/g, ":").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&nbsp;/g, " ").replace(/&rsquo;/g, "'").replace(/&/g, "&amp;").trim();
 }
 
 function fixDesc(badString) {
@@ -3538,37 +3447,30 @@ function fixDesc(badString) {
         return "";
     }
 
-    var tempString1 = badString.replace(/<a.*nofollow\">/g, "").replace(/<\/a>/g, "");
-    return tempString1.replace(/<br>/g, "<br />").replace(/\&rsquo\;/g, "'").replace(/\&nbsp\;/g, " ").replace(/\&ldquo\;/g, '"').replace(/\&rdquo\;/g, '"').replace(/\&mdash\;/g, "-").replace(/\&times\;/g, "*").replace(/<\/em>/g, "").replace(/<em>/g, "").replace(/\&minus;/g, "-").trim();
+    var tempString1 = badString.replace(/<a.*nofollow">/g, "").replace(/<\/a>/g, "");
+    return tempString1.replace(/<br>/g, "<br />").replace(/&rsquo;/g, "'").replace(/&nbsp;/g, " ").replace(/&ldquo;/g, '"').replace(/&rdquo;/g, '"').replace(/&mdash;/g, "-").replace(/&times;/g, "*").replace(/<\/em>/g, "").replace(/<em>/g, "").replace(/&minus;/g, "-").trim();
 }
 
 function convert_case(str) {
     var lower = str.toLowerCase();
-    return lower.replace(/(^| )(w)/g, function(x) {
+    return lower.replace(/(^|\s)(w)/g, function(x) {
         return x.toUpperCase();
     });
 }
 
 function remove_tags_traits(badString) {
-    var tempString1 = badString.replace(/\&lt\;/g, "<").replace(/\&gt\;/g, ">");
-    var tempString2 = tempString1.replace(/\&rsquo\;/g, "'").replace(/\&lsquo\;/g, "'").replace(/\&rdquo\;/g, "\"").replace(/\&ldquo\;/g, "\"");
-    var tempString3 = tempString2.replace(/\&\#34\;/g, "\"").replace(/<br\>/g, "<br />").replace(/\&ndash\;/g, "-");
-    var tempString4 = tempString3.replace(/<th style/g, "<td style").replace(/<\/th\>/g, "</td>").replace(/<th rowspan/g, "<td rowspan").replace(/<th colspan/g, "<td colspan").replace(/<th\>/g, "<td>");
-    var tempString5 = tempString4.replace(/<span\>/g, "").replace(/<\/span\>/g, "").replace(/<span style\=\"font-weight\:400\"\>/g, "");
-    var tempString6 = tempString5.replace(/\&nbsp\;/g, " ").replace(/<br\>/g, "\n").replace(/<h5\>/g, "<p><b>").replace(/<\/h5\>/g, "</b></p>").replace(/<span style\=\"color\:\#[a-zA-Z0-9]{3}\"\>/g, "").replace(/<span style\=\"color\:\#[a-zA-Z0-9]{6}\"\>/g, "");
+    var tempString1 = badString.replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+    var tempString2 = tempString1.replace(/&rsquo;/g, "'").replace(/&lsquo;/g, "'").replace(/&rdquo;/g, "\"").replace(/&ldquo;/g, "\"");
+    var tempString3 = tempString2.replace(/&#34;/g, "\"").replace(/<br>/g, "<br />").replace(/&ndash;/g, "-");
+    var tempString4 = tempString3.replace(/<th\sstyle/g, "<td style").replace(/<\/th>/g, "</td>").replace(/<th\srowspan/g, "<td rowspan").replace(/<th\scolspan/g, "<td colspan").replace(/<th>/g, "<td>");
+    var tempString5 = tempString4.replace(/<span>/g, "").replace(/<\/span>/g, "").replace(/<span\sstyle\="font-weight\:400">/g, "");
+    var tempString6 = tempString5.replace(/&nbsp;/g, " ").replace(/<br>/g, "\n").replace(/<h5>/g, "<p><b>").replace(/<\/h5>/g, "</b></p>").replace(/<span\sstyle\="color\:#[a-zA-Z0-9]{3}">/g, "").replace(/<span\sstyle\="color\:#[a-zA-Z0-9]{6}">/g, "");
 
     return tempString6;
 }
 
+/*
 function remove_tags_featureSubclass(badString) {
-    // First things first, let's create an array of all the individual lines, then go through them and see what we can fix.
-    //var testTables = badString.split("\n");
-    //console.log("Array length: " + testTables.length);
-    //for(i = 0; i < testTables.length - 1; i++) {
-    //    if (testTables[i].match(/^\&lt\;p style/)) {
-    //        console.log("Found one: " + testTables[i]);
-    //    }
-    //}
     // Ok, so we need to fix tables. From start table tag to end table tag, remove <p> & </p>
     var tempString1 = badString.replace(/\&lt\;/g, "<").replace(/\&gt\;/g, ">").replace(/\&\#34\;/g, "\"").replace(/\n/g, "").replace(/\&ndash\;/g, "-");
     var tempString2 = tempString1.replace(/\&rsquo\;/g, "'").replace(/\&lsquo\;/g, "'").replace(/\&rdquo\;/g, "\"").replace(/\&ldquo\;/g, "\"");
@@ -3585,6 +3487,7 @@ function remove_tags_featureSubclass(badString) {
     var tempString5 = tempString4.replace(/\&nbsp\;/g, " ").replace(/<br\>/g, "\n").replace(/<h5\>/g, "<p><b>").replace(/<\/h5\>/g, "</b></p>").replace(/<thead\>/g, "").replace(/<\/thead\>/g, "").replace(/<tbody\>/g, "").replace(/<\/tbody\>/g, "");
     return tempString5;
 }
+*/
 
 const getPactMagicSlots = function(level) {
 
@@ -3980,7 +3883,7 @@ function getSpellSlots(slotClass, slotLevel, slotSubClass) {
         //charSpellSlots9 = 0;
     }
 }
-  
+
 addTiefHellResist = " \
 \t\t\t\t<actions>\n \
 \t\t\t\t\t<id-00001>\n \
