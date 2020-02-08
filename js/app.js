@@ -30,7 +30,7 @@ var startXML = "";
 var endXML = "\t</character>\n</root>\n";
 var allXML = "";
 
-var payFlag = 0;
+var payFlag = 1;
 
 var pcFilename = "";
 var addHP = 0;
@@ -170,6 +170,11 @@ var usingHeavyArmor = 0;
 var usingMediumArmor = 0;
 var usingLightArmor = 0;
 var usingShield = 0;
+
+var numArrows = 0;
+var numNeedles = 0;
+var numBolts = 0;
+var numBullets = 0;
 
 var addBonusArmorAC = 0;
 var addBonusOtherAC = 0;
@@ -1117,6 +1122,19 @@ function parseCharacter(inputChar) {
     buildXML += "\t\t<inventorylist>\n";
     const inventory = character.inventory;
     if(inventory != null) inventory.some(function(item, i) {
+
+        // Let's count ammo
+        if (item.definition.name == "Crossbow Bolts") {
+            numBolts += parseInt(item.quantity);
+        } else if (item.definition.name == "Arrows") {
+            numArrows += parseInt(item.quantity);
+        }  else if (item.definition.name == "Blowgun Needles") {
+            numNeedles += parseInt(item.quantity);
+        }  else if (item.definition.name == "Sling Bullets") {
+            numBullets += parseInt(item.quantity);
+        } 
+
+
         thisIteration = pad(i + 1, 5);
 
         buildXML += "\t\t\t<id-" + thisIteration + ">\n";
@@ -1360,8 +1378,14 @@ function parseCharacter(inputChar) {
             buildXML += "\t\t\t\t<subtype type=\"string\">Martial Melee Weapon</subtype>\n";
         }
         buildXML += "\t\t\t</id-" + thisIteration + ">\n";
+
     });
     buildXML += "\t\t</inventorylist>\n";
+
+    //console.log("Bullets: " + numBullets);
+    //console.log("Arrows: " + numArrows);
+    //console.log("Needles: " + numNeedles);
+    //console.log("Bolts: " + numBolts);
 
     buildXML += "\t\t<weaponlist>\n";
     var weaponCount = 0;
@@ -1385,6 +1409,15 @@ function parseCharacter(inputChar) {
         buildXML += "\t\t\t\t\t\t<type type=\"string\">" + weaponType[x] + "</type>\n";
         buildXML += "\t\t\t\t\t</id-00001>\n";
         buildXML += "\t\t\t\t</damagelist>\n";
+        if (weaponName[x].includes("Crossbow")) {
+            buildXML += "\t\t\t\t<maxammo type=\"number\">" + numBolts + "</maxammo>\n";
+        } else if (weaponName[x].includes("Sling")) {
+            buildXML += "\t\t\t\t<maxammo type=\"number\">" + numBullets + "</maxammo>\n";
+        } else if (weaponName[x].includes("Blowgun")) {
+            buildXML += "\t\t\t\t<maxammo type=\"number\">" + numNeedles + "</maxammo>\n";
+        }   else if ((weaponName[x].includes("Shortbow")) || (weaponName[x].includes("Longbow"))) {
+            buildXML += "\t\t\t\t<maxammo type=\"number\">" + numArrows + "</maxammo>\n";
+        } 
         buildXML += "\t\t\t\t<attackbonus type=\"number\">" + weaponBonus[x] + "</attackbonus>\n";
         buildXML += "\t\t\t\t<isidentified type=\"number\">1</isidentified>\n";
         // 0: Melee, 1: Ranged, 2: Thrown
