@@ -234,12 +234,12 @@ var fgVersion = 0;
 var glCharID = "";
 
 $(function() {
-    multiWarn.init();
+    //multiWarn.init();
     dispLinks.init();
     clLinks.init();
     donateFGC.init();
 
-    $("#MCwindow").jqxWindow("close");
+    //$("#MCwindow").jqxWindow("close");
     $("#Linkwindow").jqxWindow("close");
     $("#CLwindow").jqxWindow("close");
     $("#DONwindow").jqxWindow("close");
@@ -810,9 +810,9 @@ function parseCharacter(inputChar) {
     buildXML += "\t\t\t<total type=\"number\">" + parseInt(charWalk) + "</total>\n";
     buildXML += "\t\t</speed>\n";
 
-    if (totalClasses > 1) {
-        $('#MCwindow').jqxWindow('open');
-    }
+    //if (totalClasses > 1) {
+    //    $('#MCwindow').jqxWindow('open');
+    //}
 
     idCount = 1;
     hasHalf = 0;
@@ -3503,7 +3503,7 @@ function fixQuote(badString) {
     if(badString == "" || badString == null) {
         return "";
     }
-    return badString.replace(/\n/g, '\n').replace(/\u2019/g, "'").replace(/\u2014/g, "-").replace(/"/g, "&#34;").replace(/\u2022/g, ":").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&nbsp;/g, " ").replace(/&rsquo;/g, "'").replace(/&/g, "&amp;").trim();
+    return badString.replace(/\n/g, '\n').replace(/\u2019/g, "'").replace(/\u2014/g, "-").replace(/"/g, "&#34;").replace(/\u2022/g, ":").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&nbsp;/g, " ").replace(/&rsquo;/g, "'").replace(/\s&/g, "&amp;").trim();
 }
 
 function fixDesc(badString) {
@@ -8775,7 +8775,7 @@ End of Artificer effects
 
 * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-var multiWarn = (function () {
+/*var multiWarn = (function () {
     //Creating the demo window
     function _createWindow() {
         var jqxWidget = $('#multiClassWarn');
@@ -8799,6 +8799,7 @@ var multiWarn = (function () {
         }
     };
 } ());
+*/
 
 var dispLinks = (function () {
     function _createLinks() {
