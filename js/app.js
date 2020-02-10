@@ -234,12 +234,10 @@ var fgVersion = 0;
 var glCharID = "";
 
 $(function() {
-    //multiWarn.init();
     dispLinks.init();
     clLinks.init();
     donateFGC.init();
 
-    //$("#MCwindow").jqxWindow("close");
     $("#Linkwindow").jqxWindow("close");
     $("#CLwindow").jqxWindow("close");
     $("#DONwindow").jqxWindow("close");
@@ -351,10 +349,8 @@ $(function() {
         var checked = event.args.checked;
         if (checked) {
             fgVersion = 0;
-            //console.log("FG Version: Classic");
         } else {
             fgVersion = 1;
-            //console.log("FG Version: Unity");
         }
     });
 });
@@ -797,7 +793,6 @@ function parseCharacter(inputChar) {
         buildXML += "\t\t\t</id-" + thisIteration + ">\n";
 
     });
-    //console.log("SUM HP: " + sumHP);
     buildXML += "\t\t</classes>\n";
 
     if (isBarbarian == 1 && levelBarbarian >= 5 && usingHeavyArmor < 1) {
@@ -809,10 +804,6 @@ function parseCharacter(inputChar) {
     buildXML += "\t\t\t<base type=\"number\">" + parseInt(charWalk) + "</base>\n";
     buildXML += "\t\t\t<total type=\"number\">" + parseInt(charWalk) + "</total>\n";
     buildXML += "\t\t</speed>\n";
-
-    //if (totalClasses > 1) {
-    //    $('#MCwindow').jqxWindow('open');
-    //}
 
     idCount = 1;
     hasHalf = 0;
@@ -870,11 +861,6 @@ function parseCharacter(inputChar) {
         addHP += levelSorcerer;
     }
 
-    //console.log("Con HP bonus: " + (Math.floor((getTotalAbilityScore(character, 3) - 10 ) / 2)) * totalLevels);
-    //console.log("Con HP bonus: " + (Math.floor( ( ( getTotalAbilityScore(character, 3) - 10 ) / 2 )) * totalLevels ));
-    //console.log("Bonus HP for feats/traits: " + addHP);
-
-    //totalHP = parseInt(character.baseHitPoints) + (Math.floor( ( ( getTotalAbilityScore(character, 3) - 10 ) / 2 )) * totalLevels ) + addHP;
     totalHP = addHP + sumHP + (Math.floor((getTotalAbilityScore(character, 3) - 10 ) / 2) * totalLevels);
 
     buildXML += "\t\t<hp>\n";
@@ -1122,8 +1108,6 @@ function parseCharacter(inputChar) {
     buildXML += "\t\t<inventorylist>\n";
     const inventory = character.inventory;
     if(inventory != null) inventory.some(function(item, i) {
-
-        // Let's count ammo
         if (item.definition.name == "Crossbow Bolts") {
             numBolts += parseInt(item.quantity);
         } else if (item.definition.name == "Arrows") {
@@ -1382,11 +1366,6 @@ function parseCharacter(inputChar) {
     });
     buildXML += "\t\t</inventorylist>\n";
 
-    //console.log("Bullets: " + numBullets);
-    //console.log("Arrows: " + numArrows);
-    //console.log("Needles: " + numNeedles);
-    //console.log("Bolts: " + numBolts);
-
     buildXML += "\t\t<weaponlist>\n";
     var weaponCount = 0;
     var thrownCount = 0;
@@ -1432,8 +1411,6 @@ function parseCharacter(inputChar) {
         buildXML += "\t\t\t</id-" + thisIteration + ">\n";
         if(weaponProperties[x].includes("Thrown")) {
             thrownCount += 1;
-            // If it's thrown, should we add it twice, once w/ Melee and once with Ranged?
-            //console.log(weaponName[x] + ": " + weaponProperties[x]);
             weaponCount += 1;
             thisIteration = pad(weaponID.length + thrownCount, 5);
             // We need to add these to the end, providing a higher weaponID.length
@@ -1488,13 +1465,14 @@ function parseCharacter(inputChar) {
     var proficiencies = getObjects(character, 'type', 'proficiency');
     if(proficiencies != null) proficiencies.some(function(prof, i) {
         if (typeof prof.friendlySubtypeName == 'undefined') {
-        //    console.log("Has friendly");
-        //} else {
-        //    console.log("Yup, found something here");
-        //}
-        //if(holdProf.includes(prof.friendlySubtypeName) || (prof.friendlySubtypeName).match(/Saving Throws/)) {
-            // FIXME: What is this?
-            //console.log("We got here");
+            //    console.log("Has friendly");
+            //} else {
+            //    console.log("Yup, found something here");
+            //}
+            //if(holdProf.includes(prof.friendlySubtypeName) || (prof.friendlySubtypeName).match(/Saving Throws/)) {
+            //  FIXME: What is this?
+            //  console.log("We got here");
+            //}
         } else {
             if ((prof.friendlySubtypeName).match(/Saving\sThrows/) || holdProf.includes(prof.friendlySubtypeName)) {
                 // Skip Saving Throws in proficiencies
@@ -1905,17 +1883,14 @@ function parseCharacter(inputChar) {
         }
     });
 
-
-    /* * * * FIXME - Just because a spell is a ritual, doesn't mean we automatically add it. * * * */
     character.classes.some(function(current_class, i) {
         for(var j in character.classSpells) {
             var spells = character.classSpells[j];
-            //console.log(spells);
             if(character.classSpells[j].characterClassId == current_class.id) {
                 character.classSpells[j].spells.some(function(spell) {
                     if(!spellList.includes(spell.definition.name)) {
                         //if(spell.prepared == true || spell.alwaysPrepared == true || spell.definition.level == 0 || spell.definition.ritual == true || isSorcerer == 1 || isRanger == 1 || isBard == 1 || rogueSubclassArcaneTrickster == 1 ||fighterSubclassEldritchKnight == 1) {
-                            if(spell.prepared == true || spell.alwaysPrepared == true || spell.definition.level == 0 || isSorcerer == 1 || isRanger == 1 || isBard == 1 || rogueSubclassArcaneTrickster == 1 || fighterSubclassEldritchKnight == 1) {
+                        if(spell.prepared == true || spell.alwaysPrepared == true || spell.definition.level == 0 || isSorcerer == 1 || isRanger == 1 || isBard == 1 || rogueSubclassArcaneTrickster == 1 || fighterSubclassEldritchKnight == 1) {
 
                             spellList.push(spell.definition.name);
                             totalSpells += 1;
@@ -1961,8 +1936,6 @@ function parseCharacter(inputChar) {
 
                             buildXML += "\t\t\t\t<components type=\"string\">" + componentList + "</components>\n";
                             buildXML += "\t\t\t\t<description type=\"formattedtext\">\n";
-                            // CHANGED/FIXME
-                            //buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(spell.definition.description)) + "</p>\n";
                             buildXML += "\t\t\t\t\t" + fixDesc(spell.definition.description) + "\n";
                             buildXML += "\t\t\t\t</description>\n";
                             if(spell.definition.duration.durationType == "Time") {
@@ -2151,8 +2124,6 @@ function parseCharacter(inputChar) {
                 buildXML += "\t\t\t</id-" + thisIteration + ">\n";
             }
         } else if (isCleric == 1) {
-            // Cleric domains:
-            // Arcana, Death, Forge, Grave, Knowledge, Life, Light, Nature, Order, Tempest, Trickery, War
             if (levelCleric >= 1) {
                 if (clericDomain.match(/Life/)) {
                     thisIteration = pad(totalSpells + 1, 5);
@@ -2192,7 +2163,6 @@ function parseCharacter(inputChar) {
                 buildXML += "\t\t\t<id-" + thisIteration + ">\n";
                 buildXML += addClericTurnUndead;
                 buildXML += "\t\t\t</id-" + thisIteration + ">\n";
-                //console.log("Cleric Domain: " + clericDomain);
                 if (clericDomain.match(/Arcana/)) {
                     thisIteration = pad(totalSpells + 1, 5);
                     totalSpells += 1;
@@ -3243,7 +3213,7 @@ function parseCharacter(inputChar) {
                 }
             }
         } else if (isArtificer == 1) {
-            // FIXME
+            // Add Artificer effects here
         }
     }
 
@@ -3532,26 +3502,6 @@ function remove_tags_traits(badString) {
 
     return tempString6;
 }
-
-/*
-function remove_tags_featureSubclass(badString) {
-    // Ok, so we need to fix tables. From start table tag to end table tag, remove <p> & </p>
-    var tempString1 = badString.replace(/\&lt\;/g, "<").replace(/\&gt\;/g, ">").replace(/\&\#34\;/g, "\"").replace(/\n/g, "").replace(/\&ndash\;/g, "-");
-    var tempString2 = tempString1.replace(/\&rsquo\;/g, "'").replace(/\&lsquo\;/g, "'").replace(/\&rdquo\;/g, "\"").replace(/\&ldquo\;/g, "\"");
-    var tableSubstring1 = tempString2.indexOf("<table");
-    var tableSubstring2 = tempString2.indexOf("</table");
-    var string01 = tempString2.substring(0, tableSubstring1);
-    var string03 = tempString2.substring(tableSubstring2);
-    var tableStringFull = tempString2.substring(tableSubstring1, tableSubstring2);
-    var string02 = tableStringFull.replace(/<p\>/g, "").replace(/<\/p\>/g, "").replace(/<p style\=\"text-align\:left\"\>/g, "");
-    //var string02 = tableStringFull;
-    var newFullString = string01 + string02 + string03;
-    var tempString3 = newFullString.replace(/<th style/g, "<td style").replace(/<\/th\>/g, "</td>").replace(/<th rowspan/g, "<td rowspan").replace(/<th colspan/g, "<td colspan").replace(/<th\>/g, "<td>");
-    var tempString4 = tempString3.replace(/<span\>/g, "").replace(/<\/span\>/g, "").replace(/<span style\=\"font-weight\:400\"\>/g, "").replace(/<span style\=\"color\:\#47d18c\"\>/g, "").replace(/<span style\=\"color\:\#704cd9\"\>/g, "");
-    var tempString5 = tempString4.replace(/\&nbsp\;/g, " ").replace(/<br\>/g, "\n").replace(/<h5\>/g, "<p><b>").replace(/<\/h5\>/g, "</b></p>").replace(/<thead\>/g, "").replace(/<\/thead\>/g, "").replace(/<tbody\>/g, "").replace(/<\/tbody\>/g, "");
-    return tempString5;
-}
-*/
 
 const getPactMagicSlots = function(level) {
 
@@ -3935,16 +3885,6 @@ function getSpellSlots(slotClass, slotLevel, slotSubClass) {
             charSpellSlots4 = 3;
             charSpellSlots5 = 2;
         }
-    } else {
-        //charSpellSlots1 = 0;
-        //charSpellSlots2 = 0;
-        //charSpellSlots3 = 0;
-        //charSpellSlots4 = 0;
-        //charSpellSlots5 = 0;
-        //charSpellSlots6 = 0;
-        //charSpellSlots7 = 0;
-        //charSpellSlots8 = 0;
-        //charSpellSlots9 = 0;
     }
 }
 
@@ -8775,32 +8715,6 @@ End of Artificer effects
 
 * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-/*var multiWarn = (function () {
-    //Creating the demo window
-    function _createWindow() {
-        var jqxWidget = $('#multiClassWarn');
-        var offset = jqxWidget.offset();
-        $('#MCwindow').jqxWindow({
-            position: { x: 50, y: 50} ,
-            theme: 'darkblue',
-            isModal: true,
-            showCollapseButton: true, maxHeight: 400, maxWidth: 700, minHeight: 200, minWidth: 200, height: 300, width: 500,
-            initContent: function () {
-                $('#MCwindow').jqxWindow('focus');
-            }
-        });
-    }
-    return {
-        config: {
-            dragArea: null
-        },
-        init: function () {
-            _createWindow();
-        }
-    };
-} ());
-*/
-
 var dispLinks = (function () {
     function _createLinks() {
         var userLinks = $('#displayLinks');
@@ -8878,8 +8792,6 @@ var donateFGC = (function () {
     };
 } ());
 
-var nickel = "";
-
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     var id_token = googleUser.getAuthResponse().id_token;
@@ -8894,15 +8806,11 @@ function onSignIn(googleUser) {
         method: 'GET',
         success: function(data) {
             try {
-                //parseCharacter($.parseJSON(data));
-                //console.log(data);
                 if (data == 1) {
                     payFlag = 1;
                 } else {
                     payFlag = 0;
-                    // We should add the user to our database
                 }
-                //console.log("Paid: " + payFlag);
             } catch(e) {
                 alert("Unable to get Database info");
                 console.error(e);
@@ -8914,5 +8822,4 @@ function onSignIn(googleUser) {
             return;
         }
     });
-    
 }
