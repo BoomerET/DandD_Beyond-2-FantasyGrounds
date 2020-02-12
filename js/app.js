@@ -229,6 +229,8 @@ var sumHP = 0;
 
 var fgVersion = 0;
 
+mamFeat = 0;
+
 /* * * * * * * * * * */
 
 var glCharID = "";
@@ -1466,7 +1468,6 @@ function parseCharacter(inputChar) {
         buildXML += addMonkUnarmedStrike;
         buildXML += "\t\t\t</id-" + thisIteration + ">\n";
     }
-
     buildXML += "\t\t</weaponlist>\n";
 
     buildXML += "\t\t<featlist>\n";
@@ -1475,6 +1476,10 @@ function parseCharacter(inputChar) {
         thisIteration = pad(i + 1, 5);
         buildXML += "\t\t\t<id-" + thisIteration + ">\n";
         buildXML += "\t\t\t\t<locked type=\"number\">1</locked>\n";
+        //console.log(thisFeat.definition.name);
+        if (thisFeat.definition.name == "Medium Armor Master" && dexScore >= 16 && usingMediumArmor == 1) {
+            mamFeat = 1;
+        }
         buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(thisFeat.definition.name) + "</name>\n";
         buildXML += "\t\t\t\t<text type=\"formattedtext\">\n";
         buildXML += "\t\t\t\t\t" + fixDesc(thisFeat.definition.description) + "\n";
@@ -3256,7 +3261,7 @@ function parseCharacter(inputChar) {
     armDis = 0;
     armShieldProf = 0;
     // max2DexArmor
-    // max3DexArmor
+    // max3DexArmor (Medium Armor Master?)
     // fullDexArmor
     // noDexArmor
     character.inventory.some(function(eachInventory, i) {
@@ -3319,6 +3324,9 @@ function parseCharacter(inputChar) {
         baseAC += 10;
     }
     buildXML += "\t\t\t\t<armor type=\"number\">" + (baseAC - 10) + "</armor>\n";
+    if (mamFeat == 1) {
+        dexBonus = 3;
+    }
     switch(dexBonus) {
         case 0:
             buildXML += "\t\t\t\t<dexbonus type=\"string\">no</dexbonus>\n";
@@ -3335,7 +3343,7 @@ function parseCharacter(inputChar) {
     } else {
         buildXML += "\t\t\t\t<misc type=\"number\">" + (addBonusArmorAC + addBonusOtherAC) + "</misc>\n";
     }
-    if(armDis == 1) {
+    if(armDis == 1 && mamFeat == 0) {
         buildXML += "\t\t\t\t<disstealth type=\"number\">1</disstealth>\n";
     }
     if(isMonk == 1 && wearingArmor == 0 && usingShield == 0) {
