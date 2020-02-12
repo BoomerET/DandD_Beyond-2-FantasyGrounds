@@ -230,6 +230,7 @@ var sumHP = 0;
 var fgVersion = 0;
 
 mamFeat = 0;
+alertFeat = 0;
 
 /* * * * * * * * * * */
 
@@ -806,46 +807,6 @@ function parseCharacter(inputChar) {
     buildXML += "\t\t\t<base type=\"number\">" + parseInt(charWalk) + "</base>\n";
     buildXML += "\t\t\t<total type=\"number\">" + parseInt(charWalk) + "</total>\n";
     buildXML += "\t\t</speed>\n";
-
-    idCount = 1;
-    hasHalf = 0;
-    halfProf = false;
-    var halfprof2 = getObjects(character, 'type', 'half-proficiency');
-    for (var y in halfprof2) {
-        var hfprof2 = halfprof2[y];
-        var type2 = hfprof2.subType;
-        if(type2 == "initiative") {
-            halfProf = true;
-            buildXML += "\t\t\t<initiative>\n";
-            switch (totalLevels) {
-                case 1: case 2: case 3: case 4:
-                    buildXML += "\t\t\t\t<misc type=\"number\">1</misc>\n";
-                    buildXML += "\t\t\t\t<profbonus type=\"number\">2</profbonus>\n";
-                    break;
-                case 5: case 6: case 7: case 8:
-                    buildXML += "\t\t\t\t<misc type=\"number\">1</misc>\n";
-                    buildXML += "\t\t\t\t<profbonus type=\"number\">3</profbonus>\n";
-                    break;
-                case 9: case 10: case 11: case 12:
-                    buildXML += "\t\t\t\t<misc type=\"number\">2</misc>\n";
-                    buildXML += "\t\t\t\t<profbonus type=\"number\">4</profbonus>\n";
-                    break;
-                case 13: case 14: case 15: case 16:
-                    buildXML += "\t\t\t\t<misc type=\"number\">2</misc>\n";
-                    buildXML += "\t\t\t\t<profbonus type=\"number\">5</profbonus>\n";
-                    break;
-                case 17: case 18: case 19: case 20:
-                    buildXML += "\t\t\t\t<misc type=\"number\">3</misc>\n";
-                    buildXML += "\t\t\t\t<profbonus type=\"number\">6</profbonus>\n";
-                    break;
-                default:
-                    buildXML += "\t\t\t\t<misc type=\"number\">0</misc>\n";
-            }
-
-            buildXML += "\t\t\t\t<temporary type=\"number\">0</temporary>\n";
-            buildXML += "\t\t\t\t</initiative>\n";
-        }
-    }
 
     // baseHitPoints
     character.race.racialTraits.some(function(current_trait, i) {
@@ -1456,7 +1417,9 @@ function parseCharacter(inputChar) {
         //console.log(thisFeat.definition.name);
         if (thisFeat.definition.name == "Medium Armor Master" && dexScore >= 16 && usingMediumArmor == 1) {
             mamFeat = 1;
-        }
+        } else if (thisFeat.definition.name == "Alert") {
+            alertFeat = 1;
+        } else 
         buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(thisFeat.definition.name) + "</name>\n";
         buildXML += "\t\t\t\t<text type=\"formattedtext\">\n";
         buildXML += "\t\t\t\t\t" + fixDesc(thisFeat.definition.description) + "\n";
@@ -1464,6 +1427,62 @@ function parseCharacter(inputChar) {
         buildXML += "\t\t\t</id-" + thisIteration + ">\n";
     });
     buildXML += "\t\t</featlist>\n";
+
+    //idCount = 1;
+    //hasHalf = 0;
+    //halfProf = false;
+    //var halfprof2 = getObjects(character, 'type', 'half-proficiency');
+    //for (var y in halfprof2) {
+    //    console.log("Inside half proficiency");
+    //    var hfprof2 = halfprof2[y];
+    //    console.log(halfprof2[y]);
+    //    var type2 = hfprof2.subType;
+    //    if(type2 == "initiative") {
+    //        halfProf = true;
+    //        buildXML += "\t\t\t<initiative>\n";
+    //        switch (totalLevels) {
+    //            case 1: case 2: case 3: case 4:
+    //                buildXML += "\t\t\t\t<misc type=\"number\">1</misc>\n";
+    //                //buildXML += "\t\t\t\t<profbonus type=\"number\">2</profbonus>\n";
+    //                break;
+    //            case 5: case 6: case 7: case 8:
+    //                buildXML += "\t\t\t\t<misc type=\"number\">1</misc>\n";
+    //                //buildXML += "\t\t\t\t<profbonus type=\"number\">3</profbonus>\n";
+    //                break;
+    //            case 9: case 10: case 11: case 12:
+    //                buildXML += "\t\t\t\t<misc type=\"number\">2</misc>\n";
+    //                //buildXML += "\t\t\t\t<profbonus type=\"number\">4</profbonus>\n";
+    //                break;
+    //            case 13: case 14: case 15: case 16:
+    //                buildXML += "\t\t\t\t<misc type=\"number\">2</misc>\n";
+    //                //buildXML += "\t\t\t\t<profbonus type=\"number\">5</profbonus>\n";
+    //                break;
+    //            case 17: case 18: case 19: case 20:
+    //                buildXML += "\t\t\t\t<misc type=\"number\">3</misc>\n";
+    //                //buildXML += "\t\t\t\t<profbonus type=\"number\">6</profbonus>\n";
+    //                break;
+    //            default:
+    //                buildXML += "\t\t\t\t<misc type=\"number\">0</misc>\n";
+    //        }
+
+    //        buildXML += "\t\t\t\t<temporary type=\"number\">0</temporary>\n";
+    //        buildXML += "\t\t\t\t</initiative>\n";
+    //    }
+    //}
+
+    // Initiative
+    var computeInit = 0;
+    if (alertFeat == 1) {
+        computeInit += 5;
+    }
+    if (levelBard >= 2) {
+        computeInit += 1;
+    }
+    buildXML += "\t\t<initiative>\n";
+    if (alertFeat == 1) {
+        buildXML += "\t\t\t<misc type=\"number\">" + computeInit + "</misc>\n";
+    }
+    buildXML += "\t\t</initiative>\n";
 
     totalProfs = 0;
     buildXML += "\t\t<proficiencylist>\n";
