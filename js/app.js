@@ -184,16 +184,22 @@ var addSpeed = 0;
 
 var strScore = 0;
 var strMod = 0;
+var strProf = 0;
 var chaScore = 0;
 var chaMod = 0;
+var chaProf = 0;
 var conScore = 0;
 var conMod = 0;
+var conProf = 0;
 var intScore = 0;
 var intMod = 0;
+var intProf = 0;
 var dexScore = 0;
 var dexMod = 0;
+var dexProf = 0;
 var wisScore = 0;
 var wisMod = 0;
+var wisProf = 0;
 
 var hpBarbarian = 7;
 var hpBard = 5;
@@ -229,8 +235,14 @@ var sumHP = 0;
 
 var fgVersion = 0;
 
-mamFeat = 0;
-alertFeat = 0;
+var mamFeat = 0;
+var alertFeat = 0;
+var mobileFeat = 0;
+var obsFeat = 0;
+var profBonus = 0;
+var passWisBonus = 0;
+
+var charWalk = 0;
 
 /* * * * * * * * * * */
 
@@ -802,11 +814,8 @@ function parseCharacter(inputChar) {
         addSpeed += 10;
     }
 
-    charWalk = character.race.weightSpeeds.normal.walk + addSpeed;
-    buildXML += "\t\t<speed>\n";
-    buildXML += "\t\t\t<base type=\"number\">" + parseInt(charWalk) + "</base>\n";
-    buildXML += "\t\t\t<total type=\"number\">" + parseInt(charWalk) + "</total>\n";
-    buildXML += "\t\t</speed>\n";
+    charWalk = parseInt(character.race.weightSpeeds.normal.walk) + addSpeed;
+    
 
     // baseHitPoints
     character.race.racialTraits.some(function(current_trait, i) {
@@ -1050,6 +1059,8 @@ function parseCharacter(inputChar) {
         character.modifiers.class.some(function(thisMod) {
             if(thisMod.subType == thisAbility + "-saving-throws") {
                 buildXML += "\t\t\t\t<saveprof type=\"number\">1</saveprof>\n";
+                // Figure out how to set substring(thisAbility) + Prof = 1
+                eval('var ' + thisAbility.substring(1,4) + 'Prof = 1;');
             }
         });
         buildXML += "\t\t\t\t<score type=\"number\">" + abilScore + "</score>\n";
@@ -1419,7 +1430,11 @@ function parseCharacter(inputChar) {
             mamFeat = 1;
         } else if (thisFeat.definition.name == "Alert") {
             alertFeat = 1;
-        } else 
+        } else  if (thisFeat.definition.name == "Mobile") {
+            mobileFeat = 1;
+        } else if (thisFeat.definition.name == "Observant") {
+            obsFeat = 1;
+        }
         buildXML += "\t\t\t\t<name type=\"string\">" + fixQuote(thisFeat.definition.name) + "</name>\n";
         buildXML += "\t\t\t\t<text type=\"formattedtext\">\n";
         buildXML += "\t\t\t\t\t" + fixDesc(thisFeat.definition.description) + "\n";
@@ -1428,6 +1443,16 @@ function parseCharacter(inputChar) {
     });
     buildXML += "\t\t</featlist>\n";
 
+    if (mobileFeat == 1) {
+        charWalk += 10;
+    }
+
+    buildXML += "\t\t<speed>\n";
+    buildXML += "\t\t\t<base type=\"number\">" + parseInt(charWalk) + "</base>\n";
+    buildXML += "\t\t\t<total type=\"number\">" + parseInt(charWalk) + "</total>\n";
+    buildXML += "\t\t</speed>\n";
+
+    
     //idCount = 1;
     //hasHalf = 0;
     //halfProf = false;
@@ -1470,13 +1495,48 @@ function parseCharacter(inputChar) {
     //    }
     //}
 
+    switch (totalLevels) {
+        case 1: case 2: case 3: case 4:
+            buildXML += "\t\t\t\t<profbonus type=\"number\">2</profbonus>\n";
+            profBonus = 2;
+            break;
+        case 5: case 6: case 7: case 8:
+            buildXML += "\t\t\t\t<profbonus type=\"number\">3</profbonus>\n";
+            profBonus = 3;
+            break;
+        case 9: case 10: case 11: case 12:
+            buildXML += "\t\t\t\t<profbonus type=\"number\">4</profbonus>\n";
+            profBonus = 4;
+            break;
+        case 13: case 14: case 15: case 16:
+            buildXML += "\t\t\t\t<profbonus type=\"number\">5</profbonus>\n";
+            profBonus = 5;
+            break;
+        case 17: case 18: case 19: case 20:
+            buildXML += "\t\t\t\t<profbonus type=\"number\">6</profbonus>\n";
+            profBonus = 6;
+            break;
+    }
+
+    // Passive wisdom
+    if (obsFeat == 1) {
+        passWisBonus += 5;
+    }
+    passWisBonus += wisMod;
+    if (levelBard >= 2) {
+        passWisBonus += Math.floor(profBonus / 2);
+    }
+
+    buildXML += "\t\t<perceptionmodifier type=\"number\">" + passWisBonus + "</perceptionmodifier>\n";
+
     // Initiative
     var computeInit = 0;
     if (alertFeat == 1) {
         computeInit += 5;
     }
     if (levelBard >= 2) {
-        computeInit += 1;
+        // It's not a flat out +1, it's half proficiency
+        computeInit += Math.floor(profBonus / 2);
     }
     buildXML += "\t\t<initiative>\n";
     if (alertFeat == 1) {
