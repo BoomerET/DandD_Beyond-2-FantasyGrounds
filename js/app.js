@@ -3414,6 +3414,25 @@ function parseCharacter(inputChar) {
     buildXML += "\t\t\t</ac>\n";
     buildXML += "\t\t</defenses>\n";
 
+    buildXML += "\t\t<notes type=\"string\">\n";
+    //character.notes.some(function(eachNote, i) {
+    //    console.log(eachNote);
+    //});
+    //<notes type="string">This is just notes, nothing more.</notes>
+    if (character.hasOwnProperty("notes")) {
+        var allNotes = "";
+        //console.log("We found notes.");
+        $.each(character.notes, function(index, value) {
+            if (value != null) {
+                allNotes += index.charAt(0).toUpperCase() + index.substring(1) + ": " + value + "\\n";
+            }
+            //console.log(index + "; " +value);
+        });
+        //console.log(allNotes);
+        buildXML += allNotes;
+    }
+    buildXML += "\t\t</notes>\n";
+
     allXML += buildXML + endXML;
     $('#textHere').val(allXML);
 
@@ -3568,7 +3587,7 @@ function fixDesc(badString) {
         return "";
     }
 
-    var tempString1 = badString.replace(/<a.*nofollow">/g, "").replace(/<\/a>/g, "").replace(/<\/span>/g, "").replace(/<span\sstyle="font-weight:\w*">/g, "").replace(/<span>/g, "").replace(/<span\sstyle="color:#\w*">/g, "");
+    var tempString1 = badString.replace(/<a.*nofollow">/g, "").replace(/<\/a>/g, "").replace(/<\/span>/g, "").replace(/<span\sstyle="font-weight:\w*">/g, "").replace(/<span>/g, "").replace(/<span\sstyle="color:#\w*">/g, "").replace(/<hr>/g, "<hr />");
     var tempString2 = tempString1.replace(/<span\sstyle="font-family:&amp;#x27">/g, "").replace(/<img.*">/g, "");
     return tempString2.replace(/<br>/g, "<br />").replace(/&rsquo;/g, "'").replace(/&nbsp;/g, " ").replace(/&ldquo;/g, '"').replace(/&rdquo;/g, '"').replace(/&mdash;/g, "-").replace(/&times;/g, "*").replace(/<\/em>/g, "").replace(/<em>/g, "").replace(/&minus;/g, "-").trim();
 }
