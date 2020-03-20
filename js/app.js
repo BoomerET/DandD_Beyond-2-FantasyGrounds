@@ -3587,8 +3587,8 @@ function fixDesc(badString) {
         return "";
     }
 
-    var tempString1 = badString.replace(/<a.*\">/g, "").replace(/<a\shref.*\">/g, "").replace(/<\/a>/g, "").replace(/<\/span>/g, "").replace(/<span\sstyle="font-weight:\w*">/g, "").replace(/<span>/g, "").replace(/<span\sstyle="color:#\w*">/g, "").replace(/<hr>/g, "<hr />");
-    var tempString2 = tempString1.replace(/<span\sstyle="font-family:&amp;#x27">/g, "").replace(/<img.*">/g, "").replace(/<span\sclass=\"[a-zA-Z0-9-_]+">/g, "").replace(/<a\s.*>/g, "");
+    var tempString1 = badString.replace(/<a\s.*\">/g, "").replace(/<\/a>/g, "").replace(/<\/span>/g, "").replace(/<span\s.*">/g, "").replace(/<span>/g, "").replace(/<hr>/g, "<hr />");
+    var tempString2 = tempString1.replace(/<img.*">/g, "").replace(/<a\s.*>/g, "");
     return tempString2.replace(/<br>/g, "<br />").replace(/&rsquo;/g, "'").replace(/&nbsp;/g, " ").replace(/&ldquo;/g, '"').replace(/&rdquo;/g, '"').replace(/&mdash;/g, "-").replace(/&times;/g, "*").replace(/<\/em>/g, "").replace(/<em>/g, "").replace(/&minus;/g, "-").trim();
 }
 
