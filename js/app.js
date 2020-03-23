@@ -3587,9 +3587,11 @@ function fixDesc(badString) {
         return "";
     }
 
-    var tempString1 = badString.replace(/<a\s.*\">/g, "").replace(/<\/a>/g, "").replace(/<\/span>/g, "").replace(/<span\s.*">/g, "").replace(/<span>/g, "").replace(/<hr>/g, "<hr />");
-    var tempString2 = tempString1.replace(/<img.*">/g, "").replace(/<a\s.*>/g, "");
-    return tempString2.replace(/<br>/g, "<br />").replace(/&rsquo;/g, "'").replace(/&nbsp;/g, " ").replace(/&ldquo;/g, '"').replace(/&rdquo;/g, '"').replace(/&mdash;/g, "-").replace(/&times;/g, "*").replace(/<\/em>/g, "").replace(/<em>/g, "").replace(/&minus;/g, "-").trim();
+    var tempString1 = badString.replace(/<a\s.*?\">/g, "").replace(/<\/a>/g, "").replace(/<\/span>/g, "");
+    var tempString2 = tempString1.replace(/<img.*?">/g, "").replace(/<hr>/g, "<hr />").replace(/<span>/g, "");
+    var tempString3 = tempString2.replace(/<br>/g, "<br />").replace(/&rsquo;/g, "'").replace(/&nbsp;/g, " ");
+    var tempString4 = tempString3.replace(/&ldquo;/g, '"').replace(/<span\s.*?">/g, "").replace(/<em>/g, "").replace(/<\/em>/g, "")
+    return tempString4.replace(/&rdquo;/g, '"').replace(/&mdash;/g, "-").replace(/&times;/g, "*").replace(/&minus;/g, "-").trim();
 }
 
 function convert_case(str) {
