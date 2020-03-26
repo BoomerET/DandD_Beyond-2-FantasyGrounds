@@ -1522,7 +1522,7 @@ function parseCharacter(inputChar) {
     if (obsFeat == 1) {
         passWisBonus += 5;
     }
-    passWisBonus += wisMod;
+    //passWisBonus += wisMod;
     if (levelBard >= 2) {
         passWisBonus += Math.floor(profBonus / 2);
     }
