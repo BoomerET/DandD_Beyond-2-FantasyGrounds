@@ -885,8 +885,6 @@ function parseCharacter(inputChar) {
         buildXML += "\t\t\t\t<source type=\"string\">" + convert_case(replaceDash(character.race.baseName.toLowerCase())) + "</source>\n";
         buildXML += "\t\t\t\t<locked type=\"number\">1</locked>\n";
         buildXML += "\t\t\t\t<text type=\"formattedtext\">\n";
-        //buildXML += "\t\t\t\t\t<p>" + remove_tags_traits(fixQuote(current_trait.definition.description)) + "</p>\n";
-        // CHANGED/FIXME
         buildXML += "\t\t\t\t\t" + fixDesc(current_trait.definition.description) + "\n";
         buildXML += "\t\t\t\t</text>\n";
         buildXML += "\t\t\t\t<type type=\"string\">racial</type>\n";
@@ -3582,12 +3580,19 @@ function fixQuote(badString) {
     return badString.replace(/\n/g, '\n').replace(/\u2019/g, "'").replace(/\u2014/g, "-").replace(/"/g, "&#34;").replace(/\u2022/g, ":").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&nbsp;/g, " ").replace(/&rsquo;/g, "'").replace(/\s&/g, "&amp;").trim();
 }
 
+// Need two, one for FGC, another for FGU
 function fixDesc(badString) {
     if(badString == "" || badString == null) {
         return "";
     }
-
-    var tempString1 = badString.replace(/<a\s.*?\">/g, "").replace(/<\/a>/g, "").replace(/<\/span>/g, "");
+    if (fgVersion == 0) {
+        // FG Classic
+        var tempString1 = badString.replace(/<a\s.*?\">/g, "").replace(/<\/a>/g, "").replace(/<\/span>/g, "").replace(/’/g, "'");
+    } else {
+        // FG Unity
+        var tempString1 = badString.replace(/<a\s.*?\">/g, "").replace(/<\/a>/g, "").replace(/<\/span>/g, "");
+    }
+    
     var tempString2 = tempString1.replace(/<img.*?">/g, "").replace(/<hr>/g, "<hr />").replace(/<span>/g, "");
     var tempString3 = tempString2.replace(/<br>/g, "<br />").replace(/&rsquo;/g, "'").replace(/&nbsp;/g, " ");
     var tempString4 = tempString3.replace(/&ldquo;/g, '"').replace(/<span\s.*?">/g, "").replace(/<em>/g, "").replace(/<\/em>/g, "")
