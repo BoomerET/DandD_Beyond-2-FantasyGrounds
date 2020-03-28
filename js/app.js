@@ -722,8 +722,11 @@ function parseCharacter(inputChar) {
             }
             if (current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
                 rogueArchetype = current_class.subclassDefinition.name;
-                if(current_class.subclassDefinition.name == "Arcane Trickster") {
+                //console.log(rogueArchetype);
+                if(rogueArchetype == "Arcane Trickster") {
                     rogueSubclassArcaneTrickster = 1;
+                } else if (rogueArchetype.match(/Swashbuckler/)) {
+
                 }
             }
         } else if (thisClass == "sorcerer") {
@@ -1193,12 +1196,17 @@ function parseCharacter(inputChar) {
             weaponID.push(i + 1);
             weaponName.push(item.definition.name);
             weaponProperties.push(thisProperties);
+            //console.log(item.definition.name);
+            //console.log(thisProperties);
             if(thisProperties.includes("Finesse")) {
                 if(strScore >= dexScore) {
                     weaponBase.push("strength");
                 } else {
                     weaponBase.push("dexterity");
                 }
+            } else if (thisProperties.includes("Range")) {
+                //console.log(item.definition.name);
+                weaponBase.push("dexterity");
             } else {
                 weaponBase.push("base");
             }
@@ -1370,6 +1378,7 @@ function parseCharacter(inputChar) {
             buildXML += "\t\t\t\t<maxammo type=\"number\">" + numArrows + "</maxammo>\n";
         } 
         buildXML += "\t\t\t\t<attackbonus type=\"number\">" + weaponBonus[x] + "</attackbonus>\n";
+        buildXML += "\t\t\t\t<attackstat type=\"string\">" + weaponBase[x] + "</attackstat>\n";
         buildXML += "\t\t\t\t<isidentified type=\"number\">1</isidentified>\n";
         // 0: Melee, 1: Ranged, 2: Thrown
         if(weaponProperties[x].match(/Thrown/)) {
@@ -1403,6 +1412,7 @@ function parseCharacter(inputChar) {
             buildXML += "\t\t\t\t\t</id-00001>\n";
             buildXML += "\t\t\t\t</damagelist>\n";
             buildXML += "\t\t\t\t<attackbonus type=\"number\">" + weaponBonus[x] + "</attackbonus>\n";
+            buildXML += "\t\t\t\t<attackstat type=\"string\">" + weaponBase[x] + "</attackstat>\n";
             buildXML += "\t\t\t\t<isidentified type=\"number\">1</isidentified>\n";
             buildXML += "\t\t\t\t<type type=\"number\">0</type>\n";
             buildXML += "\t\t\t</id-" + thisIteration + ">\n";
@@ -1525,6 +1535,7 @@ function parseCharacter(inputChar) {
         passWisBonus += Math.floor(profBonus / 2);
     }
 
+    
     buildXML += "\t\t<perceptionmodifier type=\"number\">" + passWisBonus + "</perceptionmodifier>\n";
 
     // Initiative
@@ -1536,8 +1547,11 @@ function parseCharacter(inputChar) {
         // It's not a flat out +1, it's half proficiency
         computeInit += Math.floor(profBonus / 2);
     }
+    if (rogueArchetype.match(/Swashbuckler/) && levelRogue >= 3) {
+        computeInit += chaMod;
+    }
     buildXML += "\t\t<initiative>\n";
-    if (alertFeat == 1) {
+    if (alertFeat == 1 || levelBard >= 2 || (rogueArchetype.match(/Swashbuckler/) && levelRogue >= 3)) {
         buildXML += "\t\t\t<misc type=\"number\">" + computeInit + "</misc>\n";
     }
     buildXML += "\t\t</initiative>\n";
