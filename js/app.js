@@ -458,15 +458,23 @@ function parseCharacter(inputChar) {
     }
 
     var background = '';
-    if(character.background.definition != null) background = character.background.definition.name;
-    if(background == '' && character.background.customBackground.name != null) background = character.background.customBackground.name;
+    if(character.background.definition != null) {
+        background = character.background.definition.name;
+    }
+
+    if(background == '' && character.background.customBackground.name != null) {
+        background = character.background.customBackground.name;
+    }
+
     buildXML += "\t\t<background type=\"string\">" + background + "</background>\n";
     buildXML += "\t\t<backgroundlink type=\"windowreference\">\n";
     buildXML += "\t\t\t<class>reference_background</class>\n";
     if(background.match(/Artisan\s\/\sGuild/)) {
-        background = "Guild Artisan";
+        background = "guildartisan";
     } else if(background.match(/House\sAgent/)) {
         background = "houseagent";
+    } else if (background.match(/Criminal\s\/\sSpy/)) {
+        background = "spy";
     }
     buildXML += "\t\t\t<recordname>reference.backgrounddata." + background.toLowerCase().replace(/\s/g, "") + "@*</recordname>\n";
     buildXML += "\t\t</backgroundlink>\n";
