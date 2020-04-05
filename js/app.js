@@ -844,7 +844,18 @@ function parseCharacter(inputChar) {
         addHP += levelSorcerer;
     }
 
-    totalHP = addHP + sumHP + (Math.floor((getTotalAbilityScore(character, 3) - 10 ) / 2) * totalLevels);
+    
+
+    //if (character.preferences.hitPointType)
+    // FIXME HP options
+    //console.log(character.preferences.hitPointType);
+
+    // 1 = Fixed, 2 = Manual
+    if (character.preferences.hitPointType == "2") {
+        totalHP = character.baseHitPoints + + ((Math.floor((getTotalAbilityScore(character, 3) - 10 ) / 2) * totalLevels))
+    } else {
+        totalHP = addHP + sumHP + (Math.floor((getTotalAbilityScore(character, 3) - 10 ) / 2) * totalLevels);
+    }
 
     buildXML += "\t\t<hp>\n";
     if(character.deathSaves.failCount != null) {
@@ -1540,6 +1551,7 @@ function parseCharacter(inputChar) {
     }
     //passWisBonus += wisMod;
     if (levelBard >= 2) {
+        // Jack of all trades
         passWisBonus += Math.floor(profBonus / 2);
     }
 
@@ -2957,7 +2969,42 @@ function parseCharacter(inputChar) {
             thisIteration = pad(totalSpells + 1, 5);
             totalSpells += 1;
             buildXML += "\t\t\t<id-" + thisIteration + ">\n";
-            buildXML += addRogueSneakAttack;
+            buildXML += addRogueSneakAttack01;
+            switch (levelRogue) {
+                case 1: case 2: 
+                    buildXML += "\t\t<label type=\"string\">DMG: 1d6</label>\n";
+                    break;
+                case 3: case 4: 
+                    buildXML += "\t\t<label type=\"string\">DMG: 2d6</label>\n";
+                    break;
+                case 5: case 6: 
+                    buildXML += "\t\t<label type=\"string\">DMG: 3d6</label>\n";
+                    break;
+                case 7: case 8: 
+                    buildXML += "\t\t<label type=\"string\">DMG: 4d6</label>\n";
+                    break;
+                case 9: case 10: 
+                    buildXML += "\t\t<label type=\"string\">DMG: 5d6</label>\n";
+                    break;
+                case 11: case 12: 
+                    buildXML += "\t\t<label type=\"string\">DMG: 6d6</label>\n";
+                    break;
+                case 13: case 14: 
+                    buildXML += "\t\t<label type=\"string\">DMG: 7d6</label>\n";
+                    break;
+                case 15: case 16: 
+                    buildXML += "\t\t<label type=\"string\">DMG: 8d6</label>\n";
+                    break;
+                case 17: case 18: 
+                    buildXML += "\t\t<label type=\"string\">DMG: 9d6</label>\n";
+                    break;
+                case 19: case 20: 
+                    buildXML += "\t\t<label type=\"string\">DMG: 10d6</label>\n";
+                    break;
+                default:
+                    buildXML += "\t\t<label type=\"string\">DMG: 1d6</label>\n";
+            }
+            buildXML += addRogueSneakAttack02;
             buildXML += "\t\t\t</id-" + thisIteration + ">\n";
             if (levelRogue >= 3) {
                 if (rogueArchetype.match(/Swashbuckler/)) {
@@ -3444,7 +3491,7 @@ function parseCharacter(inputChar) {
         //console.log("We found notes.");
         $.each(character.notes, function(index, value) {
             if (value != null) {
-                allNotes += index.charAt(0).toUpperCase() + index.substring(1) + ": " + value + "\\n";
+                allNotes += index.charAt(0).toUpperCase() + index.substring(1) + ": " + fixDesc(value) + "\\n";
             }
             //console.log(index + "; " +value);
         });
@@ -3609,7 +3656,7 @@ function fixDesc(badString) {
     }
     if (fgVersion == 0) {
         // FG Classic
-        var tempString1 = badString.replace(/<a\s.*?\">/g, "").replace(/<\/a>/g, "").replace(/<\/span>/g, "").replace(/’/g, "'");
+        var tempString1 = badString.replace(/<a\s.*?\">/g, "").replace(/<\/a>/g, "").replace(/<\/span>/g, "").replace(/’/g, "'").replace(/—/g, "-");
     } else {
         // FG Unity
         var tempString1 = badString.replace(/<a\s.*?\">/g, "").replace(/<\/a>/g, "").replace(/<\/span>/g, "");
@@ -7422,12 +7469,15 @@ addRogueEvasion=" \
 <ritual type=\"number\">0</ritual>\n \
 <source type=\"string\">Rogue</source>\n";
 
-addRogueSneakAttack=" \
+addRogueSneakAttack01=" \
 <actions>\n \
 \t<id-00001>\n \
 \t\t<apply type=\"string\">roll</apply>\n \
-\t\t<durmod type=\"number\">0</durmod>\n \
-\t\t<label type=\"string\">DMG: 10d6</label>\n \
+\t\t<durmod type=\"number\">0</durmod>\n";
+
+//\t\t<label type=\"string\">DMG: 10d6</label>\n \
+
+addRogueSneakAttack02=" \
 \t\t<order type=\"number\">1</order>\n \
 \t\t<targeting type=\"string\">self</targeting>\n \
 \t\t<type type=\"string\">effect</type>\n \
