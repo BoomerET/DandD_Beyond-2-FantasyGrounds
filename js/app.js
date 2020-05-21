@@ -55,6 +55,9 @@ var source = [
     "Baradun(1215852)",
 ];
 
+var casterLevels = 0;
+var casterClasses = 0;
+
 var totalClasses = 0;
 
 /* * * * * * * * */
@@ -583,14 +586,17 @@ function parseCharacter(inputChar) {
 
     character.classes.some(function(current_class, i) {
         thisClass = current_class.definition.name.toLowerCase();
+        //console.log("Class: " + thisClass);
          if (thisClass == "barbarian") {
             isBarbarian = 1;
             levelBarbarian = current_class.level;
             if (current_class.isStartingClass == true) {
                 sumHP += hpStartBarbarian + ((levelBarbarian - 1) * hpBarbarian);
+                //sumHP += hpStartBard + ((levelBard - 1) * hpBard);
             } else {
                 sumHP += levelBarbarian  * hpBarbarian;
             }
+
 
             switch (parseInt(levelBarbarian)) {
                 case 1: case 2:
@@ -643,6 +649,8 @@ function parseCharacter(inputChar) {
         } else if (thisClass == "bard") {
             isBard = 1;
             levelBard = current_class.level;
+            casterLevels += levelBard;
+            casterClasses += 1;
             if (current_class.isStartingClass == true) {
                 sumHP += hpStartBard + ((levelBard - 1) * hpBard);
             } else {
@@ -654,6 +662,8 @@ function parseCharacter(inputChar) {
         } else if (thisClass == "cleric") {
             isCleric = 1;
             levelCleric = current_class.level;
+            casterLevels += levelCleric;
+            casterClasses += 1;
             if (current_class.isStartingClass == true) {
                 sumHP += hpStartCleric + ((levelCleric - 1) * hpCleric);
             } else {
@@ -665,6 +675,8 @@ function parseCharacter(inputChar) {
         } else if (thisClass == "druid") {
             isDruid = 1;
             levelDruid = current_class.level;
+            casterLevels += levelDruid;
+            casterClasses += 1;
             if (current_class.isStartingClass == true) {
                 sumHP += hpStartDruid + ((levelDruid - 1) * hpDruid);
             } else {
@@ -685,6 +697,8 @@ function parseCharacter(inputChar) {
                 fighterArchetype = current_class.subclassDefinition.name;
                 if(current_class.subclassDefinition.name == "Eldritch Knight") {
                     fighterSubclassEldritchKnight = 1;
+                    casterLevels += Math.floor(levelFighter / 3);
+                    casterClasses += 1;
                 }
             }
         } else if (thisClass == "monk") {
@@ -701,6 +715,8 @@ function parseCharacter(inputChar) {
         } else if (thisClass == "paladin") {
             isPaladin = 1;
             levelPaladin = current_class.level;
+            casterLevels += Math.floor(levelPaladin / 2);
+            casterClasses += 1;
             if (current_class.isStartingClass == true) {
                 sumHP += hpStartPaladin + ((levelPaladin - 1) * hpPaladin);
             } else {
@@ -712,6 +728,8 @@ function parseCharacter(inputChar) {
         } else if (thisClass == "ranger") {
             isRanger = 1;
             levelRanger = current_class.level;
+            casterLevels += Math.floor(levelRanger / 2);
+            casterClasses += 1;
             if (current_class.isStartingClass == true) {
                 sumHP += hpStartRanger + ((levelRanger - 1) * hpRanger);
             } else {
@@ -733,6 +751,8 @@ function parseCharacter(inputChar) {
                 //console.log(rogueArchetype);
                 if(rogueArchetype == "Arcane Trickster") {
                     rogueSubclassArcaneTrickster = 1;
+                    casterLevels += Math.floor(levelRogue / 3);
+                    casterClasses += 1;
                 } else if (rogueArchetype.match(/Swashbuckler/)) {
 
                 }
@@ -740,6 +760,8 @@ function parseCharacter(inputChar) {
         } else if (thisClass == "sorcerer") {
             isSorcerer = 1;
             levelSorcerer = current_class.level;
+            casterLevels += levelSorcerer;
+            casterClasses += 1;
             if (current_class.isStartingClass == true) {
                 sumHP += hpStartSorcerer + ((levelSorcerer - 1) * hpSorcerer);
             } else {
@@ -762,6 +784,8 @@ function parseCharacter(inputChar) {
         } else if (thisClass == "wizard") {
             isWizard = 1;
             levelWizard = current_class.level;
+            casterLevels += levelWizard;
+            casterClasses += 1;
             if (current_class.isStartingClass == true) {
                 sumHP += hpStartWizard + ((levelWizard - 1) * hpWizard);
             } else {
@@ -770,7 +794,7 @@ function parseCharacter(inputChar) {
             if (current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
                 wizardSchool = current_class.subclassDefinition.name;
             }
-        } else if (thisClass == "blood hunter") {
+        } else if (thisClass == "blood hunter" || thisClass == "blood hunter (archived)") {
             isBloodHunter = 1;
             levelBloodHunter = current_class.level;
             if (current_class.isStartingClass == true) {
@@ -778,6 +802,7 @@ function parseCharacter(inputChar) {
             } else {
                 sumHP += levelBloodHunter  * hpBloodHunter;
             }
+            //console.log("sumHP: " + sumHP);
         } else if (thisClass == "artificer") {
             isArtificer = 1;
             levelArtificer = current_class.level;
@@ -805,7 +830,7 @@ function parseCharacter(inputChar) {
         } else if ((thisClass == "paladin" || thisClass == "ranger") && current_class.level >= 2) {
             buildXML += "\t\t\t\t<casterlevelinvmult type=\"number\">2</casterlevelinvmult>\n";
         } else if ((thisClass == "rogue" || thisClass == "fighter") && current_class.level >= 3) {
-            if(current_class.hasOwnProperty("subclassDefinition")) {
+            if(current_class.hasOwnProperty("subclassDefinition") && current_class.subclassDefinition != null) {
                 if(current_class.subclassDefinition.name == "Arcane Trickster" || current_class.subclassDefinition.name == "Eldritch Knight") {
                     buildXML += "\t\t\t\t<casterlevelinvmult type=\"number\">3</casterlevelinvmult>\n";
                 }
@@ -844,8 +869,6 @@ function parseCharacter(inputChar) {
         addHP += levelSorcerer;
     }
 
-    
-
     //if (character.preferences.hitPointType)
     // FIXME HP options
     //console.log(character.preferences.hitPointType);
@@ -854,7 +877,9 @@ function parseCharacter(inputChar) {
     if (character.preferences.hitPointType == "2") {
         totalHP = character.baseHitPoints + + ((Math.floor((getTotalAbilityScore(character, 3) - 10 ) / 2) * totalLevels))
     } else {
-        totalHP = addHP + sumHP + (Math.floor((getTotalAbilityScore(character, 3) - 10 ) / 2) * totalLevels);
+        //console.log("addHP: " + addHP + "; sumHP: " + sumHP);
+        //console.log("totalLevels: " + (Math.floor((getTotalAbilityScore(character, 3) - 10 ) / 2)));
+        totalHP = addHP + sumHP + Math.floor((getTotalAbilityScore(character, 3) - 10 ) / 2) * totalLevels;
     }
 
     buildXML += "\t\t<hp>\n";
@@ -1051,6 +1076,9 @@ function parseCharacter(inputChar) {
     buildXML += "\t\t<abilities>\n";
     justAbilities.some(function(thisAbility, ja) {
         abilScore = parseInt(getTotalAbilityScore(character, ja + 1));
+        if (abilScore > 20) {
+            abilScore = 20;
+        }
         modScore = parseInt(abilScore / 2) - 5;
 
         if(thisAbility == "strength") {
@@ -1923,6 +1951,7 @@ function parseCharacter(inputChar) {
         }
     });
     character.spells.class.some(function(eachSpell, i) {
+        //console.log(eachSpell.definition.name);
         if(!spellList.includes(eachSpell.definition.name)) {
             spellList.push(eachSpell.definition.name);
             totalSpells += 1;
@@ -2006,7 +2035,7 @@ function parseCharacter(inputChar) {
                 character.classSpells[j].spells.some(function(spell) {
                     if(!spellList.includes(spell.definition.name)) {
                         //if(spell.prepared == true || spell.alwaysPrepared == true || spell.definition.level == 0 || spell.definition.ritual == true || isSorcerer == 1 || isRanger == 1 || isBard == 1 || rogueSubclassArcaneTrickster == 1 ||fighterSubclassEldritchKnight == 1) {
-                        if(spell.prepared == true || spell.alwaysPrepared == true || spell.definition.level == 0 || isSorcerer == 1 || isRanger == 1 || isBard == 1 || rogueSubclassArcaneTrickster == 1 || fighterSubclassEldritchKnight == 1) {
+                        if(spell.prepared == true || spell.alwaysPrepared == true || spell.definition.level == 0 || isSorcerer == 1 || isRanger == 1 || isBard == 1 || rogueSubclassArcaneTrickster == 1 || fighterSubclassEldritchKnight == 1 || isWarlock == 1) {
 
                             spellList.push(spell.definition.name);
                             totalSpells += 1;
@@ -3481,17 +3510,15 @@ function parseCharacter(inputChar) {
     buildXML += "\t\t\t</ac>\n";
     buildXML += "\t\t</defenses>\n";
 
-    buildXML += "\t\t<notes type=\"string\">\n";
-    //character.notes.some(function(eachNote, i) {
-    //    console.log(eachNote);
-    //});
-    //<notes type="string">This is just notes, nothing more.</notes>
+    buildXML += "\t\t<notes type=\"string\">";
+    var allNotes = "";
+    allNotes += "D" + "&amp;" + "D Beyond Character ID: " + $("#getcharID").val().trim() + "\\n";
     if (character.hasOwnProperty("notes")) {
-        var allNotes = "";
+        
         //console.log("We found notes.");
         $.each(character.notes, function(index, value) {
             if (value != null) {
-                allNotes += index.charAt(0).toUpperCase() + index.substring(1) + ": " + fixDesc(value) + "\\n";
+                allNotes += index.charAt(0).toUpperCase() + index.substring(1) + ": " + fixDesc(value).trim() + "\\n";
             }
             //console.log(index + "; " +value);
         });
@@ -3554,6 +3581,9 @@ const getTotalAbilityScore = function(character, scoreId) {
                 used_ids.push(modifiers[i].id);
             }
         }
+    }
+    if (total > 20) {
+        total = 20;
     }
     return total;
 };
@@ -3711,241 +3741,168 @@ const getPactMagicSlots = function(level) {
 };
 
 function getSpellSlots(slotClass, slotLevel, slotSubClass) {
-    if((slotClass === "bard") || (slotClass === "cleric") || (slotClass === "druid") || (slotClass === "sorcerer") || (slotClass === "wizard")) {
-        if (slotLevel == 1) {
-            charSpellSlots1 = 2;
-        } else if (slotLevel == 2) {
-            charSpellSlots1 = 3;
-        } else if (slotLevel == 3) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 2;
-        } else if (slotLevel == 4) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-        } else if (slotLevel == 5) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 2;
-        } else if (slotLevel == 6) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-        } else if (slotLevel == 7) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 1;
-        } else if (slotLevel == 8) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 2;
-        } else if (slotLevel == 9) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 3;
-            charSpellSlots5 = 1;
-        } else if (slotLevel == 10) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 3;
-            charSpellSlots5 = 2;
-        } else if (slotLevel == 11) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 3;
-            charSpellSlots5 = 2;
-            charSpellSlots6 = 1;
-        } else if (slotLevel == 12) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 3;
-            charSpellSlots5 = 2;
-            charSpellSlots6 = 1;
-        } else if (slotLevel == 13) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 3;
-            charSpellSlots5 = 2;
-            charSpellSlots6 = 1;
-            charSpellSlots7 = 1;
-        } else if (slotLevel == 14) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 3;
-            charSpellSlots5 = 2;
-            charSpellSlots6 = 1;
-            charSpellSlots7 = 1;
-        } else if (slotLevel == 15) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 3;
-            charSpellSlots5 = 2;
-            charSpellSlots6 = 1;
-            charSpellSlots7 = 1;
-            charSpellSlots8 = 1;
-        } else if (slotLevel == 16) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 3;
-            charSpellSlots5 = 2;
-            charSpellSlots6 = 1;
-            charSpellSlots7 = 1;
-            charSpellSlots8 = 1;
-        } else if (slotLevel == 17) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 3;
-            charSpellSlots5 = 2;
-            charSpellSlots6 = 1;
-            charSpellSlots7 = 1;
-            charSpellSlots8 = 1;
-            charSpellSlots9 = 1;
-        } else if (slotLevel == 18) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 3;
-            charSpellSlots5 = 3;
-            charSpellSlots6 = 1;
-            charSpellSlots7 = 1;
-            charSpellSlots8 = 1;
-            charSpellSlots9 = 1;
-        } else if (slotLevel == 19) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 3;
-            charSpellSlots5 = 3;
-            charSpellSlots6 = 2;
-            charSpellSlots7 = 1;
-            charSpellSlots8 = 1;
-            charSpellSlots9 = 1;
-        } else if (slotLevel == 20) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 3;
-            charSpellSlots5 = 3;
-            charSpellSlots6 = 2;
-            charSpellSlots7 = 2;
-            charSpellSlots8 = 1;
-            charSpellSlots9 = 1;
-        }
-    } else if(slotClass === "paladin" || slotClass === "ranger") {
-        if (slotLevel == 2) {
-            charSpellSlots1 = 2;
-        } else if (slotLevel == 3) {
-            charSpellSlots1 = 3;
-        } else if (slotLevel == 4) {
-            charSpellSlots1 = 3;
-        } else if (slotLevel == 5) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 2;
-        } else if (slotLevel == 6) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 2;
-        } else if (slotLevel == 7) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-        } else if (slotLevel == 8) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-        } else if (slotLevel == 9) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 2;
-        } else if (slotLevel == 10) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 2;
-        } else if (slotLevel == 11) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-        } else if (slotLevel == 12) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-        } else if (slotLevel == 13) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 1;
-        } else if (slotLevel == 14) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 1;
-        } else if (slotLevel == 15) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 2;
-        } else if (slotLevel == 16) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 2;
-        } else if (slotLevel == 17) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 3;
-            charSpellSlots5 = 1;
-        } else if (slotLevel == 18) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 3;
-            charSpellSlots5 = 1;
-        } else if (slotLevel == 19) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 3;
-            charSpellSlots5 = 2;
-        } else if (slotLevel == 20) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 3;
-            charSpellSlots5 = 2;
-        }
-    } else if((slotClass === "fighter" || slotClass === "rogue") && slotLevel >= 3 && slotSubClass != null) {
-        if(slotSubClass == "ArcaneTrickster" || slotSubClass == "Eldritch Knight") {
-            if (slotLevel == 3) {
+    if (casterClasses == 1) {
+        if((slotClass === "bard") || (slotClass === "cleric") || (slotClass === "druid") || (slotClass === "sorcerer") || (slotClass === "wizard")) {
+            if (slotLevel == 1) {
                 charSpellSlots1 = 2;
+            } else if (slotLevel == 2) {
+                charSpellSlots1 = 3;
+            } else if (slotLevel == 3) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 2;
             } else if (slotLevel == 4) {
-                charSpellSlots1 = 3;
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
             } else if (slotLevel == 5) {
-                charSpellSlots1 = 3;
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 2;
             } else if (slotLevel == 6) {
-                charSpellSlots1 = 3;
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
             } else if (slotLevel == 7) {
                 charSpellSlots1 = 4;
-                charSpellSlots2 = 2;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 1;
             } else if (slotLevel == 8) {
                 charSpellSlots1 = 4;
-                charSpellSlots2 = 2;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 2;
             } else if (slotLevel == 9) {
                 charSpellSlots1 = 4;
-                charSpellSlots2 = 2;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 1;
             } else if (slotLevel == 10) {
                 charSpellSlots1 = 4;
                 charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 2;
             } else if (slotLevel == 11) {
                 charSpellSlots1 = 4;
                 charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 2;
+                charSpellSlots6 = 1;
+            } else if (slotLevel == 12) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 2;
+                charSpellSlots6 = 1;
+            } else if (slotLevel == 13) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 2;
+                charSpellSlots6 = 1;
+                charSpellSlots7 = 1;
+            } else if (slotLevel == 14) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 2;
+                charSpellSlots6 = 1;
+                charSpellSlots7 = 1;
+            } else if (slotLevel == 15) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 2;
+                charSpellSlots6 = 1;
+                charSpellSlots7 = 1;
+                charSpellSlots8 = 1;
+            } else if (slotLevel == 16) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 2;
+                charSpellSlots6 = 1;
+                charSpellSlots7 = 1;
+                charSpellSlots8 = 1;
+            } else if (slotLevel == 17) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 2;
+                charSpellSlots6 = 1;
+                charSpellSlots7 = 1;
+                charSpellSlots8 = 1;
+                charSpellSlots9 = 1;
+            } else if (slotLevel == 18) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 3;
+                charSpellSlots6 = 1;
+                charSpellSlots7 = 1;
+                charSpellSlots8 = 1;
+                charSpellSlots9 = 1;
+            } else if (slotLevel == 19) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 3;
+                charSpellSlots6 = 2;
+                charSpellSlots7 = 1;
+                charSpellSlots8 = 1;
+                charSpellSlots9 = 1;
+            } else if (slotLevel == 20) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 3;
+                charSpellSlots6 = 2;
+                charSpellSlots7 = 2;
+                charSpellSlots8 = 1;
+                charSpellSlots9 = 1;
+            }
+        } else if(slotClass === "paladin" || slotClass === "ranger") {
+            if (slotLevel == 2) {
+                charSpellSlots1 = 2;
+            } else if (slotLevel == 3) {
+                charSpellSlots1 = 3;
+            } else if (slotLevel == 4) {
+                charSpellSlots1 = 3;
+            } else if (slotLevel == 5) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 2;
+            } else if (slotLevel == 6) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 2;
+            } else if (slotLevel == 7) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+            } else if (slotLevel == 8) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+            } else if (slotLevel == 9) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 2;
+            } else if (slotLevel == 10) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 2;
+            } else if (slotLevel == 11) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
             } else if (slotLevel == 12) {
                 charSpellSlots1 = 4;
                 charSpellSlots2 = 3;
@@ -3953,121 +3910,350 @@ function getSpellSlots(slotClass, slotLevel, slotSubClass) {
             } else if (slotLevel == 13) {
                 charSpellSlots1 = 4;
                 charSpellSlots2 = 3;
-                charSpellSlots3 = 2;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 1;
             } else if (slotLevel == 14) {
                 charSpellSlots1 = 4;
                 charSpellSlots2 = 3;
-                charSpellSlots3 = 2;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 1;
             } else if (slotLevel == 15) {
                 charSpellSlots1 = 4;
                 charSpellSlots2 = 3;
-                charSpellSlots3 = 2;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 2;
             } else if (slotLevel == 16) {
                 charSpellSlots1 = 4;
                 charSpellSlots2 = 3;
                 charSpellSlots3 = 3;
+                charSpellSlots4 = 2;
             } else if (slotLevel == 17) {
                 charSpellSlots1 = 4;
                 charSpellSlots2 = 3;
                 charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 1;
             } else if (slotLevel == 18) {
                 charSpellSlots1 = 4;
                 charSpellSlots2 = 3;
                 charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 1;
             } else if (slotLevel == 19) {
                 charSpellSlots1 = 4;
                 charSpellSlots2 = 3;
                 charSpellSlots3 = 3;
-                charSpellSlots4 = 1;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 2;
             } else if (slotLevel == 20) {
                 charSpellSlots1 = 4;
                 charSpellSlots2 = 3;
                 charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 2;
+            }
+        } else if((slotClass === "fighter" || slotClass === "rogue") && slotLevel >= 3 && slotSubClass != null) {
+            if(slotSubClass == "ArcaneTrickster" || slotSubClass == "Eldritch Knight") {
+                if (slotLevel == 3) {
+                    charSpellSlots1 = 2;
+                } else if (slotLevel == 4) {
+                    charSpellSlots1 = 3;
+                } else if (slotLevel == 5) {
+                    charSpellSlots1 = 3;
+                } else if (slotLevel == 6) {
+                    charSpellSlots1 = 3;
+                } else if (slotLevel == 7) {
+                    charSpellSlots1 = 4;
+                    charSpellSlots2 = 2;
+                } else if (slotLevel == 8) {
+                    charSpellSlots1 = 4;
+                    charSpellSlots2 = 2;
+                } else if (slotLevel == 9) {
+                    charSpellSlots1 = 4;
+                    charSpellSlots2 = 2;
+                } else if (slotLevel == 10) {
+                    charSpellSlots1 = 4;
+                    charSpellSlots2 = 3;
+                } else if (slotLevel == 11) {
+                    charSpellSlots1 = 4;
+                    charSpellSlots2 = 3;
+                } else if (slotLevel == 12) {
+                    charSpellSlots1 = 4;
+                    charSpellSlots2 = 3;
+                    charSpellSlots3 = 3;
+                } else if (slotLevel == 13) {
+                    charSpellSlots1 = 4;
+                    charSpellSlots2 = 3;
+                    charSpellSlots3 = 2;
+                } else if (slotLevel == 14) {
+                    charSpellSlots1 = 4;
+                    charSpellSlots2 = 3;
+                    charSpellSlots3 = 2;
+                } else if (slotLevel == 15) {
+                    charSpellSlots1 = 4;
+                    charSpellSlots2 = 3;
+                    charSpellSlots3 = 2;
+                } else if (slotLevel == 16) {
+                    charSpellSlots1 = 4;
+                    charSpellSlots2 = 3;
+                    charSpellSlots3 = 3;
+                } else if (slotLevel == 17) {
+                    charSpellSlots1 = 4;
+                    charSpellSlots2 = 3;
+                    charSpellSlots3 = 3;
+                } else if (slotLevel == 18) {
+                    charSpellSlots1 = 4;
+                    charSpellSlots2 = 3;
+                    charSpellSlots3 = 3;
+                } else if (slotLevel == 19) {
+                    charSpellSlots1 = 4;
+                    charSpellSlots2 = 3;
+                    charSpellSlots3 = 3;
+                    charSpellSlots4 = 1;
+                } else if (slotLevel == 20) {
+                    charSpellSlots1 = 4;
+                    charSpellSlots2 = 3;
+                    charSpellSlots3 = 3;
+                    charSpellSlots4 = 1;
+                }
+            }
+        } else if (slotClass === "artificer") {
+            if (slotLevel == 1) {
+                charSpellSlots1 = 2;
+            } else if (slotLevel == 2) {
+                charSpellSlots1 = 2;
+            } else if (slotLevel == 3) {
+                charSpellSlots1 = 3;
+            } else if (slotLevel == 4) {
+                charSpellSlots1 = 3;
+            } else if (slotLevel == 5) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 2;
+            } else if (slotLevel == 6) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 2;
+            } else if (slotLevel == 7) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+            } else if (slotLevel == 8) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+            } else if (slotLevel == 9) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 2;
+            } else if (slotLevel == 10) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 2;
+            } else if (slotLevel == 11) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+            } else if (slotLevel == 12) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+            } else if (slotLevel == 13) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
                 charSpellSlots4 = 1;
+            } else if (slotLevel == 14) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 1;
+            } else if (slotLevel == 15) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 2;
+            } else if (slotLevel == 16) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 2;
+            } else if (slotLevel == 17) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 1;
+            } else if (slotLevel == 18) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 1;
+            } else if (slotLevel == 19) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 2;
+            } else if (slotLevel == 20) {
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 2;
             }
         }
-    } else if (slotClass === "artificer") {
-        if (slotLevel == 1) {
-            charSpellSlots1 = 2;
-        } else if (slotLevel == 2) {
-            charSpellSlots1 = 2;
-        } else if (slotLevel == 3) {
-            charSpellSlots1 = 3;
-        } else if (slotLevel == 4) {
-            charSpellSlots1 = 3;
-        } else if (slotLevel == 5) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 2;
-        } else if (slotLevel == 6) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 2;
-        } else if (slotLevel == 7) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-        } else if (slotLevel == 8) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-        } else if (slotLevel == 9) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 2;
-        } else if (slotLevel == 10) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 2;
-        } else if (slotLevel == 11) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-        } else if (slotLevel == 12) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-        } else if (slotLevel == 13) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 1;
-        } else if (slotLevel == 14) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 1;
-        } else if (slotLevel == 15) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 2;
-        } else if (slotLevel == 16) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 2;
-        } else if (slotLevel == 17) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 3;
-            charSpellSlots5 = 1;
-        } else if (slotLevel == 18) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 3;
-            charSpellSlots5 = 1;
-        } else if (slotLevel == 19) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 3;
-            charSpellSlots5 = 2;
-        } else if (slotLevel == 20) {
-            charSpellSlots1 = 4;
-            charSpellSlots2 = 3;
-            charSpellSlots3 = 3;
-            charSpellSlots4 = 3;
-            charSpellSlots5 = 2;
+    } else {
+        // Character has multiple spell caster levels, jerk
+        // Value is casterLevels
+        switch(casterLevels) {
+            case 1:
+                charSpellSlots1 = 2;
+                break;
+            case 2:
+                charSpellSlots1 = 3;
+                break;
+            case 3:
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 2;
+                break;
+            case 4:
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                break;
+            case 5:
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 2;
+                break;
+            case 6:
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                break;
+            case 7:
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 1;
+                break;
+            case 8:
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 2;
+                break;
+            case 9:
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 1;
+                break;
+            case 10:
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 2;
+                break;
+            case 11:
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 2;
+                charSpellSlots6 = 1;
+                break;
+            case 12:
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 2;
+                charSpellSlots6 = 1;
+                break;
+            case 13:
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 2;
+                charSpellSlots6 = 1;
+                charSpellSlots7 = 1;
+                break;
+            case 14:
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 2;
+                charSpellSlots6 = 1;
+                charSpellSlots7 = 1;
+                break;
+            case 15:
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 2;
+                charSpellSlots6 = 1;
+                charSpellSlots7 = 1;
+                charSpellSlots8 = 1;
+                break;
+            case 16:
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 2;
+                charSpellSlots6 = 1;
+                charSpellSlots7 = 1;
+                charSpellSlots8 = 1;
+                break;
+            case 17:
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 2;
+                charSpellSlots6 = 1;
+                charSpellSlots7 = 1;
+                charSpellSlots8 = 1;
+                charSpellSlots9 = 1;
+                break;
+            case 18:
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 3;
+                charSpellSlots6 = 1;
+                charSpellSlots7 = 1;
+                charSpellSlots8 = 1;
+                charSpellSlots9 = 1;
+                break;
+            case 19:
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 3;
+                charSpellSlots6 = 2;
+                charSpellSlots7 = 1;
+                charSpellSlots8 = 1;
+                charSpellSlots9 = 1;
+                break;
+            case 20:
+                charSpellSlots1 = 4;
+                charSpellSlots2 = 3;
+                charSpellSlots3 = 3;
+                charSpellSlots4 = 3;
+                charSpellSlots5 = 3;
+                charSpellSlots6 = 2;
+                charSpellSlots7 = 2;
+                charSpellSlots8 = 1;
+                charSpellSlots9 = 1;
+                break;
         }
+            
     }
 }
 
