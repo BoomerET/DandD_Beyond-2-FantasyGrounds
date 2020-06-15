@@ -2781,6 +2781,8 @@ function parseCharacter(inputChar) {
             totalSpells += 1;
             buildXML += "\t\t\t<id-" + thisIteration + ">\n";
             buildXML += addPaladinDivineSense;
+            buildXML += "<prepared type=\"number\">" + (chaMod + 1) + "</prepared>\n";
+            buildXML += addPaladinDivineSense01;
             buildXML += "\t\t\t</id-" + thisIteration + ">\n";
             thisIteration = pad(totalSpells + 1, 5);
             totalSpells += 1;
@@ -6877,8 +6879,9 @@ addPaladinDivineSense=" \
 <group type=\"string\">Class Features</group>\n \
 <level type=\"number\">0</level>\n \
 <locked type=\"number\">1</locked>\n \
-<name type=\"string\">Divine Sense</name>\n \
-<prepared type=\"number\">2</prepared>\n \
+<name type=\"string\">Divine Sense</name>\n";
+
+addPaladinDivineSense01=" \
 <source type=\"string\">Paladin</source>\n";
 
 addPaladinDivineSmite=" \
