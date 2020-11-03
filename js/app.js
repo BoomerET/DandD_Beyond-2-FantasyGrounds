@@ -312,24 +312,15 @@ $(function() {
                 window.location.reload(false);
             }
         } else {
-            $.ajax({
-                data: { charID:  $('#getcharID').val().trim() },
-                url: 'scripts/getChar.php',
-                method: 'GET',
-                success: function(data) {
-                    try {
-                        parseCharacter($.parseJSON(data));
-                    } catch(e) {
-                        alert("Unable to parse character: " + $('#getcharID').val().trim());
-                        console.error(e);
-                        return;
-                    }
-                },
-                failure: function(msg) {
-                    alert("Unable to find character: " + $('#getcharID').val().trim());
-                    return;
-                }
-            });
+            const proxyurl = "https://cors-anywhere.herokuapp.com/";
+            const charID = $('#getcharID').val().trim();
+            const jsonPart = "/json"
+            const url = "https://www.dndbeyond.com/character/";
+
+            fetch(proxyurl + url + charID + jsonPart)
+                .then(response => response.text())
+                .then(contents => parseCharacter($.parseJSON(contents)))
+                .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
         }
     });
 
@@ -372,6 +363,7 @@ $(function() {
         }
     });
 });
+
 
 function parseCharacter(inputChar) {
     var character = jQuery.extend(true, {}, inputChar);
@@ -9175,7 +9167,7 @@ function onSignIn(googleUser) {
     //console.log('Image URL: ' + profile.getImageUrl());
     //console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
-    $.ajax({
+/*    $.ajax({
         data: { email: profile.getEmail(), name: profile.getName(), id_token: id_token },
         url: 'scripts/getUser.php',
         method: 'GET',
@@ -9197,4 +9189,5 @@ function onSignIn(googleUser) {
             return;
         }
     });
+*/
 }
