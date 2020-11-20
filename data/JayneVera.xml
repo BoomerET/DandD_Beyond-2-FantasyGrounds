@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<root version="3.3" release="8|CoreRPG:4">
+	<character>
+		<!--37339412-->
+		<name type="string">Jayne Vera</name>
+		<alignment type="string">Chaotic Neutral</alignment>
+		<personalitytraits type="string">I judge people by their actions, not their words.
+I'm confident in my own abilities and do what I can to instill confidence in others.</personalitytraits>
+		<ideals type="string">Freedom. Tyrants must not be allowed to oppress the people. (Chaotic)</ideals>
+		<bonds type="string">I worked the land, I love the land, and I will protect the land.</bonds>
+		<flaws type="string">I have a weakness for the vices of the city, especially hard drink.</flaws>
+		<background type="string">Folk Hero</background>
+		<backgroundlink type="windowreference">
+			<class>reference_background</class>
+			<recordname>reference.backgrounddata.folkhero@*</recordname>
+		</backgroundlink>
+		<race type="string">Drow Half-Elf</race>
+		<racelink type="windowreference">
+			<class>reference_race</class>
+			<recordname>reference.racedata.half_elf@*</recordname>
+		</racelink>
+		<skilllist>
+			<id-00001>
+				<misc type="number">0</misc>
+				<name type="string">Acrobatics</name>
+				<stat type="string">dexterity</stat>
+				<prof type="number">0</prof>
+			</id-00001>
+			<id-00002>
+				<misc type="number">0</misc>
+				<name type="string">Animal Handling</name>
+				<stat type="string">wisdom</stat>
+				<prof type="number">1</prof>
+			</id-00002>
+			<id-00003>
+				<misc type="number">0</misc>
+				<name type="string">Arcana</name>
+				<stat type="string">intelligence</stat>
+				<prof type="number">0</prof>
+			</id-00003>
+			<id-00004>
+				<misc type="number">0</misc>
+				<name type="string">Athletics</name>
+				<stat type="string">strength</stat>
+				<prof type="number">0</prof>
+			</id-00004>
+			<id-00005>
+				<misc type="number">0</misc>
+				<name type="string">Deception</name>
+				<stat type="string">charisma</stat>
+				<prof type="number">0</prof>
+			</id-00005>
+			<id-00006>
+				<misc type="number">0</misc>
+				<name type="string">History</name>
+				<stat type="string">intelligence</stat>
+				<prof type="number">0</prof>
+			</id-00006>
+			<id-00007>
+				<misc type="number">0</misc>
+				<name type="string">Insight</name>
+				<stat type="string">wisdom</stat>
+				<prof type="number">0</prof>
+			</id-00007>
+			<id-00008>
+				<misc type="number">0</misc>
+				<name type="string">Intimidation</name>
+				<stat type="string">charisma</stat>
+				<prof type="number">0</prof>
+			</id-00008>
+			<id-00009>
+				<misc type="number">0</misc>
+				<name type="string">Investigation</name>
+				<stat type="string">intelligence</stat>
+				<prof type="number">0</prof>
+			</id-00009>
+			<id-00010>
+				<misc type="number">0</misc>
+				<name type="string">Medicine</name>
+				<stat type="string">wisdom</stat>
+				<prof type="number">0</prof>
+			</id-00010>
+			<id-00011>
+				<misc type="number">0</misc>
+				<name type="string">Nature</name>
+				<stat type="string">intelligence</stat>
+				<prof type="number">1</prof>
+			</id-00011>
+			<id-00012>
+				<misc type="number">0</misc>
+				<name type="string">Perception</name>
+				<stat type="string">wisdom</stat>
+				<prof type="number">1</prof>
+			</id-00012>
+			<id-00013>
+				<misc type="number">0</misc>
+				<name type="string">Performance</name>
+				<stat type="string">charisma</stat>
+				<prof type="number">0</prof>
+			</id-00013>
+			<id-00014>
+				<misc type="number">0</misc>
+				<name type="string">Persuasion</name>
+				<stat type="string">charisma</stat>
+				<prof type="number">0</prof>
+			</id-00014>
+			<id-00015>
+				<misc type="number">0</misc>
+				<name type="string">Religion</name>
+				<stat type="string">intelligence</stat>
+				<prof type="number">0</prof>
+			</id-00015>
+			<id-00016>
+				<misc type="number">0</misc>
+				<name type="string">Sleight of Hand</name>
+				<stat type="string">dexterity</stat>
+				<prof type="number">0</prof>
+			</id-00016>
+			<id-00017>
+				<misc type="number">0</misc>
+				<name type="string">Stealth</name>
+				<stat type="string">dexterity</stat>
+				<prof type="number">1</prof>
+			</id-00017>
+			<id-00018>
+				<misc type="number">0</misc>
+				<name type="string">Survival</name>
+				<stat type="string">wisdom</stat>
+				<prof type="number">1</prof>
+			</id-00018>
+		</skilllist>
+		<classes>
+			<id-00001>
+				<hddie type="dice">d10</hddie>
+				<name type="string">Ranger</name>
+				<casterpactmagic type="number">0</casterpactmagic>
+				<level type="number">1</level>
+				<shortcut type="windowreference">
+					<class>reference_class</class>
+					<recordname>reference.classdata.ranger@*</recordname>
+				</shortcut>
+			</id-00001>
+		</classes>
+		<hp>
+			<deathsavefail type="number">0</deathsavefail>
+			<deathsavesuccess type="number">0</deathsavesuccess>
+			<total type="number">12</total>
+		</hp>
+		<languagelist>
+			<id-00001>
+				<name type="string">Common</name>
+			</id-00001>
+			<id-00002>
+				<name type="string">Elvish</name>
+			</id-00002>
+			<id-00003>
+				<name type="string">Orc</name>
+			</id-00003>
+			<id-00004>
+				<name type="string">Halfling</name>
+			</id-00004>
+		</languagelist>
+		<senses type="string">Darkvision 60ft.</senses>
+		<traitlist>
+			<id-00007>
+				<name type="string">Fey Ancestry</name>
+				<source type="string">half_elf</source>
+				<locked type="number">1</locked>
+				<text type="formattedtext">
+					<p>You have advantage on saving throws against being charmed, and magic can't put you to sleep.</p>
+				</text>
+				<type type="string">racial</type>
+			</id-00007>
+			<id-00009>
+				<name type="string">Drow Magic</name>
+				<source type="string">half_elf</source>
+				<locked type="number">1</locked>
+				<text type="formattedtext">
+					<p>A half-elf of drow descent can forgo Skill Versatility and instead choose the drow's Drow Magic:</p>
+<p>You know the dancing lights cantrip. When you reach 3rd level, you can cast the faerie fire spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the darkness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.</p>
+				</text>
+				<type type="string">racial</type>
+			</id-00009>
+		</traitlist>
+		<featurelist>
+			<id-00001>
+				<locked type="number">1</locked>
+				<name type="string">Favored Enemy</name>
+				<source type="string">ranger</source>
+				<text type="formattedtext">
+					<p class="compendium-hr">Beginning at 1st level, you have significant experience studying, tracking, hunting, and even talking to a certain type of enemy.</p>
+<p class="Core-Styles_Core-Body">Choose a type of favored enemy: aberrations, beasts, celestials, constructs, dragons, elementals, fey, fiends, giants, monstrosities, oozes, plants, or undead. Alternatively, you can select two races of humanoid (such as gnolls and orcs) as favored enemies.</p>
+<p class="Core-Styles_Core-Body">You have advantage on Wisdom (Survival) checks to track your favored enemies, as well as on Intelligence checks to recall information about them.</p>
+<p class="Core-Styles_Core-Body">When you gain this feature, you also learn one language of your choice that is spoken by your favored enemies, if they speak one at all.</p>
+<p class="Core-Styles_Core-Body">You choose one additional favored enemy, as well as an associated language, at 6th and 14th level. As you gain levels, your choices should reflect the types of monsters you have encountered on your adventures.</p>
+				</text>
+			</id-00001>
+			<id-00002>
+				<locked type="number">1</locked>
+				<name type="string">Natural Explorer</name>
+				<source type="string">ranger</source>
+				<text type="formattedtext">
+					<p class="compendium-hr">You are particularly familiar with one type of natural environment and are adept at traveling and surviving in such regions. Choose one type of favored terrain: arctic, coast, desert, forest, grassland, mountain, swamp, or the Underdark. When you make an Intelligence or Wisdom check related to your favored terrain, your proficiency bonus is doubled if you are using a skill that you're proficient in.</p>
+<p class="Core-Styles_Core-Body-Last--to-apply-extra-space-">While traveling for an hour or more in your favored terrain, you gain the following benefits:</p>
+<ul>
+<li class="Core-Styles_Core-Bulleted">Difficult terrain doesn't slow your group's travel.</li>
+<li class="Core-Styles_Core-Bulleted">Your group can't become lost except by magical means.</li>
+<li class="Core-Styles_Core-Bulleted">Even when you are engaged in another activity while traveling (such as foraging, navigating, or tracking), you remain alert to danger.</li>
+<li class="Core-Styles_Core-Bulleted">If you are traveling alone, you can move stealthily at a normal pace.</li>
+<li class="Core-Styles_Core-Bulleted">When you forage, you find twice as much food as you normally would.</li>
+<li class="Core-Styles_Core-Bulleted-Last">While tracking other creatures, you also learn their exact number, their sizes, and how long ago they passed through the area.</li>
+</ul>
+<p class="Core-Styles_Core-Body">You choose additional favored terrain types at 6th and 10th level.</p>
+				</text>
+			</id-00002>
+			<id-00003>
+				<locked type="number">1</locked>
+				<name type="string">Humanoids</name>
+				<text type="formattedtext">
+					<p><strong>Humanoids</strong> are the main peoples of a fantasy gaming world, both civilized and savage, including humans and a tremendous variety of other species. They have language and culture, few if any innate magical abilities (though most humanoids can learn spellcasting), and a bipedal form. The most common humanoid races are the ones most suitable as player characters: humans, dwarves, elves, and halflings. Almost as numerous but far more savage and brutal, and almost uniformly evil, are the races of goblinoids (goblins, hobgoblins, and bugbears), orcs, gnolls, lizardfolk, and kobolds.</p>
+				</text>
+			</id-00003>
+			<id-00004>
+				<locked type="number">1</locked>
+				<name type="string">Arctic</name>
+				<text type="formattedtext">
+					<p>You are particularly familiar with one type of natural environment and are adept at traveling and surviving in such regions.</p>
+				</text>
+			</id-00004>
+			<id-00006>
+				<name type="string">Rustic Hospitality</name>
+				<source type="string">folk_hero</source>
+				<text type="formattedtext">
+					<p>Since you come from the ranks of the common folk, you fit in among them with ease. You can find a place to hide, rest, or recuperate among other commoners, unless you have shown yourself to be a danger to them. They will shield you from the law or anyone else searching for you, though they will not risk their lives for you.</p>
+				</text>
+				<type type="string">background</type>
+			</id-00006>
+		</featurelist>
+		<abilities>
+			<strength>
+				<bonus type="number">1</bonus>
+				<savemodifier type="number">0</savemodifier>
+				<saveprof type="number">1</saveprof>
+				<score type="number">12</score>
+			</strength>
+			<dexterity>
+				<bonus type="number">3</bonus>
+				<savemodifier type="number">0</savemodifier>
+				<saveprof type="number">1</saveprof>
+				<score type="number">16</score>
+			</dexterity>
+			<constitution>
+				<bonus type="number">2</bonus>
+				<savemodifier type="number">0</savemodifier>
+				<score type="number">14</score>
+			</constitution>
+			<intelligence>
+				<bonus type="number">0</bonus>
+				<savemodifier type="number">0</savemodifier>
+				<score type="number">10</score>
+			</intelligence>
+			<wisdom>
+				<bonus type="number">2</bonus>
+				<savemodifier type="number">0</savemodifier>
+				<score type="number">14</score>
+			</wisdom>
+			<charisma>
+				<bonus type="number">0</bonus>
+				<savemodifier type="number">0</savemodifier>
+				<score type="number">10</score>
+			</charisma>
+		</abilities>
+		<inventorylist>
+			<id-00001>
+				<count type="number">1</count>
+				<name type="string">Studded Leather</name>
+				<weight type="number">13</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Armor</type>
+				<subtype type="string">Light Armor</subtype>
+				<ac type="number">12</ac>
+				<stealth type="string">-</stealth>
+				<strength type="string">-</strength>
+				<cost type="string">45 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">2</carried>
+				<description type="formattedtext">
+					<p>Made from tough but flexible leather, studded leather is reinforced with close-set rivets or spikes.</p>
+				</description>
+			</id-00001>
+			<id-00002>
+				<count type="number">1</count>
+				<name type="string">Shortsword</name>
+				<weight type="number">2</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Weapon</type>
+				<cost type="string">10 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">2</carried>
+				<damage type="string">1d6 Piercing</damage>
+				<properties type="string">Finesse, Light</properties>
+				<description type="formattedtext">
+					<p>Proficiency with a shortsword allows you to add your proficiency bonus to the attack roll for any attack you make with it.</p>
+				</description>
+				<subtype type="string">Martial Melee Weapon</subtype>
+			</id-00002>
+			<id-00003>
+				<count type="number">1</count>
+				<name type="string">Shortsword</name>
+				<weight type="number">2</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Weapon</type>
+				<cost type="string">10 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">2</carried>
+				<damage type="string">1d6 Piercing</damage>
+				<properties type="string">Finesse, Light</properties>
+				<description type="formattedtext">
+					<p>Proficiency with a shortsword allows you to add your proficiency bonus to the attack roll for any attack you make with it.</p>
+				</description>
+				<subtype type="string">Martial Melee Weapon</subtype>
+			</id-00003>
+			<id-00004>
+				<count type="number">1</count>
+				<name type="string">Longbow</name>
+				<weight type="number">2</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Weapon</type>
+				<cost type="string">50 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">2</carried>
+				<damage type="string">1d8 Piercing</damage>
+				<properties type="string">Ammunition (150/600), Heavy, Range, Two-Handed</properties>
+				<description type="formattedtext">
+					<p>Proficiency with a longbow allows you to add your proficiency bonus to the attack roll for any attack you make with it.</p>
+				</description>
+				<subtype type="string">Martial Ranged Weapon</subtype>
+			</id-00004>
+			<id-00005>
+				<count type="number">20</count>
+				<name type="string">Arrows</name>
+				<weight type="number">0.05</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Ammunition</type>
+				<cost type="string">1 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">2</carried>
+				<description type="formattedtext">
+					<p>Arrows are used with a weapon that has the ammunition property to make a ranged attack. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack (you need a free hand to load a one-handed weapon). At the end of the battle, you can recover half your expended ammunition by taking a minute to search the battlefield.</p>
+				</description>
+			</id-00005>
+			<id-00006>
+				<count type="number">1</count>
+				<name type="string">Backpack</name>
+				<weight type="number">5</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">2 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>A backpack is a leather pack carried on the back, typically with straps to secure it. A backpack can hold 1 cubic foot/ 30 pounds of gear.</p>
+<p>You can also strap items, such as a bedroll or a coil of rope, to the outside of a backpack.</p>
+				</description>
+			</id-00006>
+			<id-00007>
+				<count type="number">1</count>
+				<name type="string">Bedroll</name>
+				<weight type="number">7</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">1 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>You never know where you're going to sleep, and a bedroll helps you get better sleep in a hayloft or on the cold ground. A bedroll consists of bedding and a blanket thin enough to be rolled up and tied. In an emergency, it can double as a stretcher.</p>
+				</description>
+			</id-00007>
+			<id-00008>
+				<count type="number">1</count>
+				<name type="string">Clothes, Common</name>
+				<weight type="number">3</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">0.5 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>This set of clothes could consist of a loose shirt and baggy breeches, or a loose shirt and skirt or overdress. Cloth wrappings are used for shoes.</p>
+				</description>
+			</id-00008>
+			<id-00009>
+				<count type="number">1</count>
+				<name type="string">Mess Kit</name>
+				<weight type="number">1</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">0.2 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>This tin box contains a cup and simple cutlery. The box clamps together, and one side can be used as a cooking pan and the other as a plate or shallow bowl.</p>
+				</description>
+			</id-00009>
+			<id-00010>
+				<count type="number">1</count>
+				<name type="string">Pot, Iron</name>
+				<weight type="number">10</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">2 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>An iron pot can hold 1 gallon of liquid.</p>
+				</description>
+			</id-00010>
+			<id-00011>
+				<count type="number">10</count>
+				<name type="string">Rations (1 day)</name>
+				<weight type="number">2</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">0.5 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>Rations consist of dry foods suitable for extended travel, including jerky, dried fruit, hardtack, and nuts.</p>
+				</description>
+			</id-00011>
+			<id-00012>
+				<count type="number">1</count>
+				<name type="string">Rope, Hempen (50 feet)</name>
+				<weight type="number">10</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">1 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>Rope, has 2 hit points and can be burst with a DC 17 Strength check.</p>
+				</description>
+			</id-00012>
+			<id-00013>
+				<count type="number">1</count>
+				<name type="string">Shovel</name>
+				<weight type="number">5</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">2 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>A standard shovel used for digging.</p>
+				</description>
+			</id-00013>
+			<id-00014>
+				<count type="number">1</count>
+				<name type="string">Tinderbox</name>
+				<weight type="number">1</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">0.5 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>This small container holds flint, fire steel, and tinder (usually dry cloth soaked in light oil) used to kindle a fire. Using it to light a torch -- or anything else with abundant, exposed fuel -- takes an action. Lighting any other fire takes 1 minute.</p>
+<p> </p>
+				</description>
+			</id-00014>
+			<id-00015>
+				<count type="number">10</count>
+				<name type="string">Torch</name>
+				<weight type="number">1</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">0.01 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>A torch burns for 1 hour, providing bright light in a 20-foot radius and dim light for an additional 20 feet. If you make a melee attack with a burning torch and hit, it deals 1 fire damage.</p>
+				</description>
+			</id-00015>
+			<id-00016>
+				<count type="number">1</count>
+				<name type="string">Waterskin</name>
+				<weight type="number">5</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">0.2 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>A waterskin can hold 4 pints of liquid.</p>
+				</description>
+			</id-00016>
+			<id-00017>
+				<count type="number">1</count>
+				<name type="string">Leatherworker's Tools</name>
+				<weight type="number">5</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Tool</type>
+				<cost type="string">5 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>These special tools include the items needed to pursue a craft or trade. Proficiency with a set of artisan's tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan's tools requires a separate proficiency.</p>
+				</description>
+			</id-00017>
+			<id-00018>
+				<count type="number">2</count>
+				<name type="string">Clothing, cold weather</name>
+				<weight type="number">5</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">10 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>This outfit consists of a heavy fur coat or cloak over layers of wool clothing, as well as a fur-lined hat or hood, goggles, and fur-lined leather boots and gloves.</p>
+<p>As long as cold weather clothing remains dry, its wearer automatically succeeds on saving throws against the effects of extreme cold (see “Extreme Cold”).</p>
+				</description>
+			</id-00018>
+		</inventorylist>
+		<weaponlist>
+			<id-00001>
+				<shortcut type="windowreference">
+					<class>item</class>
+					<recordname>....inventorylist.id-00002</recordname>
+				</shortcut>
+				<name type="string">Shortsword</name>
+				<properties type="string">Finesse, Light</properties>
+				<damagelist>
+					<id-00001>
+						<bonus type="number">0</bonus>
+						<dice type="dice">d6</dice>
+						<stat type="string">dexterity</stat>
+						<type type="string">piercing</type>
+					</id-00001>
+				</damagelist>
+				<attackbonus type="number">0</attackbonus>
+				<attackstat type="string">dexterity</attackstat>
+				<isidentified type="number">1</isidentified>
+				<type type="number">0</type>
+			</id-00001>
+			<id-00002>
+				<shortcut type="windowreference">
+					<class>item</class>
+					<recordname>....inventorylist.id-00003</recordname>
+				</shortcut>
+				<name type="string">Shortsword</name>
+				<properties type="string">Finesse, Light</properties>
+				<damagelist>
+					<id-00001>
+						<bonus type="number">0</bonus>
+						<dice type="dice">d6</dice>
+						<stat type="string">dexterity</stat>
+						<type type="string">piercing</type>
+					</id-00001>
+				</damagelist>
+				<attackbonus type="number">0</attackbonus>
+				<attackstat type="string">dexterity</attackstat>
+				<isidentified type="number">1</isidentified>
+				<type type="number">0</type>
+			</id-00002>
+			<id-00003>
+				<shortcut type="windowreference">
+					<class>item</class>
+					<recordname>....inventorylist.id-00004</recordname>
+				</shortcut>
+				<name type="string">Longbow</name>
+				<properties type="string">Ammunition (150/600), Heavy, Range, Two-Handed</properties>
+				<damagelist>
+					<id-00001>
+						<bonus type="number">0</bonus>
+						<dice type="dice">d8</dice>
+						<stat type="string">dexterity</stat>
+						<type type="string">piercing</type>
+					</id-00001>
+				</damagelist>
+				<maxammo type="number">20</maxammo>
+				<attackbonus type="number">0</attackbonus>
+				<attackstat type="string">dexterity</attackstat>
+				<isidentified type="number">1</isidentified>
+				<type type="number">1</type>
+			</id-00003>
+		</weaponlist>
+		<featlist>
+		</featlist>
+		<speed>
+			<base type="number">30</base>
+			<total type="number">30</total>
+		</speed>
+				<profbonus type="number">2</profbonus>
+		<perceptionmodifier type="number">0</perceptionmodifier>
+		<initiative>
+		</initiative>
+		<proficiencylist>
+			<id-00001>
+				<name type="string">Light Armor</name>
+			</id-00001>
+			<id-00002>
+				<name type="string">Medium Armor</name>
+			</id-00002>
+			<id-00003>
+				<name type="string">Shields</name>
+			</id-00003>
+			<id-00004>
+				<name type="string">Simple Weapons</name>
+			</id-00004>
+			<id-00005>
+				<name type="string">Martial Weapons</name>
+			</id-00005>
+			<id-00013>
+				<name type="string">Woodcarver's Tools</name>
+			</id-00013>
+			<id-00014>
+				<name type="string">Vehicles (Land)</name>
+			</id-00014>
+		</proficiencylist>
+		<exp type="number">0</exp>
+		<age type="string">22</age>
+		<height type="string">5'10&#34;</height>
+		<weight type="string">175</weight>
+		<gender type="string">Male</gender>
+		<size type="string">Medium</size>
+		<deity type="string"></deity>
+		<appearance type="string">Eyes: Red
+Hair: Grey
+Skin: Copper</appearance>
+		<powermeta>
+			<pactmagicslots1>
+				<max type="number">0</max>
+			</pactmagicslots1>
+			<pactmagicslots2>
+				<max type="number">0</max>
+			</pactmagicslots2>
+			<pactmagicslots3>
+				<max type="number">0</max>
+			</pactmagicslots3>
+			<pactmagicslots4>
+				<max type="number">0</max>
+			</pactmagicslots4>
+			<pactmagicslots5>
+				<max type="number">0</max>
+			</pactmagicslots5>
+			<pactmagicslots6>
+				<max type="number">0</max>
+			</pactmagicslots6>
+			<pactmagicslots7>
+				<max type="number">0</max>
+			</pactmagicslots7>
+			<pactmagicslots8>
+				<max type="number">0</max>
+			</pactmagicslots8>
+			<pactmagicslots9>
+				<max type="number">0</max>
+			</pactmagicslots9>
+			<spellslots1>
+				<max type="number">0</max>
+			</spellslots1>
+			<spellslots2>
+				<max type="number">0</max>
+			</spellslots2>
+			<spellslots3>
+				<max type="number">0</max>
+			</spellslots3>
+			<spellslots4>
+				<max type="number">0</max>
+			</spellslots4>
+			<spellslots5>
+				<max type="number">0</max>
+			</spellslots5>
+			<spellslots6>
+				<max type="number">0</max>
+			</spellslots6>
+			<spellslots7>
+				<max type="number">0</max>
+			</spellslots7>
+			<spellslots8>
+				<max type="number">0</max>
+			</spellslots8>
+			<spellslots9>
+				<max type="number">0</max>
+			</spellslots9>
+		</powermeta>
+		<coins>
+			<slot1>
+				<amount type="number">0</amount>
+				<name type="string">PP</name>
+			</slot1>
+			<slot2>
+				<amount type="number">10</amount>
+				<name type="string">GP</name>
+			</slot2>
+			<slot3>
+				<amount type="number">0</amount>
+				<name type="string">EP</name>
+			</slot3>
+			<slot4>
+				<amount type="number">0</amount>
+				<name type="string">SP</name>
+			</slot4>
+			<slot5>
+				<amount type="number">0</amount>
+				<name type="string">CP</name>
+			</slot5>
+			<slot6>
+				<amount type="number">0</amount>
+			</slot6>
+		</coins>
+		<powergroup>
+		</powergroup>
+		<powers>
+			<id-00001>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V, S, M (a bit of phosphorus or wychwood, or a glowworm)</components>
+				<description type="formattedtext">
+					<p>You create up to four torch-sized lights within range, making them appear as torches, lanterns, or glowing orbs that hover in the air for the duration. You can also combine the four lights into one glowing vaguely humanoid form of Medium size. Whichever form you choose, each light sheds dim light in a 10-foot radius.</p>
+<p>As a bonus action on your turn, you can move the lights up to 60 feet to a new spot within range. A light must be within 20 feet of another light created by this spell, and a light winks out if it exceeds the spell's range.</p>
+				</description>
+				<group type="string">Spells</group>
+				<level type="number">0</level>
+				<locked type="number">1</locked>
+				<name type="string">Dancing Lights</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">0</ritual>
+				<range type="string">120</range>
+				<school type="string">Evocation</school>
+				<parse type="number">1</parse>
+			</id-00001>
+			<id-00002>
+ <actions>
+ 	<id-00001>
+ 		<apply type="string">action</apply>
+ 		<durmod type="number">0</durmod>
+ 		<label type="string">ADVSKILL: survival</label>
+ 		<order type="number">1</order>
+ 		<targeting type="string">self</targeting>
+ 		<type type="string">effect</type>
+ 	</id-00001>
+ 	<id-00002>
+ 		<apply type="string">action</apply>
+ 		<durmod type="number">0</durmod>
+ 		<label type="string">ADVCHK:intelligence</label>
+ 		<order type="number">2</order>
+ 		<targeting type="string">self</targeting>
+ 		<type type="string">effect</type>
+ 	</id-00002>
+ </actions>
+ <cast type="number">0</cast>
+ <description type="formattedtext">
+ 	<p>Beginning at 1st level, you have significant experience studying, tracking, hunting, and even talking to a certain type of enemy.</p>
+ 	<p>Choose a type of favored enemy: aberrations, beasts, celestials, constructs, dragons, elementals, fey, fiends, giants, monstrosities, oozes, plants, or undead.</p>
+ 	<p>Alternatively, you can select two races of humanoid (such as gnolls and orcs) as favored enemies.</p>
+ 	<p>You have advantage on Wisdom(Survival) checks to track your favored enemies, as well as on Intelligence checks to recall information about them.</p>
+ 	<p>When you gain this feature, you also learn one language of your choice that is spoken by your favored enemies, if they speak one at all.</p>
+ 	<p>You choose one additional favored enemy, as well as an associated language, at 6th and 14th level. As you gain levels, your choices should reflect the types of monsters you have encountered on your adventures.</p>
+ </description>
+ <group type="string">Class Features</group>
+ <locked type="number">1</locked>
+ <name type="string">Favored Enemy</name>
+ <prepared type="number">0</prepared>
+ <source type="string">Ranger</source>
+			</id-00002>
+		</powers>
+		<defenses>
+			<ac>
+				<armor type="number">2</armor>
+				<misc type="number">0</misc>
+				<prof type="number">1</prof>
+				<temporary type="number">0</temporary>
+			</ac>
+		</defenses>
+		<notes type="string">D&amp;D Beyond Character ID: 37339412\nAllies: Halflings in ten towns\nPersonalPossessions: Necklace with an unknown stone\nOrganizations: The international brotherhood of halflings local 9503. He man woodsman club.\nEnemies: Any Orc\nBackstory: I was born to the Tiger Tribe the offspiring of Queen Bjornhild Solvigsdottier. She cast me into the sea of moving ice when I was ten years old as a sacrifice to Auril the Frostmaiden. I had nothing but a small pendant that my father had given me. A polar bear pulled me from the water and saved me from a certain death. The bear transformed into a goliath and brought me to Lonelywood. I remember the goliaths name, Oyaminartok, but I have not seen her since that day. I owe my mother a merciless death and I own Oyaminartok my life.
+
+The polar bear left me in the care of a halfling hunter who raised me in the woods near Lonelywood. He taught me the art of hunting and fishing. I soon got so good at hunting my new father suggest that I shoot at fish along the shore to improve my accuracy. 
+
+My adopted fathers home was attacked by Orcs a few years before I came of age. My father was killed in the fight and our home was burned. I went with the townsfolk to find the Orc war party. Using my fathers lessons I stalked the war party with a small group of townsfolk and got my revenge. 
+
+
+I returned to Lonleywood and I moved into a small inn and took a job supplying game and fish to the inn in exchange for a room. A few weeks after my coming of age I arrived at my inn/home to find it ablaze. A crowd had gathered to prevent the fire from moving to other buildings. Someone yelled out that a halfling family was trapped inside the inn. I ran upstairs not to save the family but to gather my few possessions. 
+
+The stairs had collapsed before I could get back downstairs and I realized the quickly that the only exit was through a window so I grabbed the father and threw him feet first through the window and he slid down the roof perfectly like it was my plan all along. Then I threw the children and wife out the window. I wasn't very gentle but they didn't notice, I decided to help myself to a few gold pieces on the dresser and realized an infant was in a drawer. I gently grabbed the infant and bundled her up. 
+
+Flames were all over the room so I jumped out the window and slid down the roof coming to a stop at the feet of the towns elders. The entire town had gathered around the fire and witnessed my heroics and believed that I ran into the burning inn to save the family. I became the towns hero.
+
+I'm well know in the town and slightly known in neighboring communities. Halflings know me really well because I have a special place in my heart for halflings. I often leave small game at the door step of a needy family but I refuse payment or even a thank you. 
+
+After a year of helping the family recover and earning a living as a hunter in Lonleywood I grow weary of the small amount of local fame I have and decide to seek out the Polar Bear and my mother.\n		</notes>
+	</character>
+</root>
