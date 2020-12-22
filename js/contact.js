@@ -17,7 +17,8 @@ $(function(){
             },
             success: function(data) {
                 console.log(data);
-                $('#status').text(data).show();
+                $('#status').text('Message sent');
+//                $('#status').text(data).show();
                 $('#submit').removeProp('disabled');
             },
             error: function(jqXHR, textStatus, errorThrown) {
