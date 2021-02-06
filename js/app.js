@@ -319,12 +319,12 @@ $(function() {
         } else {
             if (!DEBUG) {
                 const proxyurl = "https://api.allorigins.win/raw?url=";
-                
+                //const proxyurl = "";
                 //const proxyurl = "https://cors-anywhere.herokuapp.com/";
                 const charID = $('#getcharID').val().trim();
                 const jsonPart = "/json"
                 const url = "https://www.dndbeyond.com/character/";
-
+                
                 fetch(proxyurl + url + charID + jsonPart)
                     .then(response => response.text())
                     .then(contents => parseCharacter($.parseJSON(contents)))
