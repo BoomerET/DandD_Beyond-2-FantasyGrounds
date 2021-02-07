@@ -318,8 +318,8 @@ $(function() {
             }
         } else {
             if (!DEBUG) {
-                //const proxyurl = "https://api.allorigins.win/raw?url=";
-                const proxyurl = "";
+                const proxyurl = "https://api.allorigins.win/raw?url=";
+                //const proxyurl = "";
                 //const proxyurl = "https://cors-anywhere.herokuapp.com/";
                 const charID = $('#getcharID').val().trim();
                 const jsonPart = "/json"
@@ -331,21 +331,36 @@ $(function() {
                 headers.append('Access-Control-Allow-Origin', '*');
             
                 
-                fetch(proxyurl + url + charID + jsonPart//)
-                , {
-                    mode: 'no-cors',
+                fetch(proxyurl + url + charID + jsonPart)
+/*                , {
+                    mode: 'cors',
                     headers: headers
-                })
+                })*/
                     .then(response => response.text())
                     .then(contents => parseCharacter($.parseJSON(contents)))
                     .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
             } else {
                 // get debug data
                 const testdata = "https://gitlab.com/deltadave/dndb2fgxml/-/raw/index_page_v02/data/xerseris_formatted.json"
+                const charID = $('#getcharID').val().trim();
+                const jsonPart = "/json"
+                const url = "https://www.dndbeyond.com/character/";
+                let headers = new Headers()
+                headers.append('Content-Type', 'application/json');
+                headers.append('Accept', 'application/json');
+                headers.append('Origin','http://192.168.0.10/');
+                headers.append('Access-Control-Allow-Origin', '*');
+            
+                /*
+                fetch (url + charID + jsonPart //) 
+                , {
+                    mode: 'cors',
+                    headers: headers
+                })*/
                 fetch(testdata)
                     .then(response=>response.text())
                     .then(contents => parseCharacter($.parseJSON(contents)))
-                    .catch(() => console.log("Can't access " + testdata ))
+                    .catch(() => console.log("Can't access " + url )) //testdata
             }
         }
     });
