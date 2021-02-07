@@ -318,8 +318,8 @@ $(function() {
             }
         } else {
             if (!DEBUG) {
-                //const proxyurl = "https://api.allorigins.win/raw?url=";
-                const proxyurl = "";
+                const proxyurl = "https://api.allorigins.win/raw?url=";
+                //const proxyurl = "";
                 //const proxyurl = "https://cors-anywhere.herokuapp.com/";
                 const charID = $('#getcharID').val().trim();
                 const jsonPart = "/json"
