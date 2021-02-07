@@ -331,11 +331,11 @@ $(function() {
                 headers.append('Access-Control-Allow-Origin', '*');
             
                 
-                fetch(proxyurl + url + charID + jsonPart)
-                /*, {
-                    mode: 'cors',
+                fetch(proxyurl + url + charID + jsonPart//)
+                , {
+                    mode: 'no-cors',
                     headers: headers
-                })*/
+                })
                     .then(response => response.text())
                     .then(contents => parseCharacter($.parseJSON(contents)))
                     .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
