@@ -318,14 +318,24 @@ $(function() {
             }
         } else {
             if (!DEBUG) {
-                const proxyurl = "https://api.allorigins.win/raw?url=";
-                //const proxyurl = "";
+                //const proxyurl = "https://api.allorigins.win/raw?url=";
+                const proxyurl = "";
                 //const proxyurl = "https://cors-anywhere.herokuapp.com/";
                 const charID = $('#getcharID').val().trim();
                 const jsonPart = "/json"
                 const url = "https://www.dndbeyond.com/character/";
+                let headers = new Headers()
+                headers.append('Content-Type', 'application/json');
+                headers.append('Accept', 'application/json');
+                headers.append('Origin','http://www.beyond2fgconvert.com/');
+                headers.append('Access-Control-Allow-Origin', '*');
+            
                 
                 fetch(proxyurl + url + charID + jsonPart)
+                /*, {
+                    mode: 'cors',
+                    headers: headers
+                })*/
                     .then(response => response.text())
                     .then(contents => parseCharacter($.parseJSON(contents)))
                     .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
