@@ -4,10 +4,11 @@ $(function(){
         e.preventDefault();
         var formdata = toJSONString(this);
         console.log(formdata);
+        console.log( `${URL}` );
         $.ajax({
             type: "POST",
             crossDomain: "true",
-            url: `https://cors-anywhere.herokuapp.com/${URL}`,
+            url: `https://api.allorigins.win/raw?url=${URL}`,
             dataType: "json",
             contentType: "application/json",
             data: formdata,
