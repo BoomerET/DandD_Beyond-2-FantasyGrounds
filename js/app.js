@@ -324,16 +324,19 @@ $(function() {
                 const charID = $('#getcharID').val().trim();
                 const jsonPart = "/json"
                 const url = "https://www.dndbeyond.com/character/";
+                const fetchurl = proxyurl + url + charID + jsonPart;
+                console.log(fetchurl);
                 let headers = new Headers()
-                headers.append('Content-Type', 'application/json');
-                headers.append('Accept', 'application/json');
-                headers.append('Origin','http://www.beyond2fgconvert.com/');
-                headers.append('Access-Control-Allow-Origin', '*');
+                //headers.append('Content-Type', 'application/json');
+                headers.append('Content-Type', 'text/plain');
+                //headers.append('Accept', 'application/json');
+                //headers.append('Origin','http://www.beyond2fgconvert.com/');
+                //headers.append('Access-Control-Allow-Origin', '*');
             
                 
-                fetch(proxyurl + url + charID + jsonPart)
+                fetch(fetchurl)
 /*                , {
-                    mode: 'cors',
+                    mode: 'no-cors',
                     headers: headers
                 })*/
                     .then(response => response.text())
