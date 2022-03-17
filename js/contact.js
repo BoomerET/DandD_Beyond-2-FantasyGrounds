@@ -8,7 +8,9 @@ $(function(){
         $.ajax({
             type: "POST",
             crossDomain: "true",
-            url: `https://api.allorigins.win/raw?url=${URL}`,
+            //url: `https://api.allorigins.win/raw?url=${URL}`,
+            //url: `https://cors-anywhere.herokuapp.com/${URL}`,
+            url: `https://tranquil-waters-66085.herokuapp.com/${URL}`,
             dataType: "json",
             contentType: "application/json",
             data: formdata,
