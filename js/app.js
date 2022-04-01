@@ -344,7 +344,7 @@ $(function() {
                     .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
             } else {
                 // get debug data
-                const testdata = "https://gitlab.com/deltadave/dndb2fgxml/-/raw/index_page_v02/data/xerseris_formatted.json"
+                const testdata = "https://github.com/deltadave/DandD_Beyond-2-FantasyGrounds/blob/master/data/68380905_formatted.txt" //can change to test different characters.
                 const charID = $('#getcharID').val().trim();
                 const jsonPart = "/json"
                 const url = "https://www.dndbeyond.com/character/";
