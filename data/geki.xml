@@ -1,0 +1,1084 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<root version="3.3" release="8|CoreRPG:4">
+	<character>
+		<Spell_Tokens>
+			<ID type="number">0</ID>
+			<circle_token type="number">1</circle_token>
+			<cone_token type="number">0</cone_token>
+			<measurenumber type="number">20</measurenumber>
+			<sizefactor type="string">Measurement</sizefactor>
+			<targettoken type="number">1</targettoken>
+		</Spell_Tokens>
+		<abilities>
+			<charisma>
+				<bonus type="number">0</bonus>
+				<save type="number">0</save>
+				<savemodifier type="number">0</savemodifier>
+				<saveprof type="number">0</saveprof>
+				<score type="number">10</score>
+			</charisma>
+			<constitution>
+				<bonus type="number">1</bonus>
+				<save type="number">1</save>
+				<savemodifier type="number">0</savemodifier>
+				<saveprof type="number">0</saveprof>
+				<score type="number">13</score>
+			</constitution>
+			<dexterity>
+				<bonus type="number">2</bonus>
+				<save type="number">2</save>
+				<savemodifier type="number">0</savemodifier>
+				<saveprof type="number">0</saveprof>
+				<score type="number">14</score>
+			</dexterity>
+			<intelligence>
+				<bonus type="number">3</bonus>
+				<save type="number">5</save>
+				<savemodifier type="number">0</savemodifier>
+				<saveprof type="number">1</saveprof>
+				<score type="number">17</score>
+			</intelligence>
+			<strength>
+				<bonus type="number">-1</bonus>
+				<save type="number">-1</save>
+				<savemodifier type="number">0</savemodifier>
+				<saveprof type="number">0</saveprof>
+				<score type="number">8</score>
+			</strength>
+			<wisdom>
+				<bonus type="number">1</bonus>
+				<save type="number">3</save>
+				<savemodifier type="number">0</savemodifier>
+				<saveprof type="number">1</saveprof>
+				<score type="number">13</score>
+			</wisdom>
+		</abilities>
+		<adventurelist>
+		</adventurelist>
+		<age type="string">65</age>
+		<alignment type="string">Neutral Good</alignment>
+		<appearance type="string">Eyes: Green Hair: Black Skin: swarthy</appearance>
+		<background type="string">Sage</background>
+		<backgroundlink type="windowreference">
+			<class>reference_background</class>
+			<recordname>reference.backgrounddata.sage@*</recordname>
+		</backgroundlink>
+		<bonds type="string">My life's work is a series of tomes related to a specific field of lore.</bonds>
+		<classes>
+			<id-00001>
+				<casterlevelinvmult type="number">1</casterlevelinvmult>
+				<casterpactmagic type="number">0</casterpactmagic>
+				<hddie type="dice">d6</hddie>
+				<hdused type="number">0</hdused>
+				<level type="number">1</level>
+				<name type="string">Wizard</name>
+				<shortcut type="windowreference">
+					<class>reference_class</class>
+					<recordname>reference.classdata.wizard@*</recordname>
+				</shortcut>
+			</id-00001>
+		</classes>
+		<coins>
+			<slot1>
+				<amount type="number">0</amount>
+				<name type="string">PP</name>
+			</slot1>
+			<slot2>
+				<amount type="number">10</amount>
+				<name type="string">GP</name>
+			</slot2>
+			<slot3>
+				<amount type="number">0</amount>
+				<name type="string">EP</name>
+			</slot3>
+			<slot4>
+				<amount type="number">0</amount>
+				<name type="string">SP</name>
+			</slot4>
+			<slot5>
+				<amount type="number">0</amount>
+				<name type="string">CP</name>
+			</slot5>
+			<slot6>
+				<amount type="number">0</amount>
+			</slot6>
+		</coins>
+		<defenses>
+			<ac>
+				<armor type="number">0</armor>
+				<misc type="number">0</misc>
+				<prof type="number">1</prof>
+				<shield type="number">0</shield>
+				<temporary type="number">0</temporary>
+				<total type="number">12</total>
+			</ac>
+		</defenses>
+		<deity type="string">Garl Glittergold</deity>
+		<encumbrance>
+			<encumbered type="number">40</encumbered>
+			<encumberedheavy type="number">80</encumberedheavy>
+			<liftpushdrag type="number">240</liftpushdrag>
+			<load type="number">22</load>
+			<max type="number">120</max>
+		</encumbrance>
+		<exp type="number">0</exp>
+		<featlist>
+		</featlist>
+		<featurelist>
+			<id-00001>
+				<locked type="number">1</locked>
+				<name type="string">Arcane Recovery</name>
+				<source type="string">Wizard</source>
+				<text type="formattedtext">
+					<p>You have learned to regain some of your magical energy by studying your spellbook. Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher.</p>
+					<p>For example, if you&#226;&#128;(tm)re a 4th-level wizard, you can recover up to two levels worth of spell slots. You can recover either a 2nd-level spell slot or two 1st-level spell slots.</p>
+				</text>
+			</id-00001>
+			<id-00003>
+				<name type="string">Researcher</name>
+				<source type="string">sage</source>
+				<text type="formattedtext">
+					<p>When you attempt to learn or recall a piece of lore, if you do not know that information, you often know where and from whom you can obtain it. Usually, this information comes from a library, scriptorium, university, or a sage or other learned person or creature. Your DM might rule that the knowledge you seek is secreted away in an almost inaccessible place, or that it simply cannot be found. Unearthing the deepest secrets of the multiverse can require an adventure or even a whole campaign.</p>
+				</text>
+				<type type="string">background</type>
+			</id-00003>
+		</featurelist>
+		<flaws type="string">I overlook obvious solutions in favor of complicated ones.</flaws>
+		<gender type="string">Male</gender>
+		<height type="string">3'4&quot;</height>
+		<hp>
+			<deathsavefail type="number">0</deathsavefail>
+			<deathsavesuccess type="number">0</deathsavesuccess>
+			<temporary type="number">0</temporary>
+			<total type="number">7</total>
+			<wounds type="number">0</wounds>
+		</hp>
+		<ideals type="string">Beauty. What is beautiful points us beyond itself toward what is true.</ideals>
+		<initiative>
+			<misc type="number">0</misc>
+			<temporary type="number">0</temporary>
+			<total type="number">2</total>
+		</initiative>
+		<inventorylist>
+			<id-00001>
+				<carried type="number">1</carried>
+				<cost type="string">0.2 gp</cost>
+				<count type="number">1</count>
+				<damage type="string">1d6 Bludgeoning</damage>
+				<description type="formattedtext">
+					<p>Proficiency with a quarterstaff allows you to add your proficiency bonus to the attack roll for any attack you make with it.</p>
+				</description>
+				<isidentified type="number">1</isidentified>
+				<locked type="number">1</locked>
+				<name type="string">Quarterstaff</name>
+				<properties type="string">Versatile</properties>
+				<rarity type="string">Common</rarity>
+				<type type="string">Weapon</type>
+				<weight type="number">4</weight>
+			</id-00001>
+			<id-00002>
+				<carried type="number">1</carried>
+				<cost type="string">25 gp</cost>
+				<count type="number">1</count>
+				<description type="formattedtext">
+					<p>A book might contain poetry, historical accounts, information pertaining to a particular field of lore, diagrams and notes on gnomish contraptions, or just about anything else that can be represented using text or pictures. A book of spells is a spellbook.</p>
+				</description>
+				<isidentified type="number">1</isidentified>
+				<locked type="number">1</locked>
+				<name type="string">Book</name>
+				<rarity type="string">Common</rarity>
+				<type type="string">Adventuring Gear</type>
+				<weight type="number">5</weight>
+			</id-00002>
+			<id-00003>
+				<carried type="number">1</carried>
+				<cost type="string">10 gp</cost>
+				<count type="number">2</count>
+				<description type="formattedtext">
+					<p>Ink is typically used with an ink pen to write.</p>
+				</description>
+				<isidentified type="number">1</isidentified>
+				<locked type="number">1</locked>
+				<name type="string">Ink (1 ounce bottle)</name>
+				<rarity type="string">Common</rarity>
+				<type type="string">Adventuring Gear</type>
+				<weight type="number">0</weight>
+			</id-00003>
+			<id-00004>
+				<carried type="number">1</carried>
+				<cost type="string">0.02 gp</cost>
+				<count type="number">1</count>
+				<description type="formattedtext">
+					<p>An ink pen is a wooden stick with a special tip on the end. The tip draws ink in when dipped in a vial and leaves an ink trail when drawn across a surface.</p>
+				</description>
+				<isidentified type="number">1</isidentified>
+				<locked type="number">1</locked>
+				<name type="string">Ink Pen</name>
+				<rarity type="string">Common</rarity>
+				<type type="string">Adventuring Gear</type>
+				<weight type="number">0</weight>
+			</id-00004>
+			<id-00005>
+				<carried type="number">1</carried>
+				<cost type="string">0.1 gp</cost>
+				<count type="number">10</count>
+				<description type="formattedtext">
+					<p>A sheet of parchment is a piece of goat hide or sheepskin that has been prepared for writing on.</p>
+				</description>
+				<isidentified type="number">1</isidentified>
+				<locked type="number">1</locked>
+				<name type="string">Parchment (one sheet)</name>
+				<rarity type="string">Common</rarity>
+				<type type="string">Adventuring Gear</type>
+				<weight type="number">0</weight>
+			</id-00005>
+			<id-00006>
+				<carried type="number">1</carried>
+				<cost type="string">2 gp</cost>
+				<count type="number">1</count>
+				<description type="formattedtext">
+					<p>A backpack is a leather pack carried on the back, typically with straps to secure it. A backpack can hold 1 cubic foot/ 30 pounds of gear.</p>
+					<p>You can also strap items, such as a bedroll or a coil of rope, to the outside of a backpack.</p>
+				</description>
+				<isidentified type="number">1</isidentified>
+				<locked type="number">1</locked>
+				<name type="string">Backpack</name>
+				<rarity type="string">Common</rarity>
+				<type type="string">Adventuring Gear</type>
+				<weight type="number">5</weight>
+			</id-00006>
+			<id-00007>
+				<carried type="number">1</carried>
+				<cost type="string">0.5 gp</cost>
+				<count type="number">1</count>
+				<description type="formattedtext">
+					<p>This set of clothes could consist of a loose shirt and baggy breeches, or a loose shirt and skirt or overdress. Cloth wrappings are used for shoes.</p>
+				</description>
+				<isidentified type="number">1</isidentified>
+				<locked type="number">1</locked>
+				<name type="string">Clothes, Common</name>
+				<rarity type="string">Common</rarity>
+				<type type="string">Adventuring Gear</type>
+				<weight type="number">3</weight>
+			</id-00007>
+			<id-00008>
+				<carried type="number">1</carried>
+				<cost type="string">25 gp</cost>
+				<count type="number">1</count>
+				<description type="formattedtext">
+					<p>A component pouch is a small, watertight leather belt pouch that has compartments to hold all the material components and other special items you need to cast your spells, except for those components that have a specific cost (as indicated in a spell's description).</p>
+				</description>
+				<isidentified type="number">1</isidentified>
+				<locked type="number">1</locked>
+				<name type="string">Component Pouch</name>
+				<rarity type="string">Common</rarity>
+				<type type="string">Adventuring Gear</type>
+				<weight type="number">2</weight>
+			</id-00008>
+			<id-00009>
+				<carried type="number">1</carried>
+				<cost type="string">50 gp</cost>
+				<count type="number">1</count>
+				<description type="formattedtext">
+					<p>Essential for wizards, a spellbook is a leather-bound tome with 100 blank vellum pages suitable for recording spells.</p>
+				</description>
+				<isidentified type="number">1</isidentified>
+				<locked type="number">1</locked>
+				<name type="string">Spellbook</name>
+				<rarity type="string">Common</rarity>
+				<type type="string">Adventuring Gear</type>
+				<weight type="number">3</weight>
+			</id-00009>
+			<id-00010>
+				<carried type="number">1</carried>
+				<cost type="string">0 gp</cost>
+				<count type="number">1</count>
+				<description type="formattedtext">
+					<p>A small bag of sand, typically found in a scholar's pack.</p>
+				</description>
+				<isidentified type="number">1</isidentified>
+				<locked type="number">1</locked>
+				<name type="string">Little Bag of Sand</name>
+				<rarity type="string">Common</rarity>
+				<type type="string">Adventuring Gear</type>
+				<weight type="number">0</weight>
+			</id-00010>
+			<id-00011>
+				<carried type="number">1</carried>
+				<cost type="string">0 gp</cost>
+				<count type="number">2</count>
+				<description type="formattedtext">
+					<p>A small knife, typically found in a scholar's pack.</p>
+				</description>
+				<isidentified type="number">1</isidentified>
+				<locked type="number">1</locked>
+				<name type="string">Small Knife</name>
+				<rarity type="string">Common</rarity>
+				<type type="string">Adventuring Gear</type>
+				<weight type="number">0</weight>
+			</id-00011>
+		</inventorylist>
+		<languagelist>
+			<id-00001>
+				<name type="string">Common</name>
+			</id-00001>
+			<id-00002>
+				<name type="string">Gnomish</name>
+			</id-00002>
+			<id-00003>
+				<name type="string">Draconic</name>
+			</id-00003>
+			<id-00004>
+				<name type="string">Giant</name>
+			</id-00004>
+		</languagelist>
+		<level type="number">1</level>
+		<name type="string">Geki Tarpaigh</name>
+		<notes type="string">D&amp;D Beyond Character ID: 36265817\nPersonalPossessions: a quill a letter from a dead colleague posing a question you have not yet been able to answer\n\nHe's coming to ten towns to investigate Crenshinibon and the substance called chardalyn. There is a purported link between the two. He's working on a series of monographs about Crenshinibon and has traced it's path from the far southern deserts to the far north of Icewind Dale. Now he's travelled to the Dale to gather more information. \n\nGeki is of a merchant family so he's travelled quite extensively in the area around Waterdeep and the Sword Coast, but this is his first trip on his own and with no mercantile purpose. The letter of introduction from his masters at the Watchful Order of Magists and another from his parent's mercantile guild (Sword Mountain Mercantile Guild) have stood in good stead to get him this far in his travels, but the road ends here in Ten Towns.\n\nHe hopes to make friends with others that he's heard called adventurers, like the tales of the teachers at the Watchful Order, but is wary as some of them seem unreliable at best. Choosing solid companions when facing danger seems a good way to stay alive. He wants to make good choices and recruit some to travel with him if such is needed and he's almost certain it will.</notes>
+		<perception type="number">11</perception>
+		<perceptionmodifier type="number">0</perceptionmodifier>
+		<personalitytraits type="string">I'm willing to listen to every side of an argument before I make my own judgment.</personalitytraits>
+		<powergroup>
+			<id-00001>
+				<atkmod type="number">0</atkmod>
+				<atkprof type="number">1</atkprof>
+				<castertype type="string">memorization</castertype>
+				<name type="string">Spells</name>
+				<prepared type="number">0</prepared>
+				<savemod type="number">0</savemod>
+				<saveprof type="number">1</saveprof>
+				<stat type="string">intelligence</stat>
+				<uses type="number">0</uses>
+			</id-00001>
+			<id-00002>
+				<name type="string">Class Features</name>
+			</id-00002>
+			<id-00003>
+				<name type="string">Gnome</name>
+			</id-00003>
+			<id-00004>
+				<name type="string">Trait</name>
+			</id-00004>
+		</powergroup>
+		<powermeta>
+			<pactmagicslots1>
+				<max type="number">0</max>
+			</pactmagicslots1>
+			<pactmagicslots2>
+				<max type="number">0</max>
+			</pactmagicslots2>
+			<pactmagicslots3>
+				<max type="number">0</max>
+			</pactmagicslots3>
+			<pactmagicslots4>
+				<max type="number">0</max>
+			</pactmagicslots4>
+			<pactmagicslots5>
+				<max type="number">0</max>
+			</pactmagicslots5>
+			<pactmagicslots6>
+				<max type="number">0</max>
+			</pactmagicslots6>
+			<pactmagicslots7>
+				<max type="number">0</max>
+			</pactmagicslots7>
+			<pactmagicslots8>
+				<max type="number">0</max>
+			</pactmagicslots8>
+			<pactmagicslots9>
+				<max type="number">0</max>
+			</pactmagicslots9>
+			<spellslots1>
+				<max type="number">2</max>
+			</spellslots1>
+			<spellslots2>
+				<max type="number">0</max>
+			</spellslots2>
+			<spellslots3>
+				<max type="number">0</max>
+			</spellslots3>
+			<spellslots4>
+				<max type="number">0</max>
+			</spellslots4>
+			<spellslots5>
+				<max type="number">0</max>
+			</spellslots5>
+			<spellslots6>
+				<max type="number">0</max>
+			</spellslots6>
+			<spellslots7>
+				<max type="number">0</max>
+			</spellslots7>
+			<spellslots8>
+				<max type="number">0</max>
+			</spellslots8>
+			<spellslots9>
+				<max type="number">0</max>
+			</spellslots9>
+		</powermeta>
+		<powermode type="string">standard</powermode>
+		<powers>
+			<id-00001>
+				<actions>
+				</actions>
+				<cast type="number">0</cast>
+				<description type="formattedtext">
+					<p>You have learned to regain some of your magical energy by studying your spellbook. Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher.</p>
+					<p>For example, if you're a 4th-level wizard, you can recover up to two levels worth of spell slots. You can recover either a 2nd-level spell slot or two 1st-level spell slots.</p>
+				</description>
+				<group type="string">Class Features</group>
+				<level type="number">0</level>
+				<locked type="number">1</locked>
+				<name type="string">Arcane Recovery</name>
+				<prepared type="number">1</prepared>
+				<source type="string">Wizard</source>
+			</id-00001>
+			<id-00002>
+				<actions>
+					<id-00001>
+						<apply type="string">action</apply>
+						<durmod type="number">0</durmod>
+						<label type="string">Artificer's Lore; SKILL: [PRF] history</label>
+						<order type="number">1</order>
+						<targeting type="string">self</targeting>
+						<tknbutton type="token"></tknbutton>
+						<type type="string">effect</type>
+					</id-00001>
+				</actions>
+				<cast type="number">0</cast>
+				<description type="formattedtext">
+					<p>Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply.</p>
+				</description>
+				<group type="string">Gnome</group>
+				<level type="number">0</level>
+				<locked type="number">1</locked>
+				<name type="string">Gnome: Artificer's Lore</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">0</ritual>
+				<school type="string">Racial</school>
+				<source type="string">Rock Gnome</source>
+				<type type="string">subracial</type>
+			</id-00002>
+			<id-00003>
+				<actions>
+					<id-00001>
+						<apply type="string">action</apply>
+						<durmod type="number">0</durmod>
+						<label type="string">Gnome Cunning; ADVSAV: intelligence,wisdom,charisma</label>
+						<order type="number">1</order>
+						<targeting type="string">self</targeting>
+						<tknbutton type="token"></tknbutton>
+						<type type="string">effect</type>
+					</id-00001>
+				</actions>
+				<cast type="number">0</cast>
+				<description type="formattedtext">
+					<p>You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.</p>
+				</description>
+				<group type="string">Gnome</group>
+				<level type="number">0</level>
+				<locked type="number">1</locked>
+				<name type="string">Gnome: Gnome Cunning</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">0</ritual>
+				<school type="string">Racial</school>
+				<source type="string">Gnome</source>
+				<type type="string">racial</type>
+			</id-00003>
+			<id-00004>
+				<actions>
+					<id-00001>
+						<damagelist>
+							<id-00001>
+								<bonus type="number">0</bonus>
+								<dice type="dice">d8</dice>
+								<type type="string">thunder</type>
+							</id-00001>
+						</damagelist>
+						<order type="number">1</order>
+						<tknbutton type="token"></tknbutton>
+						<type type="string">damage</type>
+					</id-00001>
+					<id-00002>
+						<durmod type="number">1</durmod>
+						<label type="string">Booming Blade; If target moves takes 1d8 thunder</label>
+						<order type="number">2</order>
+						<tknbutton type="token"></tknbutton>
+						<type type="string">effect</type>
+					</id-00002>
+				</actions>
+				<cast type="number">0</cast>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V, M (a weapon)</components>
+				<description type="formattedtext">
+					<p>As part of the action used to cast this spell, you must make a melee attack with a weapon against one creature within the spell's range, otherwise the spell fails. On a hit, the target suffers the attack's normal effects, and it becomes sheathed in booming energy until the start of your next turn. If the target willingly moves before then, it immediately takes 1d8 thunder damage, and the spell ends.</p>
+					<p>This spell's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th level and 17th level.</p>
+				</description>
+				<duration type="string">1 round</duration>
+				<group type="string">Spells</group>
+				<level type="number">0</level>
+				<locked type="number">1</locked>
+				<name type="string">Booming Blade (5)</name>
+				<prepared type="number">0</prepared>
+				<range type="string">5 feet</range>
+				<ritual type="number">0</ritual>
+				<school type="string">Evocation</school>
+				<source type="string">Sorcerer, Warlock, Wizard</source>
+			</id-00004>
+			<id-00005>
+				<actions>
+					<id-00001>
+						<atktype type="string">ranged</atktype>
+						<order type="number">1</order>
+						<tknbutton type="token"></tknbutton>
+						<type type="string">cast</type>
+					</id-00001>
+					<id-00002>
+						<damagelist>
+							<id-00001>
+								<bonus type="number">0</bonus>
+								<dice type="dice">d10</dice>
+								<type type="string">force</type>
+							</id-00001>
+						</damagelist>
+						<order type="number">2</order>
+						<tknbutton type="token"></tknbutton>
+						<type type="string">damage</type>
+					</id-00002>
+				</actions>
+				<cast type="number">0</cast>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V, S</components>
+				<description type="formattedtext">
+					<p>A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.</p>
+					<p>The spell creates more than one beam when you reach higher levels: two beams at 5th level, three beams at 11th level, and four beams at 17th level. You can direct the beams at the same target or at different ones. Make a separate attack roll for each beam.</p>
+				</description>
+				<duration type="string">Instantaneous</duration>
+				<group type="string">Spells</group>
+				<level type="number">0</level>
+				<locked type="number">1</locked>
+				<name type="string">Eldritch Blast (120)</name>
+				<prepared type="number">0</prepared>
+				<range type="string">120 feet</range>
+				<ritual type="number">0</ritual>
+				<school type="string">Evocation</school>
+				<source type="string">Warlock</source>
+			</id-00005>
+			<id-00006>
+				<actions>
+					<id-00001>
+						<durmod type="number">1</durmod>
+						<durunit type="string">hour</durunit>
+						<label type="string">Prestidigitation</label>
+						<order type="number">1</order>
+						<targeting type="string">self</targeting>
+						<tknbutton type="token"></tknbutton>
+						<tknimg type="token"></tknimg>
+						<type type="string">effect</type>
+					</id-00001>
+				</actions>
+				<cast type="number">0</cast>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V, S</components>
+				<description type="formattedtext">
+					<p>This spell is a minor magical trick that novice spellcasters use for practice. You create one of the following magical effects within range:</p>
+					<list>
+						<li>You create an instantaneous, harmless sensory effect, such as a shower of sparks, a puff of wind, faint musical notes, or an odd odor.</li>
+						<li>You instantaneously light or snuff out a candle, a torch, or a small campfire.</li>
+						<li>You instantaneously clean or soil an object no larger than 1 cubic foot.</li>
+						<li>You chill, warm, or flavor up to 1 cubic foot of nonliving material for 1 hour.</li>
+						<li>You make a color, a small mark, or a symbol appear on an object or a surface for 1 hour.</li>
+						<li>You create a nonmagical trinket or an illusory image that can fit in your hand and that lasts until the end of your next turn.</li>
+					</list>
+					<p>If you cast this spell multiple times, you can have up to three of its non-instantaneous effects active at a time, and you can dismiss such an effect as an action.</p>
+				</description>
+				<duration type="string">Up to 1 hour</duration>
+				<group type="string">Spells</group>
+				<level type="number">0</level>
+				<locked type="number">1</locked>
+				<name type="string">Prestidigitation (10)</name>
+				<prepared type="number">0</prepared>
+				<range type="string">10 feet</range>
+				<ritual type="number">0</ritual>
+				<school type="string">Transmutation</school>
+				<source type="string">Bard, Eldritch Knight, Sorcerer, Warlock, Wizard, Arcane Trickster, Artificer</source>
+			</id-00006>
+			<id-00007>
+				<actions>
+					<id-00001>
+						<durmod type="number">10</durmod>
+						<durunit type="string">minute</durunit>
+						<label type="string">Detect Magic (C)</label>
+						<order type="number">1</order>
+						<targeting type="string">self</targeting>
+						<tknbutton type="token"></tknbutton>
+						<tknimg type="token"></tknimg>
+						<type type="string">effect</type>
+					</id-00001>
+					<id-00002>
+						<circle_token type="number">1</circle_token>
+						<cone_token type="number">0</cone_token>
+						<measurenumber type="number">30</measurenumber>
+						<order type="number">2</order>
+						<sizefactor type="string">Measurement</sizefactor>
+						<tknbutton type="token">tokens/AquaAura.png@Simple Aura Tokens by Robyn</tknbutton>
+						<tknimg type="token">tokens/AquaAura.png@Simple Aura Tokens by Robyn</tknimg>
+						<type type="string">Token</type>
+					</id-00002>
+				</actions>
+				<cast type="number">0</cast>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V, S</components>
+				<description type="formattedtext">
+					<p>For the duration, you sense the presence of magic within 30 feet of you. If you sense magic in this way, you can use your action to see a faint aura around any visible creature or object in the area that bears magic, and you learn its school of magic, if any.</p>
+					<p>The spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.</p>
+				</description>
+				<duration type="string">Concentration, up to 10 minutes</duration>
+				<group type="string">Spells</group>
+				<level type="number">1</level>
+				<locked type="number">1</locked>
+				<name type="string">Detect Magic (S) (C) (RIT) =</name>
+				<prepared type="number">0</prepared>
+				<range type="string">Self</range>
+				<ritual type="number">1</ritual>
+				<school type="string">Divination</school>
+				<source type="string">Bard, Cleric, Druid, Eldritch Knight, Eldritch Invocations, Paladin, Ranger, Sorcerer, Wizard, Arcane Trickster, Artificer</source>
+			</id-00007>
+			<id-00008>
+				<actions>
+				</actions>
+				<cast type="number">0</cast>
+				<castingtime type="string">1 hour</castingtime>
+				<components type="string">V, S, M (10 gp worth of charcoal, incense, and herbs that must be consumed by fire in a brass brazier)</components>
+				<description type="formattedtext">
+					<p>You gain the service of a familiar, a spirit that takes an animal form you choose: bat, cat, crab, frog (toad), hawk, lizard, octopus, owl, poisonous snake, fish (quipper), rat, raven, sea horse, spider, or weasel. Appearing in an unoccupied space within range, the familiar has the statistics of the chosen form, though it is a celestial, fey, or fiend (your choice) instead of a beast.</p>
+					<p>Your familiar acts independently of you, but it always obeys your commands. In combat, it rolls its own initiative and acts on its own turn. A familiar can't attack, but it can take other actions as normal.</p>
+					<p>When the familiar drops to 0 hit points, it disappears, leaving behind no physical form. It reappears after you cast this spell again</p>
+					<p>While your familiar is within 100 feet of you, you can communicate with it telepathically. Additionally, as an action, you can see through your familiar's eyes and hear what it hears until the start of your next turn, gaining the benefits of any special senses that the familiar has. During this time, you are deaf and blind with regard to your own senses.</p>
+					<p>As an action, you can temporarily dismiss your familiar. It disappears into a pocket dimension where it awaits your summons. Alternatively, you can dismiss it forever. As an action while it is temporarily dismissed, you can cause it to reappear in any unoccupied space within 30 feet of you.</p>
+					<p>You can't have more than one familiar at a time. If you cast this spell while you already have a familiar, you instead cause it to adopt a new form. Choose one of the forms from the above list. Your familiar transforms into the chosen creature.</p>
+					<p>Finally, when you cast a spell with a range of touch, your familiar can deliver the spell as if it had cast the spell. Your familiar must be within 100 feet of you, and it must use its reaction to deliver the spell when you cast it. If the spell requires an attack roll, you use your attack modifier for the roll.</p>
+				</description>
+				<duration type="string">Instantaneous</duration>
+				<group type="string">Spells</group>
+				<level type="number">1</level>
+				<locked type="number">1</locked>
+				<name type="string">Find Familiar (RIT) (10) ($)</name>
+				<prepared type="number">0</prepared>
+				<range type="string">10 feet</range>
+				<ritual type="number">1</ritual>
+				<school type="string">Conjuration</school>
+				<source type="string">Eldritch Knight, Wizard, Arcane Trickster</source>
+			</id-00008>
+			<id-00009>
+				<actions>
+					<id-00001>
+						<atkmod type="number">0</atkmod>
+						<atkprof type="number">1</atkprof>
+						<order type="number">1</order>
+						<savedcmod type="number">0</savedcmod>
+						<savedcprof type="number">1</savedcprof>
+						<savemagic type="number">1</savemagic>
+						<savetype type="string">dexterity</savetype>
+						<tknbutton type="token"></tknbutton>
+						<tknimg type="token"></tknimg>
+						<type type="string">cast</type>
+					</id-00001>
+					<id-00002>
+						<durmod type="number">0</durmod>
+						<label type="string">Grease; Prone</label>
+						<order type="number">2</order>
+						<tknbutton type="token"></tknbutton>
+						<tknimg type="token"></tknimg>
+						<type type="string">effect</type>
+					</id-00002>
+					<id-00003>
+						<measurenumber type="number">10</measurenumber>
+						<measurevalue type="string">Diameter</measurevalue>
+						<order type="number">3</order>
+						<sizefactor type="string">Measurement</sizefactor>
+						<tknbutton type="token">tokens/GREASE 10ft.png@Fantasy Grounds Spell Tokens</tknbutton>
+						<tknimg type="token">tokens/GREASE 10ft.png@Fantasy Grounds Spell Tokens</tknimg>
+						<type type="string">Token</type>
+					</id-00003>
+				</actions>
+				<cast type="number">0</cast>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V, S, M (a bit of pork rind or butter)</components>
+				<description type="formattedtext">
+					<p>Slick grease covers the ground in a 10-foot square centered on a point within range and turns it into difficult terrain for the duration.</p>
+					<p>When the grease appears, each creature standing in its area must succeed on a Dexterity saving throw or fall prone. A creature that enters the area or ends its turn there must also succeed on a Dexterity saving throw or fall prone.</p>
+				</description>
+				<duration type="string">1 minute</duration>
+				<group type="string">Spells</group>
+				<level type="number">1</level>
+				<locked type="number">1</locked>
+				<name type="string">Grease (60) =</name>
+				<prepared type="number">1</prepared>
+				<range type="string">60 feet</range>
+				<ritual type="number">0</ritual>
+				<school type="string">Conjuration</school>
+				<source type="string">Eldritch Knight, Wizard, Arcane Trickster, Artificer</source>
+			</id-00009>
+			<id-00010>
+				<actions>
+					<id-00001>
+						<damagelist>
+							<id-00001>
+								<bonus type="number">1</bonus>
+								<dice type="dice">d4</dice>
+								<type type="string">force</type>
+							</id-00001>
+						</damagelist>
+						<order type="number">1</order>
+						<tknbutton type="token"></tknbutton>
+						<type type="string">damage</type>
+					</id-00001>
+				</actions>
+				<cast type="number">0</cast>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V, S</components>
+				<description type="formattedtext">
+					<p>You create three glowing darts of magical force. Each dart hits a creature of your choice that you can see within range. A dart deals 1d4 + 1 force damage to its target. The darts all strike simultaneously, and you can direct them to hit one creature or several.</p>
+					<p>At Higher Levels.</p>
+					<p>When you cast this spell using a spell slot of 2nd level or higher, the spell creates one more dart for each slot level above 1st.</p>
+				</description>
+				<duration type="string">Instantaneous</duration>
+				<group type="string">Spells</group>
+				<level type="number">1</level>
+				<locked type="number">1</locked>
+				<name type="string">Magic Missile (120)</name>
+				<prepared type="number">0</prepared>
+				<range type="string">120 feet</range>
+				<ritual type="number">0</ritual>
+				<school type="string">Evocation</school>
+				<source type="string">Eldritch Knight, Sorcerer, Wizard, Arcane Trickster</source>
+			</id-00010>
+			<id-00011>
+				<actions>
+					<id-00001>
+						<durmod type="number">0</durmod>
+						<label type="string">Cold Resistance; RESIST: cold</label>
+						<order type="number">1</order>
+						<targeting type="string">self</targeting>
+						<tknbutton type="token"></tknbutton>
+						<type type="string">effect</type>
+					</id-00001>
+				</actions>
+				<cast type="number">0</cast>
+				<group type="string">Trait</group>
+				<level type="number">0</level>
+				<name type="string">Midwinter Child</name>
+				<prepared type="number">0</prepared>
+			</id-00011>
+			<id-00012>
+				<actions>
+				</actions>
+				<cast type="number">0</cast>
+				<castingtime type="string">1 minute</castingtime>
+				<components type="string">V, S, M (a pearl worth at least 100 gp and an owl feather)</components>
+				<description type="formattedtext">
+					<p>You choose one object that you must touch throughout the casting of the spell. If it is a magic item or some other magic-imbued object, you learn its properties and how to use them, whether it requires attunement to use, and how many charges it has, if any. You learn whether any spells are affecting the item and what they are. If the item was created by a spell, you learn which spell created it.</p>
+					<p>If you instead touch a creature throughout the casting, you learn what spells, if any, are currently affecting it.</p>
+				</description>
+				<duration type="string">Instantaneous</duration>
+				<group type="string">Spells</group>
+				<level type="number">1</level>
+				<locked type="number">1</locked>
+				<name type="string">Identify (RIT) (T) ($)</name>
+				<prepared type="number">0</prepared>
+				<range type="string">Touch</range>
+				<ritual type="number">1</ritual>
+				<school type="string">Divination</school>
+				<source type="string">Bard, Cleric Knowledge Domain, Eldritch Knight, Wizard, Arcane Trickster, Artificer</source>
+			</id-00012>
+			<id-00013>
+				<actions>
+					<id-00001>
+						<durmod type="number">1</durmod>
+						<durunit type="string">minute</durunit>
+						<label type="string">Sleep; Unconscious</label>
+						<order type="number">1</order>
+						<tknbutton type="token"></tknbutton>
+						<tknimg type="token"></tknimg>
+						<type type="string">effect</type>
+					</id-00001>
+					<id-00002>
+						<circle_token type="number">1</circle_token>
+						<cone_token type="number">0</cone_token>
+						<measurenumber type="number">20</measurenumber>
+						<order type="number">2</order>
+						<sizefactor type="string">Measurement</sizefactor>
+						<target_token type="number">1</target_token>
+						<tknbutton type="token">tokens/AquaAura.png@Simple Aura Tokens by Robyn</tknbutton>
+						<tknimg type="token">tokens/AquaAura.png@Simple Aura Tokens by Robyn</tknimg>
+						<type type="string">Token</type>
+					</id-00002>
+				</actions>
+				<cast type="number">0</cast>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V, S, M (a pinch of fine sand, rose petals, or a cricket)</components>
+				<description type="formattedtext">
+					<p>This spell sends creatures into a magical slumber.</p>
+					<p>Roll 5d8; the total is how many hit points of creatures this spell can affect. Creatures within 20 feet of a point you choose within range are affected in ascending order of their current hit points (ignoring unconscious creatures).</p>
+					<p>Starting with the creature that has the lowest current hit points, each creature affected by this spell falls unconscious until the spell ends, the sleeper takes damage, or someone uses an action to shake or slap the sleeper awake. Subtract each creature's hit points from the total before moving on to the creature with the next lowest hit points. A creature's hit points must be equal to or less than the remaining total for that creature to be affected.</p>
+					<p>Undead and creatures immune to being charmed aren't affected by this spell.</p>
+					<p>At Higher Levels.</p>
+					<p>When you cast this spell using a spell slot of 2nd level or higher, roll an additional 2d8 for each slot level above 1st.</p>
+				</description>
+				<duration type="string">1 minute</duration>
+				<group type="string">Spells</group>
+				<level type="number">1</level>
+				<locked type="number">1</locked>
+				<name type="string">Sleep (90) =</name>
+				<prepared type="number">1</prepared>
+				<range type="string">90 feet</range>
+				<ritual type="number">0</ritual>
+				<school type="string">Enchantment</school>
+				<source type="string">Bard, Eldritch Knight, Warlock (Archfey), Sorcerer, Wizard, Arcane Trickster</source>
+			</id-00013>
+		</powers>
+		<profbonus type="number">2</profbonus>
+		<proficiencylist>
+			<id-00001>
+				<name type="string">Tinker's Tools</name>
+			</id-00001>
+			<id-00002>
+				<name type="string">Dagger</name>
+			</id-00002>
+			<id-00003>
+				<name type="string">Dart</name>
+			</id-00003>
+			<id-00004>
+				<name type="string">Sling</name>
+			</id-00004>
+			<id-00005>
+				<name type="string">Quarterstaff</name>
+			</id-00005>
+			<id-00006>
+				<name type="string">Crossbow, Light</name>
+			</id-00006>
+		</proficiencylist>
+		<race type="string">Rock Gnome</race>
+		<racelink type="windowreference">
+			<class>reference_race</class>
+			<recordname>reference.racedata.gnome@*</recordname>
+		</racelink>
+		<senses type="string">Darkvision 60ft.</senses>
+		<shifttoken type="token"></shifttoken>
+		<size type="string">Small</size>
+		<skilllist>
+			<id-00001>
+				<misc type="number">0</misc>
+				<name type="string">Acrobatics</name>
+				<prof type="number">0</prof>
+				<stat type="string">dexterity</stat>
+				<total type="number">2</total>
+			</id-00001>
+			<id-00002>
+				<misc type="number">0</misc>
+				<name type="string">Animal Handling</name>
+				<prof type="number">0</prof>
+				<stat type="string">wisdom</stat>
+				<total type="number">1</total>
+			</id-00002>
+			<id-00003>
+				<misc type="number">0</misc>
+				<name type="string">Arcana</name>
+				<prof type="number">1</prof>
+				<stat type="string">intelligence</stat>
+				<total type="number">5</total>
+			</id-00003>
+			<id-00004>
+				<misc type="number">0</misc>
+				<name type="string">Athletics</name>
+				<prof type="number">0</prof>
+				<stat type="string">strength</stat>
+				<total type="number">-1</total>
+			</id-00004>
+			<id-00005>
+				<misc type="number">0</misc>
+				<name type="string">Deception</name>
+				<prof type="number">0</prof>
+				<stat type="string">charisma</stat>
+				<total type="number">0</total>
+			</id-00005>
+			<id-00006>
+				<misc type="number">0</misc>
+				<name type="string">History</name>
+				<prof type="number">1</prof>
+				<stat type="string">intelligence</stat>
+				<total type="number">5</total>
+			</id-00006>
+			<id-00007>
+				<misc type="number">0</misc>
+				<name type="string">Insight</name>
+				<prof type="number">0</prof>
+				<stat type="string">wisdom</stat>
+				<total type="number">1</total>
+			</id-00007>
+			<id-00008>
+				<misc type="number">0</misc>
+				<name type="string">Intimidation</name>
+				<prof type="number">0</prof>
+				<stat type="string">charisma</stat>
+				<total type="number">0</total>
+			</id-00008>
+			<id-00009>
+				<misc type="number">0</misc>
+				<name type="string">Investigation</name>
+				<prof type="number">1</prof>
+				<stat type="string">intelligence</stat>
+				<total type="number">5</total>
+			</id-00009>
+			<id-00010>
+				<misc type="number">0</misc>
+				<name type="string">Medicine</name>
+				<prof type="number">1</prof>
+				<stat type="string">wisdom</stat>
+				<total type="number">3</total>
+			</id-00010>
+			<id-00011>
+				<misc type="number">0</misc>
+				<name type="string">Nature</name>
+				<prof type="number">0</prof>
+				<stat type="string">intelligence</stat>
+				<total type="number">3</total>
+			</id-00011>
+			<id-00012>
+				<misc type="number">0</misc>
+				<name type="string">Perception</name>
+				<prof type="number">0</prof>
+				<stat type="string">wisdom</stat>
+				<total type="number">1</total>
+			</id-00012>
+			<id-00013>
+				<misc type="number">0</misc>
+				<name type="string">Performance</name>
+				<prof type="number">0</prof>
+				<stat type="string">charisma</stat>
+				<total type="number">0</total>
+			</id-00013>
+			<id-00014>
+				<misc type="number">0</misc>
+				<name type="string">Persuasion</name>
+				<prof type="number">0</prof>
+				<stat type="string">charisma</stat>
+				<total type="number">0</total>
+			</id-00014>
+			<id-00015>
+				<misc type="number">0</misc>
+				<name type="string">Religion</name>
+				<prof type="number">0</prof>
+				<stat type="string">intelligence</stat>
+				<total type="number">3</total>
+			</id-00015>
+			<id-00016>
+				<misc type="number">0</misc>
+				<name type="string">Sleight of Hand</name>
+				<prof type="number">0</prof>
+				<stat type="string">dexterity</stat>
+				<total type="number">2</total>
+			</id-00016>
+			<id-00017>
+				<misc type="number">0</misc>
+				<name type="string">Stealth</name>
+				<prof type="number">0</prof>
+				<stat type="string">dexterity</stat>
+				<total type="number">2</total>
+			</id-00017>
+			<id-00018>
+				<misc type="number">0</misc>
+				<name type="string">Survival</name>
+				<prof type="number">0</prof>
+				<stat type="string">wisdom</stat>
+				<total type="number">1</total>
+			</id-00018>
+		</skilllist>
+		<speed>
+			<armor type="number">0</armor>
+			<base type="number">25</base>
+			<misc type="number">0</misc>
+			<temporary type="number">0</temporary>
+			<total type="number">25</total>
+		</speed>
+		<stats>
+			<bigFoeCR type="number">0</bigFoeCR>
+			<biggestDamage type="number">0</biggestDamage>
+			<crits type="number">0</crits>
+			<damage type="number">0</damage>
+			<damageReceived type="number">0</damageReceived>
+			<fumbles type="number">0</fumbles>
+			<healing type="number">0</healing>
+			<healingReceived type="number">0</healingReceived>
+			<hits type="number">0</hits>
+			<kills type="number">0</kills>
+			<kos type="number">0</kos>
+			<misses type="number">0</misses>
+		</stats>
+		<token type="token">tokens/host/wizard.png</token>
+		<traitlist>
+			<id-00001>
+				<name type="string">Midwinter Child</name>
+			</id-00001>
+			<id-00007>
+				<locked type="number">1</locked>
+				<name type="string">Gnome Cunning</name>
+				<source type="string">gnome</source>
+				<text type="formattedtext">
+					<p>You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.</p>
+				</text>
+				<type type="string">racial</type>
+			</id-00007>
+			<id-00010>
+				<locked type="number">1</locked>
+				<name type="string">Artificer's Lore</name>
+				<source type="string">gnome</source>
+				<text type="formattedtext">
+					<p>Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply.</p>
+				</text>
+				<type type="string">racial</type>
+			</id-00010>
+			<id-00011>
+				<locked type="number">1</locked>
+				<name type="string">Tinker</name>
+				<source type="string">gnome</source>
+				<text type="formattedtext">
+					<p>You have proficiency with artisan&#226;&#128;(tm)s tools (tinker&#226;&#128;(tm)s tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.</p>
+					<p>When you create a device, choose one of the following options:</p>
+					<p>Clockwork Toy. This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.</p>
+					<p>Fire Starter. The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.</p>
+					<p>Music Box. When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song&#226;&#128;(tm)s end or when it is closed.</p>
+				</text>
+				<type type="string">racial</type>
+			</id-00011>
+		</traitlist>
+		<weaponlist>
+			<id-00001>
+				<attackbonus type="number">0</attackbonus>
+				<attackstat type="string">base</attackstat>
+				<carried type="number">1</carried>
+				<damagelist>
+					<id-00001>
+						<bonus type="number">0</bonus>
+						<dice type="dice"></dice>
+						<stat type="string">base</stat>
+						<type type="string">bludgeoning</type>
+					</id-00001>
+				</damagelist>
+				<handling type="number">0</handling>
+				<isidentified type="number">1</isidentified>
+				<maxammo type="number">0</maxammo>
+				<name type="string">Quarterstaff</name>
+				<prof type="number">1</prof>
+				<properties type="string">Versatile</properties>
+				<shortcut type="windowreference">
+					<class>item</class>
+					<recordname>....inventorylist.id-00001</recordname>
+				</shortcut>
+				<type type="number">0</type>
+			</id-00001>
+		</weaponlist>
+		<weight type="string">45</weight>
+	</character>
+</root>

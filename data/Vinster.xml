@@ -1,0 +1,973 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<root version="3.3" release="8|CoreRPG:4">
+	<character>
+		<!--23503240-->
+		<name type="string">Vinster</name>
+		<alignment type="string">Chaotic Neutral</alignment>
+		<personalitytraits type="string">I like to squeeze into small places where no one else can get to me.</personalitytraits>
+		<ideals type="string">Change. The low are lifted up, and the high and mighty are brought down. Change is the nature of things. (Chaotic)</ideals>
+		<bonds type="string">I escaped my life of poverty by robbing an important person, and I'm wanted for it.</bonds>
+		<flaws type="string">It's not stealing if I need it more than someone else.</flaws>
+		<background type="string">Urchin - Baldur’s Gate</background>
+		<backgroundlink type="windowreference">
+			<class>reference_background</class>
+			<recordname>reference.backgrounddata.urchin-baldur’sgate@*</recordname>
+		</backgroundlink>
+		<race type="string">Forest Gnome</race>
+		<racelink type="windowreference">
+			<class>reference_race</class>
+			<recordname>reference.racedata.gnome@*</recordname>
+		</racelink>
+		<skilllist>
+			<id-00001>
+				<misc type="number">0</misc>
+				<name type="string">Acrobatics</name>
+				<stat type="string">dexterity</stat>
+				<prof type="number">0</prof>
+			</id-00001>
+			<id-00002>
+				<misc type="number">0</misc>
+				<name type="string">Animal Handling</name>
+				<stat type="string">wisdom</stat>
+				<prof type="number">0</prof>
+			</id-00002>
+			<id-00003>
+				<misc type="number">0</misc>
+				<name type="string">Arcana</name>
+				<stat type="string">intelligence</stat>
+				<prof type="number">0</prof>
+			</id-00003>
+			<id-00004>
+				<misc type="number">0</misc>
+				<name type="string">Athletics</name>
+				<stat type="string">strength</stat>
+				<prof type="number">0</prof>
+			</id-00004>
+			<id-00005>
+				<misc type="number">0</misc>
+				<name type="string">Deception</name>
+				<stat type="string">charisma</stat>
+				<prof type="number">2</prof>
+			</id-00005>
+			<id-00006>
+				<misc type="number">0</misc>
+				<name type="string">History</name>
+				<stat type="string">intelligence</stat>
+				<prof type="number">0</prof>
+			</id-00006>
+			<id-00007>
+				<misc type="number">0</misc>
+				<name type="string">Insight</name>
+				<stat type="string">wisdom</stat>
+				<prof type="number">1</prof>
+			</id-00007>
+			<id-00008>
+				<misc type="number">0</misc>
+				<name type="string">Intimidation</name>
+				<stat type="string">charisma</stat>
+				<prof type="number">0</prof>
+			</id-00008>
+			<id-00009>
+				<misc type="number">0</misc>
+				<name type="string">Investigation</name>
+				<stat type="string">intelligence</stat>
+				<prof type="number">0</prof>
+			</id-00009>
+			<id-00010>
+				<misc type="number">0</misc>
+				<name type="string">Medicine</name>
+				<stat type="string">wisdom</stat>
+				<prof type="number">0</prof>
+			</id-00010>
+			<id-00011>
+				<misc type="number">0</misc>
+				<name type="string">Nature</name>
+				<stat type="string">intelligence</stat>
+				<prof type="number">0</prof>
+			</id-00011>
+			<id-00012>
+				<misc type="number">0</misc>
+				<name type="string">Perception</name>
+				<stat type="string">wisdom</stat>
+				<prof type="number">2</prof>
+			</id-00012>
+			<id-00013>
+				<misc type="number">0</misc>
+				<name type="string">Performance</name>
+				<stat type="string">charisma</stat>
+				<prof type="number">0</prof>
+			</id-00013>
+			<id-00014>
+				<misc type="number">0</misc>
+				<name type="string">Persuasion</name>
+				<stat type="string">charisma</stat>
+				<prof type="number">1</prof>
+			</id-00014>
+			<id-00015>
+				<misc type="number">0</misc>
+				<name type="string">Religion</name>
+				<stat type="string">intelligence</stat>
+				<prof type="number">0</prof>
+			</id-00015>
+			<id-00016>
+				<misc type="number">0</misc>
+				<name type="string">Sleight of Hand</name>
+				<stat type="string">dexterity</stat>
+				<prof type="number">1</prof>
+			</id-00016>
+			<id-00017>
+				<misc type="number">0</misc>
+				<name type="string">Stealth</name>
+				<stat type="string">dexterity</stat>
+				<prof type="number">2</prof>
+			</id-00017>
+			<id-00018>
+				<misc type="number">0</misc>
+				<name type="string">Survival</name>
+				<stat type="string">wisdom</stat>
+				<prof type="number">0</prof>
+			</id-00018>
+		</skilllist>
+		<classes>
+			<id-00001>
+				<hddie type="dice">d8</hddie>
+				<name type="string">Rogue</name>
+				<casterpactmagic type="number">0</casterpactmagic>
+				<level type="number">10</level>
+				<shortcut type="windowreference">
+					<class>reference_class</class>
+					<recordname>reference.classdata.rogue@*</recordname>
+				</shortcut>
+			</id-00001>
+		</classes>
+		<hp>
+			<deathsavefail type="number">0</deathsavefail>
+			<deathsavesuccess type="number">0</deathsavesuccess>
+			<total type="number">63</total>
+		</hp>
+		<languagelist>
+			<id-00001>
+				<name type="string">Common</name>
+			</id-00001>
+			<id-00002>
+				<name type="string">Gnomish</name>
+			</id-00002>
+			<id-00003>
+				<name type="string">Thieves-cant</name>
+			</id-00003>
+		</languagelist>
+		<senses type="string">Darkvision 60ft.</senses>
+		<traitlist>
+			<id-00007>
+				<name type="string">Gnome Cunning</name>
+				<source type="string">gnome</source>
+				<locked type="number">1</locked>
+				<text type="formattedtext">
+					<p>You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.</p>
+				</text>
+				<type type="string">racial</type>
+			</id-00007>
+			<id-00010>
+				<name type="string">Natural Illusionist</name>
+				<source type="string">gnome</source>
+				<locked type="number">1</locked>
+				<text type="formattedtext">
+					<p>You know the minor illusion cantrip. Intelligence is your spellcasting ability for it.</p>
+				</text>
+				<type type="string">racial</type>
+			</id-00010>
+			<id-00011>
+				<name type="string">Speak with Small Beasts</name>
+				<source type="string">gnome</source>
+				<locked type="number">1</locked>
+				<text type="formattedtext">
+					<p>Through sounds and gestures, you can communicate simple ideas with Small or smaller beasts. Forest gnomes love animals and often keep squirrels, badgers, rabbits, moles, woodpeckers, and other creatures as beloved pets.</p>
+				</text>
+				<type type="string">racial</type>
+			</id-00011>
+		</traitlist>
+		<featurelist>
+			<id-00001>
+				<locked type="number">1</locked>
+				<name type="string">Expertise</name>
+				<source type="string">rogue</source>
+				<text type="formattedtext">
+					<p class="compendium-hr">At 1st level, choose two of your skill proficiencies, or one of your skill proficiencies and your proficiency with thieves' tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.</p>
+<p class="Core-Styles_Core-Body">At 6th level, you can choose two more of your proficiencies (in skills or with thieves' tools) to gain this benefit.</p>
+				</text>
+			</id-00001>
+			<id-00002>
+				<locked type="number">1</locked>
+				<name type="string">Sneak Attack</name>
+				<source type="string">rogue</source>
+				<text type="formattedtext">
+					<p class="Core-Styles_Core-Body">Beginning at 1st level, you know how to strike subtly and exploit a foe's distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon.</p>
+<p class="Core-Styles_Core-Body">You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll.</p>
+<p class="Core-Styles_Core-Body">The amount of the extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table.</p>
+				</text>
+			</id-00002>
+			<id-00003>
+				<locked type="number">1</locked>
+				<name type="string">Thieves' Cant</name>
+				<source type="string">rogue</source>
+				<text type="formattedtext">
+					<p class="Core-Styles_Core-Body">During your rogue training you learned thieves' cant, a secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation. Only another creature that knows thieves' cant understands such messages. It takes four times longer to convey such a message than it does to speak the same idea plainly.</p>
+<p class="Core-Styles_Core-Body">In addition, you understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves' guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run.</p>
+				</text>
+			</id-00003>
+			<id-00004>
+				<locked type="number">1</locked>
+				<name type="string">Cunning Action</name>
+				<source type="string">rogue</source>
+				<text type="formattedtext">
+					<p class="Core-Styles_Core-Body">Starting at 2nd level, your quick thinking and agility allow you to move and act quickly. You can take a bonus action on each of your turns in combat. This action can be used only to take the Dash, Disengage, or Hide action.</p>
+				</text>
+			</id-00004>
+			<id-00005>
+				<locked type="number">1</locked>
+				<name type="string">Roguish Archetype</name>
+				<source type="string">rogue</source>
+				<text type="formattedtext">
+					<p class="compendium-hr">At 3rd level, you choose an archetype that you emulate in the exercise of your rogue abilities: Thief, detailed at the end of the class description, or one from another source. Your archetype choice grants you features at 3rd level and then again at 9th, 13th, and 17th level.</p>
+				</text>
+			</id-00005>
+			<id-00006>
+				<locked type="number">1</locked>
+				<name type="string">Uncanny Dodge</name>
+				<source type="string">rogue</source>
+				<text type="formattedtext">
+					<p class="compendium-hr">Starting at 5th level, when an attacker that you can see hits you with an attack, you can use your reaction to halve the attack's damage against you.</p>
+				</text>
+			</id-00006>
+			<id-00007>
+				<locked type="number">1</locked>
+				<name type="string">Evasion</name>
+				<source type="string">rogue</source>
+				<text type="formattedtext">
+					<p class="compendium-hr">Beginning at 7th level, you can nimbly dodge out of the way of certain area effects, such as an ancient red dragon's fiery breath or an ice storm spell. When you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.</p>
+				</text>
+			</id-00007>
+			<id-00008>
+				<locked type="number">1</locked>
+				<name type="string">Thief</name>
+				<text type="formattedtext">
+					<p class="Core-Styles_Core-Body">You hone your skills in the larcenous arts. Burglars, bandits, cutpurses, and other criminals typically follow this archetype, but so do rogues who prefer to think of themselves as professional treasure seekers, explorers, delvers, and investigators. In addition to improving your agility and stealth, you learn skills useful for delving into ancient ruins, reading unfamiliar languages, and using magic items you normally couldn't employ.</p>
+				</text>
+			</id-00008>
+			<id-00009>
+				<locked type="number">1</locked>
+				<name type="string">Fast Hands</name>
+				<text type="formattedtext">
+					<p class="compendium-hr">Starting at 3rd level, you can use the bonus action granted by your Cunning Action to make a Dexterity (Sleight of Hand) check, use your thieves' tools to disarm a trap or open a lock, or take the Use an Object action.</p>
+				</text>
+			</id-00009>
+			<id-00010>
+				<locked type="number">1</locked>
+				<name type="string">Second-Story Work</name>
+				<text type="formattedtext">
+					<p class="compendium-hr">When you choose this archetype at 3rd level, you gain the ability to climb faster than normal; climbing no longer costs you extra movement.</p>
+<p class="Core-Styles_Core-Body">In addition, when you make a running jump, the distance you cover increases by a number of feet equal to your Dexterity modifier.</p>
+				</text>
+			</id-00010>
+			<id-00011>
+				<locked type="number">1</locked>
+				<name type="string">Supreme Sneak</name>
+				<text type="formattedtext">
+					<p class="Core-Styles_Core-Body">Starting at 9th level, you have advantage on a Dexterity (Stealth) check if you move no more than half your speed on the same turn.</p>
+				</text>
+			</id-00011>
+			<id-00013>
+				<name type="string">City Secrets</name>
+				<source type="string">urchin___baldur’s_gate</source>
+				<text type="formattedtext">
+					<p>You know the secret patterns and flow to cities and can find passages through the urban sprawl that others would miss. When you are not in combat, you (and companions you lead) can travel between any two locations in the city twice as fast as your speed would normally allow.</p>
+<p><strong>Baldur's Gate Feature: Gateguide Connection</strong></p>
+<p>Even though you might not be a member of the Gateguides crew, you've associated with enough of them that you know their torch-based code. From the lighting, placement, and type of torch arranged on or near a structure, you can gather a great deal of information about those who live or do business there, particularly if they deal fairly with strangers, have Guild or government connections, or have either helped or denied the Gateguides in the past.</p>
+				</text>
+				<type type="string">background</type>
+			</id-00013>
+		</featurelist>
+		<abilities>
+			<strength>
+				<bonus type="number">-1</bonus>
+				<savemodifier type="number">0</savemodifier>
+				<score type="number">9</score>
+			</strength>
+			<dexterity>
+				<bonus type="number">3</bonus>
+				<savemodifier type="number">0</savemodifier>
+				<saveprof type="number">1</saveprof>
+				<score type="number">17</score>
+			</dexterity>
+			<constitution>
+				<bonus type="number">1</bonus>
+				<savemodifier type="number">0</savemodifier>
+				<score type="number">13</score>
+			</constitution>
+			<intelligence>
+				<bonus type="number">3</bonus>
+				<savemodifier type="number">0</savemodifier>
+				<saveprof type="number">1</saveprof>
+				<score type="number">16</score>
+			</intelligence>
+			<wisdom>
+				<bonus type="number">0</bonus>
+				<savemodifier type="number">0</savemodifier>
+				<score type="number">10</score>
+			</wisdom>
+			<charisma>
+				<bonus type="number">1</bonus>
+				<savemodifier type="number">0</savemodifier>
+				<score type="number">12</score>
+			</charisma>
+		</abilities>
+		<inventorylist>
+			<id-00001>
+				<count type="number">1</count>
+				<name type="string">Dagger</name>
+				<weight type="number">1</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Weapon</type>
+				<cost type="string">2 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<damage type="string">1d4 Piercing</damage>
+				<properties type="string">Finesse, Light, Thrown (20/60)</properties>
+				<description type="formattedtext">
+					<p>Proficiency with a dagger allows you to add your proficiency bonus to the attack roll for any attack you make with it.</p>
+				</description>
+				<subtype type="string">Simple Melee Weapon</subtype>
+			</id-00001>
+			<id-00002>
+				<count type="number">20</count>
+				<name type="string">Crossbow Bolts</name>
+				<weight type="number">0.05</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Ammunition</type>
+				<cost type="string">1 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">2</carried>
+				<description type="formattedtext">
+					<p>Crossbow bolts are used with a weapon that has the ammunition property to make a ranged attack. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack (you need a free hand to load a one-handed weapon). At the end of the battle, you can recover half your expended ammunition by taking a minute to search the battlefield.</p>
+				</description>
+			</id-00002>
+			<id-00003>
+				<count type="number">1</count>
+				<name type="string">Backpack</name>
+				<weight type="number">5</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">2 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>A backpack is a leather pack carried on the back, typically with straps to secure it. A backpack can hold 1 cubic foot/ 30 pounds of gear.</p>
+<p>You can also strap items, such as a bedroll or a coil of rope, to the outside of a backpack.</p>
+				</description>
+			</id-00003>
+			<id-00004>
+				<count type="number">1</count>
+				<name type="string">Bell</name>
+				<weight type="number">0</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">1 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>A standard bell that rings, typically used for signaling.</p>
+				</description>
+			</id-00004>
+			<id-00005>
+				<count type="number">1</count>
+				<name type="string">Candle</name>
+				<weight type="number">0</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">0.01 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>For 1 hour, a candle sheds bright light in a 5-foot radius and dim light for an additional 5 feet.</p>
+				</description>
+			</id-00005>
+			<id-00006>
+				<count type="number">1</count>
+				<name type="string">Case, Crossbow Bolt</name>
+				<weight type="number">1</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">1 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>This wooden case can hold up to twenty crossbow bolts.</p>
+				</description>
+			</id-00006>
+			<id-00007>
+				<count type="number">1</count>
+				<name type="string">Case, Map or Scroll</name>
+				<weight type="number">1</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">1 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>This cylindrical leather case can hold up to ten rolled-up sheets of paper or five rolled-up sheets of parchment.</p>
+				</description>
+			</id-00007>
+			<id-00008>
+				<count type="number">1</count>
+				<name type="string">Clothes, Common</name>
+				<weight type="number">3</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">0.5 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>This set of clothes could consist of a loose shirt and baggy breeches, or a loose shirt and skirt or overdress. Cloth wrappings are used for shoes.</p>
+				</description>
+			</id-00008>
+			<id-00009>
+				<count type="number">1</count>
+				<name type="string">Lantern, Hooded</name>
+				<weight type="number">2</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">5 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>A hooded lantern casts bright light in a 30-foot radius and dim light for an additional 30 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil. As an action, you can lower the hood, reducing the light to dim light in a 5-foot radius.</p>
+				</description>
+			</id-00009>
+			<id-00010>
+				<count type="number">2</count>
+				<name type="string">Oil (flask)</name>
+				<weight type="number">1</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">0.1 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>Oil usually comes in a clay flask that holds 1 pint. As an action, you can splash the oil in this flask onto a creature within 5 feet of you or throw it up to 20 feet, shattering it on impact. Make a ranged attack against a target creature or object, treating the oil as an improvised weapon. On a hit, the target is covered in oil. If the target takes any fire damage before the oil dries (after 1 minute), the target takes an additional 5 fire damage from the burning oil. You can also pour a flask of oil on the ground to cover a 5-foot-square area, provided that the surface is level. If lit, the oil burns for 2 rounds and deals 5 fire damage to any creature that enters the area or ends its turn in the area. A creature can take this damage only once per turn.</p>
+				</description>
+			</id-00010>
+			<id-00011>
+				<count type="number">5</count>
+				<name type="string">Rations (1 day)</name>
+				<weight type="number">2</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">0.5 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>Rations consist of dry foods suitable for extended travel, including jerky, dried fruit, hardtack, and nuts.</p>
+				</description>
+			</id-00011>
+			<id-00012>
+				<count type="number">1</count>
+				<name type="string">Rope, Hempen (50 feet)</name>
+				<weight type="number">10</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">1 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>Rope, has 2 hit points and can be burst with a DC 17 Strength check.</p>
+				</description>
+			</id-00012>
+			<id-00013>
+				<count type="number">1</count>
+				<name type="string">Tinderbox</name>
+				<weight type="number">1</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">0.5 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>This small container holds flint, fire steel, and tinder (usually dry cloth soaked in light oil) used to kindle a fire. Using it to light a torch -- or anything else with abundant, exposed fuel -- takes an action. Lighting any other fire takes 1 minute.</p>
+<p> </p>
+				</description>
+			</id-00013>
+			<id-00014>
+				<count type="number">1</count>
+				<name type="string">Waterskin</name>
+				<weight type="number">5</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">0.2 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>A waterskin can hold 4 pints of liquid.</p>
+				</description>
+			</id-00014>
+			<id-00015>
+				<count type="number">1</count>
+				<name type="string">Thieves' Tools</name>
+				<weight type="number">1</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Tool</type>
+				<cost type="string">25 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>This set of tools includes a small file, a set of lock picks, a small mirror mounted on a metal handle, a set of narrow-bladed scissors, and a pair of pliers. Proficiency with these tools lets you add your proficiency bonus to any ability checks you make to disarm traps or open locks.</p>
+				</description>
+			</id-00015>
+			<id-00016>
+				<count type="number">10</count>
+				<name type="string">String</name>
+				<weight type="number">0</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">0 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>A 10-foot length of string, typically found in a burglar's pack.</p>
+				</description>
+			</id-00016>
+			<id-00017>
+				<count type="number">1</count>
+				<name type="string">Small Knife</name>
+				<weight type="number">0</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">0 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>A small knife, typically found in a scholar's pack.</p>
+				</description>
+			</id-00017>
+			<id-00018>
+				<count type="number">1</count>
+				<name type="string">Boots of Striding and Springing</name>
+				<weight type="number">0</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Wondrous item</type>
+				<cost type="string"></cost>
+				<rarity type="string">Uncommon (Requires Attunement)</rarity>
+				<carried type="number">2</carried>
+				<description type="formattedtext">
+					<p>While you wear these boots, your walking speed becomes 30 feet, unless your walking speed is higher, and your speed isn't reduced if you are encumbered or wearing heavy armor. In addition, you can jump three times the normal distance, though you can't jump farther than your remaining movement would allow.</p>
+				</description>
+			</id-00018>
+			<id-00019>
+				<count type="number">1</count>
+				<name type="string">Glamoured Studded Leather</name>
+				<weight type="number">13</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Armor</type>
+				<subtype type="string">Light Armor</subtype>
+				<ac type="number">12</ac>
+				<stealth type="string">-</stealth>
+				<strength type="string">-</strength>
+				<cost type="string"></cost>
+				<rarity type="string">Rare</rarity>
+				<carried type="number">2</carried>
+				<description type="formattedtext">
+					<p>While wearing this armor, you gain a +1 bonus to AC. You can also use a bonus action to speak the armor's command word and cause the armor to assume the appearance of a normal set of clothing or some other kind of armor. You decide what it looks like, including color, style, and accessories, but the armor retains its normal bulk and weight. The illusory appearance lasts until you use this property again or remove the armor.</p>
+				</description>
+			</id-00019>
+			<id-00020>
+				<count type="number">1</count>
+				<name type="string">Crossbow, Light, +1</name>
+				<weight type="number">5</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Weapon</type>
+				<cost type="string"></cost>
+				<rarity type="string">Uncommon</rarity>
+				<carried type="number">2</carried>
+				<damage type="string">1d8 Piercing</damage>
+				<properties type="string">Ammunition (80/320), Loading, Range, Two-Handed</properties>
+				<bonus type="number">1</bonus>
+				<description type="formattedtext">
+					<p>You have a +1 bonus to attack and damage rolls made with this magic weapon.</p>
+				</description>
+			</id-00020>
+			<id-00021>
+				<count type="number">1</count>
+				<name type="string">Dagger of Warning</name>
+				<weight type="number">1</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Weapon</type>
+				<cost type="string"></cost>
+				<rarity type="string">Uncommon (Requires Attunement)</rarity>
+				<carried type="number">2</carried>
+				<damage type="string">1d4 Piercing</damage>
+				<properties type="string">Finesse, Light, Thrown (20/60)</properties>
+				<description type="formattedtext">
+					<p>This magic weapon warns you of danger. While the weapon is on your person, you have advantage on initiative rolls. In addition, you and any of your companions within 30 feet of you can't be surprised, except when incapacitated by something other than nonmagical sleep. The weapon magically awakens you and your companions within range if any of you are sleeping naturally when combat begins.</p>
+				</description>
+			</id-00021>
+		</inventorylist>
+		<weaponlist>
+			<id-00001>
+				<shortcut type="windowreference">
+					<class>item</class>
+					<recordname>....inventorylist.id-00001</recordname>
+				</shortcut>
+				<name type="string">Dagger</name>
+				<properties type="string">Finesse, Light, Thrown (20/60)</properties>
+				<damagelist>
+					<id-00001>
+						<bonus type="number">0</bonus>
+						<dice type="dice">d4</dice>
+						<stat type="string">dexterity</stat>
+						<type type="string">piercing</type>
+					</id-00001>
+				</damagelist>
+				<attackbonus type="number">0</attackbonus>
+				<attackstat type="string">dexterity</attackstat>
+				<isidentified type="number">1</isidentified>
+				<type type="number">2</type>
+			</id-00001>
+			<id-00004>
+				<shortcut type="windowreference">
+					<class>item</class>
+					<recordname>....inventorylist.id-00001</recordname>
+				</shortcut>
+				<name type="string">Dagger</name>
+				<properties type="string">Finesse, Light, Thrown (20/60)</properties>
+				<damagelist>
+					<id-00001>
+						<bonus type="number">0</bonus>
+						<dice type="dice">d4</dice>
+						<stat type="string">dexterity</stat>
+						<type type="string">piercing</type>
+					</id-00001>
+				</damagelist>
+				<attackbonus type="number">0</attackbonus>
+				<attackstat type="string">dexterity</attackstat>
+				<isidentified type="number">1</isidentified>
+				<type type="number">0</type>
+			</id-00004>
+			<id-00002>
+				<shortcut type="windowreference">
+					<class>item</class>
+					<recordname>....inventorylist.id-00020</recordname>
+				</shortcut>
+				<name type="string">Crossbow, Light, +1</name>
+				<properties type="string">Ammunition (80/320), Loading, Range, Two-Handed</properties>
+				<damagelist>
+					<id-00001>
+						<bonus type="number">1</bonus>
+						<dice type="dice">d8</dice>
+						<stat type="string">dexterity</stat>
+						<type type="string">piercing</type>
+					</id-00001>
+				</damagelist>
+				<maxammo type="number">20</maxammo>
+				<attackbonus type="number">1</attackbonus>
+				<attackstat type="string">dexterity</attackstat>
+				<isidentified type="number">1</isidentified>
+				<type type="number">1</type>
+			</id-00002>
+			<id-00003>
+				<shortcut type="windowreference">
+					<class>item</class>
+					<recordname>....inventorylist.id-00021</recordname>
+				</shortcut>
+				<name type="string">Dagger of Warning</name>
+				<properties type="string">Finesse, Light, Thrown (20/60)</properties>
+				<damagelist>
+					<id-00001>
+						<bonus type="number">null</bonus>
+						<dice type="dice">d4</dice>
+						<stat type="string">dexterity</stat>
+						<type type="string">piercing</type>
+					</id-00001>
+				</damagelist>
+				<attackbonus type="number">null</attackbonus>
+				<attackstat type="string">dexterity</attackstat>
+				<isidentified type="number">1</isidentified>
+				<type type="number">2</type>
+			</id-00003>
+			<id-00005>
+				<shortcut type="windowreference">
+					<class>item</class>
+					<recordname>....inventorylist.id-00021</recordname>
+				</shortcut>
+				<name type="string">Dagger of Warning</name>
+				<properties type="string">Finesse, Light, Thrown (20/60)</properties>
+				<damagelist>
+					<id-00001>
+						<bonus type="number">null</bonus>
+						<dice type="dice">d4</dice>
+						<stat type="string">dexterity</stat>
+						<type type="string">piercing</type>
+					</id-00001>
+				</damagelist>
+				<attackbonus type="number">null</attackbonus>
+				<attackstat type="string">dexterity</attackstat>
+				<isidentified type="number">1</isidentified>
+				<type type="number">0</type>
+			</id-00005>
+		</weaponlist>
+		<featlist>
+			<id-00001>
+				<locked type="number">1</locked>
+				<name type="string">Crossbow Expert</name>
+				<text type="formattedtext">
+					<p>Thanks to extensive practice with the crossbow, you gain the following benefits:</p>
+<ul>
+<li class="Core-Styles_Core-Bulleted">You ignore the loading property of crossbows with which you are proficient.</li>
+<li class="Core-Styles_Core-Bulleted">Being within 5 feet of a hostile creature doesn't impose disadvantage on your ranged attack rolls.</li>
+<li class="Core-Styles_Core-Bulleted">When you use the Attack action and attack with a one-handed weapon, you can use a bonus action to attack with a hand crossbow you are holding.</li>
+</ul>
+				</text>
+			</id-00001>
+			<id-00002>
+				<locked type="number">1</locked>
+				<name type="string">Mage Slayer</name>
+				<text type="formattedtext">
+					<p>You have practiced techniques useful in melee combat against spellcasters, gaining the following benefits:</p>
+<ul>
+<li>When a creature within 5 feet of you casts a spell, you can use your reaction to make a melee weapon attack against that creature.</li>
+<li>When you damage a creature that is concentrating on a spell, that creature has disadvantage on the saving throw it makes to maintain its concentration.</li>
+<li>You have advantage on saving throws against spells cast by creatures within 5 feet of you.</li>
+</ul>
+				</text>
+			</id-00002>
+		</featlist>
+		<speed>
+			<base type="number">25</base>
+			<total type="number">25</total>
+		</speed>
+				<profbonus type="number">4</profbonus>
+		<perceptionmodifier type="number">0</perceptionmodifier>
+		<initiative>
+		</initiative>
+		<proficiencylist>
+			<id-00001>
+				<name type="string">Light Armor</name>
+			</id-00001>
+			<id-00002>
+				<name type="string">Simple Weapons</name>
+			</id-00002>
+			<id-00003>
+				<name type="string">Crossbow, Hand</name>
+			</id-00003>
+			<id-00004>
+				<name type="string">Longsword</name>
+			</id-00004>
+			<id-00005>
+				<name type="string">Rapier</name>
+			</id-00005>
+			<id-00006>
+				<name type="string">Shortsword</name>
+			</id-00006>
+			<id-00007>
+				<name type="string">Thieves' Tools</name>
+			</id-00007>
+			<id-00016>
+				<name type="string">Disguise Kit</name>
+			</id-00016>
+			<id-00017>
+				<name type="string">Forgery Kit</name>
+			</id-00017>
+		</proficiencylist>
+		<exp type="number">14000</exp>
+		<age type="string">70</age>
+		<height type="string">3'11.5&#34;</height>
+		<weight type="string">85</weight>
+		<gender type="string">Male</gender>
+		<size type="string">Small</size>
+		<deity type="string"></deity>
+		<appearance type="string">Eyes: Brown
+Hair: Blonde
+Skin: Dark</appearance>
+		<powermeta>
+			<pactmagicslots1>
+				<max type="number">0</max>
+			</pactmagicslots1>
+			<pactmagicslots2>
+				<max type="number">0</max>
+			</pactmagicslots2>
+			<pactmagicslots3>
+				<max type="number">0</max>
+			</pactmagicslots3>
+			<pactmagicslots4>
+				<max type="number">0</max>
+			</pactmagicslots4>
+			<pactmagicslots5>
+				<max type="number">0</max>
+			</pactmagicslots5>
+			<pactmagicslots6>
+				<max type="number">0</max>
+			</pactmagicslots6>
+			<pactmagicslots7>
+				<max type="number">0</max>
+			</pactmagicslots7>
+			<pactmagicslots8>
+				<max type="number">0</max>
+			</pactmagicslots8>
+			<pactmagicslots9>
+				<max type="number">0</max>
+			</pactmagicslots9>
+			<spellslots1>
+				<max type="number">0</max>
+			</spellslots1>
+			<spellslots2>
+				<max type="number">0</max>
+			</spellslots2>
+			<spellslots3>
+				<max type="number">0</max>
+			</spellslots3>
+			<spellslots4>
+				<max type="number">0</max>
+			</spellslots4>
+			<spellslots5>
+				<max type="number">0</max>
+			</spellslots5>
+			<spellslots6>
+				<max type="number">0</max>
+			</spellslots6>
+			<spellslots7>
+				<max type="number">0</max>
+			</spellslots7>
+			<spellslots8>
+				<max type="number">0</max>
+			</spellslots8>
+			<spellslots9>
+				<max type="number">0</max>
+			</spellslots9>
+		</powermeta>
+		<coins>
+			<slot1>
+				<amount type="number">0</amount>
+				<name type="string">PP</name>
+			</slot1>
+			<slot2>
+				<amount type="number">6971</amount>
+				<name type="string">GP</name>
+			</slot2>
+			<slot3>
+				<amount type="number">0</amount>
+				<name type="string">EP</name>
+			</slot3>
+			<slot4>
+				<amount type="number">105</amount>
+				<name type="string">SP</name>
+			</slot4>
+			<slot5>
+				<amount type="number">106</amount>
+				<name type="string">CP</name>
+			</slot5>
+			<slot6>
+				<amount type="number">0</amount>
+			</slot6>
+		</coins>
+		<powergroup>
+		</powergroup>
+		<powers>
+			<id-00001>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">S, M (a bit of fleece)</components>
+				<description type="formattedtext">
+					<p>You create a sound or an image of an object within range that lasts for the duration. The illusion also ends if you dismiss it as an action or cast this spell again.</p>
+<p>If you create a sound, its volume can range from a whisper to a scream. It can be your voice, someone else's voice, a lion's roar, a beating of drums, or any other sound you choose. The sound continues unabated throughout the duration, or you can make discrete sounds at different times before the spell ends.</p>
+<p>If you create an image of an object--such as a chair, muddy footprints, or a small chest--it must be no larger than a 5-foot cube. The image can't create sound, light, smell, or any other sensory effect. Physical interaction with the image reveals it to be an illusion, because things can pass through it.</p>
+<p>If a creature uses its action to examine the sound or image, the creature can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the illusion becomes faint to the creature.</p>
+				</description>
+				<duration type="string">1 Minute</duration>
+				<group type="string">Spells</group>
+				<level type="number">0</level>
+				<locked type="number">1</locked>
+				<name type="string">Minor Illusion</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">0</ritual>
+				<range type="string">30</range>
+				<school type="string">Illusion</school>
+				<parse type="number">1</parse>
+			</id-00001>
+			<id-00002>
+ <actions>
+ 	<id-00001>
+ 		<apply type="string">roll</apply>
+ 		<durmod type="number">0</durmod>
+		<label type="string">DMG: 5d6</label>
+ 		<order type="number">1</order>
+ 		<targeting type="string">self</targeting>
+ 		<type type="string">effect</type>
+ 	</id-00001>
+ </actions>
+ <cast type="number">0</cast>
+ <description type="formattedtext">
+ 	<p>Beginning at 1st level, you know how to strike subtly and exploit a foe's distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon.</p>
+ 	<p>You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll.</p>
+ 	<p>The amount of the extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table.</p>
+ </description>
+ <group type="string">Class Features</group>
+ <locked type="number">1</locked>
+ <name type="string">Sneak Attack</name>
+ <prepared type="number">0</prepared>
+ <source type="string">Rogue</source>
+			</id-00002>
+			<id-00003>
+ <actions>
+ 	<id-00002>
+ 		<durmod type="number">0</durmod>
+ 		<label type="string">Evasion</label>
+ 		<order type="number">1</order>
+ 		<targeting type="string">self</targeting>
+ 		<type type="string">effect</type>
+ 	</id-00002>
+ </actions>
+ <cast type="number">0</cast>
+ <description type="formattedtext">
+ 	<p>Beginning at 7th level, you can nimbly dodge out of the way of certain area effects, such as a red dragon's fiery breath or an ice storm spell. When you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.</p>
+ </description>
+ <group type="string">Class Features</group>
+ <level type="number">0</level>
+ <locked type="number">1</locked>
+ <name type="string">Evasion</name>
+ <prepared type="number">0</prepared>
+ <ritual type="number">0</ritual>
+ <source type="string">Rogue</source>
+			</id-00003>
+		</powers>
+		<defenses>
+			<ac>
+				<armor type="number">2</armor>
+				<misc type="number">1</misc>
+				<prof type="number">1</prof>
+				<temporary type="number">0</temporary>
+			</ac>
+		</defenses>
+		<notes type="string">D&amp;D Beyond Character ID: 23503240\nAllies: Arkan
+Willem
+Xerseris
+Shojin\nPersonalPossessions: a token to remember your parents by\nOrganizations: Flaming Fist\n		</notes>
+	</character>
+</root>

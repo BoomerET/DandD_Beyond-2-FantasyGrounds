@@ -23,6 +23,10 @@
        Paypal.me: https://paypal.me/boomeret
        (All contributions are donated to Hospice,
           or go here: https://www.hollandhospice.org/giving/donate-now/)
+
+    Continued Fantasy Grounds development by Dave Lockwood
+        discord: deltadave#5142
+        Github: https://github.com/deltadave/
 */
 
 var startXML = "";
@@ -61,6 +65,7 @@ var casterClasses = 0;
 var totalClasses = 0;
 
 /* * * * * * * * */
+const DEBUG = false;
 const _ABILITIES = {1:"STR",2:"DEX",3:"CON",4:"INT",5:"WIS",6:"CHA"};
 const _ABILITY = {"STR": "strength", "DEX": "dexterity", "CON": "constitution", "INT": "intelligence", "WIS": "wisdom", "CHA": "charisma"};
 const justAbilities = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
@@ -266,7 +271,7 @@ $(function() {
     $("#resetChar").jqxButton({ width: "120px", height: "35px", theme: "darkblue" });
     $("#verButtonC").jqxRadioButton({width: 250, height: 25, checked: true, theme: "darkblue"});
     $("#verButtonU").jqxRadioButton({width: 250, height: 25, theme: "darkblue"});
-    $("#jqxMenu").jqxMenu({ width: 95, height: "145px", mode: "vertical", theme: "darkblue"});
+/*   $("#jqxMenu").jqxMenu({ width: 95, height: "145px", mode: "vertical", theme: "darkblue"});*/
     $("#jqxMenu").css("visibility", "visible");
 
     $('#extLinks').click(function(e) {
@@ -312,24 +317,54 @@ $(function() {
                 window.location.reload(false);
             }
         } else {
-            $.ajax({
-                data: { charID:  $('#getcharID').val().trim() },
-                url: 'scripts/getChar.php',
-                method: 'GET',
-                success: function(data) {
-                    try {
-                        parseCharacter($.parseJSON(data));
-                    } catch(e) {
-                        alert("Unable to parse character: " + $('#getcharID').val().trim());
-                        console.error(e);
-                        return;
-                    }
-                },
-                failure: function(msg) {
-                    alert("Unable to find character: " + $('#getcharID').val().trim());
-                    return;
-                }
-            });
+            if (!DEBUG) {
+                //const proxyurl = "https://api.allorigins.win/raw?url=";
+                //const proxyurl = "";
+                const proxyurl = "https://uakari-indigo.fly.dev/";
+                const charID = $('#getcharID').val().trim();
+                const jsonPart = "/json"
+                const url = "https://www.dndbeyond.com/character/";
+                const fetchurl = proxyurl + url + charID + jsonPart;
+                console.log(fetchurl);
+                let headers = new Headers()
+                //headers.append('Content-Type', 'application/json');
+                headers.append('Content-Type', 'text/plain');
+                //headers.append('Accept', 'application/json');
+                //headers.append('Origin','http://www.beyond2fgconvert.com/');
+                //headers.append('Access-Control-Allow-Origin', '*');
+            
+                
+                fetch(fetchurl)
+/*                , {
+                    mode: 'no-cors',
+                    headers: headers
+                })*/
+                    .then(response => response.text())
+                    .then(contents => parseCharacter($.parseJSON(contents)))
+                    .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
+            } else {
+                // get debug data
+                const testdata = "https://github.com/deltadave/DandD_Beyond-2-FantasyGrounds/blob/master/data/68380905_formatted.txt" //can change to test different characters.
+                const charID = $('#getcharID').val().trim();
+                const jsonPart = "/json"
+                const url = "https://www.dndbeyond.com/character/";
+                let headers = new Headers()
+                headers.append('Content-Type', 'application/json');
+                headers.append('Accept', 'application/json');
+                headers.append('Origin','http://192.168.0.10/');
+                headers.append('Access-Control-Allow-Origin', '*');
+            
+                /*
+                fetch (url + charID + jsonPart //) 
+                , {
+                    mode: 'cors',
+                    headers: headers
+                })*/
+                fetch(testdata)
+                    .then(response=>response.text())
+                    .then(contents => parseCharacter($.parseJSON(contents)))
+                    .catch(() => console.log("Can't access " + url )) //testdata
+            }
         }
     });
 
@@ -372,6 +407,7 @@ $(function() {
         }
     });
 });
+
 
 function parseCharacter(inputChar) {
     var character = jQuery.extend(true, {}, inputChar);
@@ -9166,35 +9202,3 @@ var donateFGC = (function () {
         }
     };
 } ());
-
-function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    var id_token = googleUser.getAuthResponse().id_token;
-    //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    //console.log('Name: ' + profile.getName());
-    //console.log('Image URL: ' + profile.getImageUrl());
-    //console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-
-    $.ajax({
-        data: { email: profile.getEmail(), name: profile.getName(), id_token: id_token },
-        url: 'scripts/getUser.php',
-        method: 'GET',
-        success: function(data) {
-            try {
-                if (data == 1) {
-                    payFlag = 1;
-                } else {
-                    payFlag = 0;
-                }
-            } catch(e) {
-                alert("Unable to get Database info");
-                console.error(e);
-                return;
-            }
-        },
-        failure: function(msg) {
-            alert("Unable to get data from Database.");
-            return;
-        }
-    });
-}

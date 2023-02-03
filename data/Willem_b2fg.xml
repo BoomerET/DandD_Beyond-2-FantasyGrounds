@@ -1,0 +1,1552 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<root version="3.3" release="8|CoreRPG:4">
+	<character>
+		<!--27203070-->
+		<name type="string">Willem</name>
+		<alignment type="string">Chaotic Neutral</alignment>
+		<personalitytraits type="string">I keep multiple holy symbols on me and invoke whatever deity might come in useful at any given moment.
+I'm a born gambler who can't resist taking a risk for a potential payoff.</personalitytraits>
+		<ideals type="string">Independence. I am a free spirit-no one tells me what to do. (Chaotic)</ideals>
+		<bonds type="string">I come from a noble family, but they disowned me. The aristocracy are a bunch of hypocritical, selfish bastards  keeping things going just so they continue to benefit.I will never pass up an opportunity to take one of them down a few pegs.</bonds>
+		<flaws type="string">I'm always in debt. I spend my ill-gotten gains on decadent luxuries faster than I bring them in...</flaws>
+		<background type="string">Charlatan - Baldur’s Gate</background>
+		<backgroundlink type="windowreference">
+			<class>reference_background</class>
+			<recordname>reference.backgrounddata.charlatan-baldur’sgate@*</recordname>
+		</backgroundlink>
+		<race type="string">Half-Elf</race>
+		<racelink type="windowreference">
+			<class>reference_race</class>
+			<recordname>reference.racedata.half_elf@*</recordname>
+		</racelink>
+		<skilllist>
+			<id-00001>
+				<misc type="number">0</misc>
+				<name type="string">Acrobatics</name>
+				<stat type="string">dexterity</stat>
+				<prof type="number">1</prof>
+			</id-00001>
+			<id-00002>
+				<misc type="number">0</misc>
+				<name type="string">Animal Handling</name>
+				<stat type="string">wisdom</stat>
+				<prof type="number">3</prof>
+			</id-00002>
+			<id-00003>
+				<misc type="number">0</misc>
+				<name type="string">Arcana</name>
+				<stat type="string">intelligence</stat>
+				<prof type="number">3</prof>
+			</id-00003>
+			<id-00004>
+				<misc type="number">0</misc>
+				<name type="string">Athletics</name>
+				<stat type="string">strength</stat>
+				<prof type="number">1</prof>
+			</id-00004>
+			<id-00005>
+				<misc type="number">0</misc>
+				<name type="string">Deception</name>
+				<stat type="string">charisma</stat>
+				<prof type="number">1</prof>
+			</id-00005>
+			<id-00006>
+				<misc type="number">0</misc>
+				<name type="string">History</name>
+				<stat type="string">intelligence</stat>
+				<prof type="number">3</prof>
+			</id-00006>
+			<id-00007>
+				<misc type="number">0</misc>
+				<name type="string">Insight</name>
+				<stat type="string">wisdom</stat>
+				<prof type="number">1</prof>
+			</id-00007>
+			<id-00008>
+				<misc type="number">0</misc>
+				<name type="string">Intimidation</name>
+				<stat type="string">charisma</stat>
+				<prof type="number">1</prof>
+			</id-00008>
+			<id-00009>
+				<misc type="number">0</misc>
+				<name type="string">Investigation</name>
+				<stat type="string">intelligence</stat>
+				<prof type="number">3</prof>
+			</id-00009>
+			<id-00010>
+				<misc type="number">0</misc>
+				<name type="string">Medicine</name>
+				<stat type="string">wisdom</stat>
+				<prof type="number">3</prof>
+			</id-00010>
+			<id-00011>
+				<misc type="number">0</misc>
+				<name type="string">Nature</name>
+				<stat type="string">intelligence</stat>
+				<prof type="number">3</prof>
+			</id-00011>
+			<id-00012>
+				<misc type="number">0</misc>
+				<name type="string">Perception</name>
+				<stat type="string">wisdom</stat>
+				<prof type="number">2</prof>
+			</id-00012>
+			<id-00013>
+				<misc type="number">0</misc>
+				<name type="string">Performance</name>
+				<stat type="string">charisma</stat>
+				<prof type="number">1</prof>
+			</id-00013>
+			<id-00014>
+				<misc type="number">0</misc>
+				<name type="string">Persuasion</name>
+				<stat type="string">charisma</stat>
+				<prof type="number">1</prof>
+			</id-00014>
+			<id-00015>
+				<misc type="number">0</misc>
+				<name type="string">Religion</name>
+				<stat type="string">intelligence</stat>
+				<prof type="number">3</prof>
+			</id-00015>
+			<id-00016>
+				<misc type="number">0</misc>
+				<name type="string">Sleight of Hand</name>
+				<stat type="string">dexterity</stat>
+				<prof type="number">2</prof>
+			</id-00016>
+			<id-00017>
+				<misc type="number">0</misc>
+				<name type="string">Stealth</name>
+				<stat type="string">dexterity</stat>
+				<prof type="number">1</prof>
+			</id-00017>
+			<id-00018>
+				<misc type="number">0</misc>
+				<name type="string">Survival</name>
+				<stat type="string">wisdom</stat>
+				<prof type="number">3</prof>
+			</id-00018>
+		</skilllist>
+		<classes>
+			<id-00001>
+				<hddie type="dice">d8</hddie>
+				<name type="string">Bard</name>
+				<casterpactmagic type="number">0</casterpactmagic>
+				<casterlevelinvmult type="number">1</casterlevelinvmult>
+				<level type="number">8</level>
+				<shortcut type="windowreference">
+					<class>reference_class</class>
+					<recordname>reference.classdata.bard@*</recordname>
+				</shortcut>
+			</id-00001>
+			<id-00002>
+				<hddie type="dice">d8</hddie>
+				<name type="string">Warlock</name>
+				<casterpactmagic type="number">1</casterpactmagic>
+				<casterlevelinvmult type="number">1</casterlevelinvmult>
+				<level type="number">2</level>
+				<shortcut type="windowreference">
+					<class>reference_class</class>
+					<recordname>reference.classdata.warlock@*</recordname>
+				</shortcut>
+			</id-00002>
+		</classes>
+		<hp>
+			<deathsavefail type="number">0</deathsavefail>
+			<deathsavesuccess type="number">0</deathsavesuccess>
+			<total type="number">73</total>
+		</hp>
+		<languagelist>
+			<id-00001>
+				<name type="string">Common</name>
+			</id-00001>
+			<id-00002>
+				<name type="string">Elvish</name>
+			</id-00002>
+			<id-00003>
+				<name type="string">Abyssal</name>
+			</id-00003>
+		</languagelist>
+		<senses type="string">Darkvision 60ft.</senses>
+		<traitlist>
+			<id-00007>
+				<name type="string">Fey Ancestry</name>
+				<source type="string">half_elf</source>
+				<locked type="number">1</locked>
+				<text type="formattedtext">
+					<p>You have advantage on saving throws against being charmed, and magic can't put you to sleep.</p>
+				</text>
+				<type type="string">racial</type>
+			</id-00007>
+		</traitlist>
+		<featurelist>
+			<id-00001>
+				<locked type="number">1</locked>
+				<name type="string">Additional Bard Spells</name>
+				<source type="string">bard</source>
+				<text type="formattedtext">
+					<p>1st-level bard feature<br />The spells in the following list expand the bard spell list in the Player's Handbook. The list is organized by spell level, not character level. If a spell can be cast as a ritual, the ritual tag appears after the spell's name. Each spell is in the Player's Handbook, unless it has an asterisk (a spell in chapter 3 of Tasha's Cauldron of Everything). Xanathar's Guide to Everything also offers more spells.</p>
+<table class="compendium-left-aligned-table">
+<thead>
+<tr>
+<th>Level</th>
+<th>Additional Spells</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1st</td>
+<td>Color spray, Command</td>
+</tr>
+<tr>
+<td>2nd</td>
+<td>Aid, Enlarge/reduce, Mirror image</td>
+</tr>
+<tr>
+<td>3rd</td>
+<td>Intellect fortress *, Mass healing word, Slow</td>
+</tr>
+<tr>
+<td>4th</td>
+<td>Phantasmal killer</td>
+</tr>
+<tr>
+<td>5th</td>
+<td>Rary's telepathic bond (ritual)</td>
+</tr>
+<tr>
+<td>6th</td>
+<td>Heroes' feast</td>
+</tr>
+<tr>
+<td>7th</td>
+<td>Dream of the blue veil *, Prismatic spray</td>
+</tr>
+<tr>
+<td>8th</td>
+<td>Antipathy/sympathy</td>
+</tr>
+<tr>
+<td>9th</td>
+<td>Prismatic wall</td>
+</tr>
+</tbody>
+</table>
+				</text>
+			</id-00001>
+			<id-00002>
+				<locked type="number">1</locked>
+				<name type="string">Bardic Inspiration</name>
+				<source type="string">bard</source>
+				<text type="formattedtext">
+					<p>You can inspire others through stirring words or music. To do so, you use a bonus action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die, a d6.</p>
+<p>Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. The creature can wait until after it rolls the d20 before deciding to use the Bardic Inspiration die, but must decide before the DM says whether the roll succeeds or fails. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time.</p>
+<p>You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain any expended uses when you finish a long rest.</p>
+<p>Your Bardic Inspiration die changes when you reach certain levels in this class. The die becomes a d8 at 5th level, a d10 at 10th level, and a d12 at 15th level.</p>
+				</text>
+			</id-00002>
+			<id-00003>
+				<locked type="number">1</locked>
+				<name type="string">Magical Inspiration</name>
+				<source type="string">bard</source>
+				<text type="formattedtext">
+					<p>2nd-level bard feature<br />If a creature has a Bardic Inspiration die from you and casts a spell that restores hit points or deals damage, the creature can roll that die and choose a target affected by the spell. Add the number rolled as a bonus to the hit points regained or the damage dealt. The Bardic Inspiration die is then lost.</p>
+				</text>
+			</id-00003>
+			<id-00004>
+				<locked type="number">1</locked>
+				<name type="string">Jack of All Trades</name>
+				<source type="string">bard</source>
+				<text type="formattedtext">
+					<p>Starting at 2nd level, you can add half your proficiency bonus, rounded down, to any ability check you make that doesn't already include your proficiency bonus.</p>
+				</text>
+			</id-00004>
+			<id-00005>
+				<locked type="number">1</locked>
+				<name type="string">Song of Rest</name>
+				<source type="string">bard</source>
+				<text type="formattedtext">
+					<p>Beginning at 2nd level, you can use soothing music or oration to help revitalize your wounded allies during a short rest. If you or any friendly creatures who can hear your performance regain hit points at the end of the short rest by spending one or more Hit Dice, each of those creatures regains an extra 1d6 hit points.</p>
+<p>The extra hit points increase when you reach certain levels in this class: to 1d8 at 9th level, to 1d10 at 13th level, and to 1d12 at 17th level.</p>
+				</text>
+			</id-00005>
+			<id-00006>
+				<locked type="number">1</locked>
+				<name type="string">Bard College</name>
+				<source type="string">bard</source>
+				<text type="formattedtext">
+					<p>At 3rd level, you delve into the advanced techniques of a bard college of your choice: the College of Lore detailed at the end of the class description or another from the <i>Player's Handbook</i> or other sources. Your choice grants you features at 3rd level and again at 6th and 14th level.</p>
+				</text>
+			</id-00006>
+			<id-00007>
+				<locked type="number">1</locked>
+				<name type="string">Expertise</name>
+				<source type="string">bard</source>
+				<text type="formattedtext">
+					<p>At 3rd level, choose two of your skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.</p>
+				</text>
+			</id-00007>
+			<id-00008>
+				<locked type="number">1</locked>
+				<name type="string">Bardic Versatility</name>
+				<source type="string">bard</source>
+				<text type="formattedtext">
+					<p>4th-level bard feature<br />Whenever you reach a level in this class that grants the Ability Score Improvement feature, you can do one of the following, representing a change in focus as you use your skills and magic:</p>
+<ul>
+<li>Replace one of the skills you chose for the Expertise feature with one of your other skill proficiencies that isn't benefiting from Expertise.</li>
+<li>Replace one cantrip you learned from this class's Spellcasting feature with another cantrip from the bard spell list.</li>
+</ul>
+				</text>
+			</id-00008>
+			<id-00009>
+				<locked type="number">1</locked>
+				<name type="string">Font of Inspiration</name>
+				<source type="string">bard</source>
+				<text type="formattedtext">
+					<p>Beginning when you reach 5th level, you regain all of your expended uses of Bardic Inspiration when you finish a short or long rest.</p>
+				</text>
+			</id-00009>
+			<id-00010>
+				<locked type="number">1</locked>
+				<name type="string">Countercharm</name>
+				<source type="string">bard</source>
+				<text type="formattedtext">
+					<p>At 6th level, you gain the ability to use musical notes or words of power to disrupt mind-influencing effects. As an action, you can start a performance that lasts until the end of your next turn. During that time, you and any friendly creatures within 30 feet of you have advantage on saving throws against being frightened or charmed. A creature must be able to hear you to gain this benefit. The performance ends early if you are incapacitated or silenced or if you voluntarily end it (no action required).</p>
+				</text>
+			</id-00010>
+			<id-00011>
+				<locked type="number">1</locked>
+				<name type="string">College of Lore</name>
+				<text type="formattedtext">
+					<p class="Core-Styles_Core-Body">Bards of the College of Lore know something about most things, collecting bits of knowledge from sources as diverse as scholarly tomes and peasant tales. Whether singing folk ballads in taverns or elaborate compositions in royal courts, these bards use their gifts to hold audiences spellbound. When the applause dies down, the audience members might find themselves questioning everything they held to be true, from their faith in the priesthood of the local temple to their loyalty to the king.</p>
+				</text>
+			</id-00011>
+			<id-00012>
+				<locked type="number">1</locked>
+				<name type="string">Cutting Words</name>
+				<text type="formattedtext">
+					<p>Also at 3rd level, you learn how to use your wit to distract, confuse, and otherwise sap the confidence and competence of others. When a creature that you can see within 60 feet of you makes an attack roll, an ability check, or a damage roll, you can use your reaction to expend one of your uses of Bardic Inspiration, rolling a Bardic Inspiration die and subtracting the number rolled from the creature's roll. You can choose to use this feature after the creature makes its roll, but before the DM determines whether the attack roll or ability check succeeds or fails, or before the creature deals its damage. The creature is immune if it can't hear you or if it's immune to being charmed.</p>
+				</text>
+			</id-00012>
+			<id-00013>
+				<locked type="number">1</locked>
+				<name type="string">Additional Magical Secrets</name>
+				<text type="formattedtext">
+					<p>At 6th level, you learn two spells of your choice from any class. A spell you choose must be of a level you can cast, as shown on the Bard table, or a cantrip. The chosen spells count as bard spells for you but don't count against the number of bard spells you know.</p>
+				</text>
+			</id-00013>
+			<id-00014>
+				<locked type="number">1</locked>
+				<name type="string">Additional Warlock Spells</name>
+				<source type="string">Warlock</source>
+				<text type="formattedtext">
+					<p>1st-level warlock feature<br />The spells in the following list expand the warlock spell list in the Player's Handbook. The list is organized by spell level, not character level. Each spell is in the Player's Handbook, unless it has an asterisk (a spell in chapter 3 of Tasha's Cauldron of Everything). Xanathar's Guide to Everything also offers more spells.</p>
+<table class="compendium-left-aligned-table">
+<thead>
+<tr>
+<th>Level</th>
+<th>Additional Spells</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cantrip</td>
+<td>Booming blade *, Green-flame blade *, Lightning lure *, Mind sliver *, Sword burst *</td>
+</tr>
+<tr>
+<td>3rd</td>
+<td>Intellect fortress *, Spirit shroud *, Summon fey *, Summon shadowspawn *, Summon undead *</td>
+</tr>
+<tr>
+<td>4th</td>
+<td>Summon aberration *</td>
+</tr>
+<tr>
+<td>5th</td>
+<td>Mislead, Planar binding, Teleportation circle</td>
+</tr>
+<tr>
+<td>6th</td>
+<td>Summon fiend *, Tasha's otherworldly guise *</td>
+</tr>
+<tr>
+<td>7th</td>
+<td>Dream of the blue veil *</td>
+</tr>
+<tr>
+<td>9th</td>
+<td>Blade of disaster *, Gate, Weird</td>
+</tr>
+</tbody>
+</table>
+				</text>
+			</id-00014>
+			<id-00015>
+				<locked type="number">1</locked>
+				<name type="string">Otherworldly Patron</name>
+				<source type="string">Warlock</source>
+				<text type="formattedtext">
+					<p class="compendium-hr">At 1st level, you have struck a bargain with an otherworldly being of your choice: the Fiend, which is detailed at the end of the class description, or one from another source. Your choice grants you features at 1st level and again at 6th, 10th, and 14th level.</p>
+				</text>
+			</id-00015>
+			<id-00016>
+				<locked type="number">1</locked>
+				<name type="string">Pact Magic</name>
+				<source type="string">Warlock</source>
+				<text type="formattedtext">
+					<p class="compendium-hr">Your arcane research and the magic bestowed on you by your patron have given you facility with spells. See Spells Rules for the general rules of spellcasting and the Spells Listing for the warlock spell list.</p>
+<h5 class="compendium-hr">Cantrips</h5>
+<p class="Core-Styles_Core-Body">You know two cantrips of your choice from the warlock spell list. You learn additional warlock cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Warlock table.</p>
+<h5 class="compendium-hr">Spell Slots</h5>
+<p class="Core-Styles_Core-Body">The Warlock table shows how many spell slots you have to cast your warlock spells of 1st through 5th level. The table also shows what the level of those slots is; all of your spell slots are the same level. To cast one of your warlock spells of 1st level or higher, you must expend a spell slot. You regain all expended spell slots when you finish a short or long rest.</p>
+<p class="Core-Styles_Core-Body">For example, when you are 5th level, you have two 3rd-level spell slots. To cast the 1st-level spell witch bolt, you must spend one of those slots, and you cast it as a 3rd-level spell.</p>
+<h5 class="compendium-hr">Spells Known of 1st Level and Higher</h5>
+<p class="Core-Styles_Core-Body">At 1st level, you know two 1st-level spells of your choice from the warlock spell list.</p>
+<p class="Core-Styles_Core-Body">The Spells Known column of the Warlock table shows when you learn more warlock spells of your choice of 1st level and higher. A spell you choose must be of a level no higher than what's shown in the table's Slot Level column for your level. When you reach 6th level, for example, you learn a new warlock spell, which can be 1st, 2nd, or 3rd level.</p>
+<p class="Core-Styles_Core-Body">Additionally, when you gain a level in this class, you can choose one of the warlock spells you know and replace it with another spell from the warlock spell list, which also must be of a level for which you have spell slots.</p>
+<h5 class="compendium-hr">Spellcasting Ability</h5>
+<p class="Core-Styles_Core-Body-Last--to-apply-extra-space-">Charisma is your spellcasting ability for your warlock spells, so you use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a warlock spell you cast and when making an attack roll with one.</p>
+<p class="List-Styles_List-Item-Centered"><strong>Spell save DC </strong>= 8 + your proficiency bonus + your Charisma modifier</p>
+<p class="List-Styles_List-Item-Centered"><strong>Spell attack modifier </strong>= your proficiency bonus + your Charisma modifier</p>
+<h5 class="compendium-hr">Spellcasting Focus</h5>
+<p class="Core-Styles_Core-Body">You can use an arcane focus (see the Adventuring Gear section) as a spellcasting focus for your warlock spells.</p>
+				</text>
+			</id-00016>
+			<id-00017>
+				<locked type="number">1</locked>
+				<name type="string">Eldritch Invocations</name>
+				<source type="string">Warlock</source>
+				<text type="formattedtext">
+					<p class="compendium-hr">In your study of occult lore, you have unearthed eldritch invocations, fragments of forbidden knowledge that imbue you with an abiding magical ability.</p>
+<p class="Core-Styles_Core-Body">At 2nd level, you gain two eldritch invocations of your choice. Your invocation options are detailed at the end of the class description. When you gain certain warlock levels, you gain additional invocations of your choice, as shown in the Invocations Known column of the Warlock table.</p>
+<p class="Core-Styles_Core-Body">Additionally, when you gain a level in this class, you can choose one of the invocations you know and replace it with another invocation that you could learn at that level.</p>
+<p class="Core-Styles_Core-Body">If an eldritch invocation has prerequisites, you must meet them to learn it. You can learn the invocation at the same time that you meet its prerequisites. A level prerequisite refers to your level in this class.</p>
+				</text>
+			</id-00017>
+			<id-00018>
+				<locked type="number">1</locked>
+				<name type="string">The Great Old One</name>
+				<text type="formattedtext">
+					<p class="Core-Styles_Core-Body">Your patron is a mysterious entity whose nature is utterly foreign to the fabric of reality. It might come from the Far Realm, the space beyond reality, or it could be one of the elder gods known only in legends. Its motives are incomprehensible to mortals, and its knowledge so immense and ancient that even the greatest libraries pale in comparison to the vast secrets it holds. The Great Old One might be unaware of your existence or entirely indifferent to you, but the secrets you have learned allow you to draw your magic from it.</p>
+<p class="Core-Styles_Core-Body">Entities of this type include Ghaunadar, called That Which Lurks; Tharizdun, the Chained God; Dendar, the Night Serpent; Zargon, the Returner; Great Cthulhu; and other unfathomable beings.</p>
+				</text>
+			</id-00018>
+			<id-00019>
+				<locked type="number">1</locked>
+				<name type="string">Awakened Mind</name>
+				<text type="formattedtext">
+					<p class="Basic-Paragraph">Starting at 1st level, your alien knowledge gives you the ability to touch the minds of other creatures. You can telepathically speak to any creature you can see within 30 feet of you. You don't need to share a language with the creature for it to understand your telepathic utterances, but the creature must be able to understand at least one language.</p>
+				</text>
+			</id-00019>
+			<id-00020>
+				<locked type="number">1</locked>
+				<name type="string">Agonizing Blast</name>
+				<text type="formattedtext">
+					<p class="compendium-hr">Prerequisite: eldritch blast cantrip</p>
+<p class="compendium-hr">When you cast eldritch blast, add your Charisma modifier to the damage it deals on a hit.</p>
+				</text>
+			</id-00020>
+			<id-00021>
+				<locked type="number">1</locked>
+				<name type="string">Mask of Many Faces</name>
+				<text type="formattedtext">
+					<p class="Core-Styles_Core-Body">You can cast disguise self at will, without expending a spell slot.</p>
+				</text>
+			</id-00021>
+			<id-00023>
+				<name type="string">False Identity</name>
+				<source type="string">charlatan___baldur’s_gate</source>
+				<text type="formattedtext">
+					<p>You have created a second identity that includes documentation, established acquaintances, and disguises that allow you to assume that persona. Additionally, you can forge documents including official papers and personal letters, as long as you have seen an example of the kind of document or the handwriting you are trying to copy.</p>
+<p><strong>Baldur's Gate Feature: Long-Lost Heir</strong></p>
+<p>You're well-versed in the mannerisms and idiosyncrasies of Baldurian patriars and other nobles, imitating them smoothly enough to convince even the snootiest family heads of your authenticity. You're skilled at posing as the long-lost heir to some imaginary or extinguished patriar lineage.</p>
+<p>Because of your skill in passing yourself off as a patriar, you have a Watch token that allows you alone into the Upper City of Baldur's Gate. You might be able to bluff others through with you, or even convince members of the Watch that you're a patriar. However, any true test of your authenticity is likely to reveal your deception.</p>
+				</text>
+				<type type="string">background</type>
+			</id-00023>
+		</featurelist>
+		<abilities>
+			<strength>
+				<bonus type="number">0</bonus>
+				<savemodifier type="number">0</savemodifier>
+				<score type="number">10</score>
+			</strength>
+			<dexterity>
+				<bonus type="number">3</bonus>
+				<savemodifier type="number">0</savemodifier>
+				<saveprof type="number">1</saveprof>
+				<score type="number">16</score>
+			</dexterity>
+			<constitution>
+				<bonus type="number">2</bonus>
+				<savemodifier type="number">0</savemodifier>
+				<score type="number">14</score>
+			</constitution>
+			<intelligence>
+				<bonus type="number">0</bonus>
+				<savemodifier type="number">0</savemodifier>
+				<score type="number">10</score>
+			</intelligence>
+			<wisdom>
+				<bonus type="number">0</bonus>
+				<savemodifier type="number">0</savemodifier>
+				<score type="number">10</score>
+			</wisdom>
+			<charisma>
+				<bonus type="number">5</bonus>
+				<savemodifier type="number">0</savemodifier>
+				<saveprof type="number">1</saveprof>
+				<score type="number">20</score>
+			</charisma>
+		</abilities>
+		<inventorylist>
+			<id-00001>
+				<count type="number">1</count>
+				<name type="string">Studded Leather</name>
+				<weight type="number">13</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Armor</type>
+				<subtype type="string">Light Armor</subtype>
+				<ac type="number">12</ac>
+				<stealth type="string">-</stealth>
+				<strength type="string">-</strength>
+				<cost type="string">45 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">2</carried>
+				<description type="formattedtext">
+					<p>Made from tough but flexible leather, studded leather is reinforced with close-set rivets or spikes.</p>
+				</description>
+			</id-00001>
+			<id-00002>
+				<count type="number">1</count>
+				<name type="string">Leather</name>
+				<weight type="number">10</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Armor</type>
+				<subtype type="string">Light Armor</subtype>
+				<ac type="number">11</ac>
+				<stealth type="string">-</stealth>
+				<strength type="string">-</strength>
+				<cost type="string">10 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">2</carried>
+				<description type="formattedtext">
+					<p>The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials.</p>
+				</description>
+			</id-00002>
+			<id-00003>
+				<count type="number">1</count>
+				<name type="string">Backpack</name>
+				<weight type="number">5</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">2 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>A backpack is a leather pack carried on the back, typically with straps to secure it. A backpack can hold 1 cubic foot/ 30 pounds of gear.</p>
+<p>You can also strap items, such as a bedroll or a coil of rope, to the outside of a backpack.</p>
+				</description>
+			</id-00003>
+			<id-00004>
+				<count type="number">1000</count>
+				<name type="string">Ball Bearings (bag of 1,000)</name>
+				<weight type="number">0.002</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">1 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>As an action, you can spill these tiny metal balls from their pouch to cover a level, square area that is 10 feet on a side. A creature moving across the covered area must succeed on a DC 10 Dexterity saving throw or fall prone. A creature moving through the area at half speed doesn't need to make the save.</p>
+				</description>
+			</id-00004>
+			<id-00005>
+				<count type="number">1</count>
+				<name type="string">Bedroll</name>
+				<weight type="number">7</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">1 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>You never know where you're going to sleep, and a bedroll helps you get better sleep in a hayloft or on the cold ground. A bedroll consists of bedding and a blanket thin enough to be rolled up and tied. In an emergency, it can double as a stretcher.</p>
+				</description>
+			</id-00005>
+			<id-00006>
+				<count type="number">5</count>
+				<name type="string">Candle</name>
+				<weight type="number">0</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">0.01 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>For 1 hour, a candle sheds bright light in a 5-foot radius and dim light for an additional 5 feet.</p>
+				</description>
+			</id-00006>
+			<id-00007>
+				<count type="number">2</count>
+				<name type="string">Clothes, Costume</name>
+				<weight type="number">4</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">5 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>This set of clothes is fashioned after a particular costume, typically meant for entertaining.</p>
+				</description>
+			</id-00007>
+			<id-00008>
+				<count type="number">1</count>
+				<name type="string">Clothes, Fine</name>
+				<weight type="number">6</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">15 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>This set of clothes is designed specifically to be expensive and to show it, including fancy, tailored clothes in whatever fashion happens to be the current style in the courts of the nobles. Precious metals and gems could be worked into the clothing.</p>
+				</description>
+			</id-00008>
+			<id-00009>
+				<count type="number">5</count>
+				<name type="string">Rations (1 day)</name>
+				<weight type="number">2</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">0.5 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>Rations consist of dry foods suitable for extended travel, including jerky, dried fruit, hardtack, and nuts.</p>
+				</description>
+			</id-00009>
+			<id-00010>
+				<count type="number">1</count>
+				<name type="string">Waterskin</name>
+				<weight type="number">5</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">0.2 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>A waterskin can hold 4 pints of liquid.</p>
+				</description>
+			</id-00010>
+			<id-00011>
+				<count type="number">2</count>
+				<name type="string">Disguise Kit</name>
+				<weight type="number">3</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Tool</type>
+				<cost type="string">25 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>This pouch of cosmetics, hair dye, and small props lets you create disguises that change your physical appearance. Proficiency with this kit lets you add your proficiency bonus to any ability checks you make to create a visual disguise.</p>
+				</description>
+			</id-00011>
+			<id-00012>
+				<count type="number">1</count>
+				<name type="string">Lute</name>
+				<weight type="number">2</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Tool</type>
+				<cost type="string">35 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus.</p>
+				</description>
+			</id-00012>
+			<id-00013>
+				<count type="number">1</count>
+				<name type="string">Amulet</name>
+				<weight type="number">1</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Holy Symbol</type>
+				<cost type="string">5 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>A holy symbol is a representation of a god or pantheon. A cleric or paladin can use a holy symbol as a spellcasting focus, as described in the Spellcasting section. To use the symbol in this way, the caster must hold it in hand, wear it visibly, or bear it on a shield.</p>
+				</description>
+			</id-00013>
+			<id-00014>
+				<count type="number">1</count>
+				<name type="string">Alms Box</name>
+				<weight type="number">0</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Adventuring Gear</type>
+				<cost type="string">0 gp</cost>
+				<rarity type="string">Common</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>A small box for alms, typically found in a priest's pack.</p>
+				</description>
+			</id-00014>
+			<id-00015>
+				<count type="number">1</count>
+				<name type="string">Cloak of Protection</name>
+				<weight type="number">0</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Wondrous item</type>
+				<cost type="string"></cost>
+				<rarity type="string">Uncommon (Requires Attunement)</rarity>
+				<carried type="number">2</carried>
+				<description type="formattedtext">
+					<p>You gain a +1 bonus to AC and saving throws while you wear this cloak.</p>
+				</description>
+			</id-00015>
+			<id-00016>
+				<count type="number">2</count>
+				<name type="string">Potion of Healing (Greater)</name>
+				<weight type="number">0</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Potion</type>
+				<cost type="string"></cost>
+				<rarity type="string">Uncommon</rarity>
+				<carried type="number">1</carried>
+				<description type="formattedtext">
+					<p>You regain 4d4 + 4 hit points when you drink this potion. The potion's red liquid glimmers when agitated.</p>
+				</description>
+			</id-00016>
+			<id-00017>
+				<count type="number">1</count>
+				<name type="string">Dagger, +2</name>
+				<weight type="number">1</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Weapon</type>
+				<cost type="string"></cost>
+				<rarity type="string">Rare</rarity>
+				<carried type="number">2</carried>
+				<damage type="string">1d4 Piercing</damage>
+				<properties type="string">Finesse, Light, Thrown (20/60)</properties>
+				<bonus type="number">2</bonus>
+				<description type="formattedtext">
+					<p>You have a +2 bonus to attack and damage rolls made with this magic weapon.</p>
+				</description>
+			</id-00017>
+			<id-00018>
+				<count type="number">1</count>
+				<name type="string">Rapier, +2</name>
+				<weight type="number">2</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Weapon</type>
+				<cost type="string"></cost>
+				<rarity type="string">Rare</rarity>
+				<carried type="number">2</carried>
+				<damage type="string">1d8 Piercing</damage>
+				<properties type="string">Finesse</properties>
+				<bonus type="number">2</bonus>
+				<description type="formattedtext">
+					<p>You have a +2 bonus to attack and damage rolls made with this magic weapon.</p>
+				</description>
+			</id-00018>
+			<id-00019>
+				<count type="number">1</count>
+				<name type="string">Instrument of the Bards</name>
+				<weight type="number">0</weight>
+				<locked type="number">1</locked>
+				<isidentified type="number">1</isidentified>
+				<type type="string">Wondrous item</type>
+				<cost type="string"></cost>
+				<rarity type="string">Varies (Requires Attunement)</rarity>
+				<carried type="number">2</carried>
+				<description type="formattedtext">
+					<p>An instrument of the bards is an exquisite example of its kind, superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a legendary bard college. The following table lists the spells common to all instruments, as well as the spells specific to each one and its rarity. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 psychic damage.</p>
+<p>You can use an action to play the instrument and cast one of its spells. Once the instrument has been used to cast a spell, it can't be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.</p>
+<p>You can play the instrument while casting a spell that causes any of its targets to be charmed on a failed saving throw, thereby imposing disadvantage on the save. This effect applies only if the spell has a somatic or a material component.</p>
+<table class="compendium-left-aligned-table">
+<tbody>
+<tr>
+<th>
+<p>Instrument</p>
+</th>
+<th>
+<p>Rarity</p>
+</th>
+<th>
+<p>Spells</p>
+</th>
+</tr>
+<tr>
+<td>
+<p>All</p>
+</td>
+<td>
+<p>-</p>
+</td>
+<td>
+<p>Fly, invisibility, levitate, protection from evil and good, plus the spells listed for the particular instrument</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Anstruth harp</p>
+</td>
+<td>
+<p>Very rare</p>
+</td>
+<td>
+<p>Control weather, cure wounds (5th level), wall of thorns</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Canaith mandolin</p>
+</td>
+<td>
+<p>Rare</p>
+</td>
+<td>
+<p>Cure wounds (3rd level), dispel magic, protection from energy (lightning only)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Cli lyre</p>
+</td>
+<td>
+<p>Rare</p>
+</td>
+<td>
+<p>Stone shape, wall of fire, wind wall</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Doss lute</p>
+</td>
+<td>
+<p>Uncommon</p>
+</td>
+<td>
+<p>Animal friendship, protection from energy (fire only), protection from poison</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Fochlucan bandore</p>
+</td>
+<td>
+<p>Uncommon</p>
+</td>
+<td>
+<p>Entangle, faerie fire, shillelagh, speak with animals</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Mac-Fuirmidh cittern</p>
+</td>
+<td>
+<p>Uncommon</p>
+</td>
+<td>
+<p>Barkskin, cure wounds, fog cloud</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Ollamh harp</p>
+</td>
+<td>
+<p>Legendary</p>
+</td>
+<td>
+<p>Confusion, control weather, fire storm</p>
+</td>
+</tr>
+</tbody>
+</table>
+				</description>
+			</id-00019>
+		</inventorylist>
+		<weaponlist>
+			<id-00001>
+				<shortcut type="windowreference">
+					<class>item</class>
+					<recordname>....inventorylist.id-00017</recordname>
+				</shortcut>
+				<name type="string">Dagger, +2</name>
+				<properties type="string">Finesse, Light, Thrown (20/60)</properties>
+				<damagelist>
+					<id-00001>
+						<bonus type="number">2</bonus>
+						<dice type="dice">d4</dice>
+						<stat type="string">dexterity</stat>
+						<type type="string">piercing</type>
+					</id-00001>
+				</damagelist>
+				<attackbonus type="number">2</attackbonus>
+				<attackstat type="string">dexterity</attackstat>
+				<isidentified type="number">1</isidentified>
+				<type type="number">2</type>
+			</id-00001>
+			<id-00003>
+				<shortcut type="windowreference">
+					<class>item</class>
+					<recordname>....inventorylist.id-00017</recordname>
+				</shortcut>
+				<name type="string">Dagger, +2</name>
+				<properties type="string">Finesse, Light, Thrown (20/60)</properties>
+				<damagelist>
+					<id-00001>
+						<bonus type="number">2</bonus>
+						<dice type="dice">d4</dice>
+						<stat type="string">dexterity</stat>
+						<type type="string">piercing</type>
+					</id-00001>
+				</damagelist>
+				<attackbonus type="number">2</attackbonus>
+				<attackstat type="string">dexterity</attackstat>
+				<isidentified type="number">1</isidentified>
+				<type type="number">0</type>
+			</id-00003>
+			<id-00002>
+				<shortcut type="windowreference">
+					<class>item</class>
+					<recordname>....inventorylist.id-00018</recordname>
+				</shortcut>
+				<name type="string">Rapier, +2</name>
+				<properties type="string">Finesse</properties>
+				<damagelist>
+					<id-00001>
+						<bonus type="number">2</bonus>
+						<dice type="dice">d8</dice>
+						<stat type="string">dexterity</stat>
+						<type type="string">piercing</type>
+					</id-00001>
+				</damagelist>
+				<attackbonus type="number">2</attackbonus>
+				<attackstat type="string">dexterity</attackstat>
+				<isidentified type="number">1</isidentified>
+				<type type="number">0</type>
+			</id-00002>
+		</weaponlist>
+		<featlist>
+		</featlist>
+		<speed>
+			<base type="number">30</base>
+			<total type="number">30</total>
+		</speed>
+				<profbonus type="number">4</profbonus>
+		<perceptionmodifier type="number">2</perceptionmodifier>
+		<initiative>
+			<misc type="number">2</misc>
+		</initiative>
+		<proficiencylist>
+			<id-00006>
+				<name type="string">Light Armor</name>
+			</id-00006>
+			<id-00007>
+				<name type="string">Simple Weapons</name>
+			</id-00007>
+			<id-00008>
+				<name type="string">Crossbow, Hand</name>
+			</id-00008>
+			<id-00009>
+				<name type="string">Longsword</name>
+			</id-00009>
+			<id-00010>
+				<name type="string">Rapier</name>
+			</id-00010>
+			<id-00011>
+				<name type="string">Shortsword</name>
+			</id-00011>
+			<id-00012>
+				<name type="string">Lute</name>
+			</id-00012>
+			<id-00013>
+				<name type="string">Drum</name>
+			</id-00013>
+			<id-00014>
+				<name type="string">Pan Flute</name>
+			</id-00014>
+			<id-00024>
+				<name type="string">Disguise Kit</name>
+			</id-00024>
+			<id-00025>
+				<name type="string">Forgery Kit</name>
+			</id-00025>
+		</proficiencylist>
+		<exp type="number">14000</exp>
+		<height type="string"></height>
+		<gender type="string"></gender>
+		<size type="string">Medium</size>
+		<deity type="string"></deity>
+		<powermeta>
+			<pactmagicslots1>
+				<max type="number">2</max>
+			</pactmagicslots1>
+			<pactmagicslots2>
+				<max type="number">0</max>
+			</pactmagicslots2>
+			<pactmagicslots3>
+				<max type="number">0</max>
+			</pactmagicslots3>
+			<pactmagicslots4>
+				<max type="number">0</max>
+			</pactmagicslots4>
+			<pactmagicslots5>
+				<max type="number">0</max>
+			</pactmagicslots5>
+			<pactmagicslots6>
+				<max type="number">0</max>
+			</pactmagicslots6>
+			<pactmagicslots7>
+				<max type="number">0</max>
+			</pactmagicslots7>
+			<pactmagicslots8>
+				<max type="number">0</max>
+			</pactmagicslots8>
+			<pactmagicslots9>
+				<max type="number">0</max>
+			</pactmagicslots9>
+			<spellslots1>
+				<max type="number">4</max>
+			</spellslots1>
+			<spellslots2>
+				<max type="number">3</max>
+			</spellslots2>
+			<spellslots3>
+				<max type="number">3</max>
+			</spellslots3>
+			<spellslots4>
+				<max type="number">2</max>
+			</spellslots4>
+			<spellslots5>
+				<max type="number">0</max>
+			</spellslots5>
+			<spellslots6>
+				<max type="number">0</max>
+			</spellslots6>
+			<spellslots7>
+				<max type="number">0</max>
+			</spellslots7>
+			<spellslots8>
+				<max type="number">0</max>
+			</spellslots8>
+			<spellslots9>
+				<max type="number">0</max>
+			</spellslots9>
+		</powermeta>
+		<coins>
+			<slot1>
+				<amount type="number">0</amount>
+				<name type="string">PP</name>
+			</slot1>
+			<slot2>
+				<amount type="number">4815</amount>
+				<name type="string">GP</name>
+			</slot2>
+			<slot3>
+				<amount type="number">0</amount>
+				<name type="string">EP</name>
+			</slot3>
+			<slot4>
+				<amount type="number">0</amount>
+				<name type="string">SP</name>
+			</slot4>
+			<slot5>
+				<amount type="number">0</amount>
+				<name type="string">CP</name>
+			</slot5>
+			<slot6>
+				<amount type="number">0</amount>
+			</slot6>
+		</coins>
+		<powergroup>
+			<id-00001>
+				<name type="string">Spells</name>
+				<stat type="string">wisdom</stat>
+				<castertype type="string">memorization</castertype>
+			</id-00001>
+		</powergroup>
+		<powers>
+			<id-00001>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V</components>
+				<description type="formattedtext">
+					<p>Healing energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. You can use a bonus action to cause one creature in the aura (including you) to regain 2d6 hit points.</p>
+				</description>
+				<group type="string">Spells</group>
+				<level type="number">3</level>
+				<locked type="number">1</locked>
+				<name type="string">Aura of Vitality</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">0</ritual>
+				<range type="string">Self</range>
+				<school type="string">Evocation</school>
+				<parse type="number">1</parse>
+			</id-00001>
+			<id-00002>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V, S</components>
+				<description type="formattedtext">
+					<p>You make yourself--including your clothing, armor, weapons, and other belongings on your person--look different until the spell ends or until you use your action to dismiss it. You can seem 1 foot shorter or taller and can appear thin, fat, or in between. You can't change your body type, so you must adopt a form that has the same basic arrangement of limbs. Otherwise, the extent of the illusion is up to you.</p>
+<p>The changes wrought by this spell fail to hold up to physical inspection. For example, if you use this spell to add a hat to your outfit, objects pass through the hat, and anyone who touches it would feel nothing or would feel your head and hair. If you use this spell to appear thinner than you are, the hand of someone who reaches out to touch you would bump into you while it was seemingly still in midair.</p>
+<p>To discern that you are disguised, a creature can use its action to inspect your appearance and must succeed on an Intelligence (Investigation) check against your spell save DC.</p>
+				</description>
+				<duration type="string">1 Hour</duration>
+				<group type="string">Spells</group>
+				<level type="number">1</level>
+				<locked type="number">1</locked>
+				<name type="string">Disguise Self</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">0</ritual>
+				<range type="string">Self</range>
+				<school type="string">Illusion</school>
+				<parse type="number">1</parse>
+			</id-00002>
+			<id-00003>
+				<castingtime type="string">1 reaction</castingtime>
+				<components type="string">S</components>
+				<description type="formattedtext">
+					<p>You attempt to interrupt a creature in the process of casting a spell. If the creature is casting a spell of 3rd level or lower, its spell fails and has no effect. If it is casting a spell of 4th level or higher, make an ability check using your spellcasting ability. The DC equals 10 + the spell's level. On a success, the creature's spell fails and has no effect.</p>
+<p><strong>At Higher Levels.</strong> When you cast this spell using a spell slot of 4th level or higher, the interrupted spell has no effect if its level is less than or equal to the level of the spell slot you used.</p>
+				</description>
+				<duration type="string">Instantaneous</duration>
+				<group type="string">Spells</group>
+				<level type="number">3</level>
+				<locked type="number">1</locked>
+				<name type="string">Counterspell</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">0</ritual>
+				<range type="string">60</range>
+				<school type="string">Abjuration</school>
+				<parse type="number">1</parse>
+			</id-00003>
+			<id-00004>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V, S</components>
+				<description type="formattedtext">
+					<p class="Core-Styles_Core-Body">You reach into the mind of one creature you can see and force it to make an Intelligence saving throw. A creature automatically succeeds if it is immune to being frightened. On a failed save, the target loses the ability to distinguish friend from foe, regarding all creatures it can see as enemies until the spell ends. Each time the target takes damage, it can repeat the saving throw, ending the effect on itself on a success.</p>
+<p class="Core-Styles_Core-Body">Whenever the affected creature chooses another creature as a target, it must choose the target at random from among the creatures it can see within range of the attack, spell, or other ability it's using. If an enemy provokes an opportunity attack from the affected creature, the creature must make that attack if it is able to.</p>
+				</description>
+				<group type="string">Spells</group>
+				<level type="number">3</level>
+				<locked type="number">1</locked>
+				<name type="string">Enemies Abound</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">0</ritual>
+				<range type="string">120</range>
+				<school type="string">Enchantment</school>
+				<parse type="number">1</parse>
+			</id-00004>
+			<id-00005>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">S, M (a glowing stick of incense or a crystal vial filled with phosphorescent material)</components>
+				<description type="formattedtext">
+					<p>You create a twisting pattern of colors that weaves through the air inside a 30-foot cube within range. The pattern appears for a moment and vanishes. Each creature in the area who sees the pattern must make a Wisdom saving throw. On a failed save, the creature becomes charmed for the duration. While charmed by this spell, the creature is incapacitated and has a speed of 0.</p>
+<p>The spell ends for an affected creature if it takes any damage or if someone else uses an action to shake the creature out of its stupor.</p>
+				</description>
+				<group type="string">Spells</group>
+				<level type="number">3</level>
+				<locked type="number">1</locked>
+				<name type="string">Hypnotic Pattern</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">0</ritual>
+				<range type="string">120</range>
+				<school type="string">Illusion</school>
+				<parse type="number">1</parse>
+			</id-00005>
+			<id-00006>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V</components>
+				<description type="formattedtext">
+					<p>You unleash a string of insults laced with subtle enchantments at a creature you can see within range. If the target can hear you (though it need not understand you), it must succeed on a Wisdom saving throw or take 1d4 psychic damage and have disadvantage on the next attack roll it makes before the end of its next turn.</p>
+<p>This spell's damage increases by 1d4 when you reach 5th level (2d4), 11th level (3d4), and 17th level (4d4).</p>
+				</description>
+				<duration type="string">Instantaneous</duration>
+				<group type="string">Spells</group>
+				<level type="number">0</level>
+				<locked type="number">1</locked>
+				<name type="string">Vicious Mockery</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">0</ritual>
+				<range type="string">60</range>
+				<school type="string">Enchantment</school>
+				<parse type="number">1</parse>
+			</id-00006>
+			<id-00007>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">S, M (a bit of fleece)</components>
+				<description type="formattedtext">
+					<p>You create a sound or an image of an object within range that lasts for the duration. The illusion also ends if you dismiss it as an action or cast this spell again.</p>
+<p>If you create a sound, its volume can range from a whisper to a scream. It can be your voice, someone else's voice, a lion's roar, a beating of drums, or any other sound you choose. The sound continues unabated throughout the duration, or you can make discrete sounds at different times before the spell ends.</p>
+<p>If you create an image of an object--such as a chair, muddy footprints, or a small chest--it must be no larger than a 5-foot cube. The image can't create sound, light, smell, or any other sensory effect. Physical interaction with the image reveals it to be an illusion, because things can pass through it.</p>
+<p>If a creature uses its action to examine the sound or image, the creature can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the illusion becomes faint to the creature.</p>
+				</description>
+				<duration type="string">1 Minute</duration>
+				<group type="string">Spells</group>
+				<level type="number">0</level>
+				<locked type="number">1</locked>
+				<name type="string">Minor Illusion</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">0</ritual>
+				<range type="string">30</range>
+				<school type="string">Illusion</school>
+				<parse type="number">1</parse>
+			</id-00007>
+			<id-00008>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V</components>
+				<description type="formattedtext">
+					<p>You whisper a discordant melody that only one creature of your choice within range can hear, wracking it with terrible pain. The target must make a Wisdom saving throw. On a failed save, it takes 3d6 psychic damage and must immediately use its reaction, if available, to move as far as its speed allows away from you. The creature doesn't move into obviously dangerous ground, such as a fire or a pit. On a successful save, the target takes half as much damage and doesn't have to move away. A deafened creature automatically succeeds on the save.</p>
+<p><strong>At Higher Levels. </strong>When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.</p>
+				</description>
+				<duration type="string">Instantaneous</duration>
+				<group type="string">Spells</group>
+				<level type="number">1</level>
+				<locked type="number">1</locked>
+				<name type="string">Dissonant Whispers</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">0</ritual>
+				<range type="string">60</range>
+				<school type="string">Enchantment</school>
+				<parse type="number">1</parse>
+			</id-00008>
+			<id-00009>
+				<castingtime type="string">1 bonus action</castingtime>
+				<components type="string">V</components>
+				<description type="formattedtext">
+					<p>A creature of your choice that you can see within range regains hit points equal to 1d4 + your spellcasting ability modifier. This spell has no effect on undead or constructs.</p>
+<p><strong>At Higher Levels.</strong> When you cast this spell using a spell slot of 2nd level or higher, the healing increases by 1d4 for each slot level above 1st.</p>
+				</description>
+				<duration type="string">Instantaneous</duration>
+				<group type="string">Spells</group>
+				<level type="number">1</level>
+				<locked type="number">1</locked>
+				<name type="string">Healing Word</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">0</ritual>
+				<range type="string">60</range>
+				<school type="string">Evocation</school>
+				<parse type="number">1</parse>
+			</id-00009>
+			<id-00010>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V, S, M (a piece of iron and a flame)</components>
+				<description type="formattedtext">
+					<p>Choose a manufactured metal object, such as a metal weapon or a suit of heavy or medium metal armor, that you can see within range. You cause the object to glow red-hot. Any creature in physical contact with the object takes 2d8 fire damage when you cast the spell. Until the spell ends, you can use a bonus action on each of your subsequent turns to cause this damage again.</p>
+<p>If a creature is holding or wearing the object and takes the damage from it, the creature must succeed on a Constitution saving throw or drop the object if it can. If it doesn't drop the object, it has disadvantage on attack rolls and ability checks until the start of your next turn.</p>
+<p><strong>At Higher Levels.</strong> When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for each slot level above 2nd.</p>
+				</description>
+				<group type="string">Spells</group>
+				<level type="number">2</level>
+				<locked type="number">1</locked>
+				<name type="string">Heat Metal</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">0</ritual>
+				<range type="string">60</range>
+				<school type="string">Transmutation</school>
+				<parse type="number">1</parse>
+			</id-00010>
+			<id-00011>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V, M (a snake's tongue and either a bit of honeycomb or a drop of sweet oil)</components>
+				<description type="formattedtext">
+					<p>You suggest a course of activity (limited to a sentence or two) and magically influence a creature you can see within range that can hear and understand you. Creatures that can't be charmed are immune to this effect. The suggestion must be worded in such a manner as to make the course of action sound reasonable. Asking the creature to stab itself, throw itself onto a spear, immolate itself, or do some other obviously harmful act ends the spell.</p>
+<p>The target must make a Wisdom saving throw. On a failed save, it pursues the course of action you described to the best of its ability. The suggested course of action can continue for the entire duration. If the suggested activity can be completed in a shorter time, the spell ends when the subject finishes what it was asked to do.</p>
+<p>You can also specify conditions that will trigger a special activity during the duration. For example, you might suggest that a knight give her warhorse to the first beggar she meets. If the condition isn't met before the spell expires, the activity isn't performed.</p>
+<p>If you or any of your companions damage the target, the spell ends.</p>
+				</description>
+				<group type="string">Spells</group>
+				<level type="number">2</level>
+				<locked type="number">1</locked>
+				<name type="string">Suggestion</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">0</ritual>
+				<range type="string">30</range>
+				<school type="string">Enchantment</school>
+				<parse type="number">1</parse>
+			</id-00011>
+			<id-00012>
+				<castingtime type="string">1 minute</castingtime>
+				<components type="string">V, S, M (a small crystal bead)</components>
+				<description type="formattedtext">
+					<p>A 10-foot-radius immobile dome of force springs into existence around and above you and remains stationary for the duration. The spell ends if you leave its area.<br /><br />Nine creatures of Medium size or smaller can fit inside the dome with you. The spell fails if its area includes a larger creature or more than nine creatures. Creatures and objects within the dome when you cast this spell can move through it freely. All other creatures and objects are barred from passing through it. Spells and other magical effects can't extend through the dome or be cast through it. The atmosphere inside the space is comfortable and dry, regardless of the weather outside.<br /><br />Until the spell ends, you can command the interior to become dimly lit or dark. The dome is opaque from the outside, of any color you choose, but it is transparent from the inside.</p>
+				</description>
+				<duration type="string">8 Hour</duration>
+				<group type="string">Spells</group>
+				<level type="number">3</level>
+				<locked type="number">1</locked>
+				<name type="string">Leomund's Tiny Hut</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">1</ritual>
+				<range type="string">Self</range>
+				<school type="string">Evocation</school>
+				<parse type="number">1</parse>
+			</id-00012>
+			<id-00013>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V, S</components>
+				<description type="formattedtext">
+					<p>A spectral, floating hand appears at a point you choose within range. The hand lasts for the duration or until you dismiss it as an action. The hand vanishes if it is ever more than 30 feet away from you or if you cast this spell again.</p>
+<p>You can use your action to control the hand. You can use the hand to manipulate an object, open an unlocked door or container, stow or retrieve an item from an open container, or pour the contents out of a vial. You can move the hand up to 30 feet each time you use it.</p>
+<p>The hand can't attack, activate magic items, or carry more than 10 pounds.</p>
+				</description>
+				<duration type="string">1 Minute</duration>
+				<group type="string">Spells</group>
+				<level type="number">0</level>
+				<locked type="number">1</locked>
+				<name type="string">Mage Hand</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">0</ritual>
+				<range type="string">30</range>
+				<school type="string">Conjuration</school>
+				<parse type="number">1</parse>
+			</id-00013>
+			<id-00014>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V, S, M (a caterpillar cocoon)</components>
+				<description type="formattedtext">
+					<p>This spell transforms a creature that you can see within range into a new form. An unwilling creature must make a Wisdom saving throw to avoid the effect. The spell has no effect on a shapechanger or a creature with 0 hit points.</p>
+<p>The transformation lasts for the duration, or until the target drops to 0 hit points or dies. The new form can be any beast whose challenge rating is equal to or less than the target's (or the target's level, if it doesn't have a challenge rating). The target's game statistics, including mental ability scores, are replaced by the statistics of the chosen beast. It retains its alignment and personality.</p>
+<p>The target assumes the hit points of its new form. When it reverts to its normal form, the creature returns to the number of hit points it had before it transformed. If it reverts as a result of dropping to 0 hit points, any excess damage carries over to its normal form. As long as the excess damage doesn't reduce the creature's normal form to 0 hit points, it isn't knocked unconscious.</p>
+<p>The creature is limited in the actions it can perform by the nature of its new form, and it can't speak, cast spells, or take any other action that requires hands or speech.</p>
+<p>The target's gear melds into the new form. The creature can't activate, use, wield, or otherwise benefit from any of its equipment.</p>
+				</description>
+				<group type="string">Spells</group>
+				<level type="number">4</level>
+				<locked type="number">1</locked>
+				<name type="string">Polymorph</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">0</ritual>
+				<range type="string">60</range>
+				<school type="string">Transmutation</school>
+				<parse type="number">1</parse>
+			</id-00014>
+			<id-00015>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V, S</components>
+				<description type="formattedtext">
+					<p>A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.</p>
+<p>The spell creates more than one beam when you reach higher levels: two beams at 5th level, three beams at 11th level, and four beams at 17th level. You can direct the beams at the same target or at different ones. Make a separate attack roll for each beam.</p>
+				</description>
+				<duration type="string">Instantaneous</duration>
+				<group type="string">Spells</group>
+				<level type="number">0</level>
+				<locked type="number">1</locked>
+				<name type="string">Eldritch Blast</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">0</ritual>
+				<range type="string">120</range>
+				<school type="string">Evocation</school>
+				<parse type="number">1</parse>
+			</id-00015>
+			<id-00016>
+				<castingtime type="string">1 bonus action</castingtime>
+				<components type="string">V, S, M (the petrified eye of a newt)</components>
+				<description type="formattedtext">
+					<p>You place a curse on a creature that you can see within range. Until the spell ends, you deal an extra 1d6 necrotic damage to the target whenever you hit it with an attack. Also, choose one ability when you cast the spell. The target has disadvantage on ability checks made with the chosen ability.<br /><br />If the target drops to 0 hit points before this spell ends, you can use a bonus action on a subsequent turn of yours to curse a new creature.<br /><br />A remove curse cast on the target ends this spell early.</p>
+<p><strong>At Higher Levels. </strong>When you cast this spell using a spell slot of 3rd or 4th level, you can maintain your concentration on the spell for up to 8 hours. When you use a spell slot of 5th level or higher, you can maintain your concentration on the spell for up to 24 hours.</p>
+				</description>
+				<group type="string">Spells</group>
+				<level type="number">1</level>
+				<locked type="number">1</locked>
+				<name type="string">Hex</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">0</ritual>
+				<range type="string">90</range>
+				<school type="string">Enchantment</school>
+				<parse type="number">1</parse>
+			</id-00016>
+			<id-00017>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V, S</components>
+				<description type="formattedtext">
+					<p>This spell is a minor magical trick that novice spellcasters use for practice. You create one of the following magical effects within range:</p>
+<ul>
+<li>You create an instantaneous, harmless sensory effect, such as a shower of sparks, a puff of wind, faint musical notes, or an odd odor.</li>
+<li>You instantaneously light or snuff out a candle, a torch, or a small campfire.</li>
+<li>You instantaneously clean or soil an object no larger than 1 cubic foot.</li>
+<li>You chill, warm, or flavor up to 1 cubic foot of nonliving material for 1 hour.</li>
+<li>You make a color, a small mark, or a symbol appear on an object or a surface for 1 hour.</li>
+<li>You create a nonmagical trinket or an illusory image that can fit in your hand and that lasts until the end of your next turn.</li>
+</ul>
+<p><br />If you cast this spell multiple times, you can have up to three of its non-instantaneous effects active at a time, and you can dismiss such an effect as an action.</p>
+				</description>
+				<duration type="string">1 Hour</duration>
+				<group type="string">Spells</group>
+				<level type="number">0</level>
+				<locked type="number">1</locked>
+				<name type="string">Prestidigitation</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">0</ritual>
+				<range type="string">10</range>
+				<school type="string">Transmutation</school>
+				<parse type="number">1</parse>
+			</id-00017>
+			<id-00018>
+				<castingtime type="string">1 action</castingtime>
+				<components type="string">V, S, M (holy water or powdered silver and iron, which the spell consumes)</components>
+				<description type="formattedtext">
+					<p>Until the spell ends, one willing creature you touch is protected against certain types of creatures: aberrations, celestials, elementals, fey, fiends, and undead.</p>
+<p>The protection grants several benefits. Creatures of those types have disadvantage on attack rolls against the target. The target also can't be charmed, frightened, or possessed by them. If the target is already charmed, frightened, or possessed by such a creature, the target has advantage on any new saving throw against the relevant effect.</p>
+				</description>
+				<group type="string">Spells</group>
+				<level type="number">1</level>
+				<locked type="number">1</locked>
+				<name type="string">Protection from Evil and Good</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">0</ritual>
+				<range type="string">Touch</range>
+				<school type="string">Abjuration</school>
+				<parse type="number">1</parse>
+			</id-00018>
+			<id-00019>
+				<castingtime type="string">1 bonus action</castingtime>
+				<components type="string">V, S</components>
+				<description type="formattedtext">
+					<p>This spell allows you to move at an incredible pace. When you cast this spell, and then as a bonus action on each of your turns until the spell ends, you can take the Dash action.</p>
+				</description>
+				<group type="string">Spells</group>
+				<level type="number">1</level>
+				<locked type="number">1</locked>
+				<name type="string">Expeditious Retreat</name>
+				<prepared type="number">0</prepared>
+				<ritual type="number">0</ritual>
+				<range type="string">Self</range>
+				<school type="string">Transmutation</school>
+				<parse type="number">1</parse>
+			</id-00019>
+			<id-00020>
+ <actions>
+ <id-00001>
+ <durmod type="number">10</durmod>
+ <durunit type="string">minute</durunit>
+ <label type="string">Bardic Inspiration;</label>
+ <order type="number">1</order>
+ <type type="string">effect</type>
+ </id-00001>
+ </actions>
+ <cast type="number">0</cast>
+ <description type="formattedtext">
+ <p>You can inspire others through stirring words or music. To do so, you use a bonus action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die, a d6.</p>
+ <p>Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw that it just made. The creature can wait until after it rolls the die for the ability check, attack roll, or saving throw, but before the DM says whether or not it succeeds or fails before deciding to use the Bardic Inspiration die. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time.</p>
+ <p>You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain any expended uses when you finish a long rest.</p>
+ <p>Your Bardic Inspiration die changes when you reach certain levels in this class. The die becomes a d8 at 5th level, a d10 at 10th level, and a d12 at 15th level.</p>
+ </description>
+ <level type="number">0</level>
+ <locked type="number">1</locked>
+ <group type="string">Class Features</group>
+ <name type="string">Bardic Inspiration</name>
+ <source type="string">Bard</source>
+<prepared type="number">5</prepared>
+<source type="string">Bard</source>
+			</id-00020>
+			<id-00021>
+ <actions>
+ <id-00001>
+ <durmod type="number">0</durmod>
+ <label type="string">Jack of all Trades; INIT:[HPRF]</label>
+ <order type="number">1</order>
+ <targeting type="string">self</targeting>
+ <type type="string">effect</type>
+ </id-00001>
+ <id-00002>
+ <apply type="string">roll</apply>
+ <durmod type="number">0</durmod>
+ <label type="string">Jack of all Trades; CHECK:[HPRF], all</label>
+ <order type="number">2</order>
+ <targeting type="string">self</targeting>
+ <type type="string">effect</type>
+ </id-00002>
+ </actions>
+ <cast type="number">0</cast>
+ <description type="formattedtext">
+ <p>Starting at 2nd level, you can add half your proficiency bonus, rounded down, to any ability check you make that doesn't already include that bonus.</p>
+ </description>
+ <level type="number">0</level>
+ <locked type="number">1</locked>
+ <name type="string">Jack of All Trades</name>
+ <prepared type="number">0</prepared>
+ <group type="string">Class Features</group>
+ <source type="string">Bard</source>
+			</id-00021>
+			<id-00022>
+ <actions>
+ <id-00001>
+ <heallist>
+ <id-00001>
+ <bonus type="number">0</bonus>
+ <dice type="dice">d12</dice>
+ </id-00001>
+ </heallist>
+ <order type="number">1</order>
+ <type type="string">heal</type>
+ </id-00001>
+ </actions>
+ <cast type="number">0</cast>
+ <description type="formattedtext">
+ <p>Beginning at 2nd level, you can use soothing music or oration to help revitalize your wounded allies during a short rest. If you or any friendly creature who can hear your performance regains any hit points during the short rest, that creature regains 1d6 extra hit points at the end of the rest. A creature regains the extra hit points only if it spends one or more Hit Dice at the end of the short rest.</p>
+ <p>The extra hit points increase when you reach certain levels in this class: 1d8 at 9th level, 1d10 at 13th level, and 1d12 at 17th level.</p>
+ </description>
+ <level type="number">0</level>
+ <locked type="number">1</locked>
+ <name type="string">Song of Rest</name>
+ <prepared type="number">0</prepared>
+ <group type="string">Class Features</group>
+ <source type="string">Bard</source>
+			</id-00022>
+			<id-00023>
+ <actions>
+ <id-00001>
+ <durmod type="number">1</durmod>
+ <label type="string">Countercharm;</label>
+ <order type="number">1</order>
+ <type type="string">effect</type>
+ </id-00001>
+ </actions>
+ <cast type="number">0</cast>
+ <description type="formattedtext">
+ <p>At 6th level, you gain the ability to use musical notes or words of power to disrupt mind5 influencing effects. As an action, you can start a performance that lasts until the end of your next turn. During that time, you and any friendly creature within 30 feet of you have advantage on saving throws against being frightened or charmed. A creature must be able to hear you to gain this benefit. The performance ends early if you are incapacitated or silenced or you voluntarily end it (no action required).</p>
+ </description>
+ <level type="number">0</level>
+ <locked type="number">1</locked>
+ <name type="string">Countercharm</name>
+ <prepared type="number">0</prepared>
+ <group type="string">Class Features</group>
+ <source type="string">Bard</source>
+			</id-00023>
+		</powers>
+		<defenses>
+			<ac>
+				<armor type="number">13</armor>
+				<misc type="number">1</misc>
+				<prof type="number">1</prof>
+				<temporary type="number">0</temporary>
+			</ac>
+		</defenses>
+		<notes type="string">D&amp;D Beyond Character ID: 27203070\nPersonalPossessions: a signet ring of an imaginary duke\nBackstory: Abandoned by his family--the martial and rather unscrupulous Silverhelms of Waterdeep, I turned to drink and despair. I even began to dabble in sorcery with a drinking buddy who knew a Warlock.\nOtherNotes: 2 soul coins\n		</notes>
+	</character>
+</root>
